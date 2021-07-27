@@ -40,14 +40,16 @@ class AddMovie extends React.Component {
         <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse
           <input
-            type="textarea"
+            type="text"
             data-testid="storyline-input"
           />
         </label>
-        <label htmlFor="avaliação">
+        <label htmlFor="avaliação" data-testid="rating-input-label">
           Avaliação
           <input
-            type="text"
+            type="number"
+            data-testid="rating-input"
+            defaultValue={ 0 }
           />
         </label>
         <label htmlFor="gênero">
@@ -64,3 +66,4 @@ class AddMovie extends React.Component {
 export default AddMovie;
 
 // Os htmlFor em cada label é para evitar o erro no lint "A form label must be associated with a control"
+// Na linha 52 utilizei o defaultValue para definir um valor padrão, apenas o value define o valor atual após mudanças.
