@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="Appa">
+    <div className="App">
       <Header />
     </div>
   );
