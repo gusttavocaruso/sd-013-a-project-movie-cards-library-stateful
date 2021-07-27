@@ -1,5 +1,10 @@
 // implement AddMovie component
 import React, { Component } from 'react';
+import ImageInput from './ImageInput';
+import RartingInput from './RartingInput';
+import StoryLine from './StoryLine';
+import SubtitleInput from './SubtitleInput';
+import TitleInput from './TitleInput';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -25,48 +30,14 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            value={ subtitle }
-            type="text"
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            name="imagePath"
-            type="text"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            value={ storyline }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <TitleInput title={ title } handleChange={ this.handleChange } />
+        <SubtitleInput subtitle={ subtitle } handleChange={ this.handleChange } />
+        <ImageInput imagePath={ imagePath } handleChange={ this.handleChange } />
+        <StoryLine storyline={ storyline } handleChange={ this.handleChange } />
+        <RartingInput rating={ rating } handleChange={ this.handleChange } />
       </form>
     );
   }
