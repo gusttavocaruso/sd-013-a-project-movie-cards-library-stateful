@@ -10,6 +10,7 @@ class MovieLibrary extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.createNewMovie = this.createNewMovie.bind(this);
 
     const { movies } = this.props;
     this.state = {
@@ -27,6 +28,12 @@ class MovieLibrary extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  createNewMovie(movieAtributes) {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, movieAtributes],
+    }));
   }
 
   filterMovies() {
@@ -63,7 +70,7 @@ class MovieLibrary extends React.Component {
         />
         <br />
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie />
+        <AddMovie onClick={ this.createNewMovie } />
       </div>
     );
   }
