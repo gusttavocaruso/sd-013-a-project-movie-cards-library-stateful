@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 
 export default class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -13,7 +14,7 @@ export default class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
   }
 
@@ -23,6 +24,11 @@ export default class AddMovie extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    console.log('handleClick() method');
   }
 
   render() {
@@ -91,13 +97,36 @@ export default class AddMovie extends Component {
 
           <label htmlFor="movie-genre" data-testid="genre-input-label">
             Gênero
-            <select data-testid="genre-input">
+            <select
+              name="genre"
+              value={ genre }
+              data-testid="genre-input"
+              onChange={ this.handleChange }
+            >
               <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>  
+              <option data-testid="genre-option" value="comedy">Comédia</option>
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
+
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ this.handleClick }
+          >
+            Adicionar filme
+          </button>
         </form>
+
+        {/* <section>
+          <h2>Filmes adicionados</h2>
+          <p>Título: {title}</p>
+          <p>Subtítulo: {subtitle}</p>
+          Pôster<img src={imagePath} alt={title} />
+          <p>Gênero: {genre}</p>
+          <p>Sinopse: {storyline}</p>
+          <p>Nota: {rating}</p>
+        </section> */}
       </div>
     );
   }
