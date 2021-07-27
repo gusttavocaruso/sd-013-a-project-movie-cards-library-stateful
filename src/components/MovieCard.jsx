@@ -1,20 +1,70 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+// implement MovieCard component here
 import React from 'react';
+
 import PropTypes from 'prop-types';
+
+import '../MovieCard.css';
+
 import Rating from './Rating';
 
 class MovieCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleHover = this.handleHover.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
+
+    const { movie } = this.props;
+    this.state = {
+      display: movie.imagePath,
+    };
+  }
+
+  handleHover() {
+    const { movie } = this.props;
+    this.setState({
+      display: movie.preview,
+    });
+  }
+
+  handleLeave() {
+    const { movie } = this.props;
+    this.setState({
+      display: movie.imagePath,
+    });
+  }
+
   render() {
     const { movie } = this.props;
-    const { title, subtitle, storyline, rating, imagePath } = movie;
+    const { display } = this.state;
     return (
-      <div className="movie-card" data-testid="movie-card">
-        <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
-        <div className="movie-card-body">
-          <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
-          <h5 className="movie-card-subtitle">{subtitle}</h5>
-          <p className="movie-card-storyline">{storyline}</p>
+      <div className="movie-card-container">
+        <img
+          className="movie-image"
+          src={ display }
+          alt={ movie.title }
+          onMouseOver={ this.handleHover }
+          onMouseLeave={ this.handleLeave }
+        />
+        <hr className="h-rule" />
+        <div className="movie-info">
+          <span>
+            <h4>{ movie.title }</h4>
+          </span>
+          <span className="subtitle">
+            <h5>
+              { movie.subtitle }
+            </h5>
+          </span>
+          <span>
+            <p>
+              { movie.storyline }
+            </p>
+          </span>
+          <Rating rating={ movie.rating } />
         </div>
-        <Rating rating={ rating } />
       </div>
     );
   }
@@ -25,8 +75,9 @@ MovieCard.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
-    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    rating: PropTypes.number,
     imagePath: PropTypes.string,
+    preview: PropTypes.string,
   }).isRequired,
 };
 
