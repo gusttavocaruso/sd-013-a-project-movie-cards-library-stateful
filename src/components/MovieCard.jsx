@@ -5,7 +5,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import '../MovieCard.css';
+import '../styles/MovieCard.css';
 
 import Rating from './Rating';
 

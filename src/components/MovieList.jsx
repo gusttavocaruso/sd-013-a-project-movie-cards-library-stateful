@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
-import '../MovieList.css';
+import '../styles/MovieList.css';
 
 class MovieList extends React.Component {
   render() {
