@@ -4,12 +4,12 @@ class SearchBar extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     return (
-      <div>
+      <form data-testid="search-bar-form">
         Teste
         { searchText }
         { bookmarkedOnly }
         { selectedGenre }
-      </div>
+      </form>
     );
   }
 }
