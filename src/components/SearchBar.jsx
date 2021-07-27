@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -11,9 +12,28 @@ class SearchBar extends React.Component {
       onSelectedGenreChange
     } = this.props;
     return (
-      <h1>searchBar</h1>
+      <form data-testid="search-bar-form">
+        <label
+          htmlFor="SearchBar"
+          data-testid="text-input-label"
+        >
+          Inclui o texto:
+          <input
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            type="text"
+            name="SearchBar"
+            data-testid="text-input"
+          />
+        </label>
+      </form>
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: propTypes.string.isRequired,
+  onSearchTextChange: propTypes.func.isRequired,
+};
 
 export default SearchBar;
