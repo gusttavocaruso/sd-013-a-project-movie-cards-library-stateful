@@ -36,6 +36,11 @@ class AddMovie extends Component {
     });
   }
 
+  validationChange = ({ target }) => {
+    const { rating } = this.state;
+    if (rating !== '') target.prop('disable', false);
+  }
+
   renderTitleInput = () => {
     const { title } = this.state;
     return (
@@ -126,6 +131,7 @@ class AddMovie extends Component {
     const { genre } = this.state;
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
+        Gênero
         <select
           data-testid="genre-input"
           name="genre"
@@ -151,7 +157,12 @@ class AddMovie extends Component {
           {this.renderStorylineInput()}
           {this.renderRatingInput()}
           {this.renderGenreSelect()}
-          <button type="submit" data-testid="send-button" onClick={ this.addMovieFunc }>
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ this.addMovieFunc }
+            // disabled
+          >
             Adicionar filme
           </button>
         </form>

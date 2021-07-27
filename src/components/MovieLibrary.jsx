@@ -27,17 +27,30 @@ class MovieLibrary extends Component {
 
   onClick = (state) => {
     const { movies } = this.state;
+    // const { movies: allMovies } = this.props;
+    // allMovies.push(state);
     movies.push(state);
+    this.setState({
+      movies,
+    });
   }
 
   filterChange = () => {
-    const { movies } = this.state;
-    movies.filter();
-    return movies;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let allMovies = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    if (bookmarkedOnly) {
+      allMovies = allMovies.filter((movie) => movie.bookmarked === true);
+    }
+    if (selectedGenre !== '') {
+      allMovies = allMovies.filter((movie) => movie.genre === selectedGenre);
+    }
+    return allMovies;
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -48,7 +61,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filterChange() } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
