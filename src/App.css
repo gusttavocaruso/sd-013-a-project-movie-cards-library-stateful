@@ -81,3 +81,9 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+}
