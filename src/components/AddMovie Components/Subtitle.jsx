@@ -6,7 +6,7 @@ class Subtitle extends Component {
     const { value, onChange } = this.props;
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle">
-        Subtítulo:
+        Subtítulo: &nbsp;
         <input
           data-testid="subtitle-input"
           type="text"

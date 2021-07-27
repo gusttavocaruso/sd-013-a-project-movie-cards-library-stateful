@@ -45,13 +45,15 @@ class AddMovie extends Component {
     const { handleChange, handleAdd } = this;
 
     return (
-      <form data-testid="add-movie-form">
-        <Title value={ title } onChange={ handleChange } />
-        <Subtitle value={ subtitle } onChange={ handleChange } />
-        <Image value={ imagePath } onChange={ handleChange } />
-        <Storyline value={ storyline } onChange={ handleChange } />
-        <Rating value={ rating } onChange={ handleChange } />
-        <Genre value={ genre } onChange={ handleChange } />
+      <form className="add-movie" data-testid="add-movie-form">
+        <div className="new-movie-info">
+          <Title value={ title } onChange={ handleChange } />
+          <Subtitle value={ subtitle } onChange={ handleChange } />
+          <Image value={ imagePath } onChange={ handleChange } />
+          <Storyline value={ storyline } onChange={ handleChange } />
+          <Rating value={ rating } onChange={ handleChange } />
+          <Genre value={ genre } onChange={ handleChange } />
+        </div>
         <button data-testid="send-button" type="button" onClick={ handleAdd }>
           Adicionar filme
         </button>

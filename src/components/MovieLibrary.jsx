@@ -12,63 +12,66 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
+      backupMovies: props.movies,
     };
   }
 
-  filterBookmark = (original) => {
-    const { bookmarkedOnly, movies } = this.state;
-
-    if (bookmarkedOnly) {
-      this.setState({ movies: movies.filter((m) => m.bookmarked) });
-    } else {
-      this.setState({ movies: original });
-    }
-  }
-
-  filterGenre = (original) => {
-    const { selectedGenre, movies } = this.state;
-
-    if (selectedGenre !== '') {
-      this.setState({ movies: movies.filter((m) => m.genre === selectedGenre) });
-    } else {
-      this.setState({ movies: original });
-    }
-  }
-
-  filterText = (original) => {
-    const { searchText, movies } = this.state;
+  filterMovies = () => {
+    const { searchText, bookmarkedOnly, selectedGenre, backupMovies } = this.state;
 
     if (searchText !== '') {
-      this.setState({ movies: movies.filter((m) => {
-        if (m.title.includes(searchText)) return true;
-        if (m.subtitle.includes(searchText)) return true;
-        if (m.storyline.includes(searchText)) return true;
-        return false;
-      }) });
-    } else {
-      this.setState({ movies: original });
+      this.setState({ movies: backupMovies });
+      this.setState((prevState) => ({ movies: prevState.movies.filter((m) => (
+        m.title.toLowerCase().includes(searchText.toLowerCase())
+        || m.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || m.storyline.toLowerCase().includes(searchText.toLowerCase())
+      )),
+      }));
+    }
+
+    if (bookmarkedOnly) {
+      this.setState({ movies: backupMovies });
+      this.setState((prevState) => (
+        { movies: prevState.movies.filter((m) => m.bookmarked) }
+      ));
+    }
+
+    if (selectedGenre !== '') {
+      this.setState({ movies: backupMovies });
+      this.setState((prevState) => (
+        { movies: prevState.movies.filter((m) => m.genre === selectedGenre) }
+      ));
+    }
+
+    if (searchText === '' && !bookmarkedOnly && selectedGenre === '') {
+      this.setState({ movies: backupMovies });
     }
   }
 
   handleChange = ({ target }) => {
-    const { movies } = this.props;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({ [name]: value }, () => {
-      if (name === 'bookmarkedOnly') this.filterBookmark(movies);
-      if (name === 'selectedGenre') this.filterGenre(movies);
-      if (name === 'searchText') this.filterText(movies);
+    this.setState({
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
     });
+
+    this.setState({ [name]: value }, () => this.filterMovies());
   }
 
   addMov = (newMovie) => {
     const { movies } = this.props;
+    const { backupMovies } = this.state;
 
-    // const newCollection = movies.map((m) => m);
-    // newCollection.push(newMovie);
-
-    this.setState({ movies: [...movies, newMovie] });
+    this.setState({
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: [...movies, newMovie],
+      backupMovies: [...backupMovies, newMovie],
+    });
     // Se usar push() ou shift() direto no movies vai alterar o array original e quebrar o teste.
     // Tem que criar uma cópia do array com map ou spread e depois adicionar o novo filme nessa cópia.
   }

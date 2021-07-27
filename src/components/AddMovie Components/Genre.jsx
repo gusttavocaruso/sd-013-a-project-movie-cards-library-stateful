@@ -6,7 +6,7 @@ class Genre extends Component {
     const { value, onChange } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
-        Gênero:
+        Gênero: &nbsp;
         <select
           data-testid="genre-input"
           name="genre"

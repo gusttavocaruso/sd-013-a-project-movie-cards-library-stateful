@@ -6,7 +6,7 @@ class Image extends Component {
     const { value, onChange } = this.props;
     return (
       <label data-testid="image-input-label" htmlFor="image">
-        Imagem:
+        Imagem: &nbsp;
         <input
           data-testid="image-input"
           type="text"

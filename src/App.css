@@ -81,3 +81,22 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 48px;
+}
+
+.add-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-movie-info {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}

@@ -6,12 +6,15 @@ class Rating extends Component {
     const { value, onChange } = this.props;
     return (
       <label data-testid="rating-input-label" htmlFor="rating">
-        Avaliação:
+        Avaliação: &nbsp;
         <input
           data-testid="rating-input"
           type="number"
           name="rating"
           value={ value }
+          max="5"
+          min="0"
+          step="0.1"
           onChange={ onChange }
         />
       </label>
