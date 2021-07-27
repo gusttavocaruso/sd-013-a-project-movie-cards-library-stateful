@@ -8,7 +8,7 @@ class SearchBar extends Component {
       selectedGenre,
       onSearchTextChange,
       onBookmarkedChange,
-      onSelectedGenreChange} = this.props;
+      onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="xxx" data-testid="text-input-label">
@@ -30,6 +30,20 @@ class SearchBar extends Component {
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
+        </label>
+        <label htmlFor="zzz" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            id="zzz"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
