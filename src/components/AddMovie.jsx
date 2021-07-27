@@ -1,7 +1,7 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor(props) {
+/*   constructor(props) {
     super(props);
     this.state = {
       subtitle: '',
@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       raiting: 0,
       genre: 'action',
     };
-  } 
+  }  */
 
   render() {
     return (
