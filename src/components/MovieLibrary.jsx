@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
   render() {
     return (
       <div>
-        <h2> My awesome movie library </h2>
+        <h2>Biblioteca de Filmes</h2>
         <SearchBar />
         <MovieList movies={ movies } />
         <AddMovie />
