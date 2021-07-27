@@ -1,5 +1,5 @@
 // implement SearchBar component here
-import React from "react";
+import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
@@ -16,16 +16,16 @@ class SearchBar extends React.Component {
         <label data-testid="text-input-label">
           "Inclui o texto:"
           <input
-            value={searchText}
-            onChange={onSearchTextChange}
+            value={ searchText }
+            onChange={ onSearchTextChange }
             data-testid="text-input"
           />
         </label>
         <label data-testid="checkbox-input-label">
           "Mostrar somente favoritos"
           <input
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
