@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Title from './AddMovieComponents/title';
 import Subtitle from './AddMovieComponents/subtitle';
 import Image from './AddMovieComponents/image';
@@ -33,9 +34,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  clearForm(event) {
-    event.preventDefault();
-
+  clearForm() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -44,8 +45,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    document.getElementById('test').reset();
-    console.log(this.state);
   }
 
   render() {
@@ -64,12 +63,16 @@ class AddMovie extends React.Component {
         <Synopsis value={ storyline } handleChange={ this.handleChange } />
         <Rating value={ rating } handleChange={ this.handleChange } />
         <Genre value={ genre } handleChange={ this.handleChange } />
-        <button type="submit" data-testid="send-button" onClick={ this.clearForm }>
+        <button type="button" data-testid="send-button" onClick={ this.clearForm }>
           Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
