@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -62,9 +62,20 @@ class MovieLibrary extends Component {
     });
   }
 
+  addMov = (newMovie) => {
+    const { movies } = this.props;
+
+    // const newCollection = movies.map((m) => m);
+    // newCollection.push(newMovie);
+
+    this.setState({ movies: [...movies, newMovie] });
+    // Se usar push() ou shift() direto no movies vai alterar o array original e quebrar o teste.
+    // Tem que criar uma cópia do array com map ou spread e depois adicionar o novo filme nessa cópia.
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const { handleChange } = this;
+    const { handleChange, addMov } = this;
     return (
       <>
         <SearchBar
@@ -76,6 +87,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ handleChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ addMov } />
       </>
     );
   }
