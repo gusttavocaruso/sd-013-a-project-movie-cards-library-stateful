@@ -19,7 +19,6 @@ class AddMovie extends React.Component {
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
-            name="subtitle"
             type="text"
             data-testid="subtitle-input"
           />
@@ -27,36 +26,32 @@ class AddMovie extends React.Component {
         <label data-testid="title-input-label" htmlFor="title">
           Título
           <input
-            name="title"
             type="text"
             data-testid="title-input"
           />
         </label>
-        <label htmlFor="imagem">
+        <label htmlFor="imagem" data-testid="image-input-label">
           Caminho da Imagem
           <input
-            name="imagem"
             type="text"
+            data-testid="image-input"
           />
         </label>
         <label htmlFor="sinopse">
           Sinopse
           <input
-            name="sinopse"
             type="text"
           />
         </label>
         <label htmlFor="avaliação">
           Avaliação
           <input
-            name="avaliação"
             type="text"
           />
         </label>
         <label htmlFor="gênero">
           Genêro
           <input
-            name="gênero"
             type="text"
           />
         </label>
@@ -66,3 +61,5 @@ class AddMovie extends React.Component {
 }
 
 export default AddMovie;
+
+// Os htmlFor em cada label é para evitar o erro no lint "A form label must be associated with a control"
