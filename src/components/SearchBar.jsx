@@ -25,6 +25,16 @@ class SearchBar extends React.Component {
             id="checkbox"
           />
         </label>
+        <label data-testid="select-input-label" htmlFor="select">
+          Filtrar por gênero
+          <select value="selectedGenre" onChange="onSelectedGenreChange" id="select">
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+        </label>
+
       </form>
     );
   }
