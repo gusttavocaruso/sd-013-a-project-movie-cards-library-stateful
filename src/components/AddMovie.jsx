@@ -37,10 +37,11 @@ class AddMovie extends React.Component {
             data-testid="image-input"
           />
         </label>
-        <label htmlFor="sinopse">
+        <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse
           <input
-            type="text"
+            type="textarea"
+            data-testid="storyline-input"
           />
         </label>
         <label htmlFor="avaliação">
