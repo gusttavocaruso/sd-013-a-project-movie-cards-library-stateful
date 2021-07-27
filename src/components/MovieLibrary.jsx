@@ -33,7 +33,7 @@ class MovieLibrary extends Component {
     const { movies } = this.state;
 
     this.setState({
-      movies: [...movies, movie],
+      movies: [...movies, movie], // Eu adiciono o array com todos filmes e o novo filme pelo spread
     });
   }
 
