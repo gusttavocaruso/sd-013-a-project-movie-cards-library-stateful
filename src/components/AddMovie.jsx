@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AddMovieGenre from './AddMovieGenre';
 import AddMovieImage from './AddMovieImage';
 import AddMovieRating from './AddMovieRating';
@@ -30,6 +31,8 @@ class AddMovie extends Component {
 
   addMovideFunc(event) {
     event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -61,5 +64,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
