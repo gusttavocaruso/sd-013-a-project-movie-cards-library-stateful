@@ -89,14 +89,14 @@ body {
 }
 
 .add-movie {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .new-movie-info {
-  width: 90%;
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+  width: 90%;
 }
