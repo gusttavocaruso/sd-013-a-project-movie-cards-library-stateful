@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, 
-      onSearchTextChange, 
+    const { searchText,
+      onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange 
     } = this.props;
 
     return (
