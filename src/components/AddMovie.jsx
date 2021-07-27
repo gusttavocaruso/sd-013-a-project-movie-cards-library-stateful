@@ -13,13 +13,31 @@ const INITIAL_STATE = {
 class AddMovie extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.state = INITIAL_STATE;
   }
 
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        AddMovie
+        <label htmlFor="title" data-testid="title-input-label">
+          Título
+          <input
+            name="title"
+            type="text"
+            value={ title }
+            data-testid="title-input"
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
