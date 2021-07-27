@@ -16,12 +16,36 @@ class SearchBar extends React.Component {
         <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto:
           <input
-            name="input"
+            name="input1"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
           />
+        </label>
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+          Mostrar somente favoritos:
+          <input
+            name="input2"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+          />
+        </label>
+        <label data-testid="select-input-label" htmlFor="select-input">
+          Filtrar por gênero:
+          <select
+            name="input3"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
@@ -29,12 +53,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
