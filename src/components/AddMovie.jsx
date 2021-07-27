@@ -32,37 +32,23 @@ class AddMovie extends React.Component {
       <form action="adicionar" data-testid="add-movie-form">
         <label htmlFor="título" data-testid="title-input-label">
           Título
-          <input
-            type="text"
-            id="título"
-            name="título"
-            value={ title.value }
-            onChange={ title }
-            data-testid="title-input"
-          />
+          <input type="text" id="título" name="título" value={ title.value } onChange={ title } data-testid="title-input" />
         </label>
-        <label htmlFor="subtitulo">
+        <label htmlFor="subtitulo" data-testid="subtitle-input-label">
           Subtítulo
-          <input type="text" id="subtitulo" name="subtitulo" onChange={ subtitle } />
+          <input type="text" id="subtitulo" name="subtitulo" value={ subtitle.value } onChange={ subtitle } data-testid="subtitle-input" />
         </label>
-        <label htmlFor="imagem">
+        <label htmlFor="imagem" data-testid="image-input-label">
           Imagem
-          <input type="text" id="imagem" name="imagem" onChange={ imagePath } />
+          <input type="text" id="imagem" name="imagem" value={ imagePath.value } onChange={ imagePath } data-testid="image-input" />
         </label>
-        <label htmlFor="sinopse">
+        <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse
-          <input type="text" id="sinopse" name="sinopse" onChange={ storyline } />
+          <input type="textarea" id="sinopse" name="sinopse" value={ storyline.value } onChange={ storyline } data-testid="storyline-input" />
         </label>
-        <label htmlFor="avaliação">
+        <label htmlFor="avaliação" data-testid="rating-input-label">
           Avaliação
-          <input
-            type="number"
-            id="avaliação"
-            name="avaliação"
-            min="1"
-            max="10"
-            onChange={ rating }
-          />
+          <input type="number" id="avaliação" name="avaliação" min="1" max="10" value={ rating.value } onChange={ rating } data-testid="rating-input" />
         </label>
         <label htmlFor="genero">
           Gênero
