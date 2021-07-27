@@ -7,8 +7,8 @@ import Rating from './AddMovieComponents/rating';
 import Genre from './AddMovieComponents/genre';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
