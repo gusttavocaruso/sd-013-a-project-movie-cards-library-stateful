@@ -27,10 +27,10 @@ class SearchBar extends Component {
           Mostrar somente favoritos
           <input
             data-testid="checkbox-input"
+            type="checkbox"
+            name="favs"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-            type="checkbock"
-            name="favs"
           />
         </label>
         <label data-testid="select-input-label" htmlFor="gen">
