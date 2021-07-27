@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TitleandSubtitle from './TitleandSubtitle';
 import ImageandSinopsis from './ImageandSinopsis';
+import RatingandGenre from './RatingandGenre';
 
 const INICIAL_STATE = {
   subtitle: '',
@@ -52,31 +53,11 @@ class AddMovie extends React.Component {
           storyline={ storyline }
           handleChange={ this.handleChange }
         />
-        <label htmlFor="input-rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            name="rating"
-            type="number"
-            id="input-rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="select-genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            id="select-genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <RatingandGenre
+          rating={ rating }
+          genre={ genre }
+          handleChange={ this.handleChange }
+        />
         <button
           type="button"
           onClick={ this.handleButton }

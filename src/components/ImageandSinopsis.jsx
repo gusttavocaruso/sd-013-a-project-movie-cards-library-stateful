@@ -37,4 +37,5 @@ ImageandSinopsis.propTypes = {
   storyline: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
+
 export default ImageandSinopsis;
