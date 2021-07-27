@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
   render() {
     const {
       searchText,
