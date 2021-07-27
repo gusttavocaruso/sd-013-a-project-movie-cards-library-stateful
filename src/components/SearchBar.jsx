@@ -1,1 +1,1 @@
-// implement SearchBar component here
+// implement SearchBar components here
