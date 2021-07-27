@@ -5,10 +5,10 @@ class SearchBar extends Component {
   render() {
     const { searchText, 
       onSearchTextChange, 
-      bookmarkedOnly, 
-      onBookmarkedChange, 
-      electedGenre, 
-      onSelectedGenreChange 
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange
     } = this.props;
 
     return (
@@ -38,7 +38,7 @@ class SearchBar extends Component {
           <select
             data-testid="select-input"
             name="gen"
-            value= { selectedGenre }
+            value={ selectedGenre }
             onChange={ onSelectedGenreChange }
           >
             <option data-testid="select-option" value="">Todos</option>
