@@ -6,15 +6,14 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   render() {
-    const movies = this.props.movies;
-    return(
+    return (
       <div>
         Movie Library Component
         <SearchBar />
-        <MovieList movies={movies}/>
+        <MovieList />
         <AddMovie />
       </div>
-    )
+    );
   }
 }
 
