@@ -10,3 +10,20 @@ class SearchBar extends Component {
     this.renderCheckBox = this.renderCheckBox.bind(this);
     this.renderSelect = this.renderSelect.bind(this);
   }
+
+  renderTextInput() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <label htmlFor="searchText" data-testid="text-input-label">
+        Inclui o texto:
+        <input
+          type="text"
+          name="searchText"
+          id="searchText"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          data-testid="text-input"
+        />
+      </label>
+    );
+  }
