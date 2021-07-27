@@ -17,7 +17,8 @@ export default class AddMovie extends Component {
 
   inputMovie({ target }) {
     const { name, value } = target;
-    console.log(value);
+
+
     this.setState = ({
       [name]: value,
     });
@@ -39,7 +40,25 @@ export default class AddMovie extends Component {
               data-testid="title-input"
             />
           </label>
-          <label htmlFor="inputSubTitle"></label>
+          <label htmlFor="inputSubTitle" 
+          data-testid="subtitle-input-label">Subtítulo
+          <input
+          id='inputSubTitle'
+          name='subtitle'
+          data-testid="subtitle-input"
+        //   value={ this. state.subtitle }
+          onChange={ this.inputMovie } />          
+          </label>
+           <label htmlFor="inputImage"
+            data-testid="image-input-label">Imagem
+            <input 
+            id="inputImage"
+            name="imagePath"
+            // value={ this. state.imagePath }
+            data-testid="image-input"
+            onChange={ this.inputMovie }
+            />
+           </label>
         </form>
       </div>
     );
