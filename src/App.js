@@ -8,8 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <AddMovie />
-      <SearchBar />
+      <AddMovie onClick={ () => {} } />
     </div>
   );
 }
