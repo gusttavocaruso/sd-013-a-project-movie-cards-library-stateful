@@ -11,7 +11,9 @@ export class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div />
+      <form data-testid="search-bar-form">
+        <div />
+      </form>
     );
   }
 }
