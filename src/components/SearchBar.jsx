@@ -8,15 +8,12 @@ class SearchBar extends React.Component {
   //   super(props);
   //   this.state = {
   //     searchText: '',
-  //     onSearchTextChange:
   //   }
   // }
 
   render() {
     return (
-      <div>
-        <p>SearchBar</p>
-      </div>
+      <form data-testid="search-bar-form">SearchBar</form>
     );
     // searchText={ props.searchText } -> searchText="uma string";
     // onSearchTextChange={ props.onSearchTextChange }
