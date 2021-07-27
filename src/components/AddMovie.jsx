@@ -1,7 +1,7 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-/*   constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       subtitle: '',
@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       raiting: 0,
       genre: 'action',
     };
-  }  */
+  } 
 
   render() {
     return (
@@ -23,11 +23,12 @@ class AddMovie extends React.Component {
             type="text"
           />
         </label>
-        <label htmlFor="title">
+        <label data-testid="title-input-label" htmlFor="title">
           Título
           <input
             name="title"
             type="text"
+            data-testid="title-input"
           />
         </label>
         <label htmlFor="imagem">
