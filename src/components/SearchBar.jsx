@@ -65,3 +65,14 @@ class SearchBar extends Component {
       </label>
     );
   }
+
+  render() {
+    return (
+      <form action="" data-testid="search-bar-form">
+        { this.renderTextInput() }
+        { this.renderCheckBox() }
+        { this.renderSelect() }
+      </form>
+    );
+  }
+}
