@@ -12,6 +12,11 @@ import Rate from './Rate';
 import Genre from './Genre';
 
 class AddMovie extends React.Component {
+  // handleClick = () => {
+  //   const { onClick } = this.props;
+  //   onClick();
+  // };
+
   render() {
     return (
       <form data-testid="add-movie-form">
@@ -21,16 +26,20 @@ class AddMovie extends React.Component {
         <Sinopse />
         <Rate />
         <Genre />
-        {/* <button
+        <button
           type="button"
           data-testid="send-button"
-          onClick={ this.onClick }
-          >
+          onClick={ this.handleClick }
+        >
           Adicionar filme
-        </button> */}
+        </button>
       </form>
     );
   }
 }
+
+// AddMovie.PropTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
 
 export default AddMovie;
