@@ -48,8 +48,38 @@ class MovieLibrary extends Component {
     }));
   }
 
+  filterMovie(searchText, bookmarkedOnly, selectedGenre, movies) {
+    let filteredList;
+    if (bookmarkedOnly) {
+      filteredList = movies
+        .filter((movie) => movie.bookmarked);
+    }
+    if (selectedGenre !== '') {
+      filteredList = movies
+        .filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText !== '') {
+      filteredList = movies
+        .filter((movie) => {
+          const exp1 = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
+          const exp2 = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
+          const exp3 = movie.title.toLowerCase().includes(searchText.toLowerCase());
+          if (exp1 || exp2 || exp3) return true;
+          return false;
+        });
+    }
+    return filteredList;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let arrayMovies;
+    if (bookmarkedOnly || selectedGenre || searchText) {
+      arrayMovies = this.filterMovie(searchText, bookmarkedOnly, selectedGenre, movies);
+    } else {
+      arrayMovies = movies;
+    }
+
     return (
       <div>
         <SearchBar
@@ -61,10 +91,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList
-          movies={ movies }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
-          searchText={ searchText }
+          movies={ arrayMovies }
         />
         <AddMovie
           onClick={ this.addMovie }

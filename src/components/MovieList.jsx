@@ -4,44 +4,11 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.props;
-    let filteredList;
-
-    const filterMovie = () => {
-      if (bookmarkedOnly) {
-        filteredList = movies
-          .filter((movie) => movie.bookmarked);
-      }
-      if (selectedGenre !== '') {
-        filteredList = movies
-          .filter((movie) => movie.genre === selectedGenre);
-      }
-      if (searchText !== '') {
-        filteredList = movies
-          .filter((movie) => {
-            const exp1 = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
-            const exp2 = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
-            const exp3 = movie.title.toLowerCase().includes(searchText.toLowerCase());
-            if (exp1 || exp2 || exp3) return movie;
-            return false;
-          });
-      }
-    };
-
-    if (bookmarkedOnly || selectedGenre || searchText) filterMovie();
-
-    let arrayMovies;
-    if (filteredList) {
-      arrayMovies = filteredList
-        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-    } else {
-      arrayMovies = movies
-        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-    }
+    const { movies } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
-        { arrayMovies }
+        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
   }
@@ -51,15 +18,6 @@ MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
-  searchText: PropTypes.string,
-};
-
-MovieList.defaultProps = {
-  bookmarkedOnly: false,
-  selectedGenre: '',
-  searchText: '',
 };
 
 export default MovieList;
