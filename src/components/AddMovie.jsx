@@ -19,9 +19,9 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <div>
+      <form data-testid="add-movie-form">
         <p>Teste</p>
-      </div>
+      </form>
     );
   }
 }
