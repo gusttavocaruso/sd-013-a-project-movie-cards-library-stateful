@@ -24,13 +24,14 @@ HandleOnChange = ((event) => {
 // eslint-disable-next-line max-lines-per-function
 render() {
   /* const { onClick } = this.props; */
-  const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+  /* const { title, subtitle, imagePath, storyLine, rating, genre } = this.state; */
   return (
     <div>
-      <form>
-        <label htmlFor="input-tite">
-          Title:
+      <form data-testid="add-movie-form">
+        <label htmlFor="input-tite" data-testid="title-input-label">
+          Título
           <input
+            data-testid="title-iput"
             type="text"
             onChange={ this.HandleOnChange }
             name="title"
