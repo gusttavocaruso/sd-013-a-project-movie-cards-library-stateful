@@ -12,72 +12,46 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-      backupMovies: props.movies,
     };
   }
 
-  filterMovies = () => {
-    const { searchText, bookmarkedOnly, selectedGenre, backupMovies } = this.state;
+  // Implementação do filtro melhorada com a ajuda do colega Rafhael Gomes.
+  filter = () => {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
-    if (searchText !== '') {
-      this.setState({ movies: backupMovies });
-      this.setState((prevState) => ({ movies: prevState.movies.filter((m) => (
-        m.title.toLowerCase().includes(searchText.toLowerCase())
-        || m.subtitle.toLowerCase().includes(searchText.toLowerCase())
-        || m.storyline.toLowerCase().includes(searchText.toLowerCase())
-      )),
-      }));
-    }
+    const includeText = movies.filter((mov) => (
+      mov.title.toLowerCase().includes(searchText.toLowerCase())
+      || mov.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || mov.storyline.toLowerCase().includes(searchText.toLowerCase())
+    ));
 
-    if (bookmarkedOnly) {
-      this.setState({ movies: backupMovies });
-      this.setState((prevState) => (
-        { movies: prevState.movies.filter((m) => m.bookmarked) }
-      ));
-    }
+    const bookmarked = bookmarkedOnly
+      ? includeText.filter((mov) => mov.bookmarked) : includeText;
 
-    if (selectedGenre !== '') {
-      this.setState({ movies: backupMovies });
-      this.setState((prevState) => (
-        { movies: prevState.movies.filter((m) => m.genre === selectedGenre) }
-      ));
-    }
+    const filteredMovies = selectedGenre !== ''
+      ? bookmarked.filter((mov) => mov.genre === selectedGenre) : bookmarked;
+
+    return filteredMovies;
   }
 
   handleChange = ({ target }) => {
-    const { backupMovies } = this.state;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: backupMovies,
-    }, () => {
-      this.setState({ [name]: value }, () => this.filterMovies());
-    });
-    // Coloquei um setState como callback do outro para garantir que o segundo só rode depois que o primeiro atualizar o state.
-    // Não consegui achar uma forma de utilizar o prevState no segundo setState,
+    this.setState({ [name]: value }, () => this.filter());
   }
 
   addMov = (newMovie) => {
-    const { movies } = this.props;
-    const { backupMovies } = this.state;
+    const { movies } = this.state;
 
-    this.setState({
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: [...movies, newMovie],
-      backupMovies: [...backupMovies, newMovie],
-    });
+    this.setState({ movies: [...movies, newMovie] });
     // Se usar push() ou shift() direto no movies vai alterar o array original e quebrar o teste.
     // Tem que criar uma cópia do array com map ou spread e depois adicionar o novo filme nessa cópia.
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const filteredMovies = this.filter();
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { handleChange, addMov } = this;
     return (
       <>
@@ -89,7 +63,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filteredMovies } />
         <AddMovie onClick={ addMov } />
       </>
     );
