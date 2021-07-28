@@ -1,6 +1,7 @@
 // implement MovieLibrary component hereimport React, { Component } from 'react';
 import React from 'react';
 import SearchBar from './SearchBar';
+import MovieLibrary from './MovieLibrary';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
