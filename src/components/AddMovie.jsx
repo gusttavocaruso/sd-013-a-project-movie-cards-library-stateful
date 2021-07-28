@@ -38,7 +38,7 @@ class AddMovie extends React.Component {
             onChange={ subtitle }
           />
         </label>
-        <label data-testid="image-input-label" htmlFor="imagem">
+        {/* <label data-testid="image-input-label" htmlFor="imagem">
           Imagem
           <input
             id="imagem"
@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
             onChange={ storyline }
           />
-        </label>
+        </label> */}
       </div>
     );
   }
