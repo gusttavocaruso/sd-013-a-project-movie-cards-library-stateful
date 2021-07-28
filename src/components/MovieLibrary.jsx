@@ -26,13 +26,11 @@ class MovieLibrary extends Component {
   }
 
   onClick = (state) => {
-    const { movies } = this.state;
     // const { movies: allMovies } = this.props;
     // allMovies.push(state);
-    movies.push(state);
-    this.setState({
-      movies,
-    });
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, state],
+    }));
   }
 
   filterChange = () => {
@@ -46,6 +44,8 @@ class MovieLibrary extends Component {
     if (selectedGenre !== '') {
       allMovies = allMovies.filter((movie) => movie.genre === selectedGenre);
     }
+    // Dica de Fernando Costa Turma 13 a:
+    // Utilizar um filter em cima do outro para juntar os filtros
     return allMovies;
   }
 
