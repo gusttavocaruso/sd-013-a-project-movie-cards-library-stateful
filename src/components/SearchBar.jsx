@@ -1,22 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      // bookmarkedOnly,
+      // selectedGenre,
+      // onBookmarkedChange,
+      // onSelectedGenreChange
+    } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
-          <input type="text" />
+          <label data-testid="text-input-label" htmlFor="searchText">
+            Inclui o texto:
+            <input
+              id="searchText"
+              type="text"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+              data-testid="text-input"
+            />
+          </label>
         </form>
       </div>
     );
   }
 }
 
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  // bookmarkedOnly: PropTypes.bool.isRequired,
+  // onBookmarkedChange: PropTypes.func.isRequired,
+  // selectedGenre: PropTypes.string.isRequired,
+  // onSelectedGenreChange: PropTypes.func.isRequired,
+};
+
+// searchText, uma string
+// onSearchTextChange, uma callback
+// bookmarkedOnly, um boolean
+// onBookmarkedChange, uma callback
+// selectedGenre, uma string
+// onSelectedGenreChange, uma callback
+
 export default SearchBar;
-// 2 - Renderize um formulário dentro de <SearchBar />
-// Dentro desse formulário haverá campos usados na filtragem de cartões.
-
-// Esse formulário deve apresentar o atributo data-testid="search-bar-form"
-// O que será verificado:
-
-// Será validado se é renderizado 1, e apenas 1, form dentro de <SearchBar />
