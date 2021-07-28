@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputGeneric from './InputGeneric';
@@ -38,10 +37,10 @@ export default class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+  soprapassanolink = () => {
+    const { title, subtitle } = this.state;
     return (
-      <form action="" data-testid="add-movie-form">
+      <>
         <InputGeneric
           descicao="Título"
           title={ title }
@@ -56,6 +55,15 @@ export default class AddMovie extends React.Component {
           onChange={ this.hanbleChange }
           datatestid={ ['subtitle-input-label', 'subtitle-input'] }
         />
+      </>
+    );
+  }
+
+  render() {
+    const { imagePath, storyline, rating, genre } = this.state;
+    return (
+      <form action="" data-testid="add-movie-form">
+        this.soprapassanolink()
         <InputGeneric
           descicao="Imagem"
           title={ imagePath }

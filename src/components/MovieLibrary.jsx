@@ -18,7 +18,6 @@ class MovieLibrary extends Component {
   hanbleChange = (e) => {
     const { value, name } = e.target;
     this.setState({ [name]: value });
-    console.log(this.props.state);
   }
 
   onSearchTextChange = (e) => {
@@ -84,7 +83,7 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
-    
+
   })),
 };
 
