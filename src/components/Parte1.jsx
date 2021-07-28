@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class Parte1 extends React.Component {
   render() {
-    const { title, onChange, subtitle } = this.props;
+    const { title, onChange, subtitle, imagePath } = this.props;
     return (
       <div>
         <label htmlFor="title" data-testid="title-input-label">
-          Sinopse
+          Título
           <input
             type="text"
             name="title"
@@ -28,6 +28,17 @@ class Parte1 extends React.Component {
             onChange={ onChange }
           />
         </label>
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            name="imagePath"
+            id="imagePath"
+            data-testid="image-input"
+            value={ imagePath }
+            onChange={ onChange }
+          />
+        </label>
       </div>
     );
   }
@@ -36,6 +47,7 @@ Parte1.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
 };
 
 export default Parte1;
