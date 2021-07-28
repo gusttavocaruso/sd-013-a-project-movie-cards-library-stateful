@@ -34,12 +34,21 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { handleChange } = this;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies } = this.state;
     return (
       <section>
         <SearchBar
           onSearchTextChange={ handleChange }
           onBookmarkedChange={ handleChange }
           onSelectedGenreChange={ handleChange }
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+          movies={ movies }
         />
         <AddMovie />
       </section>
