@@ -32,6 +32,12 @@ class AddMovie extends React.Component {
           Sinopse:
           <textarea cols="30" rows="5" data-testid="storyline-input" />
         </label>
+        <button
+          type="submit"
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
