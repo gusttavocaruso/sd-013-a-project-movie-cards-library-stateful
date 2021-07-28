@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
+import './style.css';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -26,20 +27,24 @@ class MovieLibrary extends React.Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <SearchBar
-          searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
-        />
+        <div className="SearchBar">
+          <SearchBar
+            searchText={ searchText }
+            onSearchTextChange={ this.handleChange }
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ this.handleChange }
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ this.handleChange }
+          />
+        </div>
         <MovieList
           movies={ movies }
           valueTitle={ searchText }
           checkbox={ bookmarkedOnly }
         />
-        <AddMovie />
+        <div className="AddMovie">
+          <AddMovie />
+        </div>
       </div>
     );
   }

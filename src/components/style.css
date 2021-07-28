@@ -1,0 +1,30 @@
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  background-color: #eceaea;
+  text-align: start;
+  border-bottom: 1px solid black;
+}
+
+.search-bar-form {
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eceaea;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.search-bar-form input, select, textarea {
+  margin-left: 20px;
+}
+
+.search-bar-form input[type="text"] {
+  margin-left: 20px;
+  width: 1000px;
+  border-radius: 30px;
+}
+
