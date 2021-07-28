@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Subtitle extends React.Component {
+class Title extends React.Component {
   render() {
-    const { subtitle } = this.props;
+    const { title } = this.props;
 
     return (
-      <label htmlFor="subtitulo" data-testid="subtitle-input-label">
-        Subtítulo
+      <label htmlFor="subtitulo" data-testid="title-input-label">
+        Título
         <input
-          data-testid="subtitle-input"
+          data-testid="title-input"
           id="subtitulo"
           type="text"
-          value={ subtitle }
+          value={ title }
         />
       </label>
     );
   }
 }
 
-Subtitle.propTypes = {
-  subtitle: PropTypes.string.isRequired,
+Title.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
-export default Subtitle;
+export default Title;
