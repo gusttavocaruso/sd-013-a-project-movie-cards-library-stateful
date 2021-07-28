@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class InputSubTitle extends Component  {
+export default class InputSubTitle extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
