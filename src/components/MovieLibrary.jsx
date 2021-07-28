@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 // import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   // constructor(props) {
@@ -12,11 +13,19 @@ class MovieLibrary extends Component {
   // }
 
   render() {
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        {/* <MovieList movies={ this.props.movies } /> */}
+        <SearchBar
+          searchText
+          onSearchTextChange
+          bookmarkedOnly
+          onBookmarkedChange
+          selectedGenre
+          onSelectedGenreChange
+        />
+        <MovieList movies={ movies } />
         <AddMovie />
       </div>
     );
