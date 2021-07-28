@@ -162,7 +162,10 @@ export default MovieLibrary;
         * `git status` (deve aparecer listado o arquivo _src/components/MovieLibrary.jsx_ em verde)
   * Faça o `commit` inicial
       * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
+        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro comm  constructor(props) {
+    super(props);
+  }
+it)
         * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
 
 6. Adicione a sua branch com o novo `commit` ao repositório remoto
@@ -174,7 +177,10 @@ export default MovieLibrary;
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
+  * **Não se preocupe em preencher mais nada  constructor(props) {
+    super(props);
+  }
+ por enquanto!**
   * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
@@ -200,7 +206,10 @@ export default MovieLibrary;
 
 Este repositório já contém um _template_ com um App React criado e configurado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você não precisará realizar nenhuma configuração adicional. Você deverá completar este _template_ implementando os requisitos listados na próxima seção.
 
----
+---  constructor(props) {
+    super(props);
+  }
+
 
 ## Componentes
 
@@ -241,13 +250,19 @@ npm run lint:styles
 ```
 
 ⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
-ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
+ATENTE-SE PARA RESOLV  constructor(props) {
+    super(props);
+  }
+
 
 ---
 
 ## Testes
 
-Todos os requisitos do projeto serão testados **automaticamente**. Cada componente possui vários requisitos e os testes para cada requisito de um componente estão no arquivo de teste correspondente.
+Todos os requisitos do projeto serão testados **automaticamente**. Cada componente possui vários requisitos e os testes para cada requisito de um componente estão no arquivo de teste correspondente.  constructor(props) {
+    super(props);
+  }
+
 
 _**Por exemplo**: Os requisitos relacionados ao componente `<SearchBar />` estão no arquivo `SearchBar.test.js`._
 
@@ -298,7 +313,10 @@ Quando seu projeto estiver terminado, todos os testes deverão estar passando:
 
 ### Dica: desativando ou rodando apenas um teste
 
-Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
+Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um te  constructor(props) {
+    super(props);
+  }
+ste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
 
 ```js
 it.skip('it includes the text `Movie Cards Library` inside a h1 tag', () => {
