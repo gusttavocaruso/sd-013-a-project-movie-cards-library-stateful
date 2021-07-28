@@ -36,6 +36,17 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="title" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            data-testid="subtitle-input"
+            subtitle={ subtitle }
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
