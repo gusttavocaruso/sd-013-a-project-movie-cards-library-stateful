@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import AddMovieStoryLine from './AddMovieStoryLine';
+import MovieStoryLine from './AddMovieStoryLine';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class AddMovie extends React.Component {
           />
         </label>
 
-        <AddMovieStoryLine value={ storyline } onChange={ handleChange } />
+        <MovieStoryLine value={ storyline } onChange={ handleChange } />
 
       </forms>
     );
