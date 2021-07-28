@@ -16,14 +16,16 @@ class SearchInput extends React.Component {
             onChange={ onSearchTextChange }
           />
         </label>
-        <label htmlFor="favorites" 
-        data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input type="checkbox"
-          name="favorites"
-          id="favorites"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange } />
+        <label 
+          htmlFor="favorites"
+          data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input type="checkbox"
+            name="favorites"
+            id="favorites"
+            // checked={ bookmarkedOnly }
+            // onChange={ onBookmarkedChange }
+            />
         </label>
       </div>
     );
