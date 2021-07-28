@@ -16,7 +16,10 @@ class SearchBar extends React.Component {
       searchText,
       onSearchTextChange,
       bookmarkedonly,
-      onBookmarkedChange } = this.props;
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       // searchText={ props.searchText } -> searchText="uma string" -> const { searchText }=this.props
       // onSearchTextChange={ props.onSearchTextChange }
@@ -42,6 +45,18 @@ class SearchBar extends React.Component {
             onChange={ onBookmarkedChange }
           />
         </label>
+        <label data-testid="select-input-label" htmlFor="select">
+          <select
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
@@ -52,6 +67,8 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
   bookmarkedonly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
