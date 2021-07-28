@@ -15,7 +15,7 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange = ({ target }) => {
+  handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -36,11 +36,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
       </div>
