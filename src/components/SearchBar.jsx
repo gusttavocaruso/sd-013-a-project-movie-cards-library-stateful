@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
           Inclui o texto:
           <input
             type="text"
+            name="searchText"
             id="input-text-search-bar"
             data-testid="text-input"
             value={ searchText }
@@ -28,6 +29,7 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
           <input
             type="checkbox"
+            name="bookmarkedOnly"
             id="input-checkbox-search-bar"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }

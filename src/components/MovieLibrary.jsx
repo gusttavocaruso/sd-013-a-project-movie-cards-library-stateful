@@ -14,29 +14,33 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange = (event) => {
+  handleChange = (event) => {
     this.setState({
-      searchText: event.target.value,
+      [event.target.name]: event.target.value,
     });
   }
 
-  onBookmarkedChange = (event) => {
-    this.setState({
-      bookmarkedOnly: event.target.value,
-    });
-  }
+  // onBookmarkedChange = (event) => {
+  //   this.setState({
+  //     bookmarkedOnly: event.target.value,
+  //   });
+  // }
 
-  onSelectedGenreChange = (event) => {
-    this.setState({
-      selectedGenre: event.target.value,
-    });
-  }
+  // onSelectedGenreChange = (event) => {
+  //   this.setState({
+  //     selectedGenre: event.target.value,
+  //   });
+  // }
 
   render() {
-    console.log(this.state);
+    const { handleChange } = this;
     return (
       <section>
-        <SearchBar />
+        <SearchBar
+          onSearchTextChange={ handleChange }
+          onBookmarkedChange={ handleChange }
+          onSelectedGenreChange={ handleChange }
+        />
         <AddMovie />
       </section>
     );
