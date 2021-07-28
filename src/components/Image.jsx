@@ -9,7 +9,7 @@ class Image extends React.Component {
         Imagem
         <input
           data-testid="image-input"
-          type="image"
+          type="text"
           src={ value }
           alt=""
           name="imagePath"

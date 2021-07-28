@@ -8,15 +8,17 @@ import RatingInput from './RatingInput';
 import Genre from './Genre';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
-      rating: '0',
+      rating: 0,
       genre: 'action',
     };
   }
@@ -25,13 +27,20 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState = {
+    this.setState({
       [name]: value,
-    };
+    });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      rating,
+      genre,
+    } = this.state;
     const { onClick } = this.props;
     return (
       <form
@@ -46,7 +55,7 @@ class AddMovie extends React.Component {
         <Genre value={ genre } handleChange={ this.handleChange } />
         <button
           data-testid="send-button"
-          type="submit"
+          type="button"
           onClick={ onClick }
         >
           Adicionar filme
@@ -58,6 +67,13 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
+  // subtitle: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  // imagePath: PropTypes.string.isRequired,
+  // storyline: PropTypes.string.isRequired,
+  // rating: PropTypes.number.isRequired,
+  // genre: PropTypes.string.isRequired,
+  // handleChange: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
