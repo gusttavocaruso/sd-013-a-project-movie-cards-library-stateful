@@ -15,8 +15,12 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick = () => {
-    console.log('da certo');
+  onClick = (obj) => {
+    // const { movies } = this.props; // Não passa no teste não sei pq
+    // movies.push(obj);
+    this.setState((ant) => ({
+      movies: [...ant.movies, obj],
+    }));
   }
 
   handleSearch = ({ target }) => {
@@ -41,7 +45,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleSearch }
         />
         <MovieList
-          movies={ movies
+          movies={ Object.values(movies)
             .filter((movie) => (bookmarkedOnly === false
               ? movie : movie.bookmarked === bookmarkedOnly))
             .filter((movie) => (selectedGenre === ''
@@ -57,7 +61,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;

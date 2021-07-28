@@ -5,7 +5,7 @@ class Rating extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="rating">
+      <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
           type="number"
@@ -21,7 +21,7 @@ class Rating extends Component {
 
 Rating.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default Rating;

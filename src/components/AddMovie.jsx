@@ -31,7 +31,8 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    onClick();
+    const arrayMovie = this.state;
+    onClick(arrayMovie);
   }
 
   handleSearch = ({ target }) => {
