@@ -1,7 +1,6 @@
 // implement AddMovie component here
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React from "react";
+import PropTypes from "prop-types";
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -10,14 +9,13 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
       rating: 0,
-      genre: 'action',
+      genre: "action",
     };
-
   }
 
   handleChange({ target }) {
@@ -28,38 +26,38 @@ class AddMovie extends React.Component {
   }
 
   render() {
-  const { onCLick } = this.props;
-  const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
+    const { onCLick } = this.props;
+    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
           Título:
-          <input 
+          <input
             type="text"
             data-testid="title-input"
-            onChange={ this.handleChange }
+            onChange={this.handleChange}
             name="title"
-            value={ title }
+            value={title}
           />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo:
-          <input 
+          <input
             type="text"
             data-testid="subtitle-input"
-            onChange={ this.handleChange }
+            onChange={this.handleChange}
             name="subtitle"
-            value={ subtitle }
+            value={subtitle}
           />
         </label>
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem:
-          <input 
-            value={ imagePath }
+          <input
+            value={imagePath}
             type=""
             data-testid="image-input"
-            onChange={ this.handleChange }
+            onChange={this.handleChange}
             name="imagePath"
           />
         </label>
@@ -67,9 +65,9 @@ class AddMovie extends React.Component {
           Sinopse:
           <textarea
             name="storyLine"
-            value={ storyLine }
+            value={storyLine}
             data-testid="storyline-input"
-            onChange={ this.handleChange }
+            onChange={this.handleChange}
           />
         </label>
         <label data-testid="rating-input-label" htmlFor="rating-input">
@@ -77,27 +75,30 @@ class AddMovie extends React.Component {
           <input
             name="rating"
             type="number"
-            value={ rating }
+            value={rating}
             data-testid="rating-input"
-            onChange={ this.handleChange }
+            onChange={this.handleChange}
           />
         </label>
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero:
-            <select 
-              name="genre"
-              data-testid="genre-input"
-              onChange={ this.handleChange }
-              value={ genre }
-            />
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          <button
-            data-testid="send-button"
-            onClick={ onClick }
-          >
-          Adicionar filme
+          <select
+            name="genre"
+            data-testid="genre-input"
+            onChange={this.handleChange}
+            value={genre}
+          />
+          <option data-testid="genre-option" value="action">
+            Ação
+          </option>
+          <option data-testid="genre-option" value="comedy">
+            Comédia
+          </option>
+          <option data-testid="genre-option" value="thriller">
+            Suspense
+          </option>
+          <button data-testid="send-button" onClick={onClick}>
+            Adicionar filme
           </button>
         </label>
       </form>
