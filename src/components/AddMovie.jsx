@@ -39,8 +39,9 @@ render() {
           />
         </label>
         <label htmlFor="input-subtitle">
-          Subtitle:
+          Subtítulo
           <input
+            data-testid="subtitle-input"
             type="text"
             onChange={ this.HandleOnChange }
             name="subtitle"
