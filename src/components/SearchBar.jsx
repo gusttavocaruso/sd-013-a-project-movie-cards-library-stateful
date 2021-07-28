@@ -12,13 +12,9 @@ export default class extends React.Component {
     } = this.props;
     return (
       <section>
-        <h1>This Componet SearchBar</h1>
-        <p>{searchText}</p>
-        <p>{onSearchTextChange}</p>
-        <p>{bookmarkedOnly}</p>
-        <p>{onBookmarkedChange}</p>
-        <p>{selectedGenre}</p>
-        <p>{onSelectedGenreChange}</p>
+        <form action="" data-testid="search-bar-form">
+          <input type="text" name="" id="" />
+        </form>
       </section>
     );
   }
