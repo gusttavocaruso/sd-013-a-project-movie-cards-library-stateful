@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
+      onClick,
     } = movies;
     return (
       <div>
@@ -28,7 +29,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
@@ -42,6 +43,7 @@ MovieLibrary.propTypes = {
     onBookmarkedChange: PropTypes.func,
     selectedGenre: PropTypes.string,
     onSelectedGenreChange: PropTypes.func,
+    onClick: PropTypes.func,
   }).isRequired,
 };
 
