@@ -1,85 +1,20 @@
 // implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import IncludesText from './searchBarComponents/IncludesText';
+import OnlyFavorites from './searchBarComponents/OnlyFavorites';
+import FilterToGender from './searchBarComponents/FilterToGender';
 
 class SearchBar extends React.Component {
-  // eslint-disable-next-line max-lines-per-function
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, 
+    const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label
-            data-testid="text-input-label"
-            onChange={ onSearchTextChange }
-            htmlFor="input-filter"
-          >
-            Inclui o texto
-            <input
-              data-testid="text-input"
-              type="text"
-              id="input-filter"
-              value={ searchText }
-            />
-          </label>
-          <label data-testid="checkbox-input-label" htmlFor="checkbox">
-            Mostrar somente favoritos
-            <input
-              type="checkbox"
-              data-testid="checkbox-input"
-              id="checkbox"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-            />
-          </label>
-          <label data-testid="select-input-label" htmlFor="select-form">
-            Filtrar por gênero
-            <select
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-              name=""
-              id="select-form"
-              data-testid="select-input"
-            >
-              <option
-                data-testid="select-option"
-                name="todos"
-                id="todos"
-                value=""
-              >
-                Todos
-              </option>
-
-              <option
-                data-testid="select-option"
-                name="acao"
-                id="acao"
-                value="action"
-              >
-                Ação
-              </option>
-
-              <option
-                name="comedy"
-                data-testid="select-option"
-                id="comedy"
-                value="comedy"
-              >
-                Comédia
-              </option>
-
-              <option
-                name="suspense"
-                data-testid="select-option"
-                id="suspense"
-                value="thriller"
-              >
-                Suspense
-              </option>
-
-            </select>
-          </label>
+          <IncludesText value={ searchText } onChange={ onSearchTextChange } />
+          <OnlyFavorites value={ bookmarkedOnly } onChange={ onBookmarkedChange } />
+          <FilterToGender value={ selectedGenre } onChange={ onSelectedGenreChange } />
         </form>
       </div>
     );
@@ -92,6 +27,15 @@ SearchBar.propTypes = {
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
+  onBookmarkedChange: '',
 };
 
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: '',
+  bookmarkedOnly: false,
+  selectedGenre: '',
+  onSelectedGenreChange: '',
+  onBookmarkedChange: '',
+};
 export default SearchBar;
