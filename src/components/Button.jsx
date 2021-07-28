@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
+    const { onClick } = this.props;
     return (
       <div>
         <button
           data-testid="send-button"
           type="button"
+          onClick={ onClick }
         >
           Adicionar filme
         </button>
@@ -15,9 +18,8 @@ class Button extends React.Component {
   }
 }
 
-//   Button.propTypes = {
-//   handleChange: PropTypes.func.isRequired,
-//   callBack: PropTypes.func.isRequired,
-// };
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Button;

@@ -1,6 +1,5 @@
 import React from 'react';
-import TextAreaAdd from './TextAreaAdd';
-import Button from './Button';
+import Formulario from './formulario';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -14,59 +13,39 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
-  handleChange = (e) => {
-    const { target: { id } } = e;
-    this.setState = {
-      [id]: e.target.value,
-    };
+  handleChange({ target: { name, value } }) {
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onClick() {
+    this.setState = ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: '',
+    });
   }
 
   render() {
     const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
     return (
-      <section>
-        <form data-testid="add-movie-form" action="">
-          <label data-testid="title-input-label" htmlFor="title">
-            Título
-            <input
-              type="text"
-              id="title"
-              value={ title }
-              data-testid="title-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label data-testid="subtitle-input-label" htmlFor="subtitle">
-            Subtítulo
-            <input
-              type="text"
-              id="subtitle"
-              value={ subtitle }
-              data-testid="subtitle-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label data-testid="image-input-label" htmlFor="imagem">
-            Imagem
-            <input
-              id="imagem"
-              type="text"
-              value={ imagePath }
-              data-testid="image-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <TextAreaAdd
-            handleChange={ this.handleChange }
-            rating={ rating }
-            genre={ genre }
-            storyline={ storyline }
-          />
-          <Button />
-        </form>
-      </section>
+      <Formulario
+        title={ title }
+        subtitle={ subtitle }
+        imagePath={ imagePath }
+        rating={ rating }
+        genre={ genre }
+        storyline={ storyline }
+        handleChange={ this.handleChange }
+        onClick={ this.onClick }
+      />
     );
   }
 }

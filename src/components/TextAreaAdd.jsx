@@ -22,6 +22,7 @@ class TextAreaAdd extends React.Component {
         <label data-testid="rating-input-label" htmlFor="avaliaçao">
           Avaliação
           <input
+            name="rating"
             type="number"
             id="avaliaçao"
             data-testid="rating-input"
