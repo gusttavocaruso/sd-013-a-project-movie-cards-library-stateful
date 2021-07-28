@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Parte2 extends React.Component {
   render() {
-    const { storyline, onChange, rating, imagePath } = this.props;
+    const { storyline, onChange, rating, genre } = this.props;
     return (
       <div>
         <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -29,6 +29,26 @@ class Parte2 extends React.Component {
             onChange={ onChange }
           />
         </label>
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            id="genre"
+            name="genre"
+            value={ genre }
+            onChange={ onChange }
+            data-testid="genre-input"
+          >
+            <option value="action" name="genre" data-testid="genre-option">
+              Ação
+            </option>
+            <option value="comedy" name="genre" data-testid="genre-option">
+              Comédia
+            </option>
+            <option value="thriller" name="genre" data-testid="genre-option">
+              Suspense
+            </option>
+          </select>
+        </label>
       </div>
     );
   }
@@ -37,6 +57,7 @@ Parte2.propTypes = {
   storyline: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default Parte2;

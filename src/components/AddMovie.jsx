@@ -12,6 +12,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
   }
 
@@ -23,7 +24,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Parte1
@@ -35,6 +36,7 @@ class AddMovie extends React.Component {
         <Parte2
           storyline={ storyline }
           rating={ rating }
+          genre={ genre }
           onChange={ this.handleChange }
         />
       </form>
