@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import movies from '../data';
+import filme from '../data';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    
+
   }
 
   render() {
@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filme } />
         {/* <AddMovie />  */}
       </div>
     );
