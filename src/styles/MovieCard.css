@@ -1,26 +1,26 @@
 .movie-card-container {
-  min-height: 465px;
-  width: 390px;
-  background-color: whitesmoke;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
   align-items: center;
-  margin: 25px 0;
+  background-color: whitesmoke;
   border: 0;
   border-radius: 10px;
   box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  margin: 25px 0;
+  min-height: 465px;
+  width: 390px;
 }
 
 .movie-image {
-  width: 355px;
-  height: auto;
   border: 0;
   border-radius: 10px;
+  cursor: pointer;
+  height: auto;
   margin: 10px 0 0;
   transition: transform 0.5s ease;
   user-select: none;
-  cursor: pointer;
+  width: 355px;
 }
 
 .movie-image:hover {
@@ -29,11 +29,11 @@
 
 .h-rule {
   background-color: #a2a2a2;
-  height: 3px;
-  width: 130px;
   border: 0;
   border-radius: 6px;
+  height: 3px;
   margin: 5px 0;
+  width: 130px;
 }
 
 .movie-info {
@@ -61,6 +61,6 @@ h5 {
 }
 
 .subtitle {
-  font-size: 13px;
   color: #666;
+  font-size: 13px;
 }
