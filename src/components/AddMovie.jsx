@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NewMovieInputs from './NewMovieInputs';
-import NewMovieInputs2 from './NewMovieInputs2';
+import NewMovieInputs from './NewMovieInputs.jsx';
+import NewMovieInputs2 from './NewMovieInputs2.jsx';
 
 class AddMovie extends React.Component {
   constructor() {
