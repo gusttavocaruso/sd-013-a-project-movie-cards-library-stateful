@@ -17,7 +17,7 @@ class InputImage extends Component {
           id="imagePath"
           data-testid="image-input"
           onChange={ onChange }
-          imagePath={ imagePath }
+          value={ imagePath }
         />
       </label>
     );

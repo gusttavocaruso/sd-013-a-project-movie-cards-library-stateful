@@ -17,7 +17,7 @@ class InputRating extends Component {
           id="rating"
           data-testid="rating-input"
           onChange={ onChange }
-          rating={ rating }
+          value={ rating }
         />
       </label>
     );

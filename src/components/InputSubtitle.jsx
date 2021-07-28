@@ -17,7 +17,7 @@ class InputSubtile extends Component {
           id="subtitle"
           data-testid="subtitle-input"
           onChange={ onChange }
-          subtile={ subtitle }
+          value={ subtitle }
         />
       </label>
     );

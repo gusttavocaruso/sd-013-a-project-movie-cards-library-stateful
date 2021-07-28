@@ -5,48 +5,34 @@ class InputGenre extends Component {
   render() {
     const { genre, handleChange } = this.props;
 
-    <select
-    value={ selectedGenre }
-    onChange={ onSelectedGenreChange }
-    data-testid="select-input"
-  >
-    <option name="selectedGenre" value="" data-testid="select-option">
-      Todos
-    </option>
-    <option name="selectedGenre" value="action" data-testid="select-option">
-      Ação
-    </option>
-    <option name="selectedGenre" value="comedy" data-testid="select-option">
-      Comédia
-    </option>
-    <option name="selectedGenre" value="thriller" data-testid="select-option">
-      Suspense
-    </option>
-  </select>
-
-
-
     return (
       <label
-        htmlFor="rating"
-        data-testid="rating-input-label"
+        htmlFor="defineGenre"
+        data-testid="genre-input-label"
       >
-        Avaliação
-        <input
-          type="number"
-          name="rating"
-          id="rating"
-          data-testid="rating-input"
-          onClick={ handleChange }
+        Gênero
+        <select
           genre={ genre }
-        />
+          onChange={ handleChange }
+          data-testid="genre-input"
+        >
+          <option name="defineGenre" value="action" data-testid="genre-option">
+            Ação
+          </option>
+          <option name="defineGenre" value="comedy" data-testid="genre-option">
+            Comédia
+          </option>
+          <option name="defineGenre" value="thriller" data-testid="genre-option">
+            Suspense
+          </option>
+        </select>
       </label>
     );
   }
 }
 
-InputRating.propTypes = {
-  rating: PropTypes.string.isRequired,
+InputGenre.propTypes = {
+  genre: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

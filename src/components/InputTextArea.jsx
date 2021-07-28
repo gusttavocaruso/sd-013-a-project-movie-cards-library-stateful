@@ -17,7 +17,9 @@ class InputTextArea extends Component {
           id="imagePath"
           data-testid="storyline-input"
           onChange={ onChange }
+          value={ storyline }
           storyline={ storyline }
+
         />
       </label>
     );
