@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class InputText extends Component {
   render() {
-    const {
-      value, onChange } = this.props;
+    const { value, onChange } = this.props;
     return (
       <label
         htmlFor="searchText"
