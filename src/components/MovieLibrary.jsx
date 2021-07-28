@@ -42,13 +42,10 @@ class MovieLibrary extends Component {
         { movies: prevState.movies.filter((m) => m.genre === selectedGenre) }
       ));
     }
-
-    if (searchText === '' && !bookmarkedOnly && selectedGenre === '') {
-      this.setState({ movies: backupMovies });
-    }
   }
 
   handleChange = ({ target }) => {
+    const { backupMovies } = this.state;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -56,9 +53,12 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: backupMovies,
+    }, () => {
+      this.setState({ [name]: value }, () => this.filterMovies());
     });
-
-    this.setState({ [name]: value }, () => this.filterMovies());
+    // Coloquei um setState como callback do outro para garantir que o segundo só rode depois que o primeiro atualizar o state.
+    // Não consegui achar uma forma de utilizar o prevState no segundo setState,
   }
 
   addMov = (newMovie) => {
