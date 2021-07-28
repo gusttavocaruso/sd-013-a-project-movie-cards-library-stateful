@@ -3,7 +3,7 @@ import SearchInput from './SearchInput';
 
 class SearchBar extends React.Component {
   render() {
-    return ( 
+    return (
       <form data-testid="search-bar-form">
         <SearchInput />
       </form>
