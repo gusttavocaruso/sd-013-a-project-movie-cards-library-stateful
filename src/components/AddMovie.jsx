@@ -18,9 +18,13 @@ class AddMovie extends Component {
   // function aqui
 
   render() {
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <p>Teste</p>
+        <label htmlFor="aaa" data-testid="title-input-label" title={ title }>
+          Título
+          <input id="aaa" data-testid="title-input" />
+        </label>
       </form>
     );
   }
