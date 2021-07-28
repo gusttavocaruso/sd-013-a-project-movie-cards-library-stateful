@@ -20,8 +20,8 @@ body {
 }
 
 .movie-list {
-  display: flex;
   background-color: #ced4da;
+  display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   padding: 48px 30px;
