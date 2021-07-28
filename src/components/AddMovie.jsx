@@ -4,7 +4,6 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -46,6 +45,17 @@ class AddMovie extends React.Component {
             name="subtitle"
             onChange={ this.handleChange }
             data-testid="subtitle-input"
+          />
+        </label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            id="image-input"
+            value={ imagePath }
+            name="imagePath"
+            onChange={ this.handleChange }
+            data-testid="image-input"
           />
         </label>
       </form>
