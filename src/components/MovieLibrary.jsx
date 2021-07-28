@@ -26,7 +26,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange
         />
         <MovieList movies = { movies }  />
-        <AddMovie />
+        <AddMovie onClick/>
       </div>
     );
   }
