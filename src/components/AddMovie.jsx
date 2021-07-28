@@ -24,9 +24,9 @@ class AddMovie extends React.Component {
           Avaliação:
           <input type="text" />
         </label>
-        <label htmlFor="##">
+        <label htmlFor="##" data-testid="storyline-input-label">
           Sinopse:
-          <textarea cols="30" rows="5" />
+          <textarea cols="30" rows="5" data-testid="storyline-input" />
         </label>
       </form>
     );
