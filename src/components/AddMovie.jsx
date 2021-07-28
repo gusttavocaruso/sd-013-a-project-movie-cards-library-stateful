@@ -53,7 +53,7 @@ class AddMovie extends Component {
     } = this.state;
 
     return (
-      <form data-testeid="add-movie-form">
+      <form data-testid="add-movie-form">
         <Title title={ title } handleChange={ this.handleChange } />
         <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <Cartaz imagePath={ imagePath } handleChange={ this.handleChange } />
