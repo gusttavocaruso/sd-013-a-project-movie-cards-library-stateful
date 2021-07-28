@@ -9,11 +9,11 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar
-        searchText=""
-        onSearchTextChange="callback"
-        bookmarkedOnly="false"
-        onBookmarkedChange=""
-        onSelectedGenreChange="callback"
+        searchText="something"
+        // onSearchTextChange="callback"
+        // bookmarkedOnly="false"
+        // onBookmarkedChange=""
+        // onSelectedGenreChange="callback"
       />
     </div>
   );
