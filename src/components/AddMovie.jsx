@@ -18,6 +18,7 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.inputGenerator = this.inputGenerator.bind(this);
     this.inputRating = this.inputRating.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange({ target }) {
@@ -27,6 +28,22 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  resetState() {
+    document.querySelector('.my-form').reset();
+    const { onClick } = this.props;
+    onClick(this.state);
+    return (
+      this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      })
+    );
   }
 
   inputGenerator(name, type, id, test) {
@@ -68,7 +85,7 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="my-form">
         <label htmlFor="input-text2" data-testid="title-input-label">
           Título
           { this.inputGenerator('title', 'text', 'input-text2', 'title-input') }
@@ -97,6 +114,13 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.resetState }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
