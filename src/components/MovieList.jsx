@@ -51,9 +51,15 @@ MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
+  searchText: PropTypes.string,
+};
+
+MovieList.defaultProps = {
+  bookmarkedOnly: false,
+  selectedGenre: '',
+  searchText: '',
 };
 
 export default MovieList;
