@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import MovieStoryLine from './addcomponents/AddMovieStoryLine';
 import MovieRating from './addcomponents/AddMovieRating';
+import MovieGenre from './addcomponents/AddMovieGenre';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -23,7 +24,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { handleChange } = this;
     return (
       <forms data-testid="add-movie-form">
@@ -59,6 +60,7 @@ class AddMovie extends React.Component {
         </label>
         <MovieStoryLine value={ storyline } onChange={ handleChange } />
         <MovieRating value={ rating } onChange={ handleChange } />
+        <MovieGenre value={ genre } onChange={ handleChange } />
       </forms>
     );
   }
