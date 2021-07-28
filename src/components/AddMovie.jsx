@@ -10,13 +10,15 @@ class AddMovie extends React.Component {
       // imagePath: '',
       // storyLine: '',
       // rating: 0,
-      // genre: '',
+      // genre: 'action',
     };
   }
 
   render() {
     return (
-      <p>Add movie here</p>
+      <forms data-testid="add-movie-form">
+        Add movie here
+      </forms>
     );
   }
 }
