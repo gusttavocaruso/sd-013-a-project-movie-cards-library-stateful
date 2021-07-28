@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class extends React.Component {
+export default class SearchBar extends React.Component {
   render() {
     const {
       searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
@@ -48,3 +49,21 @@ export default class extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
+  onBookmarkedChange: PropTypes.func,
+  onSearchTextChange: PropTypes.func,
+  onSelectedGenreChange: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  searchText: '',
+  bookmarkedOnly: true,
+  selectedGenre: '',
+  onBookmarkedChange: 'function',
+  onSearchTextChange: 'function',
+  onSelectedGenreChange: 'function',
+};
