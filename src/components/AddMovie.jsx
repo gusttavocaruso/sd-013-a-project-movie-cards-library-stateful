@@ -15,6 +15,26 @@ class AddMovie extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+  }
+
+  addMovie() {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
   }
 
   handleChange( { target } ) { //desestruturando event.target
@@ -26,11 +46,11 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form" action="">
+      <form data-testid="add-movie-form" action="" onSubmit={ this.handleSubmit }>
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
           <input data-testid="title-input" name="title" type="text" value={ title } id="title-input" onChange={ this.handleChange } />
@@ -59,14 +79,14 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={ onClick } >Adicionar filme</button>
+        <button data-testid="send-button" onClick={ this.addMovie } >Adicionar filme</button>
       </form>
     );
   }
 }
 
-// AddMovie.PropTypes = {
-//   onClick: PropTypes.func,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+};
 
 export default AddMovie;
