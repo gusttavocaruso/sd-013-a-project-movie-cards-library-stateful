@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputGeneric from './InputGeneric';
 import TextArea from './TextArea';
+import SelectElement from './SelectElement';
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -54,6 +55,12 @@ export default class AddMovie extends React.Component {
           title={ rating }
           onChange={ onClick }
           datatestid={ ['rating-input-label', 'rating-input'] }
+        />
+        <SelectElement
+          descicao="Gênero"
+          title={ genre }
+          onChange={ onClick }
+          datatestid={ ['genre-input-label', 'genre-input', 'genre-option'] }
         />
       </form>
 
