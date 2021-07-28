@@ -1,7 +1,7 @@
 // implement MovieLibrary component hereimport React, { Component } from 'react';
 import React from 'react';
 import SearchBar from './SearchBar';
-import MovieLibrary from './MovieLibrary';
+
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class MovieLibrary extends React.Component {
       // selectedGenre: '',
       // movies: this.props.movies,
     };
-    onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
   onSearchTextChange = (event) => {
