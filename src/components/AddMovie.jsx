@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-import Title from './Title';
+import Parte1 from './Parte1';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -10,6 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     };
   }
 
@@ -21,21 +22,10 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline } = this.state;
+    const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Title title={ title } onChange={ this.handleChange } />
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            data-testid="subtitle-input"
-            subtitle={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Parte1 title={ title } onChange={ this.handleChange } subtitle={ subtitle } />
         <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
@@ -48,6 +38,7 @@ class AddMovie extends React.Component {
           />
         </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
           <textarea
             name="storyline"
             id=""
@@ -55,6 +46,17 @@ class AddMovie extends React.Component {
             rows="10"
             storyline={ storyline }
             data-testid="storyline-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="storyline" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name=""
+            id=""
+            rating={ rating }
+            data-testid="rating-input"
             onChange={ this.handleChange }
           />
         </label>
