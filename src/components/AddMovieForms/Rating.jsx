@@ -21,7 +21,10 @@ class Rating extends Component {
 
 Rating.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([ // https://stackoverflow.com/questions/41808428/react-proptypes-allow-different-types-of-proptypes-for-one-prop
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 export default Rating;

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 class SelectedGenre extends Component {
   render() {
-    const { checked, onChange } = this.props;
+    const { value, onChange } = this.props;
     return (
       <label htmlFor="selectedGenre" data-testid="select-input-label">
         Filtrar por gênero
         <select
           name="selectedGenre"
-          value={ checked }
+          value={ value }
           onChange={ onChange }
           data-testid="select-input"
         >
@@ -22,10 +22,10 @@ class SelectedGenre extends Component {
     );
   }
 }
-
+// https://stackoverflow.com/questions/49761473/getting-error-proptypes-is-not-defined-in-react
 SelectedGenre.propTypes = {
   onChange: PropTypes.func.isRequired,
-  checked: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default SelectedGenre;

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class BookMarked extends Component {
   render() {
-    const { value, onChange } = this.props;
+    const { checked, onChange } = this.props;
     return (
       <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
         Mostrar somente favoritos
         <input
           type="checkbox"
           name="bookmarkedOnly"
-          checked={ value }
+          checked={ checked }
           onChange={ onChange }
           data-testid="checkbox-input"
         />
@@ -21,7 +21,7 @@ class BookMarked extends Component {
 
 BookMarked.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
 };
 
 export default BookMarked;
