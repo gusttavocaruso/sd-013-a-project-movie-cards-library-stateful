@@ -21,7 +21,7 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.number,
+  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 Rating.defaultProps = {

@@ -38,32 +38,33 @@ class MovieCard extends React.Component {
 
   render() {
     const { movie } = this.props;
+    const { title, subtitle, storyline, rating } = movie;
     const { display } = this.state;
     return (
       <div className="movie-card-container" data-testid="movie-card">
         <img
           className="movie-image"
           src={ display }
-          alt={ movie.title }
+          alt={ title }
           onMouseOver={ this.handleHover }
           onMouseLeave={ this.handleLeave }
         />
         <hr className="h-rule" />
         <div className="movie-info">
           <span>
-            <h4>{ movie.title }</h4>
+            <h4 data-testid="movie-card-title">{ title }</h4>
           </span>
           <span className="subtitle">
             <h5>
-              { movie.subtitle }
+              { subtitle }
             </h5>
           </span>
           <span>
             <p>
-              { movie.storyline }
+              { storyline }
             </p>
           </span>
-          <Rating rating={ movie.rating } />
+          <Rating rating={ rating } />
         </div>
       </div>
     );
