@@ -8,6 +8,9 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -16,34 +19,52 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  handleChange = ({ target }) => {
-    const { name, value } = target;
+  onSearchTextChange({ target }) {
+    const { value } = target;
     this.setState({
-      [name]: value,
+      searchText: value,
     });
   }
 
-  onBookmarkedChange = (event) => {
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
+    });
+  }
+
+  onBookmarkedChange(event) {
     if (event.target.checked === true) {
-      this.setState((previousState) => ({
-        movies: previousState.movies.filter((movie) => movie.bookmarked === true),
-      }));
+      this.setState({
+        bookmarkedOnly: true,
+      });
+    } else {
+      this.setState({
+        bookmarkedOnly: false,
+      });
     }
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const filter = movies
+      .filter(({ title, storyline, subtitle }) => title.toLowerCase()
+        .includes(searchText.toLowerCase()) || storyline.toLowerCase()
+        .includes(searchText.toLowerCase()) || subtitle.toLowerCase()
+        .includes(searchText.toLowerCase()))
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : true))
+      .filter((movie) => movie.genre.includes(selectedGenre));
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filter } />
         <AddMovie />
       </div>
     );

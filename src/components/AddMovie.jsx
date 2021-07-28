@@ -44,12 +44,12 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="title" data-testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
             type="text"
             name="imagePath"
-            id="image"
+            id="imagePath"
             data-testid="image-input"
             imagePath={ imagePath }
             onChange={ this.handleChange }
