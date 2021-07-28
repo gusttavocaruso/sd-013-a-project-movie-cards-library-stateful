@@ -1,13 +1,10 @@
 header {
   align-items: center;
-  background: linear-gradient(90deg, rgba(42, 42, 42, 1) 0%,
-   rgba(49, 49, 49, 1) 20%,
-    rgba(49, 49, 49, 1) 80%,
-     rgba(45, 45, 45, 1) 100%);
+  background: #2a2a2a;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
   height: 60px;
+  justify-content: flex-start;
   width: 100%;
 }
 
