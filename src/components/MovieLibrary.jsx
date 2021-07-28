@@ -26,26 +26,26 @@ class MovieLibrary extends Component {
     });
   }
 
-  handleFilter = (movie) => {
-    const { bookmarkedOnly, searchText, selectedGenre } = this.state;
-    if (searchText) {
-      return movie.title.includes(searchText)
-       || movie.subtitle.includes(searchText)
-        || movie.storyline.includes(searchText);
-    }
+  // Step made with the help of Murilo Rainho
+  handleFilter = () => {
+    const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
+    const filteredMovies = movies
+      .filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
     if (bookmarkedOnly) {
-      return movie.bookmarked && movie.title.toLowerCase().includes(searchText);
+      return filteredMovies.filter((movie) => movie.bookmarked);
     }
     if (selectedGenre) {
-      return movie.genre === selectedGenre;
+      return filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
 
-    return movie;
+    return filteredMovies;
   }
 
   render() {
     // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -56,7 +56,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies.filter(this.handleFilter) } />
+        <MovieList movies={ this.handleFilter() } />
         <AddMovie />
       </div>
     );
