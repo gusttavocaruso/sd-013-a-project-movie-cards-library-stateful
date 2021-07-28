@@ -12,9 +12,13 @@ class AddMovie extends React.Component {
           Subtítulo:
           <input type="text" data-testid="subtitle-input" />
         </label>
-        <label htmlFor="##">
+        <label htmlFor="##" data-testid="genre-input-label">
           Gênero:
-          <input type="text" />
+          <select data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
         <label htmlFor="##" data-testid="image-input-label">
           Imagem:
