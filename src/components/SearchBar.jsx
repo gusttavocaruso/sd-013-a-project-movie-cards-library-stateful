@@ -5,7 +5,6 @@ class SearchBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      
     }
   }
   
@@ -23,15 +22,15 @@ class SearchBar extends Component {
           <input data-testid="text-input" 
             type="text" 
             value= { searchText }
-            onChange={onSearchTextChange} 
+            onChange={ onSearchTextChange } 
           />
         </label>
         <label data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input data-testid="checkbox-input"
             type="checkbox" 
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange} 
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange } 
           />
         </label>
         <label data-testid="select-input-label">
