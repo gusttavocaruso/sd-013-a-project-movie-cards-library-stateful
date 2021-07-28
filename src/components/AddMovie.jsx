@@ -22,6 +22,18 @@ class AddMovie extends Component {
   }
 
   // Função desenvolvida com a ajuda da pessoa estudante Luíza Antiques
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
@@ -93,6 +105,7 @@ class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+        <button type="submit" data-testid="send-button" onClick={ this.handleClick }>Adicionar filme</button>
       </form>
     );
   }
