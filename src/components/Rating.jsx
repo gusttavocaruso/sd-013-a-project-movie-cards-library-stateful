@@ -9,17 +9,23 @@ class Rating extends React.Component {
   render() {
     const { rating } = this.props;
     return (
-      <p>
-        <strong>Rating:</strong>
-        {' '}
-        <span className="rating">{rating}</span>
-      </p>
+      <div data-testid="rating">
+        <p>
+          <strong>Rating:</strong>
+          {' '}
+          <span className="rating">{rating}</span>
+        </p>
+      </div>
     );
   }
 }
 
 Rating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
+};
+
+Rating.defaultProps = {
+  rating: 'undefined',
 };
 
 export default Rating;

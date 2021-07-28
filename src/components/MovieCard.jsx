@@ -40,7 +40,7 @@ class MovieCard extends React.Component {
     const { movie } = this.props;
     const { display } = this.state;
     return (
-      <div className="movie-card-container">
+      <div className="movie-card-container" data-testid="movie-card">
         <img
           className="movie-image"
           src={ display }
@@ -75,7 +75,7 @@ MovieCard.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
-    rating: PropTypes.number,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
     preview: PropTypes.string,
   }).isRequired,

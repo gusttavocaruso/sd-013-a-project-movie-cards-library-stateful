@@ -19,12 +19,24 @@ class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.resetInputs = this.resetInputs.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  resetInputs() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -91,7 +103,7 @@ class AddMovie extends Component {
           />
         </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
-          genrem
+          Gênero
           <select
             name="genre"
             id="genre-input"
@@ -106,8 +118,8 @@ class AddMovie extends Component {
         </label>
         <button
           type="submit"
+          onClick={ this.resetInputs }
           data-testid="send-button"
-          onClick={ onClick }
         >
           Adicionar filme
         </button>

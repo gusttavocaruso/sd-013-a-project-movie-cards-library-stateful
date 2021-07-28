@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -58,13 +59,14 @@ class MovieLibrary extends Component {
         <MovieList
           movies={ movies }
         />
+        <AddMovie />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.array,
+  onClick: PropTypes.array,
 }.isRequired;
 
 export default MovieLibrary;
