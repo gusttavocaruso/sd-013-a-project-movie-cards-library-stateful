@@ -39,7 +39,7 @@ export default class MovieLibrary extends Component {
     });
   }
 
-// REQ 19
+  // REQ 19
   addMovie = (newMovie) => {
     this.setState((prevState) => ({
       movies: [...prevState.movies, newMovie], // Movies recebe o estado Anterior do array Filmes + o novoFilme = Aula Unindo componentes com estados e eventos dia 12.1
