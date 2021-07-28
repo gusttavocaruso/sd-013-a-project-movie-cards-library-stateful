@@ -127,6 +127,7 @@ class AddMovie extends React.Component {
           { this.renderImage() }
           { this.renderStoryline() }
           { this.renderRating() }
+          { this.renderGenre() }
         </form>
       </div>
     );
