@@ -16,3 +16,17 @@ export default class SelectElement extends React.Component {
     );
   }
 }
+
+SelectElement.propTypes = {
+  datatestid: PropTypes.arrayOf(PropTypes.string),
+  onChange: PropTypes.func,
+  descicao: PropTypes.string,
+  title: PropTypes.string,
+};
+
+SelectElement.defaultProps = {
+  datatestid: [],
+  onChange: '',
+  descicao: '',
+  title: '',
+};

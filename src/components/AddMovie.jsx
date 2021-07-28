@@ -24,21 +24,18 @@ export default class AddMovie extends React.Component {
     return (
       <form action="" data-testid="add-movie-form">
         <InputGeneric
-          type="text"
           descicao="Título"
           title={ title }
           onChange={ onClick }
           datatestid={ ['title-input-label', 'title-input'] }
         />
         <InputGeneric
-          type="text"
           descicao="Subtítulo"
           title={ subtitle }
           onChange={ onClick }
           datatestid={ ['subtitle-input-label', 'subtitle-input'] }
         />
         <InputGeneric
-          type="text"
           descicao="Imagem"
           title={ imagePath }
           onChange={ onClick }
@@ -53,7 +50,7 @@ export default class AddMovie extends React.Component {
         <InputGeneric
           type="number"
           descicao="Avaliação"
-          title={ rating }
+          title={ rating.toString() }
           onChange={ onClick }
           datatestid={ ['rating-input-label', 'rating-input'] }
         />
@@ -72,3 +69,11 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.defaultProps = {
+  onClick: '',
+};
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+};

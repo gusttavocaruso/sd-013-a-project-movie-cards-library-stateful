@@ -11,3 +11,15 @@ export default class Button extends React.Component {
     );
   }
 }
+
+Button.propTypes = {
+  datatestid: PropTypes.string,
+  onClick: PropTypes.func,
+  descricao: PropTypes.string,
+};
+
+Button.defaultProps = {
+  datatestid: '',
+  onClick: '',
+  descricao: '',
+};

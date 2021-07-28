@@ -16,3 +16,17 @@ export default class TextArea extends React.Component {
     );
   }
 }
+
+TextArea.propTypes = {
+  datatestid: PropTypes.arrayOf(PropTypes.string),
+  onChange: PropTypes.func,
+  descicao: PropTypes.string,
+  title: PropTypes.string,
+};
+
+TextArea.defaultProps = {
+  datatestid: [],
+  onChange: '',
+  descicao: '',
+  title: '',
+};
