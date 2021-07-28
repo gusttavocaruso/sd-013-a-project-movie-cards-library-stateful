@@ -1,7 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
-
-// import MovieList from './MovieList';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -31,5 +30,9 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(Object).isRequired,
+};
 
 export default MovieLibrary;
