@@ -1,8 +1,8 @@
-.search-bar-form{
+.search-bar-form {
   display: flex;
   flex-direction: row;
 }
 
 .search-bar-form label {
-  margin: 10px 10px;
+  margin: 10px;
 }
