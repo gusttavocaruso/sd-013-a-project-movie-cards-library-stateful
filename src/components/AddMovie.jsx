@@ -1,5 +1,4 @@
 // implement AddMovie component here
-// implement MovieLibrary component here
 import React, { Component } from 'react';
 
 class AddMovie extends Component {
@@ -15,6 +14,7 @@ class AddMovie extends Component {
       genre: 'action',
     }
     this.handleChange = this.handleChange.bind(this)
+    this.onClick = this.onClick.bind(this)
   }
 
   handleChange = ({ target }) => {
@@ -24,10 +24,23 @@ class AddMovie extends Component {
     })
   }
   
+  onClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
+      rating: 0,
+      genre: 'action', 
+     })
+  }
+
 
   render() {
-    const { onClick } = this.props
-    
+        
     return (
       <form data-testid = "add-movie-form">
         <label data-testid = "title-input-label">
@@ -79,13 +92,18 @@ class AddMovie extends Component {
           Gênero
           <select data-testid="genre-input"
             name = "genre" 
-            value = {this.state.genre} 
+            value = { this.state.genre } 
             onChange = { this.handleChange } >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+        <button data-testid="send-button"
+        onClick = { this.onClick } 
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

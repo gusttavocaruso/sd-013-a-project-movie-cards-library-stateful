@@ -22,7 +22,7 @@ class SearchBar extends Component {
           Inclui o texto:
           <input data-testid="text-input" 
             type="text" 
-            value={searchText}
+            value= { searchText }
             onChange={onSearchTextChange} 
           />
         </label>

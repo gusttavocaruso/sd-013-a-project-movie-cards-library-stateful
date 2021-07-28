@@ -9,7 +9,10 @@ class MovieLibrary extends Component {
    
   constructor(props) {
     super(props);
+    this.onClick = this.onClick.bind(this)
   }
+
+ 
 
   render() {
     const { movies } = this.props
@@ -18,7 +21,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar 
-          searchText
+          searchText 
           onSearchTextChange
           bookmarkedOnly
           onBookmarkedChange
@@ -26,7 +29,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange
         />
         <MovieList movies = { movies }  />
-        <AddMovie onClick/>
+        <AddMovie onClick />
       </div>
     );
   }
