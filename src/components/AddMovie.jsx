@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Avaliacao from './avaliacao';
 import Sinopse from './sinopse';
 import Subtitle from './subtitle';
@@ -32,8 +33,7 @@ class AddMovie extends Component {
   }
 
   handleClick() {
-    // const { onClick } = this.props;
-    // onClick(movies);
+    const { onClick } = this.props;
     this.setState({
       subtitle: '',
       title: '',
@@ -42,6 +42,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    onClick();
   }
 
   render() {
@@ -66,8 +67,8 @@ class AddMovie extends Component {
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
