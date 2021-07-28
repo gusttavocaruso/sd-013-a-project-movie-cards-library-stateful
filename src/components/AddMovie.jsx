@@ -2,29 +2,45 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      // subtitle: '',
+      title: '',
+      // imagePath: '',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
+    };
     this.handleChange = this.handleChange.bind(this);
-    // this.state = {
-    //   subtitle: '',
-    //   title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
-    //   genre: 'action',
-    // }
   }
 
-  handleChange = (event) => {
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
   }
 
   render() {
     // const { onClick } = this.props;
+    const { title } = this.state;
     return (
-      <form data-testid="add-movie-form" />
+      <form data-testid="add-movie-form">
+        <label
+          htmlFor="title"
+          data-testid="title-input-label"
+        >
+          Título
+          <input
+            type="text"
+            name="title"
+            value={ title }
+            data-testid="title-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+      </form>
     );
   }
 }
