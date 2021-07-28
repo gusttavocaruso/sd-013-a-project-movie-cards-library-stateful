@@ -7,13 +7,13 @@ class Sinopse extends Component {
 
     return (
       <label data-testid="storyline-input-label" htmlFor="sinopse">
-      Sinopse
-      <textarea
-        name="sinopse"
-        value={ storyline }
-        onChange={ handleChange }
-        data-testid="storyline-input"
-      />
+        Sinopse
+        <textarea
+          name="sinopse"
+          value={ storyline }
+          onChange={ handleChange }
+          data-testid="storyline-input"
+        />
     </label>
     );
   }

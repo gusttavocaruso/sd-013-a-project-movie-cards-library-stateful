@@ -7,15 +7,15 @@ class Cartaz extends Component {
 
     return (
       <label data-testid="image-input-label" htmlFor="img">
-          Imagem
-          <input
-            name="img"
-            type="text"
-            value={ imagePath }
-            onChange={ handleChange }
-            data-testid="image-input"
-          />
-        </label>
+        Imagem
+        <input
+          name="img"
+          type="text"
+          value={ imagePath }
+          onChange={ handleChange }
+          data-testid="image-input"
+        />
+      </label>
     );
   }
 }

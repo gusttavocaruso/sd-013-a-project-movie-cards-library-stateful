@@ -7,14 +7,14 @@ class Rotten extends Component {
 
     return (
       <label data-testid="rating-input-label" htmlFor="nota">
-          Avaliação
-          <input
-            name="nota"
-            type="number"
-            value={ rating }
-            onChange={ handleChange }
-          />
-        </label>
+        Avaliação
+        <input
+          name="nota"
+          type="number"
+          value={ rating }
+          onChange={ handleChange }
+        />
+      </label>
     );
   }
 }

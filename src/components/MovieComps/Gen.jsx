@@ -7,18 +7,18 @@ class Gen extends Component {
 
     return (
       <label data-testid="genre-input-label" htmlFor="gen">
-          Gênero
-          <select
-            name="gen"
-            value={ genre }
-            onChange={ handleChange }
-            data-testid="genre-input"
-          >
-            <option data-testeid="genre-option" value="action">Ação</option>
-            <option data-testeid="genre-option" value="comedy">Comédia</option>
-            <option data-testeid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        Gênero
+        <select
+          name="gen"
+          value={ genre }
+          onChange={ handleChange }
+          data-testid="genre-input"
+        >
+          <option data-testeid="genre-option" value="action">Ação</option>
+          <option data-testeid="genre-option" value="comedy">Comédia</option>
+          <option data-testeid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
     );
   }
 }

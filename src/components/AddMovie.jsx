@@ -54,15 +54,17 @@ class AddMovie extends Component {
 
     return (
       <form data-testeid="add-movie-form">
-        <Title title={ title } handleChange={ this.handleChange }/>
-        <Subtitle subtitle={ subtitle } handleChange={ this.handleChange }/>
-        <Cartaz imagePath={ imagePath } handleChange={ this.handleChange }/>
-        <Sinopse storyline={ storyline } handleChange={ this.handleChange }/>
-        <Rotten rating={ rating } handleChange={ this.handleChange }/>
-        <Gen genre={ genre } handleChange={ this.handleChange }/>
-        <button data-testid="send-button" type="button" onChange={ this.handleButton }>Adicionar filme</button>
+        <Title title={ title } handleChange={ this.handleChange } />
+        <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
+        <Cartaz imagePath={ imagePath } handleChange={ this.handleChange } />
+        <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
+        <Rotten rating={ rating } handleChange={ this.handleChange } />
+        <Gen genre={ genre } handleChange={ this.handleChange } />
+        <button data-testid="send-button" type="button" onChange={ this.handleButton }>
+          Adicionar filme
+        </button>
       </form>
-    )
+    );
   }
 }
 
