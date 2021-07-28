@@ -8,13 +8,13 @@ class Title extends Component {
     return (
       <label data-testid="title-input-label" htmlFor="title">
         Título
-          <input
-            name="title"
-            type="text"
-            value={ title }
-            onChange={ handleChange }
-            data-testid="title-input"
-          />
+        <input
+          name="title"
+          type="text"
+          value={ title }
+          onChange={ handleChange }
+          data-testid="title-input"
+        />
       </label>
     );
   }
