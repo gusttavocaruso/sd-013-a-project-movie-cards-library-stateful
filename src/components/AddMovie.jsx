@@ -1,9 +1,14 @@
 // implement AddMovie component here
 // https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html
 // https://imasters.com.br/front-end/mantendo-estados-de-componentes-no-react-com-state
-
+// Partes do handleChange, foi pego do código da aula ao vivo antes do projeto.
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import Title from './title';
+import Subtitle from './subtitle';
+import Imagem from './image';
+import Sinopse from './storyline';
+import Rate from './Rating';
 
 // const inicio = {
 //   subtitle: '',
@@ -27,45 +32,20 @@ class AddMovie extends React.Component {
   // }
 
   render() {
-    const { title, subtitle, imagePath } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title">
-          Título
-          <input
-            type="text"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
-            type="text"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image">
-          Imagem
-          <input
-            type="text"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Title />
+        <Subtitle />
+        <Imagem />
+        <Sinopse />
+        <Rate />
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-};
+// AddMovie.propTypes = {
+// // genre: PropTypes.string.isRequired,
+// };
 
 export default AddMovie;
