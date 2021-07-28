@@ -6,10 +6,15 @@ class TitleandSubtitle extends React.Component {
     const { title, subtitle, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="input-title" data-testid="title-input-label">
+        <label
+          htmlFor="input-title"
+          data-testid="title-input-label"
+          className="form-label"
+        >
           Título
           <input
             name="title"
+            className="form-control"
             id="input-title"
             type="text"
             value={ title }
@@ -17,10 +22,15 @@ class TitleandSubtitle extends React.Component {
             onChange={ handleChange }
           />
         </label>
-        <label htmlFor="input-subtitle" data-testid="subtitle-input-label">
+        <label
+          htmlFor="input-subtitle"
+          data-testid="subtitle-input-label"
+          className="form-label"
+        >
           Subtítulo
           <input
             name="subtitle"
+            className="form-control"
             type="text"
             id="input-subtitle"
             value={ subtitle }

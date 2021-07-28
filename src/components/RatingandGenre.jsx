@@ -6,10 +6,15 @@ class RatingandGenre extends React.Component {
     const { rating, genre, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="input-rating" data-testid="rating-input-label">
+        <label
+          htmlFor="input-rating"
+          data-testid="rating-input-label"
+          className="form-label"
+        >
           Avaliação
           <input
             name="rating"
+            className="form-control"
             type="number"
             id="input-rating"
             value={ rating }
@@ -17,10 +22,15 @@ class RatingandGenre extends React.Component {
             onChange={ handleChange }
           />
         </label>
-        <label htmlFor="select-genre" data-testid="genre-input-label">
+        <label
+          htmlFor="select-genre"
+          data-testid="genre-input-label"
+          className="form-label"
+        >
           Gênero
           <select
             name="genre"
+            className="form-select"
             id="select-genre"
             value={ genre }
             data-testid="genre-input"

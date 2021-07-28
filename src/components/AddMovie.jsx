@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TitleandSubtitle from './TitleandSubtitle';
 import ImageandSinopsis from './ImageandSinopsis';
 import RatingandGenre from './RatingandGenre';
+import './addMovie.css';
 
 const INICIAL_STATE = {
   subtitle: '',
@@ -60,6 +61,7 @@ class AddMovie extends React.Component {
         />
         <button
           type="button"
+          className="btn btn-dark"
           onClick={ this.handleButton }
           data-testid="send-button"
         >

@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './imageandSinopsis.css';
 
 class ImageandSinopsis extends React.Component {
   render() {
     const { imagePath, storyline, handleChange } = this.props;
     return (
-      <div>
-        <label htmlFor="input-image-path" data-testid="image-input-label">
+      <div className="image-sinopsis">
+        <label
+          htmlFor="input-image-path"
+          data-testid="image-input-label"
+          className="form-label"
+        >
           Imagem
           <input
             name="imagePath"
+            className="form-control"
             type="text"
             id="input-image-path"
             value={ imagePath }
@@ -17,10 +23,15 @@ class ImageandSinopsis extends React.Component {
             onChange={ handleChange }
           />
         </label>
-        <label htmlFor="text-area-storyline" data-testid="storyline-input-label">
+        <label
+          htmlFor="text-area-storyline"
+          data-testid="storyline-input-label"
+          className="form-label"
+        >
           Sinopse
           <textarea
             name="storyline"
+            className="form-control"
             id="text-area-storyline"
             value={ storyline }
             data-testid="storyline-input"

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SelectGenre from './SelectGenre';
+import './searchBar.css';
 
 class SearchBar extends React.Component {
   render() {
@@ -10,11 +12,16 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange } = this.props;
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor={ searchText } data-testid="text-input-label">
+      <form data-testid="search-bar-form" className="search-bar-form">
+        <label
+          htmlFor={ searchText }
+          data-testid="text-input-label"
+          className="form-label"
+        >
           Inclui o texto
           <input
             name="searchText"
+            className="form-control"
             id={ searchText }
             type="text"
             value={ searchText }
@@ -22,32 +29,28 @@ class SearchBar extends React.Component {
             data-testid="text-input"
           />
         </label>
-        <label htmlFor="input-checkbox" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            name="bookmarkedOnly"
-            id="input-checkbox"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
-        </label>
-        <label htmlFor="selectGenre" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            name="selectedGenre"
-            id="selectGenre"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
+        <div className="form-check">
+          <label
+            htmlFor="input-checkbox"
+            data-testid="checkbox-input-label"
+            className="form-check-label"
           >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+            Mostrar somente favoritos
+            <input
+              name="bookmarkedOnly"
+              className="form-check-input"
+              id="input-checkbox"
+              type="checkbox"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+              data-testid="checkbox-input"
+            />
+          </label>
+        </div>
+        <SelectGenre
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
