@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import InputList1 from './InputList1';
+import InputList2 from './InputList2';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,9 +10,9 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyLine: '',
-      // rating: 0,
-      // genre: 'action',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -27,55 +28,28 @@ class AddMovie extends React.Component {
       subtitle,
       title,
       imagePath,
-      // storyLine,
-      // rating,
-      // genre,
+      storyLine,
+      rating,
+      genre,
     } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="input-title-add" data-testid="title-input-label">
-          <input
-            id="input-title-add"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-          Título
-        </label>
-        <label htmlFor="input-subtitle-add" data-testid="subtitle-input-label">
-          <input
-            id="input-subtitle-add"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-          Subtítulo
-        </label>
-        <label htmlFor="input-image-add" data-testid="image-input-label">
-          <input
-            id="input-image-add"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-          Imagem
-        </label>
+        <InputList1
+          title={ title }
+          handleChange={ this.handleChange }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+        />
+        <InputList2
+          storyLine={ storyLine }
+          handleChange={ this.handleChange }
+          rating={ rating }
+          genre={ genre }
+        />
       </form>
     );
   }
 }
-
-// AddMovie.propTypes = {
-// //   subtitle: PropTypes.string,
-// //   title: PropTypes.string,
-// //   imagePath: PropTypes.string,
-// //   storyLine: PropTypes.string,
-// //   rating: PropTypes.number,
-// //   genre: PropTypes.string,
-// };
 
 export default AddMovie;
