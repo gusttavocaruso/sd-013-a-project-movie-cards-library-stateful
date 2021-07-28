@@ -39,12 +39,12 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
         />
-        <MovieLibrary 
+        {/* <MovieLibrary 
           movies={  }
           bookmarkedOnly={  }
           selectedGenre={  }
           searchText={  }
-        />
+        /> */}
       </div>
     );
   }
