@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 // implement MovieCard component here
 import React from 'react';
 
@@ -47,6 +45,7 @@ class MovieCard extends React.Component {
           src={ display }
           alt={ title }
           onMouseOver={ this.handleHover }
+          onFocus={ this.handleHover }
           onMouseLeave={ this.handleLeave }
         />
         <hr className="h-rule" />

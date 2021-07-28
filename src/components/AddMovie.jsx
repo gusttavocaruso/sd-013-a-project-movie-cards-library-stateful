@@ -1,10 +1,11 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // implement AddMovie component here
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
+
+import GenreInput from './GenreInput';
+import RatingInput from './RatingInput';
+import StorylineInput from './StorylineInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -80,41 +81,9 @@ class AddMovie extends Component {
             data-testid="image-input"
           />
         </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            id="storyline-input"
-            value={ storyline }
-            onChange={ this.handleChange }
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            id="rating-input"
-            value={ rating }
-            onChange={ this.handleChange }
-            data-testid="rating-input"
-          />
-        </label>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            id="genre-input"
-            value={ genre }
-            onChange={ this.handleChange }
-            data-testid="genre-input"
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <StorylineInput storyline={ storyline } handleChange={ this.handleChange } />
+        <RatingInput rating={ rating } handleChange={ this.handleChange } />
+        <GenreInput genre={ genre } handleChange={ this.handleChange } />
         <button
           type="submit"
           onClick={ this.onClick }
