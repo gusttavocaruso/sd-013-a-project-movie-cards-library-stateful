@@ -19,6 +19,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onBookmarkedChange = (event) => {
+    this.setState({
+      bookmarkedOnly: event.target.value,
+    });
+  }
+
   render() {
     console.log(this.state);
     return (
