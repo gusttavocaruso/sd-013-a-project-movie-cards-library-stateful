@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types'; */
 
 class AddMovie extends React.Component {
   constructor() {
@@ -58,14 +58,9 @@ render() {
             id="input-image"
           />
         </label>
-        <label htmlFor="input-storyline">
-          Storyline:
-          <input
-            type="text"
-            onChange={ this.HandleOnChange }
-            name="storyLine"
-            id="input-storyline"
-          />
+        <label htmlFor="input-storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea name="storyLine" onChange={ this.HandleOnChange } id="input-storyline" data-testid="storyline-input" cols="30" rows="10" />
         </label>
         <label htmlFor="input-rating">
           Rating:
