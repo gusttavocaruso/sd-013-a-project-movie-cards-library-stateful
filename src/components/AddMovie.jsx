@@ -61,7 +61,7 @@ class AddMovie extends React.Component {
 }
 
 // AddMovie.propTypes = {
-//   
+//
 // };
 
 export default AddMovie;
