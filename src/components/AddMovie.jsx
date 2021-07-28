@@ -9,7 +9,7 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action'
     };
   }
@@ -22,7 +22,7 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="inputTitulo" data-testid="title-input-label">
@@ -67,6 +67,17 @@ class AddMovie extends Component {
             cols="30" 
             rows="10"
             value={ storyline }
+            onChange={ this.handleChange}
+          />
+        </label>
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+          <input 
+            id="rating"
+            name="rating"
+            type="number"
+            data-testid="rating-input"
+            value={ rating }
             onChange={ this.handleChange}
           />
         </label>
