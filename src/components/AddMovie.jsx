@@ -140,7 +140,7 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        { this.title(title) } 
+        { this.title(title) }
         { this.subtitle(subtitle) }
         { this.imagePath(imagePath) }
         { this.storyline(storyline) }
@@ -152,8 +152,8 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.prototypes = {
-  onClick: PropTypes.func,
-}.isRequired;
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
