@@ -4,10 +4,10 @@
 // Partes do handleChange, foi pego do código da aula ao vivo antes do projeto.
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Title from './title';
-import Subtitle from './subtitle';
-import Imagem from './image';
-import Sinopse from './storyline';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Imagem from './Image';
+import Sinopse from './Storyline';
 import Rate from './Rating';
 
 // const inicio = {
