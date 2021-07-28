@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <AddMovie
-        onClick="uma callback"
+          onClick="uma callback"
         />
         <SearchBar
           searchText="uma string"

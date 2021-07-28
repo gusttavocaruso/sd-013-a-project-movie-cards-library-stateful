@@ -3,25 +3,25 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action'
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyline: '',
+  //     rating: 0,
+  //     genre: 'action',
+  //   };
+  // }
   render() {
-    return(
+    return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title">
+        {/* <label data-testid="title-input-label" htmlFor="title">
           Título
-        </label>
+        </label> */}
       </form>
-    )
+    );
   }
 }
 
