@@ -14,9 +14,9 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      storyLine: '',
-      rating: '',
-      genre: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -27,18 +27,17 @@ HandleOnChange = ((event) => {
 })
 
 render() {
-  const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+  const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+  const { onClick } = this.props;
   return (
-    <div>
-      <form data-testid="add-movie-form">
-        <TitleComp value={ title } onChange={ this.HandleOnChange } />
-        <SubtitleComp value={ subtitle } onChange={ this.HandleOnChange } />
-        <ImageComp value={ imagePath } onChange={ this.HandleOnChange } />
-        <StoryLineComp value={ storyLine } onChange={ this.HandleOnChange } />
-        <RatingComp value={ rating } onChange={ this.HandleOnChange } />
-        <GenreComp value={ genre } onChange={ this.HandleOnChange } />
-      </form>
-    </div>
+    <form data-testid="add-movie-form">
+      <TitleComp value={ title } onChange={ this.HandleOnChange } />
+      <SubtitleComp subtitle={ subtitle } onChange={ this.HandleOnChange } />
+      <ImageComp imagePath={ imagePath } onChange={ this.HandleOnChange } />
+      <StoryLineComp storyline={ storyline } onChange={ this.HandleOnChange } />
+      <RatingComp value={ rating } onChange={ this.HandleOnChange } />
+      <GenreComp value={ genre } onChange={ this.HandleOnChange } />
+    </form>
   );
 }
 }

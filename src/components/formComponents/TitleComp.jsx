@@ -5,7 +5,7 @@ class TitleComp extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="input-tite" data-testid="title-input-label">
+      <label htmlFor="input-title" data-testid="title-input-label">
         Título
         <input
           value={ value }

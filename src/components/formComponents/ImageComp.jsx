@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 class ImageComp extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { imagePath, onChange } = this.props;
     return (
       <label htmlFor="input-image" data-testid="image-input-label">
         Imagem
         <input
-          value={ value }
+          value={ imagePath }
           data-testid="image-input"
           type="text"
           onChange={ onChange }
@@ -21,12 +21,12 @@ class ImageComp extends React.Component {
 }
 
 ImageComp.propTypes = {
-  value: PropTypes.string,
+  imagePath: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 ImageComp.defaultProps = {
-  value: '',
+  imagePath: '',
   onChange: '',
 };
 

@@ -5,7 +5,7 @@ class GenreComp extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label data-testid="rating-input-label" htmlFor="input-genre">
+      <label data-testid="genre-input-label" htmlFor="input-genre">
         Gênero
         <select
           value={ value }
