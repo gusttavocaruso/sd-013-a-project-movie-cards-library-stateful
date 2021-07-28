@@ -13,6 +13,7 @@ function App() {
         // onSearchTextChange="callback"
         // bookmarkedOnly="false"
         // onBookmarkedChange=""
+        // selectedGenre=""
         // onSelectedGenreChange="callback"
       />
     </div>
