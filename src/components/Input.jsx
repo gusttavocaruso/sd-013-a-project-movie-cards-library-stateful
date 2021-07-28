@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class Input extends React.Component {
   render() {
     const { item, change } = this.props;
-
     if (item.id !== 'storyline' && item.id !== 'genre') {
       return (
         <label htmlFor={ item.id } data-testid={ `${item.id}-input-label` }>
@@ -29,6 +28,8 @@ class Input extends React.Component {
             id={ item.id }
             data-testid={ `${item.id}-input` }
             style={ { width: '100%' } }
+            onChange={ change }
+            value={ item.value }
           />
         </label>);
     }
@@ -40,8 +41,9 @@ class Input extends React.Component {
           <select
             name={ item.id }
             data-testid={ `${item.id}-input` }
-            onClick={ change }
             style={ { width: '100%' } }
+            onChange={ change }
+            value={ item.value }
           >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>

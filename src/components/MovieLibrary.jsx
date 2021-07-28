@@ -21,7 +21,7 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-      filterdList: props.movies,
+      // filterdList: props.movies,
     };
   }
 
@@ -70,6 +70,7 @@ class MovieLibrary extends React.Component {
       selectedGenre,
       movies,
     } = this.state;
+    // console.log(selectedGenre);
 
     const {
       onSearchTextChange,
@@ -78,7 +79,7 @@ class MovieLibrary extends React.Component {
       onSubmitForm,
     } = this;
 
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <>
@@ -91,7 +92,14 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList
-          movies={ movies }
+          movies={ movies.filter((movie) => movie.title.toLowerCase()
+            .includes(searchText.toLowerCase()) || movie.storyline.toLowerCase()
+            .includes(searchText.toLowerCase()) || movie.subtitle.toLowerCase()
+            .includes(searchText.toLowerCase()))
+            .filter((movie) => movie.genre.includes(selectedGenre))
+            .filter((movie) => (
+              bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : movie
+            )) }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }

@@ -50,15 +50,13 @@ class AddMovie extends React.Component {
       { value: rating, id: 'rating', label: 'Avaliação' },
       { value: genre, id: 'genre', label: 'Gênero' },
     ];
+    // console.log(storyline);
 
     return (
       <form
         action="#"
         method="post"
         data-testid="add-movie-form"
-        // onSubmit={ (event) => {
-        //   onClick(event, { title, subtitle, imagePath, storyline, rating, genre });
-        // } }
         style={ { display: 'flex', flexDirection: 'column', padding: '1rem 3rem' } }
       >
         {inputs.map((input) => (
@@ -67,6 +65,7 @@ class AddMovie extends React.Component {
             item={ input }
             change={ this.handleChange }
           />))}
+
         <button
           type="submit"
           data-testid="send-button"
