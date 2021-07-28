@@ -29,9 +29,9 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange({ target }) {
-    const { value } = target;
+    const { checked } = target;
     this.setState({
-      bookmarkedOnly: value,
+      bookmarkedOnly: checked,
     });
   }
 
@@ -75,7 +75,9 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf({}).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
 };
 
 export default MovieLibrary;

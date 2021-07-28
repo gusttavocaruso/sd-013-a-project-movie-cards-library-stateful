@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class RartingInput extends Component {
+class RatingInput extends Component {
   render() {
     const { rating, handleChange } = this.props;
     return (
@@ -19,9 +19,9 @@ class RartingInput extends Component {
   }
 }
 
-RartingInput.propTypes = {
-  rating: PropTypes.string.isRequired,
+RatingInput.propTypes = {
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
-export default RartingInput;
+export default RatingInput;

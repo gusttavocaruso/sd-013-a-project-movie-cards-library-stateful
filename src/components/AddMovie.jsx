@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GenreSelector from './GenreSelector';
 import ImageInput from './ImageInput';
-import RartingInput from './RartingInput';
+import RatingInput from './RatingInput';
 import StoryLine from './StoryLine';
 import SubtitleInput from './SubtitleInput';
 import TitleInput from './TitleInput';
@@ -48,7 +48,7 @@ class AddMovie extends Component {
         <SubtitleInput subtitle={ subtitle } handleChange={ this.handleChange } />
         <ImageInput imagePath={ imagePath } handleChange={ this.handleChange } />
         <StoryLine storyline={ storyline } handleChange={ this.handleChange } />
-        <RartingInput rating={ rating } handleChange={ this.handleChange } />
+        <RatingInput rating={ rating } handleChange={ this.handleChange } />
         <GenreSelector genre={ genre } handleChange={ this.handleChange } />
         <ButtonAdd addNewMovie={ this.addNewMovie } />
       </form>
