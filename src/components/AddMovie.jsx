@@ -20,9 +20,9 @@ class AddMovie extends React.Component {
           Imagem:
           <input type="text" data-testid="image-input" />
         </label>
-        <label htmlFor="##">
+        <label htmlFor="##" data-testid="rating-input-label">
           Avaliação:
-          <input type="text" />
+          <input type="number" data-testid="rating-input" />
         </label>
         <label htmlFor="##" data-testid="storyline-input-label">
           Sinopse:
