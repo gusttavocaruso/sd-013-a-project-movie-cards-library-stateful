@@ -7,17 +7,17 @@ class AddMovie extends Component {
     this.state = {
       subtitle: '',
       title: '',
-      imagePath:'',
-      storyline:'',
-      rating:0,
-      genre:'action'
-    }
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action'
+    };
   }
+
   render() {
     const { onClick } = this.props;
     return (
-      <form action="">
-
+      <form data-testid="add-movie-form">
       </form>
     );
   }
