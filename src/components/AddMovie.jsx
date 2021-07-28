@@ -12,6 +12,7 @@ class AddMovie extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -31,7 +32,17 @@ class AddMovie extends Component {
   }
 
   handleClick() {
-    console.log('testa HandleClick');
+    const { onClick } = this.props;
+    const { movie } = this.state;
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    onClick(movie);
   }
 
   render() {
@@ -50,10 +61,14 @@ class AddMovie extends Component {
         <Sinopse handleChange={ this.handleChange } storyline={ storyline } />
         <Avaliacao handleChange={ this.handleChange } rating={ rating } />
         <Genero handleChange={ this.handleChange } genre={ genre } />
-        <Button handleClick={ this.handleClick } />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
