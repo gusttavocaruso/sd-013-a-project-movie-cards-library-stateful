@@ -11,6 +11,7 @@ class Rotten extends Component {
         <input
           name="nota"
           type="number"
+          data-testid="rating-input"
           value={ rating }
           onChange={ handleChange }
         />
