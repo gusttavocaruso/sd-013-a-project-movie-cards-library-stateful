@@ -4,20 +4,20 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
-
 class MovieLibrary extends React.Component {
-    constructor(props) {
-      super(props);
-      const { movies } = this.props;
-  
-      this.state = {
-        searchText: '',
-        bookmarkedOnly: false,
-        selectedGenre: '',
-        movies,
-      };
-    }
-render() {
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+  }
+
+  render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
@@ -32,7 +32,8 @@ render() {
         <MovieList
           movies={ movies }
         />
-        <AddMovie onClick={ this.onClick } 
+        <AddMovie
+          onClick={ this.onClick }
         />
       </div>
     );
@@ -43,4 +44,4 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf().isRequired,
 };
 
-export default MovieLibrary
+export default MovieLibrary;
