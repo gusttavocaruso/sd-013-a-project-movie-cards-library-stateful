@@ -11,7 +11,9 @@ class MovieLibrary extends React.Component {
         return (
             <SearchBar />
             <MovieList />
-            <AddMovie />
+            <AddMovie onChange={}/>
         );
     };
 }
+
+export default MovieLibrary;
