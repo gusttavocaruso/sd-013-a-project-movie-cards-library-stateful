@@ -16,9 +16,9 @@ class AddMovie extends React.Component {
           Gênero:
           <input type="text" />
         </label>
-        <label htmlFor="##">
+        <label htmlFor="##" data-testid="image-input-label">
           Imagem:
-          <input type="text" />
+          <input type="text" data-testid="image-input" />
         </label>
         <label htmlFor="##">
           Avaliação:
