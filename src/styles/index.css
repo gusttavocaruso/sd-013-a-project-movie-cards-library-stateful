@@ -1,7 +1,5 @@
 body {
-  -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system , BlinkMacSystemFont , Roboto , sans-serif;
-  -webkit-font-smoothing: antialiased;
   margin: 0;
 }
 
