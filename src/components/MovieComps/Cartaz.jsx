@@ -25,4 +25,4 @@ Cartaz.propTypes = {
   handleChange: PropTypes.func.isRequired,
 };
 
-export default Cartas;
+export default Cartaz;
