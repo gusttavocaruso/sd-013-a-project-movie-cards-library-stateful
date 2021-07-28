@@ -14,7 +14,7 @@ class Sinopse extends Component {
           onChange={ handleChange }
           data-testid="storyline-input"
         />
-    </label>
+      </label>
     );
   }
 }

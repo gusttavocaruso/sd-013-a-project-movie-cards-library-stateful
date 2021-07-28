@@ -15,7 +15,7 @@ class Subtitle extends Component {
           onChange={ handleChange }
           data-testid="subtitle-input"
         />
-    </label>
+      </label>
     );
   }
 }
