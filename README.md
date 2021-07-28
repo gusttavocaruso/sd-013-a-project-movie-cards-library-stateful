@@ -616,7 +616,9 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - Cada `option` deve conter o atributo `data-testid="genre-option"`
 
-**O que será verificado:**
+**O que será verificado:**  <RatingInput rating={ rating } handleChange={ this.handleChange } />
+        <GenreSelector genre={ genre } handleChange={ this.handleChange } />
+        <ButtonAdd addNewMovie={ this.addNewMovie } />
   - Será validado se o componente renderiza um select com 3 opções de genero de filme
   - Será validado se o componente renderiza a label "Gênero" para o select de gênero
   - Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller
