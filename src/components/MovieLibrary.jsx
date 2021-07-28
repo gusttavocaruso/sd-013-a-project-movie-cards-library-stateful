@@ -1,19 +1,20 @@
 // implement MovieLibrary component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies,
     };
   }
 
@@ -42,13 +43,14 @@ class MovieLibrary extends React.Component {
     // https://stackoverflow.com/questions/26253351/correct-modification-of-state-arrays-in-react-js
     // Solução para modificar um array no state
     // Tem outros métodos não entendi a causa de arrayvar: [...prevState.arrayvar, newelement] não funcionar
+    const { movies } = this.state;
     this.setState({
-      movies: this.state.movies.concat([movie]),
+      movies: movies.concat([movie]),
     });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -59,12 +61,20 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ this.state.movies } searchText={ searchText }
-          bookmarkedOnly= { bookmarkedOnly } selectedGenre={ selectedGenre }/>
-        <AddMovie onClick={ this.onClickAddMovie }/>
+        <MovieList
+          movies={ movies }
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+        />
+        <AddMovie onClick={ this.onClickAddMovie } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;

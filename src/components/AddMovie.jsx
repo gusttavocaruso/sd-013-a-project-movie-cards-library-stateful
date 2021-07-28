@@ -1,6 +1,8 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import Field from './Field';
+import { fields } from '../data';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -36,58 +38,65 @@ class AddMovie extends React.Component {
     });
   }
 
+  createField(data, value, onChange) {
+    const { labelTestId, htmlFor, text, type, id, name, inputTestId } = data;
+    return (
+      <Field
+        labelTestId={ labelTestId }
+        htmlFor={ htmlFor }
+        text={ text }
+        type={ type }
+        id={ id }
+        name={ name }
+        inputTestId={ inputTestId }
+        value={ value }
+        onChange={ onChange }
+      />
+    );
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Field labelTestId="title-input-label" htmlFor="titulo"
-          text="Título" type="text" id="titulo" name="title" inputTestId="title-input"
-          value={ title } onChange={ this.onChangeText } />
-        <label data-testid="subtitle-input-label" htmlFor="subTitulo">
-          Subtítulo
-          <input
-            type="text"
-            id="subTitulo"
-            name="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
+        { this.createField(fields[0], title, this.onChangeText) }
+        { this.createField(fields[1], subtitle, this.onChangeText) }
+        { this.createField(fields[2], imagePath, this.onChangeText) }
+        <label data-testid="storyline-input-label" htmlFor="sinopse">
+          Sinopse
+          <textarea
+            id="sinopse"
+            name="storyline"
+            data-testid="storyline-input"
+            value={ storyline }
             onChange={ this.onChangeText }
           />
         </label>
-        <label data-testid="image-input-label" htmlFor="imagem">
-          Imagem
-          <input
-            type="text"
-            id="imagem"
-            name="imagePath"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.onChangeText } 
-          />
-        </label>
-        <label data-testid="storyline-input-label">Sinopse
-          <textarea name='storyline' data-testid="storyline-input"
-            value={ storyline } onChange={ this.onChangeText }>
-          </textarea>
-        </label>
-        <label data-testid="rating-input-label">Avaliação
-          <input type='number' name='rating' data-testid="rating-input"
-            value={ rating } onChange={ this.onChangeText }/>
-        </label>
-        <label data-testid="genre-input-label">Gênero
-          <select data-testid="genre-input" name='genre'
-            value={ genre } onChange={ this.onChangeText }>
-            <option data-testid="genre-option" value='action'>Ação</option>
-            <option data-testid="genre-option" value='comedy'>Comédia</option>
-            <option data-testid="genre-option" value='thriller'>Suspense</option>
+        { this.createField(fields[3], rating, this.onChangeText) }
+        <label data-testid="genre-input-label" htmlFor="genero">
+          Gênero
+          <select
+            data-testid="genre-input"
+            id="genero"
+            name="genre"
+            value={ genre }
+            onChange={ this.onChangeText }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={ this.onClickAddMovie }>
+        <button type="submit" data-testid="send-button" onClick={ this.onClickAddMovie }>
           Adicionar filme
-        </button>    
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
