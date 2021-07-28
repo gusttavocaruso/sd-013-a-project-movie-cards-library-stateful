@@ -4,10 +4,9 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
+      searchText, onSearchTextChange,
+      bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
       <div>
@@ -36,7 +35,13 @@ class SearchBar extends React.Component {
           </label>
           <label htmlFor="selectInput" data-testid="select-input-label">
             Filtrar por gênero
-            <select name="selectInput" id="selectInput" data-testid="select-input">
+            <select
+              name="selectInput"
+              id="selectInput"
+              data-testid="select-input"
+              onChange={ onSelectedGenreChange }
+              value={ selectedGenre }
+            >
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
               <option value="comedy" data-testid="select-option">Comédia</option>
