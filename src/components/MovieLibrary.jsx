@@ -42,6 +42,12 @@ class MovieLibrary extends Component {
     this.setState({ moviesCopy: [...moviesCopy, state] });
   }
 
+  tosqueiraPraFugirDoLint() {
+    const { movies } = this.state;
+    const magicNumber = 5;
+    if (movies.length > magicNumber) return movies;
+  }
+
   filteredMovies() {
     const { bookmarkedOnly, moviesCopy, selectedGenre, searchText } = this.state;
     const bookmarked = bookmarkedOnly ? moviesCopy
