@@ -5,7 +5,7 @@ class MovieLibrary extends React.Component {
   render() {
     // const { movies } = this.props;
     return (
-      <AddMovie />
+      <AddMovie onClick={ () => {} } />
     );
   }
 }
