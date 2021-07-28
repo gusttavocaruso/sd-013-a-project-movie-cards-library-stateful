@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputSelect extends React.Component {
   render() {
@@ -14,8 +15,8 @@ class InputSelect extends React.Component {
           name={ name }
           id={ name }
         >
-          {options.map((option) => (
-            <option data-testid="select-option" value={ option.value }>
+          {options.map((option, index) => (
+            <option key={ index } data-testid="select-option" value={ option.value }>
               {option.text}
             </option>
           ))}
@@ -24,5 +25,13 @@ class InputSelect extends React.Component {
     );
   }
 }
+
+InputSelect.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default InputSelect;
