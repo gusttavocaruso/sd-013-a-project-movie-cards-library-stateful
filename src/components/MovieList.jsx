@@ -28,7 +28,7 @@ class MovieList extends React.Component {
       }
     };
 
-    filterMovie();
+    if (bookmarkedOnly || selectedGenre || searchText) filterMovie();
 
     let arrayMovies;
     if (filteredList) {
