@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import inputImage from './InputImage';
+import InputImage from './InputImage';
 import InputStoryLine from './InputStoryLine';
-import inputSubTitle from './InputSubTitle';
+import InputSubTitle from './InputSubTitle';
 import InputTitle from './InputTitle';
 import RatingForm from './RatingForm';
 import SelectedGenre from './SelectedGenre';
@@ -50,12 +50,11 @@ export default class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <InputTitle value={ title } onChange={ this.inputMovie } />
-          <inputSubTitle value={ subtitle } onChange={ this.inputMovie } />
-          <inputImage value={ imagePath } onChange={ this.inputMovie } />
+          <InputSubTitle value={ subtitle } onChange={ this.inputMovie } />
+          <InputImage value={ imagePath } onChange={ this.inputMovie } />
           <InputStoryLine value={ storyline } onChange={ this.inputMovie } />
           <RatingForm value={ rating } onChange={ this.inputMovie } />
           <SelectedGenre value={ genre } onChange={ this.inputMovie } />
-
           <button
             type="button"
             data-testid="send-button"

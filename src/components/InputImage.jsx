@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class inputImage extends Component {
+export default class InputImage extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
@@ -23,7 +23,7 @@ export default class inputImage extends Component {
   }
 }
 
-inputImage.propTypes = {
+InputImage.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
