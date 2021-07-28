@@ -4,7 +4,9 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        ABC
+        <form action="" data-testid="search-bar-form">
+          <span>something</span>
+        </form>
       </div>
     );
   }
