@@ -39,6 +39,9 @@ class MovieLibrary extends React.Component {
   }
 
   onClickAddMovie = (movie) => {
+    // https://stackoverflow.com/questions/26253351/correct-modification-of-state-arrays-in-react-js
+    // Solução para modificar um array no state
+    // Tem outros métodos não entendi a causa de arrayvar: [...prevState.arrayvar, newelement] não funcionar
     this.setState({
       movies: this.state.movies.concat([movie]),
     });
