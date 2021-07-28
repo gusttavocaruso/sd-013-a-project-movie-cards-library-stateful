@@ -5,30 +5,37 @@ import MovieCard from './MovieCard';
 class MovieList extends React.Component {
   render() {
     const { movies, bookmarkedOnly, selectedGenre, searchText } = this.props;
+    let filteredList;
+
+    const filterMovie = () => {
+      if (bookmarkedOnly) {
+        filteredList = movies
+          .filter((movie) => movie.bookmarked);
+      }
+      if (selectedGenre !== '') {
+        filteredList = movies
+          .filter((movie) => movie.genre === selectedGenre);
+      }
+      if (searchText !== '') {
+        filteredList = movies
+          .filter((movie) => {
+            const exp1 = movie.subtitle.includes(searchText);
+            const exp2 = movie.storyline.includes(searchText);
+            const exp3 = movie.title.includes(searchText);
+            if (exp1 || exp2 || exp3) return movie;
+            return false;
+          });
+      }
+    };
+
+    filterMovie();
+
     let arrayMovies;
-    arrayMovies = movies
-      .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-    if (bookmarkedOnly) {
-      arrayMovies = movies
-        .filter((movie) => movie.bookmarked)
+    if (filteredList) {
+      arrayMovies = filteredList
         .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-    }
-
-    if (selectedGenre !== '') {
+    } else {
       arrayMovies = movies
-        .filter((movie) => movie.genre === selectedGenre)
-        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-    }
-
-    if (searchText !== '') {
-      arrayMovies = movies
-        .filter((movie) => {
-          const exp1 = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
-          const exp2 = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
-          const exp3 = movie.title.toLowerCase().includes(searchText.toLowerCase());
-          if (!exp1 && !exp2 && !exp3) return null;
-          return movie;
-        })
         .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
     }
 
