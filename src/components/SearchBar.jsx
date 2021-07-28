@@ -1,7 +1,7 @@
 // implement SearchBar component here
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   // constructor(props) {
@@ -12,16 +12,32 @@ class SearchBar extends React.Component {
   // }
 
   render() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
-      <form data-testid="search-bar-form">SearchBar</form>
+      // searchText={ props.searchText } -> searchText="uma string" -> const { searchText }=this.props
+      // onSearchTextChange={ props.onSearchTextChange }
+      // bookmarkedOnly={ props.bookmarkedOnly }
+      // onBookmarkedChange={ props.onBookmarkedChange }
+      // selectedGenre={ props.selectedGenre }
+      // onSelectedGenreChange={ props.onSelectedGenreChange }
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="input">
+          Inclui o texto:
+          <input
+            type="text"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+      </form>
     );
-    // searchText={ props.searchText } -> searchText="uma string";
-    // onSearchTextChange={ props.onSearchTextChange }
-    // bookmarkedOnly={ props.bookmarkedOnly }
-    // onBookmarkedChange={ props.onBookmarkedChange }
-    // selectedGenre={ props.selectedGenre }
-    // onSelectedGenreChange={ props.onSelectedGenreChange }
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
