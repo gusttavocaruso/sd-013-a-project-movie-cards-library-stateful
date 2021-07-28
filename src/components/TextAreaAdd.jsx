@@ -51,6 +51,8 @@ class TextAreaAdd extends React.Component {
 TextAreaAdd.propTypes = {
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  storyline: PropTypes.string.isRequired,
 };
 
 export default TextAreaAdd;

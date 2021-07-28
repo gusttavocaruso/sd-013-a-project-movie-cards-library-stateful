@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TextAreaAdd from './TextAreaAdd';
 import Button from './Button';
 
@@ -25,7 +24,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onChange } = this.props;
     const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
     return (
       <section>

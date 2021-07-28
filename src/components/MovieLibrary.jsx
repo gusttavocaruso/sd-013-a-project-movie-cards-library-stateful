@@ -7,16 +7,19 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.setState = {
+      title: '',
+    };
   }
 
   render() {
     return (
-      <div>
+      <section>
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
         <AddMovie />
-      </div>
+      </section>
     );
   }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 
 class Button extends React.Component {
   render() {
-    const { handleChange, callBack } = this.props;
     return (
       <div>
         <button
@@ -15,5 +14,10 @@ class Button extends React.Component {
     );
   }
 }
+
+//   Button.propTypes = {
+//   handleChange: PropTypes.func.isRequired,
+//   callBack: PropTypes.func.isRequired,
+// };
 
 export default Button;
