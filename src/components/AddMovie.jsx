@@ -14,19 +14,34 @@ class AddMovie extends Component {
     };
   }
 
-  // function aqui
+  // Função desenvolvida com a ajuda do repósitório de aulas da T13A no dia 12.2
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="aaa" data-testid="title-input-label" title={ title }>
           Título
-          <input id="aaa" data-testid="title-input" />
+          <input name="title" id="aaa" data-testid="title-input" onChange={ this.handleChange } />
         </label>
         <label htmlFor="bbb" data-testid="subtitle-input-label" subtitle={ subtitle }>
           Subtítulo
-          <input id="bbb" data-testid="subtitle-input" />
+          <input name="subtitle" id="bbb" data-testid="subtitle-input" onChange={ this.handleChange } />
+        </label>
+        <label htmlFor="ccc" data-testid="image-input-label" imagePath={ imagePath }>
+          Imagem
+          <input name="imagePath" id="ccc" data-testid="image-input" onChange={ this.handleChange } />
+        </label>
+
+        <label htmlFor="ddd" data-testid="storyline-input-label" storyline={ storyline }>
+          Sinopse
+          <textarea name="storyline" data-testid="storyline-input" onChange={ this.handleChange } />
+
         </label>
       </form>
     );
