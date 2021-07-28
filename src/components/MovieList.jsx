@@ -4,7 +4,12 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.props;
+    const {
+      movies,
+      bookmarkedOnly = false,
+      selectedGenre = '',
+      searchText = '',
+    } = this.props;
     let filteredList;
 
     const filterMovie = () => {
