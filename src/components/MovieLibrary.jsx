@@ -15,26 +15,8 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    // this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
-    // this.handleBookmarkChange = this.handleBookmarkChange.bind(this);
-    // this.handleGenreChange = this.handleGenreChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
-  /*   handleSearchTextChange(e) {
-    console.log('searchText', e);
-    this.setState({ searchText: e.target.value });
-  }
-
-  handleBookmarkChange(e) {
-    console.log('handleBookmarkChange', e);
-    this.setState({ bookmarkedOnly: e.target.value });
-  }
-
-  handleGenreChange(e) {
-    console.log('handleGenreChange', e);
-    this.setState({ selectedGenre: e.target.value });
-  } */
 
   handleChange({ target: { name, value } }) {
     this.setState({
