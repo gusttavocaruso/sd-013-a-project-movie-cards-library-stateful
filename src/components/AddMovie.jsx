@@ -62,9 +62,10 @@ render() {
           Sinopse
           <textarea name="storyLine" onChange={ this.HandleOnChange } id="input-storyline" data-testid="storyline-input" cols="30" rows="10" />
         </label>
-        <label htmlFor="input-rating">
+        <label data-testid="rating-input-label" htmlFor="input-rating">
           Rating:
           <input
+            data-testid="rating-input"
             type="number"
             onChange={ this.HandleOnChange }
             name="rating"
