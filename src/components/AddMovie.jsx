@@ -30,6 +30,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
+
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -40,9 +42,24 @@ class AddMovie extends React.Component {
         <AddStoryline value={ storyline } handleChange={ this.handleChange } />
         <AddRating value={ rating } handleChange={ this.handleChange } />
         <AddGenre value={ genre } handleChange={ this.handleChange } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ onClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+};
+
+AddMovie.defaultProps = {
+  onClick: undefined,
+};
 
 export default AddMovie;
