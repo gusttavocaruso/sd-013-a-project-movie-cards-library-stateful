@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputGeneric from './InputGeneric';
@@ -18,51 +19,74 @@ export default class AddMovie extends React.Component {
     };
   }
 
+  hanbleOnSubmit = (e) => {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  hanbleChange = (e) => {
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form action="" data-testid="add-movie-form">
         <InputGeneric
           descicao="Título"
           title={ title }
-          onChange={ onClick }
+          name="title"
+          onChange={ this.hanbleChange }
           datatestid={ ['title-input-label', 'title-input'] }
         />
         <InputGeneric
           descicao="Subtítulo"
           title={ subtitle }
-          onChange={ onClick }
+          name="subtitle"
+          onChange={ this.hanbleChange }
           datatestid={ ['subtitle-input-label', 'subtitle-input'] }
         />
         <InputGeneric
           descicao="Imagem"
           title={ imagePath }
-          onChange={ onClick }
+          name="imagePath"
+          onChange={ this.hanbleChange }
           datatestid={ ['image-input-label', 'image-input'] }
         />
         <TextArea
           descicao="Sinopse"
           title={ storyline }
-          onChange={ onClick }
+          name="storyline"
+          onChange={ this.hanbleChange }
           datatestid={ ['storyline-input-label', 'storyline-input'] }
         />
         <InputGeneric
           type="number"
           descicao="Avaliação"
           title={ rating.toString() }
-          onChange={ onClick }
+          name="rating"
+          onChange={ this.hanbleChange }
           datatestid={ ['rating-input-label', 'rating-input'] }
         />
         <SelectElement
           descicao="Gênero"
           title={ genre }
-          onChange={ onClick }
+          onChange={ this.hanbleChange }
           datatestid={ ['genre-input-label', 'genre-input', 'genre-option'] }
         />
         <Button
           datatestid="send-button"
-          onClick={ onClick }
+          onClick={ this.hanbleOnSubmit }
           descricao="Adicionar filme"
         />
       </form>

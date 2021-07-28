@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
   render() {
+    const handleSubmit = (e) => {
+      e.preventDefault();
+    };
     const {
       searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
+
     return (
       <section>
-        <form action="" data-testid="search-bar-form">
+        <form onSubmit={ handleSubmit } data-testid="search-bar-form">
           <label htmlFor="text-input" data-testid="text-input-label">
             Inclui o texto:
             <input
@@ -23,19 +27,19 @@ export default class SearchBar extends React.Component {
             Mostrar somente favoritos
             <input
               type="checkbox"
-              value={ bookmarkedOnly }
+              checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
               data-testid="checkbox-input"
-              checked
+
             />
           </label>
 
           <label htmlFor="#" data-testid="select-input-label">
             Filtrar por gênero
             <select
-              data-testid="select-input"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
+              data-testid="select-input"
             >
               <option data-testid="select-option" value="">Todos</option>
               <option data-testid="select-option" value="action">Ação</option>

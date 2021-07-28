@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class InputGeneric extends React.Component {
   render() {
-    const { descicao, title, onChange, datatestid, type = 'text' } = this.props;
+    const { descicao, title, onChange, datatestid, type = 'text', name } = this.props;
     return (
       <label htmlFor="#" data-testid={ datatestid[0] }>
         {descicao}
         <input
           type={ type }
           value={ title }
+          name={ name }
           onChange={ onChange }
           data-testid={ datatestid[1] }
         />
@@ -24,6 +25,7 @@ InputGeneric.propTypes = {
   descicao: PropTypes.string,
   title: PropTypes.string,
   type: PropTypes.string,
+  name: PropTypes.string,
 };
 
 InputGeneric.defaultProps = {
@@ -32,4 +34,5 @@ InputGeneric.defaultProps = {
   descicao: '',
   title: '',
   type: '',
+  name: '',
 };

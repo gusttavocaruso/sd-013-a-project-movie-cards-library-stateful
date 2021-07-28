@@ -11,29 +11,85 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies: props.movies,
     };
   }
 
-  render() {
+  hanbleChange = (e) => {
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
+    console.log(this.props.state);
+  }
+
+  onSearchTextChange = (e) => {
+    const { value } = e.target;
     const { movies } = this.props;
+    this.setState({ searchText: value });
+
+    const moveisTextFilter = movies
+      .filter(({ title, storyline, subtitle }) => title.includes(value)
+    || subtitle.includes(value)
+    || storyline.includes(value));
+
+    if (!value) return this.setState({ movies });
+    this.setState({ movies: moveisTextFilter });
+  };
+
+  onBookmarkedChange = (e) => {
+    const { checked } = e.target;
+    const { movies } = this.props;
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: checked });
+
+    const moveisTextFilter = movies
+      .filter(({ bookmarked }) => bookmarked);
+
+    if (bookmarkedOnly) return this.setState({ movies });
+    this.setState({ movies: moveisTextFilter });
+  };
+
+  onSelectedGenreChange = (e) => {
+    const { value } = e.target;
+    const { movies } = this.props;
+    const { selectedGenre } = this.state;
+    this.setState({ selectedGenre: value });
+
+    if (selectedGenre) return this.setState({ movies });
+
+    const moveisTextFilter = movies
+      .filter(({ genre }) => genre === value);
+
+    this.setState({ movies: moveisTextFilter });
+  };
+
+  render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+        />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.hanbleChange } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(),
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    
+  })),
 };
 
 MovieLibrary.defaultProps = {
-  movies: {},
+  movies: [],
 };
 
 export default MovieLibrary;

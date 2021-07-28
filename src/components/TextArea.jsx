@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 export default class TextArea extends React.Component {
   render() {
-    const { descicao, title, onChange, datatestid } = this.props;
+    const { descicao, title, onChange, datatestid, name } = this.props;
     return (
       <label htmlFor="#" data-testid={ datatestid[0] }>
         {descicao}
         <input
           value={ title }
+          name={ name }
           onChange={ onChange }
           data-testid={ datatestid[1] }
         />
@@ -22,6 +23,7 @@ TextArea.propTypes = {
   onChange: PropTypes.func,
   descicao: PropTypes.string,
   title: PropTypes.string,
+  name: PropTypes.string,
 };
 
 TextArea.defaultProps = {
@@ -29,4 +31,5 @@ TextArea.defaultProps = {
   onChange: '',
   descicao: '',
   title: '',
+  name: '',
 };
