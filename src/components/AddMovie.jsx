@@ -9,15 +9,15 @@ import Button from './forms/button';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    }
+      genre: 'action',
+    };
   }
 
   handleChange = (event) => {
@@ -34,13 +34,13 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     });
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state
-    const { onClick } = this.props
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
         <InputTitle onChange={ this.handleChange } value={ title } />
