@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputRatingAndGenre extends React.Component {
   render() {
@@ -35,5 +36,16 @@ class InputRatingAndGenre extends React.Component {
     );
   }
 }
+
+InputRatingAndGenre.propTypes = {
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  genre: PropTypes.string,
+  onChangeFunction: PropTypes.func.isRequired,
+};
+
+InputRatingAndGenre.defaultProps = {
+  rating: '5',
+  genre: 'action',
+};
 
 export default InputRatingAndGenre;
