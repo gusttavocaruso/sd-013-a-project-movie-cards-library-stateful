@@ -67,7 +67,6 @@ class AddMovie extends Component {
             value={ storyline }
           />
         </label>
-
         <label htmlFor="eee" data-testid="rating-input-label">
           Avaliação
           <input
@@ -78,6 +77,21 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
             value={ rating }
           />
+        </label>
+
+        <label htmlFor="fff" data-testid="genre-input-label">
+          Gênero
+          <select
+            name="genre"
+            id="fff"
+            value={ genre }
+            onChange={ this.handleChange }
+            data-testid="genre-input"
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
