@@ -1,4 +1,11 @@
 import React from 'react';
+import Proptypes from 'prop-types';
+import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
+import InputImg from './InputImg';
+import TextArea from './TextArea';
+import InputRating from './InputRating';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,6 +15,9 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,42 +30,51 @@ class AddMovie extends React.Component {
 
   render() {
     const { state, handleChange } = this;
+    const { onClick } = this.props;
+
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            id="title"
-            value={ state.title }
-            data-testid="title-input"
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="sub" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            id="sub"
-            value={ state.subtitle }
-            data-testid="title-input"
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="img" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            id="img"
-            value={ state.imagePath }
-            data-testid="image-input"
-            onChange={ handleChange }
-          />
-        </label>
+        <InputTitle
+          value={ state.title }
+          onChange={ handleChange }
+        />
+        <InputSubtitle
+          value={ state.subtitle }
+          onChange={ handleChange }
+        />
+        <InputImg
+          value={ state.imagePath }
+          onChange={ handleChange }
+        />
+        <TextArea
+          value={ state.storyline }
+          onChange={ handleChange }
+        />
+        <InputRating
+          value={ state.rating }
+          onChange={ handleChange }
+        />
+        <SelectGenre
+          value={ state.genre }
+          onChange={ handleChange }
+        />
+        <section>
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ onClick }
+          >
+            Adicionar filme
+          </button>
+        </section>
       </form>
 
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: Proptypes.func,
+}.isrequired;
 
 export default AddMovie;
