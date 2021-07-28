@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
   }
 
   onClick = () => {
-    console.log('deu certo');
+    console.log('da certo');
   }
 
   handleSearch = ({ target }) => {
@@ -46,7 +46,7 @@ class MovieLibrary extends Component {
               ? movie : movie.bookmarked === bookmarkedOnly))
             .filter((movie) => (selectedGenre === ''
               ? movie : movie.genre === selectedGenre))
-            .filter((movie) => movie.title.includes(searchText)
+            .filter((movie) => movie.title.includes(searchText) // https://github.com/tryber/sd-13a-live-lectures/pull/37/files
               || movie.subtitle.includes(searchText)
               || movie.storyline.includes(searchText)) }
         />

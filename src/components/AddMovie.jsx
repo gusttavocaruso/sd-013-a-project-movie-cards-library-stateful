@@ -21,7 +21,8 @@ class AddMovie extends Component {
     };
   }
 
-  onClick = () => {
+  handleClick = () => {
+    const { onClick } = this.props;
     this.setState({
       subtitle: '',
       title: '',
@@ -30,6 +31,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    onClick();
   }
 
   handleSearch = ({ target }) => {
@@ -50,7 +52,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const {
       subtitle,
       title,
@@ -67,7 +68,7 @@ class AddMovie extends Component {
         <Storyline value={ storyline } onChange={ this.handleSearch } />
         <Rating value={ rating } onChange={ this.handleSearch } />
         <Genre value={ genre } onChange={ this.handleSearch } />
-        <AddMovieButtom onClick={ onClick } />
+        <AddMovieButtom onClick={ this.handleClick } />
       </form>
     );
   }
