@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
+import TextInput from './TextInput';
 
 class SearchBar extends Component {
   render() {
-    const { 
+    const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelected 
+      onSelectedGenreChange 
     } = this.props;
 
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            data-testid="text-input"
-            type="text"
-            name="text"
-            id="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
+        <TextInput searchText={ searchText } onSearchTextChange={ onSearchTextChange } />
 
-        <label htmlFor="checkbox" data-testid="checkbox-input-label">
+        <label data-testid="checkbox-input-label" htmlFor="checkbox">
           Mostrar somente favoritos
           <input
             data-testid="checkbox-input"
@@ -35,6 +26,22 @@ class SearchBar extends Component {
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
+        </label>
+        <label data-testid="select-input-label" htmlFor="select">
+          Filtrar por gênero
+          <select
+            data-testid="select-input"
+            type="select"
+            name="select"
+            id="select"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
