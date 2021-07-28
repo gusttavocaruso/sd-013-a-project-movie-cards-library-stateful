@@ -22,6 +22,7 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
   padding: 48px 30px;
 }
 
@@ -29,14 +30,19 @@ body {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   display: flex;
   flex-direction: column;
   height: 450px;
-  margin: 5px;
+  margin: 25px;
   overflow: hidden;
   width: 300px;
+  transition: 0.5s;
 }
 
+.movie-card:hover {
+  background-color: #74788d88;
+}
 
 .movie-card-image {
   width: 100%;

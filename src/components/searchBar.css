@@ -1,8 +1,13 @@
 .search-bar-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .search-bar-form label {
   margin: 10px;
+}
+
+
+.form-check-input {
+  left: 25px;
 }
