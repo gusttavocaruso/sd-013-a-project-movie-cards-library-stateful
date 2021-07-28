@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import InputLabelText from './addMovieComponents/InputLabelText';
+import InputLabel from './addMovieComponents/InputLabel';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,8 +9,8 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
-      // rating: 0,
+      storyline: '',
+      rating: 0,
       // genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -25,35 +25,47 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputLabelText
+        <InputLabel
+          type="text"
           value={ title }
           name="title"
           innerLabel="Título"
           dataTestId="title"
           onChange={ this.handleChange }
         />
-        <InputLabelText
+        <InputLabel
+          type="text"
           value={ subtitle }
           name="subtitle"
           innerLabel="Subtítulo"
           dataTestId="subtitle"
           onChange={ this.handleChange }
         />
-        <InputLabelText
+        <InputLabel
+          type="text"
           value={ imagePath }
           name="imagePath"
           innerLabel="Imagem"
           dataTestId="image"
           onChange={ this.handleChange }
         />
-        <InputLabelText
+        <InputLabel
+          type="text"
           value={ storyline }
           name="storyline"
           innerLabel="Sinopse"
           dataTestId="storyline"
+          onChange={ this.handleChange }
+        />
+        <InputLabel
+          type="number"
+          value={ rating }
+          name="rating"
+          innerLabel="Avaliação"
+          dataTestId="rating"
           onChange={ this.handleChange }
         />
       </form>
