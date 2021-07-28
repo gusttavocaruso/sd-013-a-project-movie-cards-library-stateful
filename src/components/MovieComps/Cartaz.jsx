@@ -6,10 +6,10 @@ class Cartaz extends Component {
     const { imagePath, handleChange } = this.props;
 
     return (
-      <label data-testid="image-input-label" htmlFor="img">
+      <label data-testid="image-input-label" htmlFor="imagePath">
         Imagem
         <input
-          name="img"
+          id="imagePath"
           type="text"
           value={ imagePath }
           onChange={ handleChange }

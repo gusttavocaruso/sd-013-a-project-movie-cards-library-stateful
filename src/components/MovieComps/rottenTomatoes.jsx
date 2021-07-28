@@ -6,10 +6,10 @@ class Rotten extends Component {
     const { rating, handleChange } = this.props;
 
     return (
-      <label data-testid="rating-input-label" htmlFor="nota">
+      <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
         <input
-          name="nota"
+          name="rating"
           type="number"
           data-testid="rating-input"
           value={ rating }

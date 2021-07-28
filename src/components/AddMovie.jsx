@@ -60,7 +60,7 @@ class AddMovie extends Component {
         <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
         <Rotten rating={ rating } handleChange={ this.handleChange } />
         <Gen genre={ genre } handleChange={ this.handleChange } />
-        <button data-testid="send-button" type="button" onChange={ this.handleButton }>
+        <button data-testid="send-button" type="button" onClick={ this.handleButton }>
           Adicionar filme
         </button>
       </form>
