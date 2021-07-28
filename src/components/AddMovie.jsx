@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputGeneric from './InputGeneric';
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -15,45 +16,16 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
     return (
       <form action="" data-testid="add-movie-form">
-        <label htmlFor="#" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            value={ this.title }
-            onChange={ onClick }
-            data-testid="title-input"
-          />
-        </label>
-        <label htmlFor="#" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ this.subtitle }
-            onChange={ onClick }
-            data-testid="subtitle-input"
-          />
-        </label>
-        <label htmlFor="#" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            value={ this.imagePath }
-            onChange={ onClick }
-            data-testid="image-input"
-          />
-        </label>
-        <label htmlFor="#" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            type="tex"
-            value={ this.storyline }
-            onChange={ onClick }
-            data-testid="storyline-input"
-          />
-        </label>
+        <InputGeneric
+          descicao="Título"
+          title={ title }
+          onChange={ onClick }
+          datatestid={ ['title-input-label, title-input'] }
+        />
       </form>
     );
   }
