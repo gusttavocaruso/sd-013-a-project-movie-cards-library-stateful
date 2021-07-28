@@ -9,11 +9,6 @@ export default class MovieLibrary extends Component {
     super(props);
     const { movies } = this.props; // Recebido do Componente App.js
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.addMovie = this.addMovie.bind(this);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -22,14 +17,14 @@ export default class MovieLibrary extends Component {
     };
   }
 
-  onSearchTextChange({ target }) {
+  onSearchTextChange = ({ target }) => {
     const { value } = target;
     this.setState({
       searchText: value,
     });
   }
 
-  onBookmarkedChange({ target }) {
+  onBookmarkedChange = ({ target }) => {
     const { checked } = target;
     this.setState({
       bookmarkedOnly: checked,
@@ -37,16 +32,17 @@ export default class MovieLibrary extends Component {
   }
   // Por se tratar de um botão de seleção a verificação dele é diferente, passando pelo checked.
 
-  onSelectedGenreChange({ target }) {
+  onSelectedGenreChange = ({ target }) => {
     const { value } = target;
     this.setState({
       selectedGenre: value,
     });
   }
 
-  addMovie(newMovie) {
+// REQ 19
+  addMovie = (newMovie) => {
     this.setState((prevState) => ({
-      movies: [...prevState.movies, newMovie], // estado Anterior do array Filmes
+      movies: [...prevState.movies, newMovie], // Movies recebe o estado Anterior do array Filmes + o novoFilme = Aula Unindo componentes com estados e eventos dia 12.1
     }));
   }
 
