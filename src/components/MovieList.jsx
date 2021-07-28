@@ -4,12 +4,7 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const {
-      movies,
-      bookmarkedOnly = false,
-      selectedGenre = '',
-      searchText = '',
-    } = this.props;
+    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.props;
     let filteredList;
 
     const filterMovie = () => {
@@ -24,9 +19,9 @@ class MovieList extends React.Component {
       if (searchText !== '') {
         filteredList = movies
           .filter((movie) => {
-            const exp1 = movie.subtitle.includes(searchText);
-            const exp2 = movie.storyline.includes(searchText);
-            const exp3 = movie.title.includes(searchText);
+            const exp1 = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
+            const exp2 = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
+            const exp3 = movie.title.toLowerCase().includes(searchText.toLowerCase());
             if (exp1 || exp2 || exp3) return movie;
             return false;
           });
