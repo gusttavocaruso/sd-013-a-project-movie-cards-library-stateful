@@ -1,9 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Title extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      title: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ title: event.target.value });
+  }
+
   render() {
-    const { title } = this.props;
+    const { title } = this.state;
     return (
       <label data-testid="title-input-label" htmlFor="title">
         Título
@@ -11,17 +22,11 @@ class Title extends React.Component {
           type="text"
           data-testid="title-input"
           value={ title }
-          // onChange={ handleChange }
           onChange={ this.handleChange }
         />
       </label>
     );
   }
 }
-
-Title.propTypes = {
-  title: PropTypes.string.isRequired,
-  // handleChange: PropTypes.func.isRequired,
-};
 
 export default Title;

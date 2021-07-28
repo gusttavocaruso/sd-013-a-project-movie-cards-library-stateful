@@ -1,9 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Imagem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      imagePath: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ imagePath: event.target.value });
+  }
+
   render() {
-    const { imagePath } = this.props;
+    const { imagePath } = this.state;
     return (
       <label data-testid="image-input-label" htmlFor="image">
         Imagem
@@ -18,10 +29,5 @@ class Imagem extends React.Component {
     );
   }
 }
-
-Imagem.propTypes = {
-  imagePath: PropTypes.string.isRequired,
-  // handleChange: PropTypes.func.isRequired,
-};
 
 export default Imagem;

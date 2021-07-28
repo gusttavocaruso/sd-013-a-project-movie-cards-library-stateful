@@ -1,9 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Genre extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      genre: 'action',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ genre: event.target.value });
+  }
+
   render() {
-    const { genre } = this.props;
+    const { genre } = this.state;
     return (
       <label data-testid="genre-input-label" htmlFor="Genre">
         Gênero
@@ -21,10 +32,5 @@ class Genre extends React.Component {
     );
   }
 }
-
-Genre.propTypes = {
-  genre: PropTypes.number.isRequired,
-  // handleChange: PropTypes.func.isRequired,
-};
 
 export default Genre;

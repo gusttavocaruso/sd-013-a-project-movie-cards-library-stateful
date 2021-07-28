@@ -11,57 +11,26 @@ import Sinopse from './Storyline';
 import Rate from './Rate';
 import Genre from './Genre';
 
-// const inicio = {
-//   subtitle: '',
-//   title: '',
-//   imagePath: '',
-//   storyline: '',
-//   rating: 0,
-//   genre: 'action',
-// };
-
 class AddMovie extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.state = inicio;
-  // }
-
-  // handleChange({ target }) {
-  //   const { name, value } = target;
-  //   this.setState({ [name]: value, });
-  // }
-
   render() {
-    // const {
-    //   title,
-    //   subtitle,
-    //   imagePath,
-    //   storyline,
-    //   rating,
-    //   genre,
-    // } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {/* <Title title={ title } handleChange={ this.handleChange } />
-        <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
-        <Imagem imagePath={ imagePath } handleChange={ this.handleChange } />
-        <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
-        <Rate rating={ rating } handleChange={ this.handleChange } />
-        <Genre genre={ genre } handleChange={ this.handleChange } /> */}
         <Title />
         <Subtitle />
         <Imagem />
         <Sinopse />
         <Rate />
         <Genre />
+        {/* <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.onClick }
+          >
+          Adicionar filme
+        </button> */}
       </form>
     );
   }
 }
-
-// AddMovie.propTypes = {
-//
-// };
 
 export default AddMovie;
