@@ -9,12 +9,12 @@ class MovieLibrary extends Component {
     super(props);
 
     const { movies } = this.props;
-    this.state = {
+    /* this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-    };
+    }; */
   }
 
   handleChange = ({ target }) => {
