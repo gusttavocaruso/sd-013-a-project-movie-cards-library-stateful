@@ -18,31 +18,19 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
-          <input
-            type="text"
-            data-testid="subtitle-input"
-          />
+          <input type="text" data-testid="subtitle-input" />
         </label>
         <label data-testid="title-input-label" htmlFor="title">
           Título
-          <input
-            type="text"
-            data-testid="title-input"
-          />
+          <input type="text" data-testid="title-input" />
         </label>
         <label htmlFor="imagem" data-testid="image-input-label">
           Caminho da Imagem
-          <input
-            type="text"
-            data-testid="image-input"
-          />
+          <input type="text" data-testid="image-input" />
         </label>
         <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse
-          <input
-            type="text"
-            data-testid="storyline-input"
-          />
+          <textarea type="text" data-testid="storyline-input" />
         </label>
         <label htmlFor="avaliação" data-testid="rating-input-label">
           Avaliação
@@ -52,11 +40,13 @@ class AddMovie extends React.Component {
             defaultValue={ 0 }
           />
         </label>
-        <label htmlFor="gênero">
-          Genêro
-          <input
-            type="text"
-          />
+        <label htmlFor="gênero" data-testid="genre-input-label">
+          Gênero
+          <select type="text" data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
