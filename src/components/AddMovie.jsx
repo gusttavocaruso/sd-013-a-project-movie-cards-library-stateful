@@ -36,6 +36,15 @@ export default class AddMovie extends React.Component {
             data-testid="subtitle-input"
           />
         </label>
+        <label htmlFor="#" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            value={ this.imagePath }
+            onChange={ onClick }
+            data-testid="image-input"
+          />
+        </label>
       </form>
     );
   }
