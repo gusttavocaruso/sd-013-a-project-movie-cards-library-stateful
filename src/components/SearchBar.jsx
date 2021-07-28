@@ -1,71 +1,75 @@
-// implement SearchBar component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.changeSearchText = this.changeSearchText.bind(this);
+  constructor() {
+    super();
+    this.generateInput = this.generateInput.bind(this);
+    this.generateCheckBox = this.generateCheckBox.bind(this);
+    this.generateSelect = this.generateSelect.bind(this);
   }
 
-  changeSearchText({ target }) {
-    const { onSearchTextChange } = this.props;
-    onSearchTextChange(target.value);
+  generateInput() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <label htmlFor="textInput" data-testid="text-input-label">
+        Inclui o texto:
+        <input
+          type="text"
+          name="textInput"
+          id="textInput"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          data-testid="text-input"
+        />
+      </label>
+    );
   }
 
-  changeBookmarked({ target }) {
-    const { onBookmarkedChange } = this.props;
-    onBookmarkedChange(target.checked);
+  generateCheckBox() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <label htmlFor="checkboxInput" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
+        <input
+          type="checkbox"
+          name="checkboxInput"
+          id="checkboxInput"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+          data-testid="checkbox-input"
+        />
+      </label>
+    );
   }
 
-  changeSelected({ target }) {
-    const { onSelectedGenreChange } = this.props;
-    onSelectedGenreChange(target.value);
+  generateSelect() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <label htmlFor="selectInput" data-testid="select-input-label">
+        Filtrar por gênero
+        <select
+          name="selectInput"
+          id="selectInput"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          data-testid="select-input"
+        >
+          <option data-testid="select-option" value="">Todos</option>
+          <option data-testid="select-option" value="action">Ação</option>
+          <option data-testid="select-option" value="comedy">Comédia</option>
+          <option data-testid="select-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
   }
 
   render() {
-    const {
-      searchText,
-      bookmarkedOnly,
-      selectedGenre,
-    } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="searchText" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            type="text"
-            onChange={ this.changeSearchText }
-            value={ searchText }
-            id="searchText"
-            data-testid="text-input"
-          />
-        </label>
-        <label htmlFor="checkboxSearch" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            id="checkboxSearch"
-            data-testid="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ this.changeBookmarked }
-          />
-        </label>
-        <label htmlFor="selectSearch" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            type="checkbox"
-            data-testid="select-input"
-            id="selectSearch"
-            value={ selectedGenre }
-            onChange={ this.changeSelected }
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        {this.generateInput()}
+        {this.generateCheckBox()}
+        {this.generateSelect()}
       </form>
     );
   }
