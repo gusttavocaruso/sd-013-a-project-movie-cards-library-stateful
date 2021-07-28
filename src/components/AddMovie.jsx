@@ -16,6 +16,8 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.inputGenerator = this.inputGenerator.bind(this);
+
   }
 
   handleChange({ target }) {
@@ -27,47 +29,52 @@ class AddMovie extends React.Component {
     });
   }
 
+  inputGenerator(name, type, id, test) {
+    return (<input
+      name={ name }
+      type={ type }
+      id={ id }
+      data-testid={ test }
+      onChange={ this.handleChange }
+    />
+    );
+  }
+
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="input-text2" data-testid="title-input-label">
           Título
-          <input
-            type="text"
-            id="input-text2"
-            data-testid="title-input"
-            onChange={ this.handleChange }
-            name="title"
-          />
+          { this.inputGenerator('title', 'text', 'input-text2', 'title-input') }
         </label>
         <label htmlFor="input-text3" data-testid="subtitle-input-label">
           Subtítulo
-          <input
-            type="text"
-            id="input-text3"
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-            name="subtitle"
-          />
+          { this.inputGenerator('subtitle', 'text', 'input-text3', 'subtitle-input')}
         </label>
         <label htmlFor="input-text4" data-testid="image-input-label">
           Imagem
-          <input
-            type="text"
-            id="input-text4"
-            data-testid="image-input"
-            onChange={ this.handleChange }
-            name="imagePath"
-          />
+          { this.inputGenerator('imagePath', 'text', 'input-text4', 'image-input')}
         </label>
         <label htmlFor="input-text-area" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            type="text"
             id="input-text-area"
             data-testid="storyline-input"
             onChange={ this.handleChange }
             name="storyline"
+          />
+        </label>
+        <label htmlFor="input-number" data-testid="rating-input-label">
+          Avaliação
+          <input
+            name="rating"
+            type="number"
+            onChange={ this.handleChange }
+            id="input-number"
+            data-testid="rating-input"
+            value={ rating }
           />
         </label>
       </form>
