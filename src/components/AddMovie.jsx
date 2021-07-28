@@ -1,5 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import InputLabelText from './addMovieComponents/InputLabelText';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -24,48 +25,37 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label
-          htmlFor="title"
-          data-testid="title-input-label"
-        >
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label
-          htmlFor="subtitle"
-          data-testid="subtitle-input-label"
-        >
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label
-          htmlFor="imagePath"
-          data-testid="image-input-label"
-        >
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <InputLabelText
+          value={ title }
+          name="title"
+          innerLabel="Título"
+          dataTestId="title"
+          onChange={ this.handleChange }
+        />
+        <InputLabelText
+          value={ subtitle }
+          name="subtitle"
+          innerLabel="Subtítulo"
+          dataTestId="subtitle"
+          onChange={ this.handleChange }
+        />
+        <InputLabelText
+          value={ imagePath }
+          name="imagePath"
+          innerLabel="Imagem"
+          dataTestId="image"
+          onChange={ this.handleChange }
+        />
+        <InputLabelText
+          value={ storyline }
+          name="storyline"
+          innerLabel="Sinopse"
+          dataTestId="storyline"
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
