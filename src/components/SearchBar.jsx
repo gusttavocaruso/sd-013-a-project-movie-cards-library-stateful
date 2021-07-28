@@ -4,69 +4,58 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    /* const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props; */
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto:
           <input
-            name="input-1"
-            type="text"
+            data-testid="text-input"
+            name="searchText"
+            nametype="text"
             value={ searchText }
             onChange={ onSearchTextChange }
-            data-testid="text-input"
           />
         </label>
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
-          Mostrar somente favoritos
+          Mostrar somente favoritos:
           <input
-            name="input-2"
+            data-testid="checkbox-input"
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
           />
         </label>
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero:
           <select
-            name="input-3"
+            data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          />
-          <option value="" data-testid="select-option">
-            Todos
-          </option>
-          <option value="action" data-testid="select-option">
-            Ação
-          </option>
-          <option value="comedy" data-testid="select-option">
-            Comédia
-          </option>
-          <option value="thriller" data-testid="select-option">
-            Suspense
-          </option>
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
   }
 }
 
-SearchBar.PropTypes = {
+SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
+  bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
+};
+
+SearchBar.defaultProps = {
+  bookmarkedOnly: false,
 };
 
 export default SearchBar;
