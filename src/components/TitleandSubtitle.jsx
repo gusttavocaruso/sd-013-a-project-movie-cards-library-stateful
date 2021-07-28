@@ -16,6 +16,7 @@ class TitleandSubtitle extends React.Component {
             name="title"
             className="form-control"
             id="input-title"
+            placeholder="Insert movie title"
             type="text"
             value={ title }
             data-testid="title-input"
@@ -31,6 +32,7 @@ class TitleandSubtitle extends React.Component {
           <input
             name="subtitle"
             className="form-control"
+            placeholder="Insert movie subtitle"
             type="text"
             id="input-subtitle"
             value={ subtitle }

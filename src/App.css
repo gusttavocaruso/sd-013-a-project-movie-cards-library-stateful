@@ -30,14 +30,14 @@ body {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px , rgba(0, 0, 0, 0.22) 0 15px 12px;
   display: flex;
   flex-direction: column;
   height: 450px;
   margin: 25px;
   overflow: hidden;
-  width: 300px;
   transition: 0.5s;
+  width: 300px;
 }
 
 .movie-card:hover {

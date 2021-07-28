@@ -16,6 +16,7 @@ class ImageandSinopsis extends React.Component {
           <input
             name="imagePath"
             className="form-control"
+            placeholder="Insert image path"
             type="text"
             id="input-image-path"
             value={ imagePath }
@@ -26,13 +27,13 @@ class ImageandSinopsis extends React.Component {
         <label
           htmlFor="text-area-storyline"
           data-testid="storyline-input-label"
-          className="form-label"
         >
           Sinopse
           <textarea
             name="storyline"
             className="form-control"
             id="text-area-storyline"
+            placeholder="Insert movie sinopsis"
             value={ storyline }
             data-testid="storyline-input"
             onChange={ handleChange }

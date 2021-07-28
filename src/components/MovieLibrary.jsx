@@ -43,8 +43,14 @@ class MovieLibrary extends Component {
     return filteredMovies;
   }
 
+  // Step made with the help of Murilo Rainho & Eduardo Santos
+  handleAddButton = (newMovie) => {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
+  }
+
   render() {
-    // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -57,7 +63,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.handleFilter() } />
-        <AddMovie />
+        <AddMovie onClick={ this.handleAddButton } />
       </div>
     );
   }

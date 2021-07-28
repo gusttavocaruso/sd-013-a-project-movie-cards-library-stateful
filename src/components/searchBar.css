@@ -1,4 +1,6 @@
 .search-bar-form {
+  align-items: center;
+  background-color: #74788d;
   display: flex;
   flex-direction: column;
 }
