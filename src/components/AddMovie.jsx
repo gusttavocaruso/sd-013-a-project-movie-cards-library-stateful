@@ -1,4 +1,5 @@
 // implement AddMovie component here
+// https://pt-br.reactjs.org/docs/uncontrolled-components.html
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -35,7 +36,8 @@ class AddMovie extends React.Component {
     event.preventDefault();
   }
 
-  createInput = (datatest, name, type, value) => (<input
+  // baseado no codigo de Pedro Verano
+  inputFunc = (datatest, name, type, value) => (<input
     data-testid={ datatest }
     name={ name }
     type={ type }
@@ -43,7 +45,7 @@ class AddMovie extends React.Component {
     onChange={ this.handleChange }
   />);
 
-  createTextArea = (datatest, name, value) => (<textarea
+  textAreaFunc = (datatest, name, value) => (<textarea
     data-testid={ datatest }
     name={ name }
     value={ value }
@@ -57,7 +59,7 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
         <label data-testid="title-input-label" htmlFor="title">
           Título
-          {this.createInput('title-input', 'title', 'text', title)}
+          {this.inputFunc('title-input', 'title', 'text', title)}
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
           Subtítulo
@@ -69,7 +71,7 @@ class AddMovie extends React.Component {
         </label>
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
-          {this.createTextArea('storyline-input', 'storyline', storyline)}
+          {this.textAreaFunc('storyline-input', 'storyline', storyline)}
         </label>
         <label data-testid="rating-input-label" htmlFor="rating">
           Avaliação
