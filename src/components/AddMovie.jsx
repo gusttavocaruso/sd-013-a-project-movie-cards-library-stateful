@@ -31,7 +31,7 @@ render() {
         <label htmlFor="input-tite" data-testid="title-input-label">
           Título
           <input
-            data-testid="title-iput"
+            data-testid="title-input"
             type="text"
             onChange={ this.HandleOnChange }
             name="title"
