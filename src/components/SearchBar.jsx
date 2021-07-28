@@ -11,7 +11,9 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props; */
     return (
-      <h1>oi</h1>
+      <form action="" data-testid="search-bar-form">
+        <h1>oi</h1>
+      </form>
     );
   }
 }
