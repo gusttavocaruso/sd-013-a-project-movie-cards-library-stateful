@@ -12,6 +12,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -41,6 +42,12 @@ class MovieLibrary extends Component {
     });
   }
 
+  addMovie(newMovie) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -60,7 +67,7 @@ class MovieLibrary extends Component {
           searchText={ searchText }
         />
         <AddMovie
-          onClick="uma callback"
+          onClick={ this.addMovie }
         />
       </div>
     );
@@ -70,4 +77,5 @@ class MovieLibrary extends Component {
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf({}).isRequired,
 };
+
 export default MovieLibrary;
