@@ -38,7 +38,7 @@ render() {
             id="input-title"
           />
         </label>
-        <label htmlFor="input-subtitle">
+        <label htmlFor="input-subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
             data-testid="subtitle-input"
@@ -48,9 +48,10 @@ render() {
             id="input-subtitle"
           />
         </label>
-        <label htmlFor="input-image">
-          Imagem:
+        <label htmlFor="input-image" data-testid="image-input-label">
+          Imagem
           <input
+            data-testid="image-input"
             type="text"
             onChange={ this.HandleOnChange }
             name="imagePath"
