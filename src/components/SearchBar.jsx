@@ -10,10 +10,9 @@ class SearchBar extends Component {
     // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
 
     this.state = {
-      searchText: '', // uma string
-      bookmarkedOnly: false, // um boolean
-      selectedGenre: '', // uma string
-    //   onSelectedGenreChange: (),// uma callback
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '', 
     };
   }
 
@@ -34,7 +33,7 @@ class SearchBar extends Component {
     }
 
     render() {
-      // const { value, onChange } = this.props;
+      const { value, onChange, searchText } = this.props;
       // const {value} = this.props;
       return (
       //   <h1>Eu sou o searchbar</h1>
@@ -46,8 +45,8 @@ class SearchBar extends Component {
               className="text-input-label"
               data-testid="text-input"
               type="text"
-              value={ this.state.searchText }
-              onChange={ this.onSearchTextChange }
+              value={ searchText }
+              onChange={ this.props.onSearchTextChange }
             />
           </label>
 
@@ -55,24 +54,23 @@ class SearchBar extends Component {
             htmlFor="mostra-favoritos"
             data-testid="checkbox-input-label"
           >
-            Somente Favoritos:
+            Mostrar somente favoritos
             <input
               className="mostra-favoritos"
-              data-testid="select-input-label"
+              data-testid="checkbox-input"
               type="checkbox"
-              checked={ this.bookmarkedOnly }
-              onChange={ this.onBookmarkedChange }
+              checked={ this.props.bookmarkedOnly }
+              onChange={ this.props.onBookmarkedChange }
             />
           </label>
 
-          <label htmlFor="'escolhe-genero'">
+          <label htmlFor='genre' data-testid="select-input-label">
+            Filtrar por gênero
             <select
-              className="escolhe-genero"
-              name=""
-              id=""
+              className='genre'
               data-testid="select-input"
-              onChange={ this.onSelectedGenreChange }
-              value={ this.selectedGenre }
+              onChange= {this.props.onSelectedGenreChange }
+              value= {this.props.selectedGenre}
             >
               <option data-testid="select-option" value="">Todos</option>
               <option data-testid="select-option" value="action">Ação</option>
