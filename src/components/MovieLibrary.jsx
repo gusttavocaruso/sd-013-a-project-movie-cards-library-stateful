@@ -34,7 +34,11 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ movies }
+          valueTitle={ searchText }
+          checkbox={ bookmarkedOnly }
+        />
         <AddMovie />
       </div>
     );
