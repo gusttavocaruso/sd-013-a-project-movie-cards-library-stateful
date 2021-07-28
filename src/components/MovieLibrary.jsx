@@ -12,10 +12,32 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: [],
     }
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    return('');
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+    return(
+      <SearchBar 
+        searchText={ searchText } 
+        onSearchTextChange={ this.handleChange } 
+        bookmarkedOnly={ bookmarkedOnly } 
+        onBookmarkedChange={ this.handleChange } 
+        selectedGenre={ selectedGenre } 
+        onSelectedGenreChange={ this.handleChange } 
+      />
+    );
   }
 }
 
