@@ -63,7 +63,7 @@ render() {
           <textarea name="storyLine" onChange={ this.HandleOnChange } id="input-storyline" data-testid="storyline-input" cols="30" rows="10" />
         </label>
         <label data-testid="rating-input-label" htmlFor="input-rating">
-          Rating:
+          Avaliação
           <input
             data-testid="rating-input"
             type="number"
@@ -72,11 +72,12 @@ render() {
             id="input-rating"
           />
         </label>
-        <label htmlFor="input-genre">
-          <select name="genre" onChange={ this.HandleOnChange } id="input-genre">
-            <option value="action">Ação</option>
-            <option value="commedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+        <label data-testid="rating-input-label" htmlFor="input-genre">
+          Gênero
+          <select data-testid="genre-input" name="genre" onChange={ this.HandleOnChange } id="input-genre">
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
       </form>
