@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
         </InputCheckbox>
         <InputSelect
           testId="select-input"
-          name="bookmarkedOnly"
+          name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           options={ [

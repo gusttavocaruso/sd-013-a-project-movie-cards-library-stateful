@@ -23,7 +23,7 @@ class InputText extends React.Component {
 InputText.propTypes = {
   testId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
