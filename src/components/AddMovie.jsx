@@ -46,10 +46,10 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <Title handleChange={ this.handleChange } title={ title } />
         <Subtitle handleChange={ this.handleChange } subtitle={ subtitle } />
-        <ImagePath imagePath={ imagePath } />
-        <Sinopse storyline={ storyline } />
-        <Avaliacao rating={ rating } />
-        <Genero genre={ genre } />
+        <ImagePath handleChange={ this.handleChange } imagePath={ imagePath } />
+        <Sinopse handleChange={ this.handleChange } storyline={ storyline } />
+        <Avaliacao handleChange={ this.handleChange } rating={ rating } />
+        <Genero handleChange={ this.handleChange } genre={ genre } />
         <Button handleClick={ this.handleClick } />
       </form>
     );
