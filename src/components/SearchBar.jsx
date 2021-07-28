@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class SearchBar extends Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+      selectedGenre, onSelectedGenreChange } = this.props; // VEM DO ARQUIVO MOVIELIBRARY
 
     return (
       <div>
