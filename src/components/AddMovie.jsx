@@ -7,6 +7,8 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleChange = this.handleChange.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -18,9 +20,10 @@ class AddMovie extends React.Component {
 
   }
 
-  handleChange = (e) => {
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({
-      [e.target.name]: e.arget.value,
+      [name]: value,
     });
   }
 
