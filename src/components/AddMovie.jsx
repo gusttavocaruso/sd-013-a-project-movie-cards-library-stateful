@@ -19,14 +19,9 @@ class AddMovie extends React.Component {
     } = this.state;
 
     return (
-      <span>
-        subtitulo,
-        titulo,
-        caminho da imagem,
-        sinopse,
-        avaliação,
-        gênero
-      </span>
+      <form action="" data-testid="add-movie-form">
+        somefkcinthing
+      </form>
     );
   }
 }
