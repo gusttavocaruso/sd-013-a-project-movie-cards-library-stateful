@@ -14,10 +14,10 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.changeTitle = this.changeTitle.bind(this);
+    this.changeStates = this.changeStates.bind(this);
   }
 
-  changeTitle(event) {
+  changeStates(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
@@ -44,9 +44,19 @@ class AddMovie extends React.Component {
             name="title"
             id="title-input"
             data-testid="title-input"
-            onChange={ this.changeTitle }
+            onChange={ this.changeStates }
             value={ title }
           />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle"
+            id="subtitle-input"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.changeStates }/>
         </label>
       </form>
     );
