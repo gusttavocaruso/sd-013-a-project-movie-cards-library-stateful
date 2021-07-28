@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddTitle from './ subcomponents/AddTitle';
 import AddSubtitle from './ subcomponents/AddSubtitle';
 import AddImage from './ subcomponents/AddImage';
@@ -18,6 +19,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
