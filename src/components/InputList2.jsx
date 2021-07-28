@@ -41,9 +41,9 @@ class InputList2 extends React.Component {
             data-testid="genre-input"
             onChange={ handleChange }
           >
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">suspense</option>
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
           Gênero
         </label>
