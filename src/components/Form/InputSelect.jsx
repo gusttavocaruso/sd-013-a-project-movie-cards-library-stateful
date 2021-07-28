@@ -15,8 +15,12 @@ class InputSelect extends React.Component {
           name={ name }
           id={ name }
         >
-          {options.map((option, index) => (
-            <option key={ index } data-testid="select-option" value={ option.value }>
+          {options.info.map((option, index) => (
+            <option
+              key={ index }
+              data-testid={ `${options.name}-option` }
+              value={ option.value }
+            >
               {option.text}
             </option>
           ))}

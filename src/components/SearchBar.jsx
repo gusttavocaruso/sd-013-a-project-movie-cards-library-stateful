@@ -38,12 +38,13 @@ class SearchBar extends React.Component {
           name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
-          options={ [
+          options={ { info: [
             { text: 'Todos', value: '' },
             { text: 'Ação', value: 'action' },
             { text: 'Comédia', value: 'comedy' },
             { text: 'Suspense', value: 'thriller' },
-          ] }
+          ],
+          name: 'select' } }
         >
           Filtrar por gênero
         </InputSelect>
