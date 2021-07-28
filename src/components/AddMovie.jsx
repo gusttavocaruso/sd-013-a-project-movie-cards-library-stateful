@@ -2,42 +2,42 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const stateInicial = {
-  subtitle: '',
   title: '',
+  subtitle: '',
   imagePath: '',
   storyline: '',
   rating: 0,
-  genre: 'açao',
+  genre: 'action',
 };
 
 class AddMovie extends Component {
   constructor() {
     super();
 
-    this.hadleChange = this.hadleChange.bind(this);
-    this.hadleonClick = this.hadleonClick.bind(this);
+    this.hadleChange = this.hadleChange.bind(this); // 1
+    this.hadleOnClick = this.hadleOnClick.bind(this); // 2
     this.state = stateInicial;
   }
 
-  hadleChange({ target }) {
+  hadleChange({ target }) { // 1
     this.setState({
-      [target.name]: target.value,
+      [target.id]: target.value,
     });
   }
 
-  hadleonClick() {
+  hadleOnClick() { // 2
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(stateInicial);
   }
 
-  title(title) { // criando funções para chamar npo render com o "this"
+  title(title) { // criando funções para chamar no "render" com o "this"
     return (
-      <label htmlFor="title" data-testid="title-input-label">
+      <label data-testid="title-input-label" htmlFor="title">
         Titulo
         <input
           type="text"
-          name="title"
+          id="title"
           value={ title }
           data-testid="title-input"
           onChange={ this.hadleChange }
@@ -48,11 +48,11 @@ class AddMovie extends Component {
 
   subtitle(subtitle) {
     return (
-      <label htmlFor="subtitle" data-testid="subtitle-input-label">
+      <label data-testid="subtitle-input-label" htmlFor="subtitle">
         Subtítulo
         <input
           type="text"
-          name="subtitle"
+          id="subtitle"
           value={ subtitle }
           data-testid="subtitle-input"
           onChange={ this.hadleChange }
@@ -63,11 +63,11 @@ class AddMovie extends Component {
 
   imagePath(imagePath) {
     return (
-      <label htmlFor="imagePath" data-testid="image-input-label">
+      <label data-testid="image-input-label" htmlFor="imagePath">
         Imagem
         <input
           type="text"
-          name="imagePath"
+          id="imagePath"
           value={ imagePath }
           data-testid="image-input"
           onChange={ this.hadleChange }
@@ -78,10 +78,10 @@ class AddMovie extends Component {
 
   storyline(storyline) {
     return (
-      <label htmlFor="storyline" data-testid="storyline-input-label">
+      <label data-testid="storyline-input-label" htmlFor="storyline">
         Sinopse
         <input
-          name="storyline"
+          id="storyline"
           value={ storyline }
           data-testid="storyline-input"
           onChange={ this.hadleChange }
@@ -92,11 +92,11 @@ class AddMovie extends Component {
 
   rating(rating) {
     return (
-      <label htmlFor="rating" data-testid="rating-input-label">
+      <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
         <input
           type="number"
-          name="rating"
+          id="rating"
           value={ rating }
           data-testid="rating-input"
           onChange={ this.hadleChange }
@@ -107,11 +107,11 @@ class AddMovie extends Component {
 
   genre(genre) {
     return (
-      <label htmlFor="genre" data-testid="genre-input-label">
+      <label data-testid="genre-input-label" htmlFor="genre">
         Gênero
         <select
           type="number"
-          name="genre"
+          id="genre"
           value={ genre }
           data-testid="genre-input"
           onChange={ this.hadleChange }
@@ -129,7 +129,7 @@ class AddMovie extends Component {
       <button
         type="button"
         data-testid="send-button"
-        onClick={ this.hadleonClick }
+        onClick={ this.hadleOnClick }
       >
         Adicionar filme
       </button>
