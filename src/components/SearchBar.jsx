@@ -13,7 +13,17 @@ export default class extends React.Component {
     return (
       <section>
         <form action="" data-testid="search-bar-form">
-          <input type="text" name="" id="" />
+          <label htmlFor="" data-testid="text-input-label">
+            Inclui o texto:
+            <input
+              type="text"
+              name=""
+              id=""
+              data-testid="text-input"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
+          </label>
         </form>
       </section>
     );
