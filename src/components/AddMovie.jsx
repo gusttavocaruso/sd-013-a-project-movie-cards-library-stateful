@@ -7,20 +7,23 @@ import TextArea from './TextArea';
 import InputRating from './InputRating';
 import SelectGenre from './SelectGenre';
 
+const INITIAL_STATE = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = INITIAL_STATE;
 
     this.handleChange = this.handleChange.bind(this);
+    this.clickButton = this.clickButton.bind(this);
   }
 
   handleChange(e) {
@@ -28,10 +31,14 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  render() {
-    const { state, handleChange } = this;
+  clickButton() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(INITIAL_STATE);
+  }
 
+  render() {
+    const { state, handleChange, clickButton } = this;
     return (
       <form data-testid="add-movie-form">
         <InputTitle
@@ -62,7 +69,7 @@ class AddMovie extends React.Component {
           <button
             type="submit"
             data-testid="send-button"
-            onClick={ onClick }
+            onClick={ clickButton }
           >
             Adicionar filme
           </button>
