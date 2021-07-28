@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { formatters } from 'stylelint';
+import FormsInput from './FormsInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -16,56 +16,69 @@ class AddMovie extends React.Component {
   }
 
   handleChange = ({ target }) => {
-    const { name, value } = target;
+    const { id, value } = target;
     this.setState({
-      [name]: value,
+      [id]: value,
     });
   };
 
+  resetState = () => {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  renderMovieCard = () => {
+    const { resetState, props: { onClick } } = this;
+    onClick(this.state);
+    resetState();
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { props: { onClick }, handleChange } = this;
+    const { props: { onClick }, handleChange, renderMovieCard } = this;
 
     return (
-      <form
-        action=""
-        data-testid="add-movie-form"
-      >
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            data-testid="title-input"
-            value={ title }
-            type="text"
-            name="title"
-            id=""
-            onChange={ handleChange }
-          />
+      <form action="" data-testid="add-movie-form">
+        <FormsInput value={ title } id="title" func={ handleChange } text="Título" />
+        <FormsInput
+          value={ subtitle }
+          id="subtitle"
+          func={ handleChange }
+          text="Subtítulo"
+        />
+        <FormsInput
+          value={ imagePath }
+          id="imagePath"
+          func={ handleChange }
+          text="Imagem"
+        />
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea id="storyline" cols="30" rows="10" value={ storyline } data-testid="storyline-input" onChange={ handleChange } />
         </label>
+        <FormsInput
+          value={ rating }
+          id="rating"
+          type="number"
+          func={ handleChange }
+          text="Avaliação"
+        />
 
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            value={ subtitle }
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            onChange={ handleChange }
-          />
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select id="genre" data-testid="genre-input" value={ genre } onChange={ handleChange }>
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
-
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            data-testid="image-input"
-            value={ imagePath }
-            type="text"
-            name="imagePath"
-            id="image"
-            onChange={ handleChange }
-          />
-        </label>
+        <button type="button" data-testid="send-button" onClick={ renderMovieCard }>Adicionar filme</button>
       </form>
     );
   }
