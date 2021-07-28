@@ -22,9 +22,9 @@ class SearchInput extends React.Component {
         >
           Mostrar somente favoritos
           <input
-          type="checkbox"
-          name="favorites"
-          id="favorites"
+            type="checkbox"
+            name="favorites"
+            id="favorites"
             // checked={ bookmarkedOnly }
             // onChange={ onBookmarkedChange }
           />
