@@ -7,7 +7,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    const { movies } = this.props;
+    const { movies } = props;
 
     this.state = {
       searchText: '',
@@ -17,16 +17,29 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange = () => {
-
+  onSearchTextChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
-  onBookmarkedChange = () => {
+  onSelectedGenreChange = ({ target }) => {
+    const { name, value } = target;
+    const { movies } = this.props;
 
+    this.setState({
+      [name]: value,
+    });
+
+    return movies.filter((movie) => movie.genre.includes(value));
   }
 
-  onSelectedGenreChange = () => {
-
+  onBookmarkedChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -35,6 +48,7 @@ class MovieLibrary extends React.Component {
 
     return (
       <div>
+        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
@@ -43,7 +57,12 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ movies }
+          searchText={ searchText }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+        />
         <AddMovie />
       </div>
     );
