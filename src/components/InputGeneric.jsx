@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 export default class InputGeneric extends React.Component {
   render() {
-    const { namedescicao, title, onChange, datatestid } = this.props;
+    const { descicao, title, onChange, datatestid, type } = this.props;
     return (
       <label htmlFor="#" data-testid={ datatestid[0] }>
-        {namedescicao}
+        {descicao}
         <input
-          type="text"
+          type={ type }
           value={ title }
           onChange={ onChange }
           data-testid={ datatestid[1] }
