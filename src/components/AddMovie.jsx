@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import Title from './Title';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,6 +9,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
+      storyline: '',
     };
   }
 
@@ -19,21 +21,11 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath } = this.state;
+    const { subtitle, title, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            id="title"
-            data-testid="title-input"
-            title={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="title" data-testid="subtitle-input-label">
+        <Title title={ title } onChange={ this.handleChange } />
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
             type="text"
@@ -52,6 +44,17 @@ class AddMovie extends React.Component {
             id="imagePath"
             data-testid="image-input"
             imagePath={ imagePath }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          <textarea
+            name="storyline"
+            id=""
+            cols="30"
+            rows="10"
+            storyline={ storyline }
+            data-testid="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
