@@ -20,7 +20,21 @@ export default class AddMovie extends React.Component {
       <form action="" data-testid="add-movie-form">
         <label htmlFor="#" data-testid="title-input-label">
           Título
-          <input type="text" value={ this.title } onChange={ onClick } data-testid="title-input" />
+          <input
+            type="text"
+            value={ this.title }
+            onChange={ onClick }
+            data-testid="title-input"
+          />
+        </label>
+        <label htmlFor="#" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={ this.subtitle }
+            onChange={ onClick }
+            data-testid="subtitle-input"
+          />
         </label>
       </form>
     );
