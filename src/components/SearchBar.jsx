@@ -6,9 +6,9 @@ class SearchBar extends React.Component {
     const {
       searchText,
       onSearchTextChange,
-      /* bookmarkedOnly,
+      bookmarkedOnly,
       onBookmarkedChange,
-      selectedGenre,
+      /* selectedGenre,
       onSelectedGenreChange, */
     } = this.props;
     return (
@@ -22,6 +22,15 @@ class SearchBar extends React.Component {
             data-testid="text-input"
           />
         </label>
+        <label htmlFor="favorite" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+          />
+        </label>
       </form>
     );
   }
@@ -30,6 +39,8 @@ class SearchBar extends React.Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.string.isRequired,
+  onBookmarkedChange: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
