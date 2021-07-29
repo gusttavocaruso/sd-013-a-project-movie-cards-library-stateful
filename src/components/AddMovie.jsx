@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TitleInput from './TitleInput';
-import SubtitleInput from './SubstitleInput';
-import ImageInput from './ImageInput';
-import NumberInput from './NumberInput';
-import StorylineInput from './StorylineInput';
-import GenreInput from './GenreInput';
+import TitleInput from './addMovieComponents/TitleInput';
+import SubtitleInput from './addMovieComponents/SubtitleInput';
+import ImageInput from './addMovieComponents/ImageInput';
+import NumberInput from './addMovieComponents/NumberInput';
+import StorylineInput from './addMovieComponents/StorylineInput';
+import GenreInput from './addMovieComponents/GenreInput';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -25,9 +25,14 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  AddMovie = () => {
+  HandleMovie = () => {
+    // essa função, que adiciona um filme ao array presente em data.js, é recebida como props da MovieLibrary
     const { onClick } = this.props;
-    onClick(this.State);
+    // Executa a função de adicionar um filme utilizando o estado do componente atual, que foi modificado
+    // a partir dos HandleChange presentes nos componentes de "AddMovie"
+    onClick(this.state);
+    // Depois de executar a função de adicionar o filme presente no state atual, ele reseta o state para o padrão,
+    // assim é possível adicionar um segundo filme
     this.setState({
       subtitle: '',
       title: '',
@@ -51,7 +56,7 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ this.AddMovie }
+          onClick={ this.HandleMovie }
         >
           Adicionar filme
         </button>

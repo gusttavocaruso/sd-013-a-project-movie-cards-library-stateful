@@ -21,7 +21,10 @@ class NumberInput extends React.Component {
 
 NumberInput.propTypes = {
   HandleChange: PropTypes.func,
-  componentValue: PropTypes.number,
+  componentValue: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
 };
 
 NumberInput.defaultProps = {

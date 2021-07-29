@@ -7,30 +7,30 @@ class SearchBar extends React.Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text-input-label">
+        <label data-testid="text-input-label" htmlFor="searchText">
           Inclui o texto
           <input
-            name="text-input-label"
+            name="searchText"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="checkbox-input-label">
+        <label data-testid="checkbox-input-label" htmlFor="bookmarkedOnly">
           Mostrar somente favoritos
           <input
-            name="checkbox-input-label"
+            name="bookmarkedOnly"
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
-        <label data-testid="select-input-label" htmlFor="select-input-label">
+        <label data-testid="select-input-label" htmlFor="selectedGenre">
           Filtrar por gênero
           <select
-            name="select-input-label"
+            name="selectedGenre"
             type="select"
             data-testid="select-input"
             value={ selectedGenre }
@@ -57,12 +57,12 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
-  searchText: null,
-  onSearchTextChange: null,
-  bookmarkedOnly: null,
-  onBookmarkedChange: null,
-  selectedGenre: null,
-  onSelectedGenreChange: null,
+  searchText: undefined,
+  onSearchTextChange: undefined,
+  bookmarkedOnly: undefined,
+  onBookmarkedChange: undefined,
+  selectedGenre: undefined,
+  onSelectedGenreChange: undefined,
 };
 
 export default SearchBar;
