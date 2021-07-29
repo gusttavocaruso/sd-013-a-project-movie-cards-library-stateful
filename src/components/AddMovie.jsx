@@ -1,5 +1,5 @@
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 import TitleComp from './formComponents/TitleComp';
 import SubtitleComp from './formComponents/SubtitleComp';
 import StoryLineComp from './formComponents/StorylineComp';
@@ -33,13 +33,28 @@ render() {
     <form data-testid="add-movie-form">
       <TitleComp value={ title } onChange={ this.HandleOnChange } />
       <SubtitleComp subtitle={ subtitle } onChange={ this.HandleOnChange } />
-      <ImageComp imagePath={ imagePath } onChange={ this.HandleOnChange } />
-      <StoryLineComp storyline={ storyline } onChange={ this.HandleOnChange } />
+      <ImageComp
+        imagePath={ imagePath }
+        onChange={ this.HandleOnChange }
+      />
+      <StoryLineComp
+        storyline={ storyline }
+        onClick={ onClick }
+        onChange={ this.HandleOnChange }
+      />
       <RatingComp value={ rating } onChange={ this.HandleOnChange } />
       <GenreComp value={ genre } onChange={ this.HandleOnChange } />
     </form>
   );
 }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+};
+
+AddMovie.defaultProps = {
+  onClick: undefined,
+};
 
 export default AddMovie;
