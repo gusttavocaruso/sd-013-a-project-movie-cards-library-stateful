@@ -16,7 +16,7 @@ class AddMovie extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      title: event.target.value,
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -27,17 +27,17 @@ class AddMovie extends React.Component {
       <form action="" data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
           Título
-          <input type="text" value={ title } data-testid="title-input" onChange={ this.handleChange } />
+          <input type="text" value={ title } name="title" data-testid="title-input" onChange={ this.handleChange } />
         </label>
-        {/* <label htmlFor="subtitle" data-testid="subtitle-input-label">
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
-          <input type="text" value="" data-testid="subtitle-input" onChange={ subtitle } />
+          <input type="text" value={ subtitle } name="subtitle" data-testid="subtitle-input" onChange={ this.handleChange } />
         </label>
         <label htmlFor="image" data-testid="image-input-label">
           Imagem
-          <input type="text" value="" data-testid="image-input" onChange={ imagePath } />
+          <input type="text" value={ imagePath } name="imagePath" data-testid="image-input" onChange={ this.handleChange } />
         </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
+        {/* <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea name="storyline" id="storyline" cols="30" rows="10" value={ storyline } data-testid="storyline-input" onChange={ storyline }></textarea>
         </label> */}
