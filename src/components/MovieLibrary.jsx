@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import MovieList from './MovieList';
-import movies from '../data';
+import data from '../data';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
@@ -10,7 +10,9 @@ class MovieLibrary extends Component {
   //   super(props);
   //   this.state = {
   //     searchText: '',
-  //     onSearchTextChange: '',
+  //     bookmarkedOnly: false,
+  //     selectedGenre: '',
+  //     movies: data,
   //   };
   // }
 
@@ -19,11 +21,12 @@ class MovieLibrary extends Component {
   }
 
   render() {
+    // const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ movies } />
+        <MovieList movies={ data } />
         <AddMovie onClick={ this.callSubmit } />
       </div>
     );
