@@ -38,6 +38,7 @@ class MovieLibrary extends Component {
     });
   }
 
+  // feito junto com o Matheus Duarte
   moviesFiltered() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const movieArr = movies.filter((movie) => {
@@ -54,7 +55,6 @@ class MovieLibrary extends Component {
   // ^
 
   render() {
-    // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
