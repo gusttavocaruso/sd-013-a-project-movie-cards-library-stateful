@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -45,6 +45,7 @@ class AddMovie extends React.Component {
     onChange={ this.handleChange }
   />);
 
+  // baseado no codigo de Pedro Verano
   textAreaFunc = (datatest, name, value) => (<textarea
     data-testid={ datatest }
     name={ name }
@@ -52,6 +53,7 @@ class AddMovie extends React.Component {
     onChange={ this.handleChange }
   />);
 
+  // baseado no codigo de Pedro Verano
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
