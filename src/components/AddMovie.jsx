@@ -17,7 +17,9 @@ class AddMovie extends Component {
   getProperty = (property) => this.state.property;
 
   changeStateProperty = (e) => {
-    this.setState({ title: e.target.value });
+    // console.log(e.target.getAttribute('property'));
+    const property = e.target.getAttribute('property');
+    this.setState({ [property]: e.target.value });
   }
 
   render() {
@@ -27,8 +29,19 @@ class AddMovie extends Component {
           Título:
           <input
             data-testid="title-input"
+            property="title"
             type="text"
             value={ this.state.title }
+            onChange={ this.changeStateProperty.bind(this) }
+          />
+        </label>
+        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
+          Subtítulo:
+          <input
+            data-testid="subtitle-input"
+            property="subtitle"
+            type="text"
+            value={ this.state.subtitle }
             onChange={ this.changeStateProperty.bind(this) }
           />
         </label>
