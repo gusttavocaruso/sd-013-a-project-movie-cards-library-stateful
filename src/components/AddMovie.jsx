@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import data from '../data';
-import TitleInput from './forms/Title'
+import TitleInput from './forms/Title';
 import SubtitleInput from './forms/Subtitle';
 import ImagePathUrl from './forms/ImagePathReact';
 import StorylineInput from './forms/StorylineInput';
