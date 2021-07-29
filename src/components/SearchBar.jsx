@@ -4,7 +4,11 @@ class SearchBar extends React.Component {
   render() {
     return (
       <section>
-        <h1>Movie Cards</h1>
+        <form data-testid="search-bar-form">
+          <label htmlFor="name">
+            <input type="text" name="name" />
+          </label>
+        </form>
       </section>
     );
   }
