@@ -20,9 +20,9 @@ export default class AddMovie extends React.Component {
 
   hanbleOnSubmit = () => {
     const { onClick } = this.props;
+    onClick(this.state);
     const { genre } = this.state;
     const elGernre = document.getElementById('select-genre');
-    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -36,6 +36,7 @@ export default class AddMovie extends React.Component {
 
   hanbleChange = (e) => {
     const { value, name } = e.target;
+    if (name === 'rating') return this.setState({ [name]: Number(value) });
     this.setState({ [name]: value });
   }
 
@@ -64,7 +65,7 @@ export default class AddMovie extends React.Component {
         <InputGeneric
           type="number"
           descicao="Avaliação"
-          title={ rating.toString() }
+          title={ rating }
           name="rating"
           onChange={ this.hanbleChange }
         />

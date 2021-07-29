@@ -30,7 +30,7 @@ export default class InputGeneric extends React.Component {
 InputGeneric.propTypes = {
   onChange: PropTypes.func,
   descicao: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   type: PropTypes.string,
   name: PropTypes.string,
 };
