@@ -40,7 +40,7 @@ class AddMovie extends React.Component {
             id="sinopse"
             cols="30"
             rows="10"
-            value={ storyLine }
+            storyLine={ storyLine }
             onChange={ this.handleChange }
             data-testid="storyline-input"
           />
