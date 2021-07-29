@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -11,11 +11,29 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.changeStateProperty = this.changeStateProperty.bind(this);
   }
-  render(){
-    return(
-    <div></div>
-    )
+
+  getProperty = (property) => this.state.property;
+
+  changeStateProperty = (e) => {
+    this.setState({ title: e.target.value });
+  }
+
+  render() {
+    return (
+      <form data-testid="add-movie-form">
+        <label data-testid="title-input-label" htmlFor="title-input">
+          Título:
+          <input
+            data-testid="title-input"
+            type="text"
+            value={ this.state.title }
+            onChange={ this.changeStateProperty.bind(this) }
+          />
+        </label>
+      </form>
+    );
   }
 }
 
