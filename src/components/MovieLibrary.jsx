@@ -12,19 +12,19 @@ class MovieLibrary extends Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnly: false,
+      bookmarked: false,
       selectedGenre: '',
       movies: movies,
     };
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, searchText, selectedGenre } = this.state;
     const filteredMovies = movies
-      .filter((movie) =>
-        movie.title.includes(searchText) || movie.subtitle.includes(searchText))
+      .filter((movie) => movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText))
       .filter((movie) => movie.genre.includes(selectedGenre))
-      .filter((movie) => movie.bookmarkedOnly === true)
+      .filter((movie) => movie.bookmarked === true);
 
     return (
       <div>
