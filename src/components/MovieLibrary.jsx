@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
           searchText=""
           onSearchTextChange={ () => { } }
           bookMarkedOnly
+          onBookmarkedChange={ () => { } }
           selectedGenre=""
           onSelectedGenreChange={ () => { } }
         />
