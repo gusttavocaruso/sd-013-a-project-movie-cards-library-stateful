@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputTextArea extends React.Component {
   render() {
@@ -19,5 +20,10 @@ class InputTextArea extends React.Component {
     );
   }
 }
+
+InputTextArea.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default InputTextArea;
