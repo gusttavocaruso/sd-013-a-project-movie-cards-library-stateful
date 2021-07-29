@@ -1,4 +1,4 @@
-// Requisitos 1 ao 5 feitos com a ajuda da Luiza Antiques da turma 13.
+// Projeto realizado com a ajuda da Luiza Antiques da turma 13.
 import React from 'react';
 import PropTypes from 'prop-types';
 
