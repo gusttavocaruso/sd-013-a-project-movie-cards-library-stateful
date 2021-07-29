@@ -22,17 +22,15 @@ class AddMovie extends React.Component {
     super();
 
     this.state = INITIAL_STATE;
-
-    this.handleChange = this.handleChange.bind(this);
-    this.clickButton = this.clickButton.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
 
-  clickButton() {
+  clickButton = (e) => {
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(INITIAL_STATE);
