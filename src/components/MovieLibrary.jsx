@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MovieList from './MovieList';
 import data from '../data';
-import SearchBar from './SearchBar';
+import SearchBar from './forms/SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {

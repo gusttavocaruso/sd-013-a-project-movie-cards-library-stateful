@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import data from '../data';
-import TitleInput from './Title';
-import SubtitleInput from './Subtitle';
-import ImagePathUrl from './ImagePathReact';
-import StorylineInput from './StorylineInput';
-import RatingInput from './RatingInput';
-import SelectOption from './SelectOption';
-import ButtonSubmit from './ButtonSubmit';
+import TitleInput from './forms/Title'
+import SubtitleInput from './forms/Subtitle';
+import ImagePathUrl from './forms/ImagePathReact';
+import StorylineInput from './forms/StorylineInput';
+import RatingInput from './forms/RatingInput';
+import SelectOption from './forms/SelectOption';
+import ButtonSubmit from './forms/ButtonSubmit';
 
 class AddMovie extends React.Component {
   constructor(props) {
