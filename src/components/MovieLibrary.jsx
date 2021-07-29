@@ -17,8 +17,7 @@ class MovieLibrary extends Component {
 
   hanbleChange = (state) => {
     const { movies } = this.state;
-    movies.push(state);
-    this.setState({ movies });
+    this.setState({ movies: movies.concat(state) });
   }
 
   onSearchTextChange = (e) => {
