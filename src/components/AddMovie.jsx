@@ -18,9 +18,10 @@ export default class AddMovie extends React.Component {
     };
   }
 
-  hanbleOnSubmit = (e) => {
-    e.preventDefault();
+  hanbleOnSubmit = () => {
     const { onClick } = this.props;
+    const { genre } = this.state;
+    const elGernre = document.getElementById('select-genre');
     onClick(this.state);
     this.setState({
       subtitle: '',
@@ -30,6 +31,7 @@ export default class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    elGernre.value = genre;
   }
 
   hanbleChange = (e) => {
@@ -37,46 +39,27 @@ export default class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  soprapassanolink = () => {
-    const { title, subtitle } = this.state;
+  render() {
+    const { imagePath, storyline, rating, genre, title, subtitle } = this.state;
     return (
-      <>
+      <form action="" data-testid="add-movie-form">
         <InputGeneric
           descicao="Título"
           title={ title }
           name="title"
           onChange={ this.hanbleChange }
-          datatestid={ ['title-input-label', 'title-input'] }
         />
         <InputGeneric
           descicao="Subtítulo"
           title={ subtitle }
           name="subtitle"
           onChange={ this.hanbleChange }
-          datatestid={ ['subtitle-input-label', 'subtitle-input'] }
         />
-      </>
-    );
-  }
-
-  render() {
-    const { imagePath, storyline, rating, genre } = this.state;
-    return (
-      <form action="" data-testid="add-movie-form">
-        this.soprapassanolink()
         <InputGeneric
           descicao="Imagem"
           title={ imagePath }
           name="imagePath"
           onChange={ this.hanbleChange }
-          datatestid={ ['image-input-label', 'image-input'] }
-        />
-        <TextArea
-          descicao="Sinopse"
-          title={ storyline }
-          name="storyline"
-          onChange={ this.hanbleChange }
-          datatestid={ ['storyline-input-label', 'storyline-input'] }
         />
         <InputGeneric
           type="number"
@@ -84,7 +67,13 @@ export default class AddMovie extends React.Component {
           title={ rating.toString() }
           name="rating"
           onChange={ this.hanbleChange }
-          datatestid={ ['rating-input-label', 'rating-input'] }
+        />
+        <TextArea
+          descicao="Sinopse"
+          title={ storyline }
+          name="storyline"
+          onChange={ this.hanbleChange }
+          datatestid={ ['storyline-input-label', 'storyline-input'] }
         />
         <SelectElement
           descicao="Gênero"

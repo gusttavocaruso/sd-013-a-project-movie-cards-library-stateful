@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 
 export default class InputGeneric extends React.Component {
   render() {
-    const { descicao, title, onChange, datatestid, type = 'text', name } = this.props;
+    const { descicao, title, onChange, type, name } = this.props;
+    let datatestid = [];
+
+    if (name === 'imagePath') {
+      datatestid = ['image-input-label', 'image-input'];
+    } else {
+      datatestid = [`${name}-input-label`, `${name}-input`];
+    }
+
     return (
       <label htmlFor="#" data-testid={ datatestid[0] }>
         {descicao}
@@ -20,7 +28,6 @@ export default class InputGeneric extends React.Component {
 }
 
 InputGeneric.propTypes = {
-  datatestid: PropTypes.arrayOf(PropTypes.string),
   onChange: PropTypes.func,
   descicao: PropTypes.string,
   title: PropTypes.string,
@@ -29,7 +36,6 @@ InputGeneric.propTypes = {
 };
 
 InputGeneric.defaultProps = {
-  datatestid: [],
   onChange: '',
   descicao: '',
   title: '',

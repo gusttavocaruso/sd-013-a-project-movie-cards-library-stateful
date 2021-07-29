@@ -15,9 +15,8 @@ class MovieLibrary extends Component {
     };
   }
 
-  hanbleChange = (e) => {
-    const { value, name } = e.target;
-    this.setState({ [name]: value });
+  hanbleChange = (state) => {
+    console.log(state);
   }
 
   onSearchTextChange = (e) => {
