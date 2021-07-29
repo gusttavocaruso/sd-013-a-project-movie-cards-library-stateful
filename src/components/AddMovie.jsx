@@ -26,9 +26,20 @@ HandleOnChange = ((event) => {
   });
 })
 
+HandleReset = () => {
+  this.setState({
+    title: '',
+    subtitle: '',
+    imagePath: '',
+    storyline: '',
+    rating: 0,
+    genre: 'action',
+  });
+}
+
 render() {
   const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-  const { onClick } = this.props;
+  const { mandaPoPai } = this.props;
   return (
     <form data-testid="add-movie-form">
       <TitleComp value={ title } onChange={ this.HandleOnChange } />
@@ -39,22 +50,33 @@ render() {
       />
       <StoryLineComp
         storyline={ storyline }
-        onClick={ onClick }
         onChange={ this.HandleOnChange }
       />
       <RatingComp value={ rating } onChange={ this.HandleOnChange } />
       <GenreComp value={ genre } onChange={ this.HandleOnChange } />
+      <button
+        type="submit"
+        data-testid="send-button"
+        onClick={ (event) => {
+          event.preventDefault();
+          this.HandleReset();
+          mandaPoPai(this.state);
+        } }
+      // feito com a ajuda do meu grande colega - Lailson Gabriel - Turma 13-B;
+      >
+        Adicionar filme
+      </button>
     </form>
   );
 }
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func,
+  mandaPoPai: PropTypes.func,
 };
 
 AddMovie.defaultProps = {
-  onClick: undefined,
+  mandaPoPai: undefined,
 };
 
 export default AddMovie;

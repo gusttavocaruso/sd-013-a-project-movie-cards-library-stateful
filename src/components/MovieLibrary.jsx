@@ -6,6 +6,10 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  recebeDoFi = (state) => {
+    console.log(state);
+  }
+
   render() {
     const { movies } = this.props;
     return (
@@ -13,7 +17,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie mandaPoPai={ this.recebeDoFi } />
       </div>
     );
   }
