@@ -1,13 +1,14 @@
 // implement AddMovie component
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GenreSelector from './GenreSelector';
-import ImageInput from './ImageInput';
-import RatingInput from './RatingInput';
-import StoryLine from './StoryLine';
-import SubtitleInput from './SubtitleInput';
-import TitleInput from './TitleInput';
-import ButtonAdd from './ButtonAdd';
+import GenreSelector from './AddMovie/GenreSelector';
+import ImageInput from './AddMovie/ImageInput';
+import RatingInput from './AddMovie/RatingInput';
+import StoryLine from './AddMovie/StoryLine';
+import SubtitleInput from './AddMovie/SubtitleInput';
+import TitleInput from './AddMovie/TitleInput';
+import ButtonAdd from './AddMovie/ButtonAdd';
+import './AddMovie/AddMovie.css';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -43,7 +44,7 @@ class AddMovie extends Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form className="add-movie-form" data-testid="add-movie-form">
         <TitleInput title={ title } handleChange={ this.handleChange } />
         <SubtitleInput subtitle={ subtitle } handleChange={ this.handleChange } />
         <ImageInput imagePath={ imagePath } handleChange={ this.handleChange } />

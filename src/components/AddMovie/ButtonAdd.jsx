@@ -6,6 +6,7 @@ class ButtonAdd extends Component {
     const { addNewMovie } = this.props;
     return (
       <button
+        className="add-button"
         type="submit"
         data-testid="send-button"
         onClick={ addNewMovie }

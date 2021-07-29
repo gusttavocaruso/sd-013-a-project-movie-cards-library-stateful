@@ -1,6 +1,10 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SearchTextInput from './SearchBar/SearchTextInput';
+import BookMarkedCheck from './SearchBar/BookMarkedCheck';
+import GenreInput from './SearchBar/GenreInput';
+import './SearchBar/SearchBar.css';
 
 class SearchBar extends Component {
   render() {
@@ -13,43 +17,19 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            name="text-input"
-            data-testid="text-input"
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            name="checkbox-input"
-            data-testid="checkbox-input"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
-
-        <label htmlFor="select-input" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            name="select-input"
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+      <form className="search-bar-form" data-testid="search-bar-form">
+        <SearchTextInput
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+        />
+        <BookMarkedCheck
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
+        <GenreInput
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }

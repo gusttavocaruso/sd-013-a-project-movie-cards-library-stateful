@@ -1,32 +1,38 @@
-body {
-  background-color: whitesmoke;
+* {
   box-sizing: border-box;
+}
+
+body {
+  background-color: #060606;
+  box-sizing: border-box;
+  color: white;
   font-size: 16px;
 }
 
 .movie-card-header {
   align-items: center;
-  background-color: #343a40;
+  background-color: #010101;
   display: flex;
   height: 100px;
   justify-content: center;
 }
 
 .page-title {
-  color: #f8f9fa;
+  color: #c7ced6;
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
 }
 
 .movie-list {
+  align-items: flex-end;
   display: flex;
   flex-flow: row wrap;
-  padding: 48px 30px;
+  justify-content: center;
 }
 
 .movie-card {
-  background-color: white;
+  background-color: #101010;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   display: flex;
@@ -48,13 +54,15 @@ body {
 }
 
 .movie-card-title {
+  font-family: Bebas Neue , cursive;
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
+  color: #9daab4;
+  font-family: Bebas Neue , cursive;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
@@ -66,16 +74,16 @@ body {
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: #dadfe4;
   border-radius: 25px;
-  color: white;
+  color: #020202;
   font-size: 16px;
   font-weight: 700;
   padding: 3px 9px;
 }
 
 .movie-card-rating {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(70, 70, 70, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   justify-content: flex-end;
