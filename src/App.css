@@ -22,13 +22,14 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   padding: 48px 30px;
 }
 
 .movie-card {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 3px;
+  border-radius: 9px;
   display: flex;
   flex-direction: column;
   height: 450px;
@@ -37,9 +38,26 @@ body {
   width: 300px;
 }
 
+.movie-card:hover {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 9px;
+  box-shadow: 2px 8px 10px black;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  margin: 50px;
+  overflow: hidden;
+  transform: scale(1.1);
+  transition: 2s;
+  width: 300px;
+}
+
 
 .movie-card-image {
-  width: 100%;
+  box-sizing: border-box;
+  height: 168px;
+  width: 300px;
 }
 
 .movie-card-body {
@@ -61,7 +79,7 @@ body {
 }
 
 .movie-card-storyline {
-  font-size: 14px;
+  font-size: 12px;
   text-align: justify;
 }
 
@@ -80,4 +98,33 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.searchbar {
+  border-radius: 9px;
+  box-shadow: 10px 10px 90px #010101;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  padding: 8px;
+}
+
+.addmovie {
+  border-radius: 9px;
+  box-shadow: 10px 20px 40px #010101;
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  padding: 10px;
+  width: 20%;
+}
+
+input, textarea, button, select, checkbox {
+  border: 1px gray solid;
+  border-radius: 9px;
+  max-width: 200px;
+}
+
+.labels {
+  margin-left: 20px;
 }

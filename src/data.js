@@ -1,5 +1,14 @@
 const movies = [
   {
+    title: 'Procurando Nemo',
+    subtitle: 'Procurando Nemo',
+    storyline: "Em seu primeiro dia de aula, esquecendo os conselhos do pai superprotetor, Nemo é capturado por um mergulhador e acaba no aquário de um dentista. Enquanto Nemo tenta bolar um plano para escapar, seu pai cruza o oceano para resgatá-lo.",
+    rating: 5,
+    imagePath: 'https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2015/11/71dd44b7579a6089df1ac310dad3c5ae.jpg.jpeg',
+    bookmarked: true,
+    genre: 'comedy',
+  },
+  {
     title: 'Kingsglaive',
     subtitle: 'Final Fantasy XV',
     storyline: "King Regis, who oversees the land of Lucis, commands his army of soldiers to protect the kingdom from the Niflheim empire's plans to steal the sacred crystal.",
