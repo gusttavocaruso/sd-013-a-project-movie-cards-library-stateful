@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  recebeDoFi = (state) => {
+  ReceptState = (state) => {
     console.log(state);
   }
 
@@ -17,7 +17,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie mandaPoPai={ this.recebeDoFi } />
+        <AddMovie onClick={ this.ReceptState } />
       </div>
     );
   }

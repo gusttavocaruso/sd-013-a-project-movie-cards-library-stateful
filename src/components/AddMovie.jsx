@@ -39,7 +39,7 @@ HandleReset = () => {
 
 render() {
   const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-  const { mandaPoPai } = this.props;
+  const { onClick } = this.props;
   return (
     <form data-testid="add-movie-form">
       <TitleComp value={ title } onChange={ this.HandleOnChange } />
@@ -60,7 +60,7 @@ render() {
         onClick={ (event) => {
           event.preventDefault();
           this.HandleReset();
-          mandaPoPai(this.state);
+          onClick(this.state);
         } }
       // feito com a ajuda do meu grande colega - Lailson Gabriel - Turma 13-B;
       >
@@ -72,11 +72,11 @@ render() {
 }
 
 AddMovie.propTypes = {
-  mandaPoPai: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 AddMovie.defaultProps = {
-  mandaPoPai: undefined,
+  onClick: undefined,
 };
 
 export default AddMovie;
