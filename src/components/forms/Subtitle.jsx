@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 
 class SubtitleInput extends React.Component {
@@ -11,8 +11,8 @@ class SubtitleInput extends React.Component {
           type="text"
           name="subtitle"
           id="subtitle"
-          value={value}
-          onChange={onChange}
+          value={ value }
+          onChange={ onChange }
           data-testid="subtitle-input"
         />
       </label>

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 
 class RatingInput extends React.Component {
@@ -24,6 +24,5 @@ RatingInput.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 }.isRequired;
-
 
 export default RatingInput;

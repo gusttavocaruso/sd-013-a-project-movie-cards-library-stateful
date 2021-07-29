@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class SelectOption extends React.Component {
   render() {
@@ -27,5 +27,10 @@ class SelectOption extends React.Component {
     );
   }
 }
+
+SelectOption.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
 
 export default SelectOption;

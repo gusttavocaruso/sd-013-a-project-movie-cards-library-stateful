@@ -25,5 +25,4 @@ ImagePathUrl.propTypes = {
   onChange: PropTypes.func,
 }.isRequired;
 
-
 export default ImagePathUrl;
