@@ -4,6 +4,7 @@ import SubtitleRender from './SubtitleRender';
 import ImageRender from './ImageRender';
 import SinopseRender from './SinopseRender';
 import RateRender from './RateRender';
+import GenreRender from './GenreRender';
 
 class AddMovie extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class AddMovie extends Component {
         <ImageRender imagePath={ imagePath } handleChange={ this.handleChange } />
         <SinopseRender storyline={ storyline } handleChange={ this.handleChange } />
         <RateRender rating={ rating } handleChange={ this.handleChange } />
+        <GenreRender genre={ genre } handleChange={ this.handleChange } />
       </form>
     );
   }
