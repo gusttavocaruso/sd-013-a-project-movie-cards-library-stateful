@@ -119,12 +119,12 @@ body {
   width: 20%;
 }
 
-input, textarea, button, select, checkbox {
+input, textarea, button, select {
   border: 1px gray solid;
   border-radius: 9px;
   max-width: 200px;
 }
 
-.labels {
+.la {
   margin-left: 20px;
 }
