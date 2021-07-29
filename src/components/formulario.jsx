@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextAreaAdd from './TextAreaAdd';
-import Button from './Button';
 
 class Formulario extends React.Component {
   render() {
     const { title, subtitle, imagePath, rating } = this.props;
-    const { genre, storyline, handleChange, onClick } = this.props;
+    const { genre, storyline, handleChange } = this.props;
     return (
       <section>
         <form data-testid="add-movie-form" action="">
@@ -49,7 +48,6 @@ class Formulario extends React.Component {
             genre={ genre }
             storyline={ storyline }
           />
-          <Button onClick={ onClick } />
         </form>
       </section>
     );
@@ -64,7 +62,6 @@ Formulario.propTypes = {
   genre: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Formulario;

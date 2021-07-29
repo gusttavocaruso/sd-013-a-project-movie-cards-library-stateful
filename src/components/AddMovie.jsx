@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import Button from './Button';
 import Formulario from './formulario';
 
 class AddMovie extends React.Component {
@@ -13,7 +15,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.click = this.click.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -22,32 +24,40 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClick() {
-    this.setState = ({
+  click() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     });
   }
 
   render() {
     const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
     return (
-      <Formulario
-        title={ title }
-        subtitle={ subtitle }
-        imagePath={ imagePath }
-        rating={ rating }
-        genre={ genre }
-        storyline={ storyline }
-        handleChange={ this.handleChange }
-        onClick={ this.onClick }
-      />
+      <section>
+        <Formulario
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          rating={ rating }
+          genre={ genre }
+          storyline={ storyline }
+          handleChange={ this.handleChange }
+          onClick={ this.click }
+        />
+        <Button onClick={ this.click } />
+      </section>
     );
   }
 }
 
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;

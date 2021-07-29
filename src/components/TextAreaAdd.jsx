@@ -10,7 +10,7 @@ class TextAreaAdd extends React.Component {
           Sinopse
           <textarea
             onChange={ handleChange }
-            name="storyLine"
+            name="storyline"
             id="sinopse"
             cols="30"
             rows="10"
