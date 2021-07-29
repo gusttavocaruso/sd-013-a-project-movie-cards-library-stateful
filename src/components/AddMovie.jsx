@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormsInput from './FormsInput';
+import FormsTextArea from './FormsTextArea';
+import FormsSelectInput from './FormsSelectInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -33,7 +35,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  renderMovieCard = () => {
+  renderMovieCard = (event) => {
+    event.preventDefault();
     const { resetState, props: { onClick } } = this;
     onClick(this.state);
     resetState();
@@ -41,8 +44,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { props: { onClick }, handleChange, renderMovieCard } = this;
-
+    const { handleChange, renderMovieCard } = this;
     return (
       <form action="" data-testid="add-movie-form">
         <FormsInput value={ title } id="title" func={ handleChange } text="Título" />
@@ -58,10 +60,15 @@ class AddMovie extends React.Component {
           func={ handleChange }
           text="Imagem"
         />
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea id="storyline" cols="30" rows="10" value={ storyline } data-testid="storyline-input" onChange={ handleChange } />
-        </label>
+
+        <FormsTextArea
+          id="storyline"
+          value={ storyline }
+          data-testid="storyline-input"
+          onChange={ handleChange }
+          text="Sinopse"
+        />
+
         <FormsInput
           value={ rating }
           id="rating"
@@ -70,15 +77,15 @@ class AddMovie extends React.Component {
           text="Avaliação"
         />
 
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select id="genre" data-testid="genre-input" value={ genre } onChange={ handleChange }>
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
-        <button type="button" data-testid="send-button" onClick={ renderMovieCard }>Adicionar filme</button>
+        <FormsSelectInput
+          id="genre"
+          onChange={ handleChange }
+          value={ genre }
+        />
+
+        <button type="button" data-testid="send-button" onClick={ renderMovieCard }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
