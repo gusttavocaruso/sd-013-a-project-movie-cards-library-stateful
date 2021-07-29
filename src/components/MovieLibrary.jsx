@@ -35,7 +35,7 @@ class MovieLibrary extends Component {
     });
   }
 
-  filmesDefinidos() {
+  filtrarFilmes() {
     const {
       searchText,
       bookmarkedOnly,
@@ -47,9 +47,15 @@ class MovieLibrary extends Component {
         if (bookmarkedOnly) {
           return movie.bookmarked === true;
         } return movie;
-      }).filter((movie) => (movie.title.toLowerCase().includes(searchText))
-      || movie.subtitle.toLowerCase().includes(searchText)
-      || movie.storyline.toLowerCase().includes(searchText))
+      }).filter((movie) => (movie.title
+        .toLowerCase()
+        .includes(searchText.toLowerCase()))
+      || movie.subtitle
+        .toLowerCase()
+        .includes(searchText.toLowerCase())
+      || movie.storyline
+        .toLowerCase()
+        .includes(searchText.toLowerCase()))
       .filter((movie) => movie.genre.includes(selectedGenre));
     return arrayDeFilmes;
   }
@@ -67,7 +73,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.filmesDefinidos() } />
+        <MovieList movies={ this.filtrarFilmes() } />
         <AddMovie onClick={ this.addMovie } />
       </div>
     );
