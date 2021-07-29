@@ -58,7 +58,8 @@ class MovieLibrary extends React.Component {
         .includes(searchText.toLowerCase()) || storyline.toLowerCase()
         .includes(searchText.toLowerCase()) || subtitle.toLowerCase()
         .includes(searchText.toLowerCase()))
-      .filter((movie) => (bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : true))
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked
+        === bookmarkedOnly : [...movies]))
       .filter((movie) => movie.genre.includes(selectedGenre));
     return (
       <div>
