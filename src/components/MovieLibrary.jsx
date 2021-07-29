@@ -2,19 +2,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
+
+    const { movies } = this.props;
+
+    // https://stackoverflow.com/questions/47635509/eslint-object-shorthand-error-with-variable-passed-in
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props,
+      movies,
     };
   }
 
@@ -28,6 +32,8 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filteredMovies = movies;
+    // const filteredMovies = movies;
     return (
       <div>
         <SearchBar
@@ -38,13 +44,15 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
+        <MovieList movies={ filteredMovies } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.array.isRequired,
+  // movies: PropTypes.array.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
