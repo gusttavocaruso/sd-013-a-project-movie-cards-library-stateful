@@ -32,8 +32,8 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    let filteredMovies = movies;
-    // const filteredMovies = movies;
+    // let filteredMovies = movies;
+    const filteredMovies = movies;
     return (
       <div>
         <SearchBar
