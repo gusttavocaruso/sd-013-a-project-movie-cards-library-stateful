@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 class InputLabelText extends React.Component {
   render() {
-    const { name, innerLabel, value, dataTestId, onChange } = this.props;
+    const { property } = this.props;
     return (
       <label
-        htmlFor={ name }
-        data-testid={ `${dataTestId}-input-label` }
+        htmlFor={ property[2] }
+        data-testid={ `${property[4]}-input-label` }
       >
-        {innerLabel}
+        { property[3] }
         <select
-          name={ name }
-          data-testid={ `${dataTestId}-input` }
-          value={ value }
-          onChange={ onChange }
+          name={ property[2] }
+          data-testid={ `${property[4]}-input` }
+          value={ property[1] }
+          onChange={ property[5] }
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -26,11 +26,7 @@ class InputLabelText extends React.Component {
 }
 
 InputLabelText.propTypes = {
-  name: PropTypes.string.isRequired,
-  innerLabel: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  dataTestId: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  property: PropTypes.shape([]).isRequired,
 };
 
 export default InputLabelText;

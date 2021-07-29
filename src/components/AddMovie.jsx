@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import InputLabel from './addMovieComponents/InputLabel';
-import InputLabelSelect from './addMovieComponents/InputLabelSelect'
+import InputLabelSelect from './addMovieComponents/InputLabelSelect';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -26,55 +26,33 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
+    const hand = this.handleChange;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const titleInput = ['text', title, 'title', 'Título', 'title', hand];
+    const subtitleInput = ['text', subtitle, 'subtitle', 'Subtítulo', 'subtitle', hand];
+    const imageInput = ['text', imagePath, 'imagePath', 'Imagem', 'image', hand];
+    const storylineInput = ['text', storyline, 'storyline', 'Sinopse', 'storyline', hand];
+    const ratingInput = ['number', rating, 'rating', 'Avaliação', 'rating', hand];
+    const genreInput = ['', genre, 'genre', 'Gênero', 'genre', hand];
     return (
       <form data-testid="add-movie-form">
         <InputLabel
-          type="text"
-          value={ title }
-          name="title"
-          innerLabel="Título"
-          dataTestId="title"
-          onChange={ this.handleChange }
+          property={ titleInput }
         />
         <InputLabel
-          type="text"
-          value={ subtitle }
-          name="subtitle"
-          innerLabel="Subtítulo"
-          dataTestId="subtitle"
-          onChange={ this.handleChange }
+          property={ subtitleInput }
         />
         <InputLabel
-          type="text"
-          value={ imagePath }
-          name="imagePath"
-          innerLabel="Imagem"
-          dataTestId="image"
-          onChange={ this.handleChange }
+          property={ imageInput }
         />
         <InputLabel
-          type="text"
-          value={ storyline }
-          name="storyline"
-          innerLabel="Sinopse"
-          dataTestId="storyline"
-          onChange={ this.handleChange }
+          property={ storylineInput }
         />
         <InputLabel
-          type="number"
-          value={ rating }
-          name="rating"
-          innerLabel="Avaliação"
-          dataTestId="rating"
-          onChange={ this.handleChange }
+          property={ ratingInput }
         />
         <InputLabelSelect
-          value={ genre }
-          name="genre"
-          innerLabel="Gênero"
-          dataTestId="genre"
-          onChange={ this.handleChange }
+          property={ genreInput }
         />
       </form>
     );
