@@ -48,9 +48,22 @@ class MovieLibrary extends Component {
   // Lógica do onClick feito com a ajuda do Pull Request abaixo:
   // https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pull/28/files
 
+  // Explicação na aula do Bloco 13 - Dia 1:
+  // "Renderização condicional e atualização de arrays no estado"
+
+  // Etapa 1:
+
+  // onClick(object) {
+  //   this.setState((previousState) => ({
+  //     movies: [...previousState.movies, object],
+  //   }));
+  // }
+
+  // Etapa 2 (com desestruturação):
+
   onClick(object) {
-    this.setState((previous) => ({
-      movies: [...previous.movies, object],
+    this.setState(({ movies }) => ({
+      movies: [...movies, object],
     }));
   }
 
