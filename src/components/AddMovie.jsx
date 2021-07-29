@@ -56,7 +56,6 @@ class AddMovie extends React.Component {
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
-          storyline={ storyline }
           changeStates={ this.changeStates }
         />
         <NewMovieInputs2
