@@ -5,10 +5,11 @@ class InputTextArea extends React.Component {
     const { onChange, value } = this.props;
     return (
       <div>
-        <label data-testid="storyline-input-label">
+        <label data-testid="storyline-input-label" htmlFor="storyline-ipt">
           Sinopse
           <textarea
             data-testid="storyline-input"
+            id="storyline-ipt"
             value={ value }
             onChange={ onChange }
             name="storyline"

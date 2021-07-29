@@ -17,7 +17,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleSet = (event) => {
+  handleSet = () => {
     alert('Botão');
   }
 

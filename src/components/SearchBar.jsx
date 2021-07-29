@@ -1,5 +1,4 @@
 import React from 'react';
-import InputText from './forms/inputTitle';
 
 class SearchBar extends React.Component {
   render() {
@@ -9,10 +8,11 @@ class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <div>
-          <label data-testid="text-input-label">
+          <label data-testid="text-input-label" htmlFor="txt-ipt">
             Inclui o texto
             <input
               data-testid="text-input"
+              id="txt-ipt"
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
@@ -20,10 +20,11 @@ class SearchBar extends React.Component {
           </label>
         </div>
         <div>
-          <label data-testid="checkbox-input-label">
+          <label data-testid="checkbox-input-label" htmlFor="chkbx-ipt">
             Mostrar somente favoritos
             <input
               data-testid="checkbox-input"
+              id="chkbx-ipt"
               type="checkbox"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
@@ -31,10 +32,11 @@ class SearchBar extends React.Component {
           </label>
         </div>
         <div>
-          <label data-testid="select-input-label">
+          <label data-testid="select-input-label" htmlFor="slct-ipt">
             Filtrar por gênero
             <select
               data-testid="select-input"
+              id="slct-ipt"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
