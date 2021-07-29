@@ -85,7 +85,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <AddMovie
-          onClick={ this.handleClick }
+          onclick={ this.handleClick }
         />
         <MovieList
           movies={ movies }
@@ -103,8 +103,8 @@ class MovieLibrary extends Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;

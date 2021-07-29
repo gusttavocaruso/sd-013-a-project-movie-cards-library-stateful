@@ -3,7 +3,7 @@
 // https://imasters.com.br/front-end/mantendo-estados-de-componentes-no-react-com-state
 // Partes do handleChange, foi pego do código da aula ao vivo antes do projeto.
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Imagem from './Image';
@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
 
   // titleChange = (event) => {
   //   this.setState({ title: event.target.value });
-  // } 
+  // }
 
   // subtitleChange = (event) => {
   //   this.setState({ subtitle: event.target.value });
@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
   }
 
   handleClick = () => {
-    const { onClick } = this.props;
+    // const { onclick } = this.props;
     onClick(this.state);
     this.setState({
       subtitle: '',
@@ -97,8 +97,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.PropTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+// AddMovie.PropTypes = {
+//   onclick: PropTypes.func.isRequired,
+// };
 
 export default AddMovie;
