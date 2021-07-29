@@ -6,6 +6,7 @@ import InputImg from './InputImg';
 import TextArea from './TextArea';
 import InputRating from './InputRating';
 import SelectGenre from './SelectGenre';
+import Button from './Button';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -65,15 +66,7 @@ class AddMovie extends React.Component {
           value={ state.genre }
           onChange={ handleChange }
         />
-        <section>
-          <button
-            type="submit"
-            data-testid="send-button"
-            onClick={ clickButton }
-          >
-            Adicionar filme
-          </button>
-        </section>
+        <Button onClick={ clickButton } />
       </form>
 
     );
