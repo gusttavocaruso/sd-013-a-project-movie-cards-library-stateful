@@ -9,11 +9,13 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
@@ -31,7 +33,7 @@ class MovieLibrary extends React.Component {
   };
 
   render() {
-    const { searchText, bookmarkedOnly } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
