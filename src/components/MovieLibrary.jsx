@@ -16,34 +16,58 @@ class MovieLibrary extends Component {
       movies,
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
   }
 
-  addMovie(novoFilme) {
-    this.setState((estadoAtual) => ({
-      movies: [...estadoAtual.movies, novoFilme],
-    }));
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
   }
 
-  // handleSomething({ target }) {
+  addMovie(novoFilme) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, novoFilme],
+    });
+  }
 
-  // }
+  filmesDefinidos() {
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies,
+    } = this.state;
+    const arrayDeFilmes = movies
+      .filter((movie) => {
+        if (bookmarkedOnly) {
+          return movie.bookmarked === true;
+        } return movie;
+      }).filter((movie) => (movie.title.toLowerCase().includes(searchText))
+      || movie.subtitle.toLowerCase().includes(searchText)
+      || movie.storyline.toLowerCase().includes(searchText))
+      .filter((movie) => movie.genre.includes(selectedGenre));
+    return arrayDeFilmes;
+  }
 
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange=""
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange=""
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange=""
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filmesDefinidos() } />
         <AddMovie onClick={ this.addMovie } />
       </div>
     );
