@@ -17,9 +17,8 @@ class AddMovie extends React.Component {
   render() {
     const { onClick } = this.props;
     return (
-      <h1>oi</h1>
-    /*       <form action="" data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
+      <form action="" data-testid="add-movie-form">
+        {/* <label htmlFor="title" data-testid="title-input-label">
           Subtítulo
           <input type="text" value="" data-testid="title-input" onChange={ title } />
         </label>
@@ -34,8 +33,8 @@ class AddMovie extends React.Component {
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea name="storyline" id="storyline" cols="30" rows="10" value={ storyline } data-testid="storyline-input" onChange={ storyline }></textarea>
-        </label>
-      </form> */
+        </label> */}
+      </form>
     );
   }
 }
