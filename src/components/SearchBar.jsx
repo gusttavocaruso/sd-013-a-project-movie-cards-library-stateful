@@ -1,23 +1,24 @@
 import React from 'react';
-import MovieList from './MovieList';
 
 class SearchBar extends React.Component {
   render() {
     return (
-      <MovieList />
+      <section>
+        <h1>Movie Cards</h1>
+      </section>
     );
   }
 }
 
-SearchBar.propTypes = {
-  movie: PropTypes.shape({
-    searchText: PropTypes.string,
-    onSearchTextChange: PropTypes.callback,
-    bookmarkedOnly: PropTypes.boolean,
-    onBookmarkedChange: PropTypes.callback,
-    selectedGenre: PropTypes.string,
-    onSelectedGenreChange: PropTypes.callback,
-  }).isRequired,
-};
+// SearchBar.propTypes = {
+//   movie: PropTypes.shape({
+//     searchText: PropTypes.string,
+//     onSearchTextChange: PropTypes.callback,
+//     bookmarkedOnly: PropTypes.boolean,
+//     onBookmarkedChange: PropTypes.callback,
+//     selectedGenre: PropTypes.string,
+//     onSelectedGenreChange: PropTypes.callback,
+//   }).isRequired,
+// };
 
 export default SearchBar;
