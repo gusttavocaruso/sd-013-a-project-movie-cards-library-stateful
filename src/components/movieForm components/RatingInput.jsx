@@ -16,7 +16,7 @@ class RatingInput extends React.Component {
           onChange={ onChange }
           min="0"
           max="5"
-          step="0.5"
+          step="0.1"
         />
       </label>
     );
