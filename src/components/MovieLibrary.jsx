@@ -5,32 +5,78 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
-    this.SearchTextChange = this.SearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  // constructor() {
+  //   super();
+  //   this.SearchTextChange = this.SearchTextChange.bind(this);
+  //   this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+  //   this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  //   this.state = {
+  //     searchText: '',
+  //     bookmarkedOnly: false,
+  //     selectedGenre: '',
+  //   };
+  // }
+
+  // onBookmarkedChange(event) {
+  //   this.setState({ bookmarkedOnly: event });
+  // }
+
+  // onSelectedGenreChange(event) {
+  //   this.setState({ selectedGenre: event });
+  // }
+
+  // handleClick = () => {
+
+  // }
+
+  // SearchTextChange(event) {
+  //   this.setState({ searchText: event });
+  // }
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.createNewMovie = this.createNewMovie.bind(this);
+
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
   }
 
-  onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event });
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event });
+  createNewMovie(movieAtributes) {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, movieAtributes],
+    }));
   }
 
-  handleClick = () => {
-
-  }
-
-  SearchTextChange(event) {
-    this.setState({ searchText: event });
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    if (bookmarkedOnly === true) {
+      return movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
+    }
+    if (selectedGenre !== '') {
+      return movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText !== '') {
+      return movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    }
+    return movies;
   }
 
   render() {
