@@ -37,10 +37,10 @@ class AddMovie extends React.Component {
           Imagem
           <input type="text" value={ imagePath } name="imagePath" data-testid="image-input" onChange={ this.handleChange } />
         </label>
-        {/* <label htmlFor="storyline" data-testid="storyline-input-label">
+        <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
-          <textarea name="storyline" id="storyline" cols="30" rows="10" value={ storyline } data-testid="storyline-input" onChange={ storyline }></textarea>
-        </label> */}
+          <textarea name="storyline" id="storyline" cols="30" rows="10" value={ storyline } data-testid="storyline-input" onChange={ this.handleChange }></textarea>
+        </label>
       </form>
     );
   }
