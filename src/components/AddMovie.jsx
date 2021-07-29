@@ -29,7 +29,9 @@ class AddMovie extends Component {
     });
   }
 
-  clickButton() {
+  // funcao feita com ajuda de Luiza antique e Alineke Hoshiro
+  clickButton(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -53,7 +55,7 @@ class AddMovie extends Component {
         <InputTextArea storyline={ storyline } onChange={ this.handleChange } />
         <InputRating rating={ rating } onChange={ this.handleChange } />
         <InputGenre genre={ genre } handleChange={ this.handleChange } />
-        <button data-testid="send-button" type="button" onClick={ this.clickButton }>
+        <button data-testid="send-button" type="submit" onClick={ this.clickButton }>
           Adicionar filme
         </button>
       </form>

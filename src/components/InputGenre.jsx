@@ -7,22 +7,24 @@ class InputGenre extends Component {
 
     return (
       <label
-        htmlFor="defineGenre"
+        htmlFor="genre"
         data-testid="genre-input-label"
       >
         Gênero
         <select
-          genre={ genre }
+          id="genre"
+          name="genre"
+          value={ genre }
           onChange={ handleChange }
           data-testid="genre-input"
         >
-          <option name="defineGenre" value="action" data-testid="genre-option">
+          <option value="action" data-testid="genre-option">
             Ação
           </option>
-          <option name="defineGenre" value="comedy" data-testid="genre-option">
+          <option value="comedy" data-testid="genre-option">
             Comédia
           </option>
-          <option name="defineGenre" value="thriller" data-testid="genre-option">
+          <option value="thriller" data-testid="genre-option">
             Suspense
           </option>
         </select>

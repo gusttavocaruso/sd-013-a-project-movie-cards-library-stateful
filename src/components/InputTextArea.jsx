@@ -7,19 +7,19 @@ class InputTextArea extends Component {
 
     return (
       <label
-        htmlFor="imagePath"
+        htmlFor="storyline"
         data-testid="storyline-input-label"
       >
         Sinopse
-        <input
+        <textarea
           type="text"
-          name="imagePath"
-          id="imagePath"
+          name="storyline"
+          cols="30"
+          rows="10"
+          id="soryline"
           data-testid="storyline-input"
           onChange={ onChange }
           value={ storyline }
-          storyline={ storyline }
-
         />
       </label>
     );
