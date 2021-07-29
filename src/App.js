@@ -1,23 +1,19 @@
 import React from 'react';
-import Header from './components/Header';
+import movies from './data';
 import './App.css';
 
-import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
+import Header from './components/Header';
+import Rating from './components/Rating';
+import MovieLibrary from './components/MovieLibrary';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <AddMovie />
-      <SearchBar
-        searchText="something"
-        // onSearchTextChange="callback"
-        // bookmarkedOnly="false"
-        // onBookmarkedChange=""
-        // selectedGenre=""
-        // onSelectedGenreChange="callback"
-      />
+      <MovieLibrary movies={ movies } />
+      <Rating />
+      {/* <SearchBar searchText="something" /> */}
+      {/* <AddMovie /> */}
     </div>
   );
 }
