@@ -1,16 +1,18 @@
 import React from 'react';
+import FormsInput from './FormsInput';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyLine: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
   }
 
@@ -22,40 +24,24 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            id="title-input"
-            value={ title }
-            name="title"
-            onChange={ this.handleChange }
-            data-testid="title-input"
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            id="subtitle-input"
-            value={ subtitle }
-            name="subtitle"
-            onChange={ this.handleChange }
-            data-testid="subtitle-input"
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            id="image-input"
-            value={ imagePath }
-            name="imagePath"
-            onChange={ this.handleChange }
-            data-testid="image-input"
+        <FormsInput
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
+        />
+        <label htmlFor="sinopse" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="sinopse"
+            id="sinopse"
+            cols="30"
+            rows="10"
+            storyLine={ storyLine }
+            data-testid="storyline-input"
           />
         </label>
       </form>
