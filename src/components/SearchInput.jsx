@@ -9,6 +9,7 @@ class SearchInput extends React.Component {
         <label htmlFor="search" data-testid="text-input-label">
           Inclui o texto:
           <input
+            data-testid="text-input"
             type="text"
             name="search"
             id="search"
@@ -22,6 +23,7 @@ class SearchInput extends React.Component {
         >
           Mostrar somente favoritos
           <input
+            data-testid="checkbox-input"
             type="checkbox"
             name="favorites"
             id="favorites"
