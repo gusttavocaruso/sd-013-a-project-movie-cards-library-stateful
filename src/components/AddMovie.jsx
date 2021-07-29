@@ -28,6 +28,10 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleCallback = (callback) => {
+    callback(this.state);
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
@@ -53,7 +57,7 @@ class AddMovie extends React.Component {
         <StorylineInput value={ storyline } onChange={ this.handleChange } />
         <RatingInput value={ rating } onChange={ this.handleChange } />
         <SelectOption value={ genre } onChange={ this.handleChange } />
-        <ButtonSubmit onClick={ onClick } />
+        <ButtonSubmit onClick={ () => this.handleCallback(onClick) } />
       </form>
     );
   }

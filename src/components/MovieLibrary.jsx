@@ -26,8 +26,9 @@ class MovieLibrary extends Component {
   }
 
   addNewMovie = (newMovies) => {
-    console.log(newMovies);
-    this.setState((prevState) => ({ movies: [...prevState.movies, newMovies] }));
+    // console.log(newMovies);
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovies] });
   }
 
   moviesDefined = () => {
@@ -42,9 +43,9 @@ class MovieLibrary extends Component {
         if (bookmarkedOnly) {
           return movie.bookmarked === true;
         } return movie;
-      }).filter((movie) => (movie.title.toLowerCase().includes(searchText)
-    || movie.subtitle.toLowerCase().includes(searchText)
-    || movie.storyline.toLowerCase().includes(searchText)))
+      }).filter((movie) => (movie.title.includes(searchText)
+    || movie.subtitle.includes(searchText)
+    || movie.storyline.includes(searchText)))
       .filter((movie) => movie.genre.includes(selectedGenre));
     return arrayMovies;
   }
