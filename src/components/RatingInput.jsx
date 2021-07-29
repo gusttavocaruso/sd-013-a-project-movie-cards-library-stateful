@@ -11,6 +11,9 @@ class RatingInput extends React.Component {
           type="number"
           name="rating"
           id="rating"
+          max="5"
+          min="1"
+          step="0.1"
           value={ value }
           onChange={ onChange }
           data-testid="rating-input"

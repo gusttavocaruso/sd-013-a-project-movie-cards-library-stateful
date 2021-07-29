@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import data from '../data';
 import TitleInput from './Title';
 import SubtitleInput from './Subtitle';
 import ImagePathUrl from './ImagePathReact';
@@ -20,7 +19,6 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      movie: data,
     };
   }
 
@@ -28,10 +26,6 @@ class AddMovie extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-  }
-
-  addNewMovie = (movies) => {
-    this.setState((prevState) => ({ movie: [...prevState.movie, movies] }));
   }
 
   handleSubmit = (event) => {
