@@ -5,6 +5,7 @@ import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import RatingNew from './RatingNew';
+import Genre from './Genre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -16,12 +17,13 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyLine: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // Função ensinada no Course e na aula ao-vivo
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -33,7 +35,7 @@ class AddMovie extends React.Component {
 
   render() {
     const {
-      title, subtitle, imagePath, storyLine, rating, /* genre, */
+      title, subtitle, imagePath, storyLine, rating, genre,
     } = this.state;
 
     return (
@@ -44,6 +46,7 @@ class AddMovie extends React.Component {
         <ImagePath valueName={ imagePath } funcOn={ this.handleChange } />
         <Storyline valueName={ storyLine } funcOn={ this.handleChange } />
         <RatingNew valueName={ rating } funcOn={ this.handleChange } />
+        <Genre valueName={ genre } funcOn={ this.handleChange } />
 
       </form>
     );

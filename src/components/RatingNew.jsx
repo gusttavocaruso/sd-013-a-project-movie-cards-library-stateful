@@ -25,8 +25,8 @@ RatingNew.propTypes = {
   funcOn: PropTypes.func.isRequired,
 };
 
+export default RatingNew;
+
 // Rating.defaultProps = {
 //   valueName: 'undefined',
 // };
-
-export default RatingNew;
