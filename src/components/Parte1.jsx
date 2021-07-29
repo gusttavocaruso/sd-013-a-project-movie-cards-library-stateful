@@ -6,39 +6,45 @@ class Parte1 extends React.Component {
     const { title, onChange, subtitle, imagePath } = this.props;
     return (
       <div>
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            id="title"
-            data-testid="title-input"
-            value={ title }
-            onChange={ onChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ onChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            id="imagePath"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ onChange }
-          />
-        </label>
+        <div>
+          <label htmlFor="title" data-testid="title-input-label">
+            Título
+            <input
+              type="text"
+              name="title"
+              id="title"
+              data-testid="title-input"
+              value={ title }
+              onChange={ onChange }
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="subtitle" data-testid="subtitle-input-label">
+            Subtítulo
+            <input
+              type="text"
+              name="subtitle"
+              id="subtitle"
+              data-testid="subtitle-input"
+              value={ subtitle }
+              onChange={ onChange }
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="imagePath" data-testid="image-input-label">
+            Imagem
+            <input
+              type="text"
+              name="imagePath"
+              id="imagePath"
+              data-testid="image-input"
+              value={ imagePath }
+              onChange={ onChange }
+            />
+          </label>
+        </div>
       </div>
     );
   }

@@ -9,16 +9,18 @@ class SearchBar extends Component {
       selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            type="text"
-            name="searchText"
-            data-testid="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
+        <div>
+          <label htmlFor="text-input" data-testid="text-input-label">
+            Inclui o texto:
+            <input
+              type="text"
+              name="searchText"
+              data-testid="text-input"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
+          </label>
+        </div>
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
@@ -29,27 +31,23 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
-        <label htmlFor="select-input" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option value="" data-testid="select-option" name="SelectdGenre">
-              Todos
-            </option>
-            <option value="action" data-testid="select-option" name="SelectdGenre">
-              Ação
-            </option>
-            <option value="comedy" data-testid="select-option" name="SelectdGenre">
-              Comédia
-            </option>
-            <option value="thriller" data-testid="select-option" name="SelectdGenre">
-              Suspense
-            </option>
-          </select>
-        </label>
+        <div>
+          <label htmlFor="selectedGenre" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+              data-testid="select-input"
+              name="selectedGenre"
+              id="selectedGenre"
+            >
+              <option value="" data-testid="select-option">Todos</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
+              <option value="thriller" data-testid="select-option">Suspense</option>
+            </select>
+          </label>
+        </div>
       </form>
     );
   }

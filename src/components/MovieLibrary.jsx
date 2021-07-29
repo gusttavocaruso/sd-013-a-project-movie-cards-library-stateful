@@ -45,9 +45,15 @@ class MovieLibrary extends React.Component {
     }
   }
 
+  addMovie =(product) => {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, product],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const filter = movies
+    const filteredMovies = movies
       .filter(({ title, storyline, subtitle }) => title.toLowerCase()
         .includes(searchText.toLowerCase()) || storyline.toLowerCase()
         .includes(searchText.toLowerCase()) || subtitle.toLowerCase()
@@ -64,8 +70,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ filter } />
-        <AddMovie />
+        <MovieList movies={ filteredMovies } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }

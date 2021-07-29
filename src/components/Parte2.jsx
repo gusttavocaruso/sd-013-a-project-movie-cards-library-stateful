@@ -18,37 +18,35 @@ class Parte2 extends React.Component {
             onChange={ onChange }
           />
         </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            id="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ onChange }
-          />
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            id="genre"
-            name="genre"
-            value={ genre }
-            onChange={ onChange }
-            data-testid="genre-input"
-          >
-            <option value="action" name="genre" data-testid="genre-option">
-              Ação
-            </option>
-            <option value="comedy" name="genre" data-testid="genre-option">
-              Comédia
-            </option>
-            <option value="thriller" name="genre" data-testid="genre-option">
-              Suspense
-            </option>
-          </select>
-        </label>
+        <div>
+          <label htmlFor="rating" data-testid="rating-input-label">
+            Avaliação
+            <input
+              type="number"
+              name="rating"
+              id="rating"
+              value={ rating }
+              data-testid="rating-input"
+              onChange={ onChange }
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="genre" data-testid="genre-input-label">
+            Gênero
+            <select
+              id="genre"
+              name="genre"
+              value={ genre }
+              onChange={ onChange }
+              data-testid="genre-input"
+            >
+              <option value="action" data-testid="genre-option">Ação</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="thriller" data-testid="genre-option">Suspense</option>
+            </select>
+          </label>
+        </div>
       </div>
     );
   }
