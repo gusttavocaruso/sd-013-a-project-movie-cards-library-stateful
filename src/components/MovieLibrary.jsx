@@ -17,6 +17,7 @@ class MovieLibrary extends React.Component {
   }
 
   HandleChange = (event) => {
+    const { bookmarkedOnly } = this.state;
     const { name, value } = event.target;
     this.setState({ [name]: value });
     // Pega o originalMovie do state,  que nunca será modificado pois apenas recebe o valor da props
@@ -45,6 +46,16 @@ class MovieLibrary extends React.Component {
           .filter((movie) => movie.genre === prevState.selectedGenre) }));
       }
     }
+
+    if (name === 'bookmarkedOnly') {
+      if (bookmarkedOnly) {
+        this.setState((prevState) => ({ movies: prevState.movies
+          .filter((movie) => movie.bookmarked) }));
+      } else {
+        this.setState({ movies: originalMovie });
+      }
+      this.setState({ bookmarkedOnly: !bookmarkedOnly });
+    }
   }
 
   InsertMovie = (newMovie) => {
@@ -54,7 +65,6 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    // const { HandleChange, InsertMovie } = this.props;
     return (
       <section>
         <SearchBar
