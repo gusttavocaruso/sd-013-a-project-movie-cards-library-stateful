@@ -46,7 +46,7 @@ class MovieLibrary extends React.Component {
         />
         <MovieList movies={ movies } />
         <AddMovie />
-        {/* <MovieLibrary 
+        {/* <MovieLibrary
           movies={  }
           bookmarkedOnly={  }
           selectedGenre={  }
@@ -58,9 +58,9 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-    movies: PropTypes.arrayOf(
-      PropTypes.object,
-    ).isRequired,
-  };
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
