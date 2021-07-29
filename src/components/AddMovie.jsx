@@ -1,5 +1,10 @@
 import React from 'react';
 
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -33,49 +38,10 @@ class AddMovie extends React.Component {
     return (
       <form action="" data-testid="add-movie-form">
 
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título:
-          <input
-            data-testid="title-input"
-            type="text"
-            name={ title }
-            value={ this.title }
-            onChange={ this.handleChange }
-          />
-        </label>
-
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo:
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name={ subtitle }
-            value={ this.subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem:
-          <input
-            data-testid="image-input"
-            type="text"
-            name={ imagePath }
-            value={ this.imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
-
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse:
-          <input
-            data-testid="storyline-input"
-            type="text"
-            name={ storyLine }
-            value={ this.storyLine }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Title valueName={ title } funcOn={ this.handleChange } />
+        <Subtitle valueName={ subtitle } funcOn={ this.handleChange } />
+        <ImagePath valueName={ imagePath } funcOn={ this.handleChange } />
+        <Storyline valueName={ storyLine } funcOn={ this.handleChange } />
 
       </form>
     );
