@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GenreLabel extends React.Component {
   render() {
@@ -27,5 +28,10 @@ class GenreLabel extends React.Component {
     );
   }
 }
+
+GenreLabel.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default GenreLabel;

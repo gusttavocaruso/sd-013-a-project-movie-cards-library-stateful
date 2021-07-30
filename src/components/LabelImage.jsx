@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class LabelImage extends React.Component {
   render() {
@@ -18,5 +19,10 @@ class LabelImage extends React.Component {
     );
   }
 }
+
+LabelImage.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default LabelImage;

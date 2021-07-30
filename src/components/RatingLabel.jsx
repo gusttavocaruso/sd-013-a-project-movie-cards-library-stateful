@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class RatingLabel extends React.Component {
   render() {
@@ -18,5 +19,10 @@ class RatingLabel extends React.Component {
     );
   }
 }
+
+RatingLabel.propTypes = {
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default RatingLabel;

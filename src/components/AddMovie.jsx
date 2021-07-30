@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LabelTitle from './LabelTitle';
 import LabelSubtitle from './LabelSubtitle';
 import LabelImage from './LabelImage';
@@ -75,5 +76,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
