@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
-    // this.setState = this.setState.bind(this)
+
+    this.aClick = this.aClick.bind(this);
 
     this.state = {
       subtitle: '', // guarda o subtítulo preenchido no formulário por quem usa a aplicação;
@@ -17,24 +18,29 @@ class AddMovie extends Component {
     };
   }
 
-    onClick = () => {
-      this.setState = {
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      };
-    }
+      // função para atualizar state
+      handleChange = (event) => {
+        // console.log(event.target.value)
+        this.setState({
+          [event.target.className]: event.target.value,
+        });
+      }
 
-    // função para atualizar state
-    handleChange = (event) => {
-      // console.log(event.target.value)
-      this.setState({
-        [event.target.className]: event.target.value,
-      });
-    }
+      aClick(event) {
+        event.target.preventDefault();
+        console.log('fui clicado');
+        const { onClick } = this.props;
+        onClick(this.state);
+        this.setState = ({
+          subtitle: '',
+          title: '',
+          imagePath: '',
+          storyline: '',
+          rating: 0,
+          genre: 'action',
+        });
+        // return onClick.state
+      }
 
     renderTitle = (title) => {
       const aTitle = (
@@ -134,23 +140,23 @@ class AddMovie extends Component {
       return aGenre;
     }
 
-    renderButton = (f) => {
-      // const { onClick } = this.props;
-      const aButton = (
-        <button
-          data-testid="send-button"
-          onClick={ () => this.onClick(f) }
-          type="button"
-        >
-          Adicionar filme:
-        </button>
-      );
-      return aButton;
-    }
+    // renderButton = (f) => {
+    //   // const { onClick } = this.props;
+    //   const aButton = (
+    //     <button
+    //       data-testid="send-button"
+    //       onClick={ () => this.onClick(f) }
+    //       type="button"
+    //     >
+    //       Adicionar filme:
+    //     </button>
+    //   );
+    //   return aButton;
+    // }
 
     render() {
       const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-      const { onClick } = this.props;
+      // const { aClick } = this.props;
       return (
         <div>
           <h1>Espaço para adicionar Movie</h1>
@@ -163,7 +169,14 @@ class AddMovie extends Component {
             {this.renderStoryline(storyline)}
             {this.renderRating(rating)}
             {this.renderGenre(genre)}
-            {this.renderButton(onClick)}
+            {/* {this.renderButton(onClick)} */}
+            <button
+              data-testid="send-button"
+              onClick={ this.aClick }
+              type="submit"
+            >
+              Adicionar filme:
+            </button>
 
           </form>
 
@@ -173,6 +186,10 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+
+// AddMovie.propTypes = {
+//   aClick: PropTypes.func.isRequired,
+// };
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,

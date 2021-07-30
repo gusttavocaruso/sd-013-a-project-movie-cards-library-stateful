@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
@@ -33,7 +33,7 @@ class MovieLibrary extends Component {
         <h3>{searchText}</h3>
         <h4>{selectedGenre}</h4>
 
-        {/* <MovieList /> */}
+        <MovieList />
         {/* <MovieList movies={ movies } /> */}
         {/* movies.map((movie) => <MovieList key={ movie.title } movie={ movie }/>) */}
         <AddMovie />
