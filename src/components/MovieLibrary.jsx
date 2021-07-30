@@ -21,10 +21,21 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { movies } = this.state;
-    const { searchText, onSearchTextChange } = this.state;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+    } = this.state;
+
     return (
       <section>
-        <SearchBar searchTex={ searchText } onSearchTextChange={ onSearchTextChange } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </section>
