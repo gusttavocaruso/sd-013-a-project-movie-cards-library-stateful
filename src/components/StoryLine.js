@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class StoryLine extends React.Component {
   render() {
@@ -19,5 +20,15 @@ class StoryLine extends React.Component {
     );
   }
 }
+
+StoryLine.propTypes = {
+  storyLine: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+StoryLine.defaultProps = {
+  storyLine: '',
+  onChange: {},
+};
 
 export default StoryLine;

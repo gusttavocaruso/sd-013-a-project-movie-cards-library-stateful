@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Subtitle extends React.Component {
   render() {
@@ -19,5 +20,15 @@ class Subtitle extends React.Component {
     );
   }
 }
+
+Subtitle.propTypes = {
+  subtitle: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+Subtitle.defaultProps = {
+  subtitle: '',
+  onChange: {},
+};
 
 export default Subtitle;
