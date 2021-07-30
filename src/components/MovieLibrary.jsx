@@ -22,7 +22,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ () => { } }
         />
         {/* <MovieList movies={ this.props.movies } /> */}
-        <AddMovie />
+        <AddMovie onClick={ () => { } } />
       </div>
     );
   }
