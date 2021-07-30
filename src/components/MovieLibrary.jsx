@@ -6,23 +6,54 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  // }
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      // movies: props.movies,
+    };
+    this.handleSeachTextChange = this.handleSeachTextChange.bind(this);
+    this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
+    this.handleSelectedGenreChange = this.handleSelectedGenreChange.bind(this);
+  }
+
+  handleSeachTextChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+      // search
+    });
+  }
+
+  handleBookmarkedChange(event) {
+    console.log(event);
+    this.setState({
+      // bookmark
+    });
+  }
+
+  handleSelectedGenreChange() {
+    this.setState({
+      // vai mudar o estado do genero
+    });
+  }
 
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText
-          onSearchTextChange
-          bookmarkedOnly
-          onBookmarkedChange
-          selectedGenre
-          onSelectedGenreChange
+          searchText={ searchText }
+          onSearchTextChange={ this.handleSeachTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie />
