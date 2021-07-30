@@ -66,6 +66,9 @@ class AddMovie extends React.Component {
         <StoryLine storyline={ storyline } handleChange={ this.handleChange } />
         <Rating rating={ rating } handleChange={ this.handleChange } />
         <Genre genre={ genre } handleChange={ this.handleChange } />
+        {/* <button data-testid="send-button" onClick={ handleClick }>
+          Adicionar Filme
+        </button> */}
       </div>
     );
   }
