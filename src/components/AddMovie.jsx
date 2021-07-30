@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { inputField, selectField } from '../util/AddFormField';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -9,8 +11,6 @@ class AddMovie extends Component {
     this.state = this.initialState();
   }
 
-  // getProperty = (property) => this.state.property;
-
   initialState = () => ({
     subtitle: '',
     title: '',
@@ -20,101 +20,51 @@ class AddMovie extends Component {
     genre: 'action',
   });
 
-  onClick = () => {
-    console.log(this.state);
+  onClick = (e) => {
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-    console.log(this.state, this.initialState());
+    this.setState(this.initialState);
   };
 
   changeStateProperty = (e) => {
-    // console.log(e.target.getAttribute('property'));
     const property = e.target.getAttribute('property');
     this.setState({ [property]: e.target.value });
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título:
-          <input
-            data-testid="title-input"
-            property="title"
-            type="text"
-            value={ this.state.title }
-            onChange={ this.changeStateProperty }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo:
-          <input
-            data-testid="subtitle-input"
-            property="subtitle"
-            type="text"
-            value={ this.state.subtitle }
-            onChange={ this.changeStateProperty }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem:
-          <input
-            data-testid="image-input"
-            property="imagePath"
-            type="text"
-            value={ this.state.imagePath }
-            onChange={ this.changeStateProperty }
-          />
-        </label>
-        <label data-testid="storyline-input-label" htmlFor="storyline-input">
-          Sinopse:
-          <textarea
-            data-testid="storyline-input"
-            property="storyline"
-            type="text"
-            value={ this.state.storyline }
-            onChange={ this.changeStateProperty }
-            rows="4"
-            cols="50"
-          />
-        </label>
-        <label data-testid="rating-input-label" htmlFor="rating-input">
-          Avaliação:
-          <input
-            data-testid="rating-input"
-            property="rating"
-            type="number"
-            value={ this.state.rating }
-            onChange={ this.changeStateProperty }
-          />
-        </label>
-        <label data-testid="genre-input-label" htmlFor="genre-input">
-          Gênero:
-          <select
-            data-testid="genre-input"
-            property="genre"
-            value={ this.state.genre }
-            onChange={ this.changeStateProperty }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button data-testid="send-button" onClick={ this.onClick }>
+        {inputField({ title: 'Título', prop: 'title', name: 'title' },
+          'text', title, this.changeStateProperty)}
+
+        {inputField({ title: 'Subtítulo', prop: 'subtitle', name: 'subtitle' },
+          'text', subtitle, this.changeStateProperty)}
+
+        {inputField({ title: 'Imagem', prop: 'imagePath', name: 'image' },
+          'text', imagePath, this.changeStateProperty)}
+
+        {inputField({ title: 'Sinopse', prop: 'storyline', name: 'storyline' },
+          'text', storyline, this.changeStateProperty)}
+
+        {inputField({ title: 'Avaliação', prop: 'rating', name: 'rating' },
+          'number', rating, this.changeStateProperty)}
+
+        {selectField({ title: 'Gênero', prop: 'genre', name: 'genre' },
+          genre, this.changeStateProperty,
+          [{ value: 'action', name: 'Ação' },
+            { value: 'comedy', name: 'Comédia' },
+            { value: 'thriller', name: 'Suspense' }]) }
+
+        <button data-testid="send-button" onClick={ this.onClick } type="submit">
           Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

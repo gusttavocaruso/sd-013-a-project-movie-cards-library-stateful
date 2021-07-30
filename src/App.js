@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
-// import SearchBar from './components/SearchBar';
 import movies from './data';
 import MovieList from './components/MovieList';
+import AddMovie from './components/AddMovie';
 import './App.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <MovieList movies={ movies } sardinha={ movies } />
-      {/* <SearchBar /> */}
+      <AddMovie movies={ movies } />
     </div>
   );
 }
