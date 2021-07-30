@@ -34,7 +34,6 @@ class AddMovie extends React.Component {
           Título
           <input
             name="title"
-            id="titulo"
             type="text"
             value={ title }
             data-testid="title-input"
@@ -66,9 +65,13 @@ class AddMovie extends React.Component {
         <StoryLine storyline={ storyline } handleChange={ this.handleChange } />
         <Rating rating={ rating } handleChange={ this.handleChange } />
         <Genre genre={ genre } handleChange={ this.handleChange } />
-        {/* <button data-testid="send-button" onClick={ handleClick }>
-          Adicionar Filme
-        </button> */}
+        <button
+          type="submit"
+          data-testid="send-button"
+          // onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </div>
     );
   }

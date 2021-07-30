@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
-
-// import MovieList from './MovieList';
-import SearchBar from './SearchBar';
+import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
 
-class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+class MovieLibrary extends React.Component {
 
   render() {
+    const { movies } = this.props;
+
     return (
       <div>
-        <h2> My awesome movie library </h2>
-        <SearchBar />
-        {/* <MovieList movies={this.props.movies} /> */}
         <AddMovie />
+        <MovieList movies={ movies } />
+        <SearchBar />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
