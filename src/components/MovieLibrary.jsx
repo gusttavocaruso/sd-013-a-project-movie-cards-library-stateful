@@ -11,28 +11,91 @@ class MovieLibrary extends Component {
     const { movies } = props;
     this.state = {
       movies,
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
     };
   }
 
-  callback() {
-    console.log('sim');
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] }, async () => {
+    });
+  }
+
+  searchTextChange = ({ target }) => {
+    const { value } = target;
+
+    this.setState({
+      searchText: value,
+    }, () => {
+      this.setState({
+        movies: this.movieFilter('text'),
+      });
+    });
+  }
+
+  bookmarkedChange = ({ target }) => {
+    const value = target.checked;
+
+    this.setState({
+      bookmarkedOnly: value,
+    }, () => {
+      this.setState({
+        movies: this.movieFilter('boolean'),
+      });
+    });
+  }
+
+  selectedGenreChange = ({ target }) => {
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      selectedGenre: value,
+    }, () => {
+      this.setState({
+        movies: this.movieFilter('checkbox'),
+      });
+    });
+  }
+
+  movieFilter = (filter) => {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    if (filter === 'boolean') {
+      return movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
+    }
+    if (filter === 'checkbox') {
+      return movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (filter === 'text') {
+      return movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    }
   }
 
   render() {
-    const { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.searchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.bookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.selectedGenreChange }
+        />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.callback } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movie: PropTypes.shape({
+  movies: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
