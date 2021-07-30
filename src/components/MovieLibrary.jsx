@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -21,6 +23,8 @@ class MovieLibrary extends Component {
         { searchText }
         { bookmarkedOnly }
         { selectedGenre }
+        <MovieList movies={ movies } />
+        <SearchBar />
       </section>
     );
   }
