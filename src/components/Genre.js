@@ -2,11 +2,13 @@ import React from 'react';
 
 class Genre extends React.Component {
   render() {
+    const { genre, onChange } = this.props;
+
     return (
       <label data-testid="genre-input-label" htmlFor="select">
         Gênero
         <select
-          onChange={ this.handleChange }
+          onChange={ onChange }
           value={ genre }
           data-testid="genre-input"
           name="genre"
