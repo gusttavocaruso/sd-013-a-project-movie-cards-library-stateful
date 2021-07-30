@@ -1,6 +1,6 @@
 import React from 'react';
 import Genre from './Genre';
-import Rating from './Rating';
+import Image from './Image';
 import StoryLine from './StoryLine';
 
 class AddMovie extends React.Component {
@@ -51,19 +51,19 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="image-input-label" htmlFor="imagem">
-          Imagem
+        <label htmlFor="teste" data-testid="rating-input-label">
+          Avaliação
           <input
-            name="imagePath"
-            id="imagem"
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
+            type="number"
+            name="rating"
+            id="teste"
+            value={ rating }
             onChange={ this.handleChange }
+            data-testid="rating-input"
           />
         </label>
         <StoryLine storyline={ storyline } handleChange={ this.handleChange } />
-        <Rating rating={ rating } handleChange={ this.handleChange } />
+        <Image imagePath={ imagePath } handleChange={ this.handleChange } />
         <Genre genre={ genre } handleChange={ this.handleChange } />
         <button
           type="submit"
