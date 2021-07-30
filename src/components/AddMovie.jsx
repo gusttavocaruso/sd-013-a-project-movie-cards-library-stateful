@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
         <form method="post" data-testid="add-movie-form">
           <label htmlFor="title-input" data-testid="title-input-label">
             Título
-            <input type="text" id="title-input" data-testid="title-input" onChange='' value='' />
+            <input type="text" id="title-input" data-testid="title-input" />
           </label>
         </form>
       </main>
