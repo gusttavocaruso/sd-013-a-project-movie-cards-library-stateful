@@ -48,13 +48,13 @@ class MovieLibrary extends React.Component {
     }
 
     if (name === 'bookmarkedOnly') {
-      if (bookmarkedOnly) {
+      this.setState({ bookmarkedOnly: !bookmarkedOnly });
+      if (!bookmarkedOnly) {
         this.setState((prevState) => ({ movies: prevState.movies
           .filter((movie) => movie.bookmarked) }));
       } else {
         this.setState({ movies: originalMovie });
       }
-      this.setState({ bookmarkedOnly: !bookmarkedOnly });
     }
   }
 
