@@ -23,56 +23,13 @@ class MovieLibrary extends Component {
     });
   }
 
-  searchTextChange = ({ target }) => {
-    const { value } = target;
-
-    this.setState({
-      searchText: value,
-    }, () => {
-      this.setState({
-        movies: this.movieFilter('text'),
-      });
-    });
+  bookmarkedChange = () => {
+    this.setState((stateAnterior) => ({ bookmarkedOnly: !stateAnterior.bookmarkedOnly }));
   }
 
-  bookmarkedChange = ({ target }) => {
-    const value = target.checked;
+  SearchTextChange = (e) => this.setState({ searchText: e.target.value });
 
-    this.setState({
-      bookmarkedOnly: value,
-    }, () => {
-      this.setState({
-        movies: this.movieFilter('boolean'),
-      });
-    });
-  }
-
-  selectedGenreChange = ({ target }) => {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({
-      selectedGenre: value,
-    }, () => {
-      this.setState({
-        movies: this.movieFilter('checkbox'),
-      });
-    });
-  }
-
-  movieFilter = (filter) => {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    if (filter === 'boolean') {
-      return movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
-    }
-    if (filter === 'checkbox') {
-      return movies.filter((movie) => movie.genre === selectedGenre);
-    }
-    if (filter === 'text') {
-      return movies.filter((movie) => movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText));
-    }
-  }
+  selectedGenreChange = (e) => this.setState({ selectedGenre: e.target.value })
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -81,7 +38,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.searchTextChange }
+          onSearchTextChange={ this.SearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.bookmarkedChange }
           selectedGenre={ selectedGenre }

@@ -11,10 +11,10 @@ class SearchBar extends React.Component {
           Inclui o texto
           <input
             type="text"
-            name="Text"
+            name="searchText"
             data-testid="text-input"
             value={ searchText }
-            onChange={ () => onSearchTextChange() }
+            onChange={ (e) => onSearchTextChange(e) }
           />
         </label>
         <label data-testid="checkbox-input-label" htmlFor="bookmarked">
@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
           <select
             data-testid="select-input"
             value={ selectedGenre }
-            onChange={ () => onSelectedGenreChange() }
+            onChange={ (e) => onSelectedGenreChange(e) }
             name="Genres"
           >
             <option data-testid="select-option" value="">Todos</option>

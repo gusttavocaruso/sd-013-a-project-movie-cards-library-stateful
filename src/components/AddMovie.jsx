@@ -156,6 +156,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+// refatoração do codigo por causa do lint com ajuda do repositorio do guilherme src='https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pull/109/files';
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
