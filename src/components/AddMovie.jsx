@@ -16,7 +16,10 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    // LINK https://medium.com/@justintulk/best-practices-for-resetting-an-es6-react-components-state-81c0c86df98d
+    this.baseState = this.state;
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -25,23 +28,51 @@ class AddMovie extends React.Component {
     });
   }
 
-  generateInput(type, informations, fn) {
+  handleSubmit(e) {
+    e.preventDefault();
+    this.resetState();
+  }
+
+  resetState() {
+    this.setState(this.baseState);
+  }
+
+  generateInput(type, informations, index, fn) {
     const { testId, name, value, label, options = [] } = informations;
     const inputToChoose = {
       text:
-  <InputText testId={ testId } name={ name } value={ value } onChange={ fn }>
+  <InputText
+    key={ `${index}-${testId}` }
+    testId={ testId }
+    name={ name }
+    value={ value }
+    onChange={ fn }
+  >
     { label }
   </InputText>,
       number:
-  <InputNumber testId={ testId } name={ name } value={ value } onChange={ fn }>
+  <InputNumber
+    key={ `${index}-${testId}` }
+    testId={ testId }
+    name={ name }
+    value={ value }
+    onChange={ fn }
+  >
     { label }
   </InputNumber>,
       textarea:
-  <InputTextarea testId={ testId } name={ name } value={ value } onChange={ fn }>
+  <InputTextarea
+    key={ `${index}-${testId}` }
+    testId={ testId }
+    name={ name }
+    value={ value }
+    onChange={ fn }
+  >
     { label }
   </InputTextarea>,
       select:
   <InputSelect
+    key={ `${index}-${testId}` }
     testId={ testId }
     name={ name }
     value={ value }
@@ -55,7 +86,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { handleChange, generateInput, state } = this;
+    const { handleChange, handleSubmit, generateInput, state, props } = this;
+    const { onClick } = props;
     const { subtitle, title, imagePath, storyline, rating, genre } = state;
     const texts = [
       { testId: 'title-input', name: 'title', value: title, label: 'Título' },
@@ -80,14 +112,21 @@ class AddMovie extends React.Component {
       name: 'genre',
       value: genre,
       label: 'Gênero',
-      options: { info: genres,
-        name: 'genre' } }];
+      options: { info: genres, name: 'genre' } },
+    ];
     return (
-      <form data-testid="add-movie-form">
-        {texts.map((i) => generateInput('text', i, handleChange))}
-        {numbers.map((i) => generateInput('number', i, handleChange))}
-        {textareas.map((i) => generateInput('textarea', i, handleChange))}
-        {selects.map((i) => generateInput('select', i, handleChange))}
+      <form onSubmit={ handleSubmit } data-testid="add-movie-form">
+        {texts.map((info, index) => generateInput('text', info, index, handleChange))}
+        {numbers.map((info, index) => generateInput('number', info, index, handleChange))}
+        {textareas.map((info, index) => generateInput('textarea', info, index, handleChange))}
+        {selects.map((info, index) => generateInput('select', info, index, handleChange))}
+        <button
+          data-testid="send-button"
+          type="submit"
+          onClick={ onClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

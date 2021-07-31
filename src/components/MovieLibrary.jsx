@@ -24,8 +24,13 @@ class MovieLibrary extends Component {
     });
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    // console.log(e);
+  }
+
   render() {
-    const { handleChange, state } = this;
+    const { handleChange, handleClick, state } = this;
     const { searchText, bookmarkedOnly, selectedGenre, movies } = state;
     return (
       <div>
@@ -38,7 +43,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ handleChange }
         />
-        <AddMovie />
+        <AddMovie onClick={ handleClick } />
         <MovieList movies={ movies } />
       </div>
     );
