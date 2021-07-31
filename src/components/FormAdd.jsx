@@ -87,14 +87,14 @@ class FormAdd extends React.Component {
 }
 
 FormAdd.propTypes = {
-  state: PropTypes.arrayOf(PropTypes.shape({
+  state: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     imagePath: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     genre: PropTypes.string.isRequired,
-  })).isRequired,
+  }).isRequired,
   clickHandler: PropTypes.func.isRequired,
   changeHandler: PropTypes.func.isRequired,
 };

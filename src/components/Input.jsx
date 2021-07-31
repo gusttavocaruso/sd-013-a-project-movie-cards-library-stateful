@@ -23,7 +23,10 @@ class Input extends React.Component {
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   onChange: PropTypes.func.isRequired,
   testid: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['text', 'number']),

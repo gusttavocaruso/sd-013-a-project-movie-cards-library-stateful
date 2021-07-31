@@ -16,28 +16,37 @@ class AddMovie extends React.Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleInputChange({ target }) {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'number' ? Number(target.value) : target.value;
     const { name } = target;
     this.setState({
       [name]: value });
   }
 
-  handleClick({ target }) {
-    console.log(target);
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const formState = { subtitle, title, imagePath, storyline, rating, genre };
 
     return (
       <section>
         <FormAdd
-          clickHandler={ onClick }
+          clickHandler={ this.handleClick }
           changeHandler={ this.handleInputChange }
           state={ formState }
         />
