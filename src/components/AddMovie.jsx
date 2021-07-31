@@ -71,27 +71,27 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label" >
+        <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
             data-testid="storyline-input"
-            name="storyline" 
-            id="storyline" 
-            cols="30" 
+            name="storyline"
+            id="storyline"
+            cols="30"
             rows="10"
             value={ storyline }
-            onChange={ this.handleChange}
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
-          <input 
+          <input
             id="rating"
             name="rating"
             type="number"
             data-testid="rating-input"
             value={ rating }
-            onChange={ this.handleChange}
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
@@ -101,17 +101,27 @@ class AddMovie extends Component {
             id="genre"
             data-testid="genre-input"
             value={ genre }
-            onChange= { this.handleChange}
+            onChange={ this.handleChange }
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={ this.clickButton }>Adicionar filme</button>
+        <button
+          data-testid="send-button"
+          onClick={ this.clickButton }
+          type="submit"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
