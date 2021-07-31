@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import InputNumber from './Form/InputNumber';
 import InputSelect from './Form/InputSelect';
@@ -116,10 +117,10 @@ class AddMovie extends React.Component {
     ];
     return (
       <form onSubmit={ handleSubmit } data-testid="add-movie-form">
-        {texts.map((info, index) => generateInput('text', info, index, handleChange))}
-        {numbers.map((info, index) => generateInput('number', info, index, handleChange))}
-        {textareas.map((info, index) => generateInput('textarea', info, index, handleChange))}
-        {selects.map((info, index) => generateInput('select', info, index, handleChange))}
+        {texts.map((info, i) => generateInput('text', info, i, handleChange))}
+        {numbers.map((info, i) => generateInput('number', info, i, handleChange))}
+        {textareas.map((info, i) => generateInput('textarea', info, i, handleChange))}
+        {selects.map((info, i) => generateInput('select', info, i, handleChange))}
         <button
           data-testid="send-button"
           type="submit"
@@ -131,5 +132,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
