@@ -2,11 +2,14 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.props;
     return (
-      <Form>
-        <input type="text" />
-        <label value="searchText">"Inclui texto:</label>
-      </Form>
+      <form data-testid="search-bar-form">
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input type="text" value={searchText} onChange='' data-testid="text-input" />
+        </label>
+      </form>
     );
   }
 }
