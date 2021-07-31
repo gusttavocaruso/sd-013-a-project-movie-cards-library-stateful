@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -119,6 +120,6 @@ class AddMovie extends Component {
   teste: 'teste',
 }; */
 AddMovie.propTypes = {
-  onClick: PropTypes.function.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 export default AddMovie;
