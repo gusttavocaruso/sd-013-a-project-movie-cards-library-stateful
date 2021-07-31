@@ -1,10 +1,17 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './AddMovieComponents/Title';
+import Subtitle from './AddMovieComponents/Subtitle';
+import ImagePath from './AddMovieComponents/ImagePath';
+import Storyline from './AddMovieComponents/Storyline';
+import Rating from './AddMovieComponents/Rating';
+import Genre from './AddMovieComponents/Genre';
 
 class AddMovie extends React.Component {
   // constructor(props) {
   //   super(props);
+
   //   this.state = {
   //     subtitle: '',
   //     title: '',
@@ -13,6 +20,12 @@ class AddMovie extends React.Component {
   //     rating: 0,
   //     genre: 'action',
   //   };
+
+  //   this.handleRatingChange = this.handleRatingChange.bind(this);
+  // }
+
+  // handleRatingChange(e) {
+  //   this.setState({ rating: e.target.value });
   // }
 
   render() {
@@ -28,34 +41,13 @@ class AddMovie extends React.Component {
     return (
       <main>
         <form method="post" data-testid="add-movie-form">
-          <label htmlFor="title" data-testid="title-input-label">
-            Título
-            <input type="text" id="title" data-testid="title-input" />
-          </label>
-          <label htmlFor="subtitle" data-testid="subtitle-input-label">
-            Subtítulo
-            <input type="text" id="subtitle" data-testid="subtitle-input" />
-          </label>
-          <label htmlFor="image" data-testid="image-input-label">
-            Imagem
-            <input type="text" id="image" data-testid="image-input" />
-          </label>
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
-            <textarea id="storyline" data-testid="storyline-input" cols="30" rows="10" />
-          </label>
-          <label htmlFor="rating" data-testid="rating-input-label">
-            Avaliação
-            <input type="number" id="rating" data-testid="rating-input" />
-          </label>
-          <label htmlFor="genre" data-testid="genre-input-label">
-            Gênero
-            <select id="genre" data-testid="genre-input">
-              <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>
-              <option data-testid="genre-option" value="thriller">Suspense</option>
-            </select>
-          </label>
+          <Title />
+          <Subtitle />
+          <ImagePath />
+          <Storyline />
+          <Rating />
+          <Genre />
+          {/* <button data-testid="send-button">Adicionar filme</button> */}
         </form>
       </main>
     );
