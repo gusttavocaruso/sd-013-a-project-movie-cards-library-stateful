@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputText extends React.Component {
   render() {
@@ -50,5 +51,13 @@ class InputText extends React.Component {
     );
   }
 }
+
+InputText.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default InputText;
