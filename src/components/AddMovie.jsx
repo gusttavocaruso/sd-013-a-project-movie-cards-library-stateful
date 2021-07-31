@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -6,6 +7,7 @@ class AddMovie extends Component {
 
     this.setChange = this.setChange.bind(this);
     this.setInput = this.setInput.bind(this);
+    this.remover = this.remover.bind(this);
 
     this.state = {
       subtitle: '',
@@ -36,8 +38,31 @@ class AddMovie extends Component {
     );
   }
 
-  render() {
+  setTextarea(setData, setValor, setName) {
+    return (
+      <textarea
+        name={ setName }
+        data-testid={ setData }
+        value={ setValor }
+        onChange={ this.setChange }
+      />
+    );
+  }
+
+  remover() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
@@ -55,12 +80,7 @@ class AddMovie extends Component {
         </label>
         <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse
-          <textarea
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.setChange }
-            name="storyline"
-          />
+          {this.setTextarea('storyline-input', storyline, 'storyline')}
         </label>
         <label htmlFor="avaliação" data-testid="rating-input-label">
           Avaliação
@@ -80,26 +100,16 @@ class AddMovie extends Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button
-          type="button"
-          onClick={ () => {
-            onClick(this.state);
-            this.setState({
-              subtitle: '',
-              title: '',
-              imagePath: '',
-              storyline: '',
-              rating: 0,
-              genre: 'action',
-            });
-          } }
-          data-testid="send-button"
-        >
+        <button type="button" onClick={ this.remover } data-testid="send-button">
           Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
