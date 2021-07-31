@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state{
-      
-    }
-  }
-
   render() {
     const {
       searchText,
@@ -22,10 +15,10 @@ class SearchBar extends Component {
         <label data-testid="text-input-label" htmlFor="inputText">
           Inclui o texto:
           <input
+            data-testid="text-input"
             name="searchText"
             onChange={ onSearchTextChange }
             value={ searchText }
-            id="inputText"
             type="text"
           />
         </label>
