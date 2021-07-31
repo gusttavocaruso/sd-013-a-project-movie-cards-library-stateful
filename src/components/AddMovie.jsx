@@ -1,8 +1,8 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -16,21 +16,47 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ target }) {
-    this.setState({ [target.name]: target.value });
+  handleChange({ target: { name, value } }) {
+    this.setState({ [name]: value });
   }
 
   render() {
+    const { title, subtitle } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="add-movie" data-testid="title-input-label">
+          <label htmlFor="add-title" data-testid="title-input-label">
             Título
             <input
               data-testid="title-input"
-              id="add-movie"
+              id="add-title"
+              name="title"
               type="text"
-              onChange={this.handleChange} />
+              value={ title }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="add-subtitle" data-testid="subtitle-input-label">
+            Subtítulo
+            <input
+              data-testid="subtitle-input"
+              id="add-subtitle"
+              name="subtitle"
+              type="text"
+              value={ subtitle }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="add-image" data-testid="image-input-label">
+            Imagem
+            <input
+              data-testid="subtitle-input"
+              id="add-subtitle"
+              name="subtitle"
+              type="text"
+              value={ subtitle }
+              onChange={ this.handleChange }
+            />
           </label>
         </form>
       </div>
