@@ -1,10 +1,10 @@
 import React from 'react';
-import Genre from './AddGenre.jsx';
-import Img from './AddImage.jsx';
-import Rating from './AddRating.jsx';
-import Sinopse from './AddSinopse.jsx';
-import Subtitle from './AddSubtitle.jsx';
-import Title from './AddTitle.jsx';
+import Genre from './AddGenre';
+import Img from './AddImage';
+import Rating from './AddRating';
+import Sinopse from './AddSinopse';
+import Subtitle from './AddSubtitle';
+import Title from './AddTitle';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -31,12 +31,12 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Title value={title} onChange={this.handleChange} />
-          <Subtitle value={subtitle} onChange={this.handleChange} />
-          <Img value={imagePath} onChange={this.handleChange} />
-          <Sinopse value={storyline} onChange={this.handleChange} />
-          <Rating value={rating} onChange={this.handleChange} />
-          <Genre value={genre} onChange={this.handleChange} />
+          <Title value={ title } onChange={ this.handleChange } />
+          <Subtitle value={ subtitle } onChange={ this.handleChange } />
+          <Img value={ imagePath } onChange={ this.handleChange } />
+          <Sinopse value={ storyline } onChange={ this.handleChange } />
+          <Rating value={ rating } onChange={ this.handleChange } />
+          <Genre value={ genre } onChange={ this.handleChange } />
         </form>
       </div>
     );
