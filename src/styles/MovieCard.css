@@ -42,7 +42,7 @@
 }
 
 p, h5 {
-  margin: 13px 0;
+  margin: 11px 0;
 }
 
 p {
@@ -51,16 +51,16 @@ p {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
 }
 
 .subtitle {
   color: #666;
-  font-size: 13px;
+  font-size: 11px;
 }
