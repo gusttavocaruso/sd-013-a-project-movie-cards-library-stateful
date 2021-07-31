@@ -52,4 +52,13 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.function.isRequired,
+  onBookmarkedChange: PropTypes.function.isRequired,
+  bookmarkedOnly: PropTypes.boolean.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.function.isRequired,
+};
 export default SearchBar;
