@@ -86,3 +86,36 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.filter-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.filter-form label {
+  padding: 0 10px;
+}
+
+.filter-form input,select {
+  margin: 0 10px;
+}
+
+.movie-add {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.movie-add-div {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-add label {
+  padding: 0 10px;
+}
+
+.movie-add input,select,textarea {
+  margin: 0 10px;
+}
