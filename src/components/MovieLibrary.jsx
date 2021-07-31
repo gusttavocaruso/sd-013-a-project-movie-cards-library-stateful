@@ -18,6 +18,7 @@ class MovieLibrary extends Component {
     this.handleSeachTextChange = this.handleSeachTextChange.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleSelectedGenreChange = this.handleSelectedGenreChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSeachTextChange(event) {
@@ -36,6 +37,13 @@ class MovieLibrary extends Component {
   handleSelectedGenreChange() {
     this.setState({
       // vai mudar o estado do genero
+    });
+  }
+
+  handleClick(stateAtual) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, stateAtual],
     });
   }
 
@@ -61,7 +69,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleSelectedGenreChange }
         />
         <MovieList movies={ this.filtrarFilme() } />
-        <AddMovie />
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }

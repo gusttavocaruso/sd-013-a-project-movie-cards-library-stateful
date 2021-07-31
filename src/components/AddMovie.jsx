@@ -66,6 +66,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form action="##" data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -93,9 +94,18 @@ class AddMovie extends React.Component {
           { this.createTextArea('storyline', 'storyline-input', storyline) }
         </label>
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={ this.handleClick }
+          onClick={ () => {
+            onClick(this.state);
+            this.setState({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action' });
+          } }
         >
           Adicionar filme
         </button>
@@ -105,12 +115,16 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.defaultProps = {
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
-};
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  genre: PropTypes.string,
+}.isRequired;
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;
