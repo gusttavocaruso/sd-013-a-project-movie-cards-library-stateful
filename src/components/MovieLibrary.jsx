@@ -19,22 +19,27 @@ class MovieLibrary extends React.Component {
   }
 
   callback1() {
-    return 'asd';
+    return '1';
   }
 
   callback2() {
-    return 'asd';
+    return '2';
+  }
+
+  callback3() {
+    return '3';
   }
 
   render() {
     return (
       <div>
         <SearchBar
-          searchText=""
           onSearchTextChange={ this.callback1 }
-          bookmarkedOnly={ false }
-          selectedGenre=""
           onSelectedGenreChange={ this.callback2 }
+          onBookMArckedChange={ this.callback3 }
+          searchText=""
+          selectedGenre=""
+          bookmarkedOnly={ false }
         />
 
       </div>
