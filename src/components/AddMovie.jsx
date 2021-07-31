@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import Title from './inputs/Title';
-import Subtitle from './inputs/Subtitle';
-import Image from './inputs/Image';
-import Storyline from './inputs/Storyline';
-import Rating from './inputs/Rating';
-import Genre from './inputs/Genre';
+import PropTypes from 'prop-types';
+import Title from './form/Title';
+import Subtitle from './form/Subtitle';
+import Image from './form/Image';
+import Storyline from './form/Storyline';
+import Rating from './form/Rating';
+import Genre from './form/Genre';
+import SendBtn from './form/SendBtn';
 
 class AddMovie extends Component {
   constructor() {
@@ -44,9 +46,14 @@ class AddMovie extends Component {
         <Storyline value={ storyline } onChange={ this.handleChange } />
         <Rating value={ rating } onChange={ this.handleChange } />
         <Genre value={ genre } onChange={ this.handleChange } />
+        <SendBtn onClick={ onClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
