@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Title from './inputs/Title';
+import Subtitle from './inputs/Subtitle';
+import Image from './inputs/Image';
+import Storyline from './inputs/Storyline';
+import Rating from './inputs/Rating';
+import Genre from './inputs/Genre';
 
 class AddMovie extends Component {
   constructor() {
@@ -32,26 +38,12 @@ class AddMovie extends Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Title value={ title } onChange={ this.handleChange } />
+        <Subtitle value={ subtitle } onChange={ this.handleChange } />
+        <Image value={ imagePath } onChange={ this.handleChange } />
+        <Storyline value={ storyline } onChange={ this.handleChange } />
+        <Rating value={ rating } onChange={ this.handleChange } />
+        <Genre value={ genre } onChange={ this.handleChange } />
       </form>
     );
   }
