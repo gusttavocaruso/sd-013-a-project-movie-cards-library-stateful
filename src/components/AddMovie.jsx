@@ -35,8 +35,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  renderMovieCard = (event) => {
-    event.preventDefault();
+  renderMovieCard = () => {
     const { resetState, props: { onClick } } = this;
     onClick(this.state);
     resetState();
