@@ -26,7 +26,7 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
             id="favorite"
             type="checkbox"
-            name="favoriteMovie"
+            name="searchFavoriteMovie"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
@@ -37,7 +37,7 @@ class SearchBar extends Component {
           <select
             data-testid="select-input"
             id="genero"
-            name="genre"
+            name="searchGenre"
             onChange={ onSelectedGenreChange }
             value={ selectedGenre }
           >

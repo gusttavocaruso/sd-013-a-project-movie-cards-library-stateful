@@ -15,13 +15,13 @@ class MovieList extends React.Component {
             if (movie.title.includes(searchText)
               || movie.subtitle.includes(searchText)
               || movie.storyline.includes(searchText)) {
-              return <MovieCard key={ movie.title } movie={ movie } />;
+              return movie;
             }
             return '';
           })
           .filter((movie) => {
             if (movie.bookmarked === bookmarkedOnly || !bookmarkedOnly) {
-              return <MovieCard key={ movie.title } movie={ movie } />;
+              return movie;
             }
             return '';
           })

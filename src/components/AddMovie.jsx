@@ -8,8 +8,8 @@ import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieTitle from './AddMovieTitle';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onChangeFunc = this.onChangeFunc.bind(this);
     this.addMovideFunc = this.addMovideFunc.bind(this);
     this.state = {
@@ -32,7 +32,16 @@ class AddMovie extends Component {
   addMovideFunc(event) {
     event.preventDefault();
     const { onClick } = this.props;
-    onClick(this.state);
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    onClick({
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    });
     this.setState({
       subtitle: '',
       title: '',

@@ -9,10 +9,12 @@ class MovieLibrary extends Component {
     super(props);
 
     this.onChangeFunc = this.onChangeFunc.bind(this);
+    this.addMovieFunc = this.addMovieFunc.bind(this);
     this.state = {
       searchInput: '',
-      favoriteMovie: false,
-      genre: '',
+      searchFavoriteMovie: false,
+      searchGenre: '',
+      movies: props.movies,
     };
   }
 
@@ -24,27 +26,32 @@ class MovieLibrary extends Component {
     });
   }
 
+  addMovieFunc(newMovie) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, newMovie],
+    }));
+  }
+
   render() {
-    const { movies } = this.props;
-    const { searchInput, favoriteMovie, genre } = this.state;
+    const { searchInput, searchFavoriteMovie, searchGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
           searchText={ searchInput }
           onSearchTextChange={ this.onChangeFunc }
-          bookmarkedOnly={ favoriteMovie }
+          bookmarkedOnly={ searchFavoriteMovie }
           onBookmarkedChange={ this.onChangeFunc }
-          selectedGenre={ genre }
+          selectedGenre={ searchGenre }
           onSelectedGenreChange={ this.onChangeFunc }
         />
         <h2> My awesome movie library </h2>
         <MovieList
           movies={ movies }
-          bookmarkedOnly={ favoriteMovie }
-          selectedGenre={ genre }
+          bookmarkedOnly={ searchFavoriteMovie }
+          selectedGenre={ searchGenre }
           searchText={ searchInput }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovieFunc } />
       </div>
     );
   }
