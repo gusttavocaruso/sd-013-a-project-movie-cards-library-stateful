@@ -107,7 +107,7 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<MovieList />`', () => {
+  it('Renderize o componente `<MovieList />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieList = getAllByTestId('movie-list');
     expect(movieList).toHaveLength(1);
@@ -152,7 +152,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCardTitle).toHaveTextContent(movies[2].title);
   });
 
-  it.skip('Renderize a lista de filmes sem filtragens se a barra de buscar estiver vazia', () => {
+  it('Renderize a lista de filmes sem filtragens se a barra de buscar estiver vazia', () => {
     const expectedLength = 3;
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
