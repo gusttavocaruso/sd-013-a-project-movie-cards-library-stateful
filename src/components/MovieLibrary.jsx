@@ -5,19 +5,22 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.createMovieList = this.createMovieList.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -39,11 +42,40 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(state) {
+    this.setState((estadoAnterior) => ({
+      movies: [...estadoAnterior.movies, state],
+    }));
+  }
 
+  createMovieList() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let moviesResults = movies;
+    if (bookmarkedOnly) {
+      moviesResults = moviesResults.filter((movie) => movie.bookmarked === true);
+    }
+    switch (selectedGenre) {
+    case 'action':
+      moviesResults = moviesResults.filter((movie) => movie.genre === 'action');
+      break;
+    case 'comedy':
+      moviesResults = moviesResults.filter((movie) => movie.genre === 'comedy');
+      break;
+    case 'thriller':
+      moviesResults = moviesResults.filter((movie) => movie.genre === 'thriller');
+      break;
+    default:
+      break;
+    }
+    moviesResults = moviesResults.filter((movie) => (
+      movie.title.toLowerCase().match(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().match(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().match(searchText.toLowerCase())
+    ));
+    return moviesResults;
   }
 
   render() {
-    const { movies } = this.props;
+    const movies = this.createMovieList();
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
