@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
       movies,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -24,13 +25,16 @@ class MovieLibrary extends Component {
     });
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    // console.log(e);
+  handleClick(getState) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, getState] }));
+  }
+
+  handleSearch() {
+
   }
 
   render() {
-    const { handleChange, handleClick, state } = this;
+    const { handleChange, handleClick, handleSearch, state } = this;
     const { searchText, bookmarkedOnly, selectedGenre, movies } = state;
     return (
       <div>

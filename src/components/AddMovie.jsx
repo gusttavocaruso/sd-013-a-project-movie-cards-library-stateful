@@ -21,6 +21,7 @@ class AddMovie extends React.Component {
     this.baseState = this.state;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -124,7 +125,7 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="submit"
-          onClick={ onClick }
+          onClick={ () => onClick(this.state) }
         >
           Adicionar filme
         </button>

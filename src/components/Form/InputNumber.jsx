@@ -23,7 +23,7 @@ class InputNumber extends React.Component {
 InputNumber.propTypes = {
   testId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };

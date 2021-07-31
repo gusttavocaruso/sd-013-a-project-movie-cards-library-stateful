@@ -36,7 +36,10 @@ InputSelect.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options: PropTypes.shape({
+    info: PropTypes.arrayOf(PropTypes.object),
+    name: PropTypes.string,
+  }).isRequired,
 };
 
 export default InputSelect;
