@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+  preventOnSubmit = (event) => {
+    event.preventDefault();
+  }
+
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
 
+    const { preventOnSubmit } = this;
+
     return (
-      <form data-testid="search-bar-form" action="">
+      <form data-testid="search-bar-form" onSubmit={ preventOnSubmit }>
         <label data-testid="text-input-label" htmlFor="searchText">
           Inclui o texto
           <input
@@ -30,7 +36,7 @@ class SearchBar extends React.Component {
             id="bookmarkedOnly"
           />
         </label>
-        <label data-testid="select-input-label" htmlFor="genre">
+        <label data-testid="select-input-label" htmlFor="selectedGenre">
           Filtrar por gênero
           <select
             name="genre"

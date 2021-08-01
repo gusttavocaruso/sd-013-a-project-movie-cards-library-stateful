@@ -22,59 +22,47 @@ class MovieLibrary extends React.Component {
     await this.setState({
       [id]: value,
     });
-    this.refreshMovies();
   }
 
   addNewMovie = (movieObj) => {
-    console.log(movieObj);
     this.setState((prevState) => ({
       movies: [...prevState.movies, movieObj],
     }));
   }
 
-  resetMovies = () => {
-    const { movies } = this.props;
-    return this.setState({ movies });
-  }
-
   filterByGenre = (movies) => {
     const { selectedGenre } = this.state;
-    if (selectedGenre) {
-      return movies.filter((movie) => movie.genre === selectedGenre);
-    }
-    return movies;
+    return movies.filter((movie) => movie.genre === selectedGenre);
   }
 
   filterByText = (movies) => {
     const { searchText } = this.state;
-    if (searchText) {
-      return movies.filter(({ title, subtitle, storyline }) => title.includes(searchText)
+    return movies.filter(({ title, subtitle, storyline }) => title.includes(searchText)
       || subtitle.includes(searchText) || storyline.includes(searchText));
-    }
-    return movies;
   }
 
-  filterByFavorites = (movies) => {
-    const { bookmarkedOnly } = this.state;
-    if (bookmarkedOnly) {
-      return movies.filter((movie) => movie.bookmarked);
-    }
-    return movies;
-  }
+  filterByFavorites = (movies) => movies.filter((movie) => movie.bookmarked)
+
+  /**
+ * Consultei o repositório do Olávio Timóteo e do Matheus Henrique para resolver essa parte.
+ * https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pull/5
+ * https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pull/20
+ */
 
   refreshMovies = () => {
-    this.resetMovies();
-    const { movies } = this.state;
+    const { movies, bookmarkedOnly, selectedGenre } = this.state;
+    const { filterByText, filterByFavorites, filterByGenre } = this;
     let filteredMovies = movies;
-    filteredMovies = this.filterByFavorites(filteredMovies);
-    filteredMovies = this.filterByGenre(filteredMovies);
-    filteredMovies = this.filterByText(filteredMovies);
-    this.setState({ movies: filteredMovies });
+    if (bookmarkedOnly) filteredMovies = filterByFavorites(filteredMovies);
+    if (selectedGenre !== '') filteredMovies = filterByGenre(filteredMovies);
+    filteredMovies = filterByText(filteredMovies);
+    return filteredMovies;
   }
 
   render() {
-    const { onChange, addNewMovie } = this;
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { onChange, addNewMovie, refreshMovies } = this;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const movies = refreshMovies();
     return (
       <div>
         <SearchBar
