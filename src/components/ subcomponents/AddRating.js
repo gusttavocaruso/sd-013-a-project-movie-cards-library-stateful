@@ -6,7 +6,11 @@ class AddRating extends React.Component {
     const { value, handleChange } = this.props;
 
     return (
-      <label htmlFor="add-rating" data-testid="rating-input-label">
+      <label
+        htmlFor="add-rating"
+        data-testid="rating-input-label"
+        id="rating-input-label"
+      >
         Avaliação
         <input
           name="rating"

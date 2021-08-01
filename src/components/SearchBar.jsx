@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchText from './ subcomponents/SearchText';
 import BookmarkedOnly from './ subcomponents/BookmarkedOnly';
 import SelectedGenre from './ subcomponents/SelectedGenre';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" id="search-bar-form">
         <SearchText
           searchText={ searchText }
           onSearchTextChange={ onSearchTextChange }

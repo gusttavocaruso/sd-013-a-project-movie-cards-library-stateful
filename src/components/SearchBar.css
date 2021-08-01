@@ -1,0 +1,30 @@
+#search-bar-form {
+  display: flex;
+  justify-content: center;
+}
+
+#search-bar {
+  margin-left: 5px;
+  margin-right: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+#search-bar:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2 px solid gray;
+}
+
+#search-checked {
+  margin-left: 5px;
+  margin-right: 25px;
+  border-radius: 5px;
+}
+
+#search-select {
+  margin-left: 5px;
+  margin-right: 25px;
+  border-radius: 5px;
+  background-color: white;
+}
