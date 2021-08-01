@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <MovieLibrary movies={ movies } />
+      {console.log(movies)}
     </div>
   );
 }

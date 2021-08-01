@@ -5,7 +5,7 @@ class MovieImagePath extends Component {
   render() {
     const { imagepath, funcao } = this.props;
     return (
-      <label htmlFor="movieTitle" data-testid="title-input-label">
+      <label htmlFor="movieTitle" data-testid="image-input-label">
         Imagem
         <input
           type="text"

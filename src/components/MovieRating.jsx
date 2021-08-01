@@ -11,7 +11,7 @@ class MovieRating extends Component {
           type="number"
           name="movieRating"
           data-testid="rating-input"
-          value={ rating }
+          value={ Number(rating) }
           onChange={ funcao }
         />
       </label>

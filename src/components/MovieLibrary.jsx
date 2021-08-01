@@ -9,12 +9,11 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { movies },
+      movies,
     };
   }
 
@@ -24,8 +23,16 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
+  newMovie = () => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, this.newMovie],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    console.log(movies);
     return (
       <div>
         <h2 style={ { textAlign: 'center', margin: '20px 0', fontSize: '50px' } }>
@@ -35,13 +42,12 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
-          movies={ movies }
           onSearchTextChange={ this.handleSearchBar }
           onBookmarkedChange={ this.handleSearchBar }
           onSelectedGenreChange={ this.handleSearchBar }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.newMovie } />
       </div>
     );
   }

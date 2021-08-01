@@ -8,12 +8,10 @@ class MovieSinopse extends Component {
       <label htmlFor="movieRating" data-testid="storyline-input-label">
         Sinopse
         <input
-          type="number"
+          type="text"
           name="storyline"
           data-testid="storyline-input"
           value={ sinopse }
-          min="0"
-          max="10"
           onChange={ funcao }
         />
       </label>
