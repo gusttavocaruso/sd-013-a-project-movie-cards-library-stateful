@@ -4,42 +4,12 @@ import PropTypes from 'prop-types';
 // import MovieLibrary from './MovieLibrary';
 
 class SearchBar extends Component {
-  // constructor(props) {
-  //   super();
-
-  // this.onBookmarkedChange = this.bookmarkedOnly.bind(this);
-  // this.onSearchTextChange = this.onSearchTextChange.bind(this);
-  // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-
-  // this.state = {
-  //   searchText: '',
-  //   bookmarkedOnly: false,
-  //   selectedGenre: '',
-  // };
-  // }
-
-  // onBookmarkedChange = (event) => {
-  // event.preventDefault();
-  // this.setState({ bookmarkedOnly: event.target.checked });
-  // console.log(event.target.checked);
-  // }
-
-  // onSearchTextChange = (event) => {
-  // this.setState({ searchText: event.target.value });
-  // console.log(event.target.value);
-  // }
-
-  // onSelectedGenreChange = (event) => {
-  // this.setState({ selectedGenre: event.target.value });
-  // console.log(event.target.value);
-  // }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, onBookmarkedChange,
       onSearchTextChange, onSelectedGenreChange } = this.props;
-      // const {value} = this.props;
+
     return (
-      //   <h1>Eu sou o searchbar</h1>
+
       <form data-testid="search-bar-form">
 
         <label htmlFor="text-input-label" data-testid="text-input-label">
