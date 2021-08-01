@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import MovieButton from './MovieButton';
-import MovieGender from './MovieGender';
-import MovieImagePath from './MovieImagePath';
-import MovieRating from './MovieRating';
-import MovieSinopse from './MovieSinopse';
-import MovieSubTitle from './MovieSubtitle';
 import MovieTitle from './MovieTitle';
+import MovieSubTitle from './MovieSubtitle';
+import MovieImagePath from './MovieImagePath';
+import MovieSinopse from './MovieSinopse';
+import MovieRating from './MovieRating';
+import MovieGender from './MovieGender';
+import MovieButton from './MovieButton';
 
 class AddMovie extends Component {
   constructor(props) {
