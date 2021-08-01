@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
+    // console.log('SearchBar line 6:', this.props);
     const {
       searchText,
       onSearchTextChange,
@@ -18,6 +19,7 @@ class SearchBar extends React.Component {
           <input
             data-testid="text-input"
             type="text"
+            property="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -29,6 +31,7 @@ class SearchBar extends React.Component {
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
+            property="bookmarkedOnly"
           />
         </label>
         <label data-testid="select-input-label" htmlFor="select-input">
@@ -37,6 +40,7 @@ class SearchBar extends React.Component {
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
+            property="selectedGenre"
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
