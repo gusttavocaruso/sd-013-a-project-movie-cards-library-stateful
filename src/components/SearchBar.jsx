@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SelectForm from './SelectForm';
 
 class SearchBar extends React.Component {
   constructor() {
@@ -34,7 +35,6 @@ class SearchBar extends React.Component {
             id="inputText"
           />
         </label>
-
         <label
           data-testid="checkbox-input-label"
           htmlFor="inputCheck"
@@ -49,19 +49,7 @@ class SearchBar extends React.Component {
             id="inputCheck"
           />
         </label>
-        <label data-testid="select-input-label" htmlFor="selectArea">
-          <select
-            id="selectArea"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <SelectForm onChange={ onSelectedGenreChange } value={ selectedGenre } />
       </form>
     );
   }
