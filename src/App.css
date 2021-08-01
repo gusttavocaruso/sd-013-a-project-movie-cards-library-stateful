@@ -89,22 +89,22 @@ body {
 
 .filter-form {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .filter-form label {
   padding: 0 10px;
 }
 
-.filter-form input,select {
+.filter-form input, select {
   margin: 0 10px;
 }
 
 .movie-add {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .movie-add-div {
@@ -116,6 +116,6 @@ body {
   padding: 0 10px;
 }
 
-.movie-add input,select,textarea {
+.movie-add input, select, textarea {
   margin: 0 10px;
 }
