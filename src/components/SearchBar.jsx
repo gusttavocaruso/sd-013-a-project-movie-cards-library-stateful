@@ -1,5 +1,6 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+import AddMovie from './AddMovie';
 
 class SearchBar extends Component {
   render() {
@@ -44,6 +45,7 @@ class SearchBar extends Component {
             <option data-testid="select-option" value="comedy">Comédia</option>
             <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
+          <AddMovie />
         </label>
       </form>
     );
