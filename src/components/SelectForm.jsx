@@ -2,15 +2,16 @@ import React from 'react';
 
 class Select extends React.Component {
   render() {
-    // const { onChange } = this.props;
-    // const { value } = this.props;
-    console.log(this.props.value)
+    const { onSelectedGenreChange } = this.props;
+    const { selectedGenre } = this.props;
+
     return (
       <label data-testid="select-input-label" htmlFor="selectArea">
+        Filtrar por gênero
         <select
           id="selectArea"
-          // value={ value }
-          // onChange={ onChange }
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
           data-testid="select-input"
         >
           <option value="" data-testid="select-option">Todos</option>
@@ -22,5 +23,10 @@ class Select extends React.Component {
     );
   }
 }
+
+Select.propTypes = {
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default Select;

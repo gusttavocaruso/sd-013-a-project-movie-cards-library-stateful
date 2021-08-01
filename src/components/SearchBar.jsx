@@ -49,7 +49,10 @@ class SearchBar extends React.Component {
             id="inputCheck"
           />
         </label>
-        <SelectForm onChange={ onSelectedGenreChange } value={ selectedGenre } />
+        <SelectForm
+          onSelectedGenreChange={ onSelectedGenreChange }
+          selectedGenre={ selectedGenre }
+        />
       </form>
     );
   }
