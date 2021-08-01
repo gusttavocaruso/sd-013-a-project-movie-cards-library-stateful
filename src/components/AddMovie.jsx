@@ -8,8 +8,8 @@ import AddRating from './ subcomponents/AddRating';
 import AddGenre from './ subcomponents/AddGenre';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
 
   handleButton() {
     const { onClick } = this.props;
-    onClick();
+    onClick(this.state);
 
     this.setState({
       subtitle: '',
