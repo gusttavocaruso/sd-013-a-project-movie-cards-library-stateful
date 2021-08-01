@@ -29,7 +29,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
 
     const {
       subtitle,
