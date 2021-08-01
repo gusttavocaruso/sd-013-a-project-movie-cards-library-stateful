@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class FormsInput extends React.Component {
   render() {
-    const { title, subtitle, imagePath, handleChange } = this.props;
+    const { title, subtitle, imagePath, storyLine, handleChange } = this.props;
     return (
       <div>
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -39,6 +39,16 @@ class FormsInput extends React.Component {
             data-testid="image-input"
           />
         </label>
+        <label htmlFor="sinopse" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="sinopse"
+            id="sinopse"
+            storyLine={ storyLine }
+            onChange={ handleChange }
+            data-testid="storyline-input"
+          />
+        </label>
       </div>
     );
   }
@@ -48,6 +58,7 @@ FormsInput.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   imagePath: PropTypes.string,
+  storyLine: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };
 
@@ -55,6 +66,7 @@ FormsInput.defaultProps = {
   title: '',
   subtitle: '',
   imagePath: '',
+  storyLine: '',
 };
 
 export default FormsInput;
