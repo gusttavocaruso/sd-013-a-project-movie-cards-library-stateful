@@ -20,13 +20,15 @@ class AddMovie extends Component {
     };
   }
 
+  // função genérica copiada do repositório das aulas au vivo da turma 13 tribo A.
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
-  clickButton = () => {
+  // função criada por Luiza Antiques, turma 13 tribo A, compartilhada e explicada num grupo de estudos da turma.
+  handleClick = () => {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -51,7 +53,7 @@ class AddMovie extends Component {
         <AddGenre genre={ genre } onChange={ this.handleChange } />
         <button
           data-testid="send-button"
-          onClick={ this.clickButton }
+          onClick={ this.handleClick }
           type="submit"
         >
           Adicionar filme
