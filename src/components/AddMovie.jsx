@@ -17,10 +17,10 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = ({ target }) => {
+  handleChange = ({ target }) => { // funcao tirada do course generica como tem arrow function nao precisa do this
     const { name, value } = target;
     this.setState({
-      [name]: value,
+      [name]: value, // o valor da variavel ser o nome da chave do objeto
     });
   }
 
@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({
+    this.setState({ // resetando tudo para ficar com o estado inicial
       subtitle: '',
       title: '',
       imagePath: '',

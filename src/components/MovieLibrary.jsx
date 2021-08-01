@@ -48,7 +48,7 @@ class MovieLibrary extends React.Component {
 
   addMovie =(product) => {
     this.setState((previousState) => ({
-      movies: [...previousState.movies, product],
+      movies: [...previousState.movies, product], // todos os filmes mais o atual
     }));
   }
 
@@ -59,7 +59,7 @@ class MovieLibrary extends React.Component {
         .includes(searchText.toLowerCase()) || storyline.toLowerCase()
         .includes(searchText.toLowerCase()) || subtitle.toLowerCase()
         .includes(searchText.toLowerCase()))
-      .filter((movie) => (bookmarkedOnly ? movie.bookmarked
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked // filtra todos os filmes que estao true
         === bookmarkedOnly : [...movies]))
       .filter((movie) => movie.genre.includes(selectedGenre));
     return (
