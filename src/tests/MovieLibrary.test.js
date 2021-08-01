@@ -80,7 +80,7 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
     expect(searchBar).toHaveLength(1);
   });
 
-  it.skip('Altere o estado da `<SearchBar />` quando algo for digitado nela', () => {
+  it('Altere o estado da `<SearchBar />` quando algo for digitado nela', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     event.type(searchText, 'My Search Text');
@@ -189,7 +189,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<AddMovie />`', () => {
+  it('Renderize o componente `<AddMovie />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);

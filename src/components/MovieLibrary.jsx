@@ -40,8 +40,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies={ movies } searchText={ searchText } />
+        <AddMovie onSearchTextChange={ onSearchTextChange } />
       </section>
     );
   }
@@ -56,9 +56,7 @@ MovieLibrary.propTypes = {
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  })),
+  })).isRequired,
 };
-
-MovieLibrary.defaultProps = { movies: [] };
 
 export default MovieLibrary;
