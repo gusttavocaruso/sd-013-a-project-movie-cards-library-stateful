@@ -10,13 +10,19 @@ class MovieLibrary extends React.Component {
 
     this.state = {
       searchText: '',
-      onSearchTextChange: (e) => {
-        this.setState({ searchText: e.target.value });
+      onSearchTextChange: ({ target }) => {
+        const { name, value } = target;
+        this.setState({ [name]: value });
       },
       bookmarkedOnly: false,
-      onBookmarkedChange: () => {},
+      onBookmarkedChange: ({ target }) => {
+        this.setState({ bookmarkedOnly: target.checked });
+      },
       selectedGenre: '',
-      onSelectedGenreChange: () => {},
+      onSelectedGenreChange: ({ target }) => {
+        const { value } = target;
+        this.setState({ selectedGenre: value });
+      },
       movies: props.movies,
     };
   }
@@ -44,7 +50,7 @@ class MovieLibrary extends React.Component {
           movies={ movies }
         />
         <MovieList movies={ movies } searchText={ searchText } />
-        <AddMovie onSearchTextChange={ onSearchTextChange } />
+        <AddMovie />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import AddMovieForm from './AddMovieForm';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,58 +10,61 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       imagePath: '',
+      handleChange: ({ target }) => {
+        const { name, value } = target;
+        this.setState({ [name]: value });
+      },
+      handleSubmit: (e) => {
+        console.log('clicou');
+        e.preventDefault();
+      },
     };
   }
 
   render() {
-    const { title, subtitle, storyline, rating, imagePath } = this.state;
+    const { title,
+      subtitle,
+      imagePath, handleChange, handleSubmit, rating, storyline } = this.state;
     return (
       <form className="form" data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
-          <input type="text" value={ title } data-testid="title-input" onChange="" />
+          <input
+            name="title"
+            type="text"
+            value={ title }
+            data-testid="title-input"
+            onChange={ handleChange }
+          />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            name="subtitle"
             type="text"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange=""
+            onChange={ handleChange }
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
-          <input type="text" value={ imagePath } data-testid="image-input" onChange="" />
+          <input
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ handleChange }
+          />
         </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea cols="30" rows="10" onChange="" data-testid="storyline-input">
-            { storyline }
-          </textarea>
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input type="number" value={ rating } data-testid="rating-input" onChange="" />
-        </label>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          Gênero
-          <select data-testid="genre-input">
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button
-          type="submit"
-          onChange=""
-          data-testid="send-button"
-        >
-          Adicionar filme
-        </button>
+        <AddMovieForm
+          handleChange={ handleChange }
+          handleSubmit={ handleSubmit }
+          rating={ rating }
+          storyline={ storyline }
+        />
       </form>
     );
   }
 }
-
 export default AddMovie;

@@ -79,7 +79,7 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
     expect(titleInput).toHaveValue(initialState.title);
   });
 
-  it.skip('Altere o valor do input de título quando algo for digitado nele', () => {
+  it('Altere o valor do input de título quando algo for digitado nele', () => {
     event.type(titleInput, 'my awesome movie title');
 
     expect(titleInput).toHaveValue('my awesome movie title');
@@ -100,7 +100,7 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
     expect(subtitleInput).toHaveValue(initialState.subtitle);
   });
 
-  it.skip('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
+  it('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
     event.type(subtitleInput, 'my awesome movie subtitle');
 
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
@@ -121,7 +121,7 @@ describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMo
     expect(imageInput).toHaveValue(initialState.imagePath);
   });
 
-  it.skip('Altere o valor do input de imagem quando algo é digitado nele', () => {
+  it('Altere o valor do input de imagem quando algo é digitado nele', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
   });
@@ -141,7 +141,7 @@ describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` 
     expect(storylineInput).toHaveValue(initialState.storyline);
   });
 
-  it.skip('Altere o valor do input de sinopse quando algo é digitado nele', () => {
+  it('Altere o valor do input de sinopse quando algo é digitado nele', () => {
     const message = 'In the following movie, everyone dies.';
     fireEvent.change(storylineInput, { target: { value: message } });
     expect(storylineInput).toHaveValue(message);
@@ -162,7 +162,7 @@ describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<
     expect(ratingInput).toHaveValue(initialState.rating);
   });
 
-  it.skip('Altere o valor do input de avaliação quando algo é digitado nele', () => {
+  it('Altere o valor do input de avaliação quando algo é digitado nele', () => {
     const expectedValue = 1.5;
     event.type(ratingInput, '1.5');
 
@@ -205,7 +205,7 @@ describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selec
 });
 
 describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer uso dos dados do novo filme, contidos no estado de `<AddMovie />`', () => {
-  it.skip('Será validado se o texto do botão é "Adicionar filme"', () => {
+  it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
