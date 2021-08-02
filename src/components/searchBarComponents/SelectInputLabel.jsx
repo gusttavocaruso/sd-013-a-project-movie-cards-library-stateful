@@ -7,12 +7,12 @@ class SelectInputLabel extends React.Component {
 
     return (
       <label
-        htmlFor="select-input"
+        htmlFor="selectedGenre"
         data-testid="select-input-label"
       >
         Filtrar por gênero
         <select
-          name="select-input"
+          name="selectedGenre"
           data-testid="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }

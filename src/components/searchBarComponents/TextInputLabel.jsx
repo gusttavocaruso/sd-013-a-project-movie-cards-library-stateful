@@ -7,13 +7,13 @@ class TextInputLabel extends React.Component {
 
     return (
       <label
-        htmlFor="text-input"
+        htmlFor="searchText"
         data-testid="text-input-label"
       >
         Inclui o texto:
         <input
           type="text"
-          name="text-input"
+          name="searchText"
           data-testid="text-input"
           value={ searchText }
           onChange={ onSearchTextChange }
