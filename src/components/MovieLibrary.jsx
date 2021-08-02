@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -16,22 +18,57 @@ class MovieLibrary extends Component {
     };
   }
 
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleFilter = () => {
+    const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
+    const filteredMovies = movies
+      .filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    if (bookmarkedOnly) {
+      return filteredMovies.filter((movie) => movie.bookmarked);
+    }
+    if (selectedGenre) {
+      return filteredMovies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return filteredMovies;
+  }
+
+  handleAddButton = (newMovie) => {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.props.movies } />
-        <AddMovie />
+        <MovieList movies={ this.handleFilter() } />
+        <AddMovie onClick={ this.handleAddButton } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
