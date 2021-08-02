@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import movies from '../data';
 
 const stateOne = {
   subtitle: '',
@@ -31,8 +32,12 @@ class AddMovie extends React.Component {
     });
   }
 
-  resetState() {
+  resetState(e) {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState(stateOne);
+    console.log(movies);
   }
 
   inputGenerator(name, value, id, test) {
@@ -112,7 +117,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button
-          type="button"
+          type="submit"
           data-testid="send-button"
           onClick={ this.resetState }
         >
@@ -122,5 +127,7 @@ class AddMovie extends React.Component {
     );
   }
 }
-
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;
