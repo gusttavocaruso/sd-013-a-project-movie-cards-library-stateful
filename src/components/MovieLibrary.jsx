@@ -33,10 +33,8 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  addMovieClick(product) {
-    this.setState((previousState) => ({
-      movies: [...previousState.movies, product], // todos os filmes mais o atual
-    }));
+  addMovieClick(newMovie) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
   }
 
   render() {
