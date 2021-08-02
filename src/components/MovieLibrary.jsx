@@ -45,7 +45,8 @@ class MovieLibrary extends React.Component {
     // Tem outros métodos não entendi a causa de arrayvar: [...prevState.arrayvar, newelement] não funcionar
     const { movies } = this.state;
     this.setState({
-      movies: movies.concat([movie]),
+      // movies: movies.concat([movie]),
+      movies: [...movies, movie],
     });
   }
 
