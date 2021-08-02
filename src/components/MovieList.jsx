@@ -1,4 +1,5 @@
 // Filho do componente MovieLibrary
+// Componente já veio pronto
 
 import React from 'react';
 import PropTypes from 'prop-types';

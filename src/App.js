@@ -4,13 +4,15 @@ import MovieLibrary from './components/MovieLibrary';
 import data from './data';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <MovieLibrary movies={ data } />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <MovieLibrary movies={ data } />
+      </div>
+    );
+  }
 }
 
 export default App;
