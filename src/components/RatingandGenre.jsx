@@ -17,6 +17,7 @@ class RatingandGenre extends Component {
             name="rating"
             type="number"
             id="input-rating"
+            className="input-assessment"
             value={ rating }
             data-testid="rating-input"
             onChange={ handleChange }
