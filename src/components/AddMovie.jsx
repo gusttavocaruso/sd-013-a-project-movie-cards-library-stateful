@@ -9,9 +9,34 @@ import Rating from './AddMovieComponents/AddMovieRating';
 import Genre from './AddMovieComponents/AddMovieGenre';
 
 class AddMovie extends React.Component {
-  render() {
-    // const { onClick } = this.props;
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     return (
       <main>
         <form method="post" data-testid="add-movie-form">
@@ -21,7 +46,9 @@ class AddMovie extends React.Component {
           <Storyline />
           <Rating />
           <Genre />
-          {/* <button data-testid="send-button">Adicionar filme</button> */}
+          <button data-testid="send-button" type="button" onClick={ this.handleClick }>
+            Adicionar filme
+          </button>
         </form>
       </main>
     );
