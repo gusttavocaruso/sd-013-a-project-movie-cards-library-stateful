@@ -16,7 +16,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title } = this.state;
+    const { subtitle, title, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label
@@ -37,17 +37,32 @@ class AddMovie extends React.Component {
           htmlFor="subtitle-input"
         >
           Subtítulo
-          <input id="subtitle-input" data-testid="subtitle-input" value={ subtitle } onChange={ ({ target }) => this.setState({ subtitle: target.value }) }
-        />
+          <input
+            id="subtitle-input"
+            data-testid="subtitle-input"
+            value={ subtitle }
+            onChange={ ({ target }) => this.setState({ subtitle: target.value }) }
+          />
+        </label>
+        <label
+          data-testid="image-input-label"
+          htmlFor="image-input"
+        >
+          Imagem
+          <input
+            id="image-input"
+            data-testid="image-input"
+            value={ imagePath }
+            onChange={ ({ target }) => this.setState({ imagePath: target.value }) }
+          />
         </label>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
-  title: PropTypes.string.isRequired,
-};
-
+// AddMovie.propTypes = {
+//   title: PropTypes.string.isRequired,
+// };
 
 export default AddMovie;
