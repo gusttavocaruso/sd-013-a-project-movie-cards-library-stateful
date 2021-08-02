@@ -25,7 +25,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -46,7 +47,7 @@ class AddMovie extends React.Component {
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
-          storyLine={ storyLine }
+          value={ storyLine }
           handleChange={ this.handleChange }
         />
         <label htmlFor="rating" data-testid="rating-input-label">
