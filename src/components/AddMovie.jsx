@@ -7,24 +7,25 @@ class AddMovie extends Component {
     super(props);
     this.changeStateProperty = this.changeStateProperty.bind(this);
     this.initialState = this.initialState.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
     this.state = this.initialState();
+    this.eventPreventSubmit = this.eventPreventSubmit.bind(this);
   }
 
   initialState = () => ({
-    subtitle: '',
     title: '',
-    imagePath: '',
+    subtitle: '',
     storyline: '',
     rating: 0,
+    imagePath: '',
+    bookmarked: false,
     genre: 'action',
   });
 
-  onClick = (e) => {
+  addNewMovie = (e) => {
     e.preventDefault();
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(this.initialState);
+    const { newMovie } = this.props;
+    newMovie(this.state);
   };
 
   changeStateProperty = (e) => {
@@ -32,10 +33,12 @@ class AddMovie extends Component {
     this.setState({ [property]: e.target.value });
   }
 
+  eventPreventSubmit = (e) => e.preventDefault();
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ this.eventPreventSubmit }>
         {inputField({ title: 'Título', prop: 'title', name: 'title' },
           'text', title, this.changeStateProperty)}
 
@@ -57,7 +60,7 @@ class AddMovie extends Component {
             { value: 'comedy', name: 'Comédia' },
             { value: 'thriller', name: 'Suspense' }]) }
 
-        <button data-testid="send-button" onClick={ this.onClick } type="submit">
+        <button data-testid="send-button" onClick={ this.addNewMovie } type="submit">
           Adicionar filme
         </button>
       </form>
@@ -65,6 +68,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { newMovie: PropTypes.func.isRequired };
 
 export default AddMovie;

@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     this.changeStateProperty = this.changeStateProperty.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.moviesFilter = this.moviesFilter.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
   changeStateProperty = (e) => {
@@ -34,6 +35,11 @@ class MovieLibrary extends Component {
     && (genre.includes(selectedGenre))
     && (matchSearchedWord(searchText, [title, subtitle, storyline])))
 
+  // revisão do Eduardo bloco 12
+  handleAddMovie = (newMovie) => {
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
+  };
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -48,7 +54,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.changeStateProperty }
         />
-        <AddMovie onClick={ this.changeStateProperty } />
+        <AddMovie newMovie={ this.handleAddMovie } />
       </div>
     );
   }
