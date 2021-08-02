@@ -19,6 +19,34 @@ body {
   text-align: center;
 }
 
+.search-bar-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-box {
+  margin-left: 6px;
+}
+
+.show-bookmarked {
+  margin-right: 1em;
+}
+
+.bookmarked-box {
+  margin-left: 6px;
+}
+
+.select-box {
+  margin-left: 6px;
+}
+
 .movie-list {
   display: flex;
   flex-flow: row wrap;
@@ -35,6 +63,7 @@ body {
   margin: 5px;
   overflow: hidden;
   width: 300px;
+  margin-top: 1em;
 }
 
 
@@ -80,4 +109,17 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.add-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.input-box {
+  margin-right: 8px;
+  margin-left: 8px;
+  margin-bottom: 6px;
 }
