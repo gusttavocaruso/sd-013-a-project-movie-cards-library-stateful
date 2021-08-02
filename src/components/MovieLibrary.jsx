@@ -2,20 +2,21 @@
 import React from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import movies from '../data';
 
 // faltando escrever as funções que irão modificar os states.
 // não se preocupe com os erros bobos do npm :)
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      /* movies: props.movies, */
+      movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,7 +32,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <>
         <SearchBar
@@ -43,7 +44,14 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
-          movies={ movies }
+          movies={ movies
+            .filter(({ title, storyline, subtitle }) => title.toLowerCase()
+              .includes(searchText.toLowerCase())
+              || storyline.toLowerCase().includes(searchText.toLowerCase())
+              || subtitle.toLowerCase().includes(searchText.toLowerCase()))
+            .filter(({ genre }) => genre.includes(selectedGenre))
+            .filter(({ bookmarked }) => (bookmarkedOnly
+              ? bookmarked === bookmarkedOnly : [...movies])) }
         />
       </>
     );
