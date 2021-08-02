@@ -39,12 +39,29 @@ export default class MovieLibrary extends Component {
     this.setState({ movies: [...movies, newMovie] });
   };
 
-  // filter = () => {
-  // };
+  // feito com a ajuda do Gabriel Gaspar
+  filter = () => {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+
+    const includeText = movies.filter((movie) => (
+      movie.title.toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+    ));
+
+    const bookmarked = bookmarkedOnly
+      ? includeText.filter((movie) => movie.bookmarked) : includeText;
+
+    const filteredMovies = selectedGenre !== ''
+      ? bookmarked.filter((movie) => movie.genre === selectedGenre) : bookmarked;
+
+    return filteredMovies;
+  };
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const { search, bookmarker, genre, handleClick } = this;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { search, bookmarker, genre, handleClick, filter } = this;
+    const filteredMovies = filter();
 
     return (
       <div>
@@ -56,7 +73,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ genre }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filteredMovies } />
         <AddMovie onClick={ handleClick } />
       </div>
     );
