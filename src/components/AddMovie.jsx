@@ -1,42 +1,16 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import Title from './AddMovieComponents/Title';
-import Subtitle from './AddMovieComponents/Subtitle';
-import ImagePath from './AddMovieComponents/ImagePath';
-import Storyline from './AddMovieComponents/Storyline';
-import Rating from './AddMovieComponents/Rating';
-import Genre from './AddMovieComponents/Genre';
+import Title from './AddMovieComponents/AddMovieTitle';
+import Subtitle from './AddMovieComponents/AddMovieSubtitle';
+import ImagePath from './AddMovieComponents/AddMovieImagePath';
+import Storyline from './AddMovieComponents/AddMovieStoryline';
+import Rating from './AddMovieComponents/AddMovieRating';
+import Genre from './AddMovieComponents/AddMovieGenre';
 
 class AddMovie extends React.Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   };
-
-  //   this.handleRatingChange = this.handleRatingChange.bind(this);
-  // }
-
-  // handleRatingChange(e) {
-  //   this.setState({ rating: e.target.value });
-  // }
-
   render() {
     // const { onClick } = this.props;
-    // const { subtitle,
-    //   title,
-    //   imagePath,
-    //   storyline,
-    //   rating,
-    //   genre,
-    // } = this.state;
 
     return (
       <main>

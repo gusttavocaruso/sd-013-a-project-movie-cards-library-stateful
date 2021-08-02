@@ -1,6 +1,14 @@
 import React from 'react';
 
 class Genre extends React.Component {
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     genre: 'action',
+  //   };
+  // }
+
   render() {
     return (
       <label htmlFor="genre" data-testid="genre-input-label">

@@ -1,6 +1,14 @@
 import React from 'react';
 
 class Storyline extends React.Component {
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     storyline: '',
+  //   };
+  // }
+
   render() {
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
