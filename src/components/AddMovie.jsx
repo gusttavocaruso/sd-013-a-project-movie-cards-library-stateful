@@ -26,6 +26,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  // Função com callback para o this state retirado do Matheus Duarte de Freitas
   handleClick = (callback) => {
     callback(this.state);
     this.setState({
