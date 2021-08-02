@@ -7,39 +7,46 @@ class AddMovie extends React.Component {
     super(props);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     }; // Requisito 6
 
     this.handleChange = this.handleChange.bind(this);
-}
+    }
 
-handleChange( { target } ) {
+    handleChange( { target } ) {
     const { name, value } = target;
 
-    this.setState({
-      [name]: value,
-    });
-}    
+        this.setState({
+            [name]: value,
+        });
+    }    
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
 
     return (
-        <form data-testid="add-movie-form"> // Requisito 7
-            <label data-testid="title-input-label" htmlFor="title-input">
-                Título
-                <imput data-testid="title-input" name="title" type="text" value={ title } id="title-input" onChange={ this.handleChange }></imput>
+        <form data-testid="add-movie-form" action=""> 
+
+            // Requisito 8
+            <label data-testid="title-input-label" htmlFor="title-input"> Título
+            <input data-testid="title-input" name="title" type="text" value={ title } id="title-input" onChange={ this.handleChange } />
             </label>
 
+            // Requisito 9
             <label data-testid="subtitle-input-label" htmlFor="subtitle-input"> Subtítulo
                 <input data-testid="subtitle-input" name="subtitle" type="text" value={ subtitle } onChange={ this.handleChange } />
-        </label>
+            </label>
+
+            // Requisito 10
+            <label data-testid="image-input-label" htmlFor="image-input"> Imagem
+                <input data-testid="image-input" name="imagePath" type="text" value={ imagePath } id="image-input" onChange={ this.handleChange } />
+            </label>
         </form>
     );
   }
