@@ -42,8 +42,16 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onChange }
         />
+        {/* Com ajuda do Pedro Trasfereti para o Filter */}
         <MovieList
-          movies={ movies }
+          movies={ Object.values(movies)
+            .filter((movie) => (bookmarkedOnly === false
+              ? movie : movie.bookmarked === bookmarkedOnly))
+            .filter((movie) => (selectedGenre === ''
+              ? movie : movie.genre === selectedGenre))
+            .filter((movie) => movie.title.includes(searchText)
+              || movie.subtitle.includes(searchText)
+              || movie.storyline.includes(searchText)) }
         />
         <AddMovie />
       </div>
