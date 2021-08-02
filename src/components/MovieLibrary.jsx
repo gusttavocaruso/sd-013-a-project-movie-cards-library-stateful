@@ -13,9 +13,10 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: movies,
     };
-    this.changeHandle = this.changeHandle.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   changeHandle = ({ target }) => {
@@ -26,15 +27,31 @@ class MovieLibrary extends Component {
     });
   }
 
-  filterBookmark(event) {
-    if (event.bookmark === true) {
-
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies} = this.state
+    const search = movies.filter((movie) => 
+    movie.title.includes(searchText) || 
+    movie.subtitle.includes(searchText) || 
+    movie.storyline.includes(searchText));
+    
+    if (bookmarkedOnly) {
+    return search.filter ((movie) => movie.bookmarked)
+    } else if (selectedGenre) {
+      return search.filter((movie) => movie.genre === selectedGenre)
+    } else {
+    return search
     }
   }
-  
 
+  addOneMovie = (movie) => {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, movie], 
+    }));
+  }
+
+  
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
       <div>
@@ -47,8 +64,8 @@ class MovieLibrary extends Component {
           selectedGenre = { selectedGenre }
           onSelectedGenreChange = { this.changeHandle }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies = { this.filterMovies() } />
+        <AddMovie onClick = {this.addOneMovie}/>
       </div>
     );
   }

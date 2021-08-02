@@ -25,7 +25,6 @@ class AddMovie extends Component {
   onClick = () => {
     const { onClick } = this.props;
     onClick(this.state);
-
     this.setState({
       subtitle: '', title: '', imagePath: '', storyline: '', rating: 0, genre: 'action',
     });
@@ -55,7 +54,7 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
         />
         <button
-          type="button"
+          type="submit"
           onClick={ this.onClick }
           data-testid="send-button"
         >
