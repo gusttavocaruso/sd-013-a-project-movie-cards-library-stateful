@@ -1,19 +1,21 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types';
+
+const stateOne = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = stateOne;
 
     this.handleChange = this.handleChange.bind(this);
     this.inputGenerator = this.inputGenerator.bind(this);
@@ -23,33 +25,21 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
-      [name]: value,
+      [name]: target.value,
     });
   }
 
   resetState() {
-    document.querySelector('.my-form').reset();
-    const { onClick } = this.props;
-    onClick(this.state);
-    return (
-      this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      })
-    );
+    this.setState(stateOne);
   }
 
-  inputGenerator(name, type, id, test) {
+  inputGenerator(name, value, id, test) {
     return (<input
       name={ name }
-      type={ type }
+      type="text"
+      value={ value }
       id={ id }
       data-testid={ test }
       onChange={ this.handleChange }
@@ -57,13 +47,14 @@ class AddMovie extends React.Component {
     );
   }
 
-  textareaGenerator(name, id, test) {
+  textareaGenerator(name, id, test, value) {
     return (
       <textarea
         name={ name }
         id={ id }
         data-testid={ test }
         onChange={ this.handleChange }
+        value={ value }
       />
     );
   }
@@ -88,19 +79,19 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form" className="my-form">
         <label htmlFor="input-text2" data-testid="title-input-label">
           Título
-          { this.inputGenerator('title', 'text', 'input-text2', 'title-input') }
+          { this.inputGenerator('title', title, 'input-text2', 'title-input') }
         </label>
         <label htmlFor="input-text3" data-testid="subtitle-input-label">
           Subtítulo
-          { this.inputGenerator('subtitle', 'text', 'input-text3', 'subtitle-input')}
+          { this.inputGenerator('subtitle', subtitle, 'input-text3', 'subtitle-input')}
         </label>
         <label htmlFor="input-text4" data-testid="image-input-label">
           Imagem
-          { this.inputGenerator('imagePath', 'text', 'input-text4', 'image-input')}
+          { this.inputGenerator('imagePath', imagePath, 'input-text4', 'image-input')}
         </label>
-        <label htmlFor="input-text-area" data-testid="storyline-input-label">
+        <label htmlFor="textarea" data-testid="storyline-input-label">
           Sinopse
-          { this.textareaGenerator('storyline', 'input-text-area', 'storyline-input')}
+          { this.textareaGenerator('storyline', 'textarea', 'storyline-input', storyline)}
         </label>
         <label htmlFor="input-number" data-testid="rating-input-label">
           Avaliação
@@ -108,7 +99,13 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="input-option" data-testid="genre-input-label">
           Gênero
-          <select name="genre" id="input-option" data-testid="genre-input">
+          <select
+            name="genre"
+            id="input-option"
+            data-testid="genre-input"
+            onChange={ this.handleChange }
+            value={ genre }
+          >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>

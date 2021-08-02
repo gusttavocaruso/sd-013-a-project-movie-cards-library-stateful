@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
@@ -20,6 +20,7 @@ class MovieLibrary extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.addMovieClick = this.handleChange.bind(this);
   }
 
   handleChange({ target }) { // te amo course <3
@@ -29,6 +30,10 @@ class MovieLibrary extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  addMovieClick(newMovie) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
   }
 
   render() {
@@ -53,9 +58,14 @@ class MovieLibrary extends React.Component {
             .filter(({ bookmarked }) => (bookmarkedOnly
               ? bookmarked === bookmarkedOnly : [...movies])) }
         />
+        <AddMovie onCLick={ this.addMovieClick } />
       </>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
