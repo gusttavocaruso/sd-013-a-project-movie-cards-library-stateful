@@ -50,7 +50,7 @@ class MovieLibrary extends Component {
   filtrarFilme() {
     const { searchText, movies } = this.state;
     const filmesFiltrados = movies
-      .filter((movie) => movie.title.includes(searchText));
+      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
     return filmesFiltrados;
   }
 

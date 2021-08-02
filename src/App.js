@@ -4,6 +4,7 @@ import Header from './components/Header';
 import movies from './data';
 import MovieLibrary from './components/MovieLibrary';
 
+// PROJETO FEITO COM A AJUDA DE MATHEUS MACEDO E FELIPE NEVES.
 function App() {
   return (
     <div className="App">
