@@ -62,7 +62,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form data-testid="search-bar-forma">
+      <form data-testid="search-bar-form">
         {this.inputSearch()}
         {this.inputCheckFavorito()}
         {this.selectGenre()}
