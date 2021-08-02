@@ -10,6 +10,7 @@ class AddStoryline extends React.Component {
         Sinopse
         <input
           name="storyline"
+          className="add-storyline"
           id="add-storyline"
           value={ value }
           data-testid="storyline-input"

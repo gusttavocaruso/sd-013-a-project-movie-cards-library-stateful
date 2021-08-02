@@ -10,6 +10,7 @@ class BookmarkedOnly extends React.Component {
         Mostrar somente favoritos
         <input
           name="bookmarkedOnly"
+          className="search-checked"
           id="search-checked"
           type="checkbox"
           checked={ bookmarkedOnly }

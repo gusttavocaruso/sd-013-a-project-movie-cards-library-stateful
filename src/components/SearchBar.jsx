@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form data-testid="search-bar-form" id="search-bar-form">
+      <form data-testid="search-bar-form" className="search-bar-form">
         <SearchText
           searchText={ searchText }
           onSearchTextChange={ onSearchTextChange }

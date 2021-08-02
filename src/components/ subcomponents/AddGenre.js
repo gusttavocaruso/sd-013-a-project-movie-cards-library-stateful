@@ -10,6 +10,7 @@ class AddGenre extends React.Component {
         Gênero
         <select
           name="genre"
+          className="add-genre"
           id="add-genre"
           value={ value }
           data-testid="genre-input"

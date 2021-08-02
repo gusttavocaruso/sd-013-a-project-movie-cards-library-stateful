@@ -10,6 +10,7 @@ class AddImage extends React.Component {
         Imagem
         <input
           name="imagePath"
+          className="add-image"
           id="add-image"
           type="text"
           value={ value }

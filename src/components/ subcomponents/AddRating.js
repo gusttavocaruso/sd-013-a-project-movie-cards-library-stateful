@@ -14,6 +14,7 @@ class AddRating extends React.Component {
         Avaliação
         <input
           name="rating"
+          className="add-rating"
           type="number"
           id="add-rating"
           value={ value }
