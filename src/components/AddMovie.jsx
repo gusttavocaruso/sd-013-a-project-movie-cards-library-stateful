@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Field from './Field';
-import { fields } from '../data';
+import fields from './fields';
 
 class AddMovie extends React.Component {
   constructor() {
