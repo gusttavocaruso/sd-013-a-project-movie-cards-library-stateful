@@ -106,16 +106,14 @@ class AddMovie extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="botao">
-          <button
-            data-testid="send-button"
-            type="submit"
-            id="botao"
-            onClick={ onClick }
-            >
-            Adicionar filme
-          </button>
-        </label>
+        <button
+          data-testid="send-button"
+          type="submit"
+          id="button-input"
+          onClick={ onClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
