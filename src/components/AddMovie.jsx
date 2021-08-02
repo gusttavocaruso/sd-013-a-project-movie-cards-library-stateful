@@ -53,7 +53,7 @@ class AddMovie extends React.Component {
     onChange={ this.handleChange }
   />);
 
-  // baseado no codigo de Pedro Verano
+  // baseado no codigo de Pedro Verano e aluno Josue Lobo me auxiliu com erro de nome de func
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
