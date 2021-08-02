@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class Storyline extends React.Component {
   render() {
-    const { onChange, storyline } = this.props;
+    const { onChange, value } = this.props;
     return (
       <label data-testid="storyline-input-label" htmlFor="image">
         Sinopse:
         <textarea
           type="text"
           name="storyline"
-          value={ storyline }
+          value={ value }
           onChange={ onChange }
           data-testid="storyline-input"
         />
@@ -21,7 +21,7 @@ class Storyline extends React.Component {
 
 Storyline.propTypes = {
   onChange: PropTypes.func.isRequired,
-  storyline: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default Storyline;

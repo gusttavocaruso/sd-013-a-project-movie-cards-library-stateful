@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
+    // a função resetState não está funcionando!!!!
     const { onClick } = this.props;
     return (
       <button
         onClick={ onClick }
-        type="submit"
+        type="button"
         data-testid="send-button"
       >
         Adicionar filme
