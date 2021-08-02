@@ -54,7 +54,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.changeStateProperty }
         />
-        <AddMovie newMovie={ this.handleAddMovie } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }

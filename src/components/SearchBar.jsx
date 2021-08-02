@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    // console.log('SearchBar line 6:', this.props);
     const {
       searchText,
       onSearchTextChange,

@@ -24,8 +24,9 @@ class AddMovie extends Component {
 
   addNewMovie = (e) => {
     e.preventDefault();
-    const { newMovie } = this.props;
-    newMovie(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(this.initialState());
   };
 
   changeStateProperty = (e) => {
@@ -68,6 +69,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { newMovie: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
