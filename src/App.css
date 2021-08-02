@@ -26,9 +26,9 @@ body {
 }
 
 .search-bar {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .search-box {
@@ -61,9 +61,9 @@ body {
   flex-direction: column;
   height: 450px;
   margin: 5px;
+  margin-top: 1em;
   overflow: hidden;
   width: 300px;
-  margin-top: 1em;
 }
 
 
@@ -112,14 +112,14 @@ body {
 }
 
 .add-movie {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-bottom: 1em;
 }
 
 .input-box {
-  margin-right: 8px;
-  margin-left: 8px;
   margin-bottom: 6px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
