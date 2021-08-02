@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   // Ideia de refatoração
@@ -28,6 +29,12 @@ class MovieLibrary extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  onClick(object) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, object],
+    }));
   }
 
   render() {
@@ -53,7 +60,7 @@ class MovieLibrary extends React.Component {
               || movie.subtitle.includes(searchText)
               || movie.storyline.includes(searchText)) }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
