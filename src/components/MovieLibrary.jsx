@@ -16,20 +16,23 @@ class MovieLibrary extends Component {
     };
   }
 
-  // filterMovies = () => {
-  //   const { movies, selectedGenre, searchText } = this.state;
-  //   const filted = movies.filter((movie) => {
-  //     movie.bookmarkedOnly === true
-  //     || movie.genre.includes(selectedGenre)
-  //     || movie.title.includes(searchText)
-  //     || movie.subtitle.includes(searchText)
-  //     || movie.storyline.includes(searchText)
-  //   });
-  //   console.log(filted);
-  //   this.setState({
-  //     [movies]: filted,
-  //   });
-  // }
+  filterMovies = () => {
+    const { movies, selectedGenre, searchText, bookmarkedOnly } = this.state;
+    if (selectedGenre !== '') {
+      return movies.filter((movie) => movie.genre.includes(selectedGenre));
+    }
+    if (bookmarkedOnly) {
+      return movies.filter((movie) => movie.bookmarked === true);
+    }
+    const filted = movies.filter((movie) => {
+      return (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      );
+    });
+    return filted;
+  }
 
   handleChange = ({ target }) => {
     const { name } = target;
@@ -53,7 +56,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <AddMovie />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filterMovies() } />
       </div>
     );
   }
