@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SelectGenre from './SelectGenre';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {

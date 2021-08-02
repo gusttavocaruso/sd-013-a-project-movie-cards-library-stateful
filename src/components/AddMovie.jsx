@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TitleandSubtitle from './TitleandSubtitle';
 import ImageSinopsis from './ImageSinopsis';
 import RatingandGenre from './RatingandGenre';
+import './AddMovie.css';
 
 const INICIAL_STATE = {
   subtitle: '',

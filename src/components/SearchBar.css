@@ -1,0 +1,20 @@
+.label-form {
+  display: block;
+}
+
+.form {
+  margin: 30px 30px 0px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-checkbox {
+  margin: 0px 15px 0px
+}

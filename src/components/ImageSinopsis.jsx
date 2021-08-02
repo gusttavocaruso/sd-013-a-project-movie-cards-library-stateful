@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './ImageSinopsis.css';
 
 class ImageSinopsis extends Component {
   render() {

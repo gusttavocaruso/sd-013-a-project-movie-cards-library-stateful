@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './RatingandGenre.css';
 
 class RatingandGenre extends Component {
   render() {
@@ -24,7 +25,6 @@ class RatingandGenre extends Component {
         <label
           htmlFor="select-genre"
           data-testid="genre-input-label"
-          className="label-form"
         >
           Gênero
           <select
