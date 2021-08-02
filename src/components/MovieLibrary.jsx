@@ -21,7 +21,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    console.log(change);
+    console.log();
     // const { title, subtitle, storyline, rating,
     // imagePath, genre, bookmarked } = movies
     // const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
