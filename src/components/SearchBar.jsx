@@ -54,5 +54,6 @@ SearchBar.propTypes = {
   selectedGenre: propTypes.string.isRequired,
   onSelectedGenreChange: propTypes.func.isRequired,
 };
+// formulação de proptypes com src='https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pull/113/files/184389150dddd41e3d84f313884468b4b7adddc6' do colega da tribo dev-luizf
 
 export default SearchBar;

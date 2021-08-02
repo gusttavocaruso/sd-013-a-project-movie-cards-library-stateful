@@ -17,19 +17,61 @@ class MovieLibrary extends Component {
     };
   }
 
+  filterBookMarkedOnly = () => {
+    let { movies } = this.props;
+    const { bookmarkedOnly } = this.state;
+    if (bookmarkedOnly) {
+      movies = movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
+    }
+    return movies;
+  };
+
+  filterSearchTextOnly = () => {
+    const { searchText } = this.state;
+    const { movies } = this.props;
+    const retorno = movies.filter((movie) => movie
+      .title.includes(searchText) || movie
+      .subtitle.includes(searchText) || movie
+      .storyline.includes(searchText));
+    return retorno;
+  };
+
+  filterSelectedGenreOnly = () => {
+    const { movies } = this.props;
+    const { selectedGenre } = this.state;
+    const retorno = movies.filter((movie) => movie.genre.includes(selectedGenre));
+    return retorno;
+  };
+
+  selectedGenreChange = (e) => {
+    this.setState({ selectedGenre: e.target.value }, () => {
+      const filtradosPeloGenre = this.filterSelectedGenreOnly();
+      this.setState({ movies: filtradosPeloGenre });
+    });
+  }
+
+  bookmarkedChange = () => {
+    this.setState((stateAnterior) => ({ bookmarkedOnly: !stateAnterior.bookmarkedOnly }),
+      () => {
+        const filtradosPeloBookMarked = this.filterBookMarkedOnly();
+        this.setState({ movies: filtradosPeloBookMarked });
+      });
+  }
+
+  SearchTextChange = (e) => {
+    this.setState({ searchText: e.target.value }, () => {
+      const filtradosPeloText = this.filterSearchTextOnly();
+      this.setState({ movies: filtradosPeloText });
+    });
+  }
+
+  // -------------------
+
   addMovie = (newMovie) => {
     const { movies } = this.state;
     this.setState({ movies: [...movies, newMovie] }, async () => {
     });
   }
-
-  bookmarkedChange = () => {
-    this.setState((stateAnterior) => ({ bookmarkedOnly: !stateAnterior.bookmarkedOnly }));
-  }
-
-  SearchTextChange = (e) => this.setState({ searchText: e.target.value });
-
-  selectedGenreChange = (e) => this.setState({ selectedGenre: e.target.value })
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -52,13 +94,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    imagePath: PropTypes.string,
-  }).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
