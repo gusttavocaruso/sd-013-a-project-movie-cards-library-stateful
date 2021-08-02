@@ -1,40 +1,33 @@
 import React from 'react';
 
-const propriedades = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
+// const propriedades = {
+//   subtitle: '',
+//   title: '',
+//   imagePath: '',
+//   storyline: '',
+//   rating: 0,
+//   genre: 'action',
+// };
 
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = propriedades;
-    // this.state = {
-    //   subtitle: '',
-    //   title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
-    //   genre: 'action',
-    // };
+    // this.state = propriedades;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
   }
 
   render() {
-    // const {
-    //   subtitle,
-    //   title,
-    //   imagePath,
-    //   storyline,
-    //   rating,
-    //   genre,
-    // } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form>teste</form>
+      <form data-testid="add-movie-form">teste</form>
     );
   }
 }
