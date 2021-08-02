@@ -16,6 +16,13 @@ class MovieLibrary extends Component {
     };
   }
 
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   filterMovies = () => {
     const { movies, selectedGenre, searchText, bookmarkedOnly } = this.state;
     if (selectedGenre !== '') {
@@ -55,7 +62,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
         <MovieList movies={ this.filterMovies() } />
       </div>
     );
