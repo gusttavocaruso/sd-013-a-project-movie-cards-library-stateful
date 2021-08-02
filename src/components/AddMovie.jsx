@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import InputTitle from './InputsForm/InputTitle';
-import InputSubtitle from './InputsForm/InputSubtitle';
-import InputImage from './InputsForm/InputImage';
-import InputStoryline from './InputsForm/InputStoryline';
-import InputGenre from './InputsForm/InputGenre';
-import InputRating from './InputsForm/InputRating';
-import InputSendButton from './InputsForm/InputSendButton';
+import PropTypes from 'prop-types';
+import InputTitle from './InputsAddMovie/InputTitle/InputTitle';
+import InputSubtitle from './InputsAddMovie/InputSubtitle/InputSubtitle';
+import InputImage from './InputsAddMovie/InputImage/InputImage';
+import InputStoryline from './InputsAddMovie/InputStoryline/InputStoryline';
+import InputGenre from './InputsAddMovie/InputGenre/InputGenre';
+import InputRating from './InputsAddMovie/InputRating/InputRating';
+import InputSendButton from './InputsAddMovie/InputSendButton/InputSendButton';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -25,7 +26,8 @@ export default class AddMovie extends Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
@@ -34,7 +36,17 @@ export default class AddMovie extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    console.log('handleClick() method');
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -49,9 +61,13 @@ export default class AddMovie extends Component {
           <InputStoryline storyline={ storyline } onChange={ this.handleChange } />
           <InputRating rating={ rating } onChange={ this.handleChange } />
           <InputGenre genre={ genre } onChange={ this.handleChange } />
-          <InputSendButton onClick={ this.handleClick } />
+          <InputSendButton click={ this.handleClick } />
         </form>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};

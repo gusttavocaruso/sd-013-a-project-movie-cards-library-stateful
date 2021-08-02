@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InputStoryline extends Component {
   render() {
@@ -18,5 +19,10 @@ class InputStoryline extends Component {
     );
   }
 }
+
+InputStoryline.propTypes = {
+  storyline: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default InputStoryline;
