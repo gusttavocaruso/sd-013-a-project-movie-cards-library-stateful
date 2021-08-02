@@ -28,6 +28,7 @@ class SearchBar extends Component {
             onChange={ onBookmarkedChange }
           />
         </label>
+
         <label data-testid="select-input-label" htmlFor="select">
           Filtrar por gênero
           <select
