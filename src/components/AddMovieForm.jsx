@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class FormAddMovies extends React.Component {
   render() {
-    const { title, subtitle, imagePath, changeTitle } = this.props;
-
+    const { title, subtitle, imagePath, changeTitle, storyline } = this.props;
     return (
       <div>
         <label data-testid="title-input-label" htmlFor="input-label">
@@ -40,6 +39,16 @@ class FormAddMovies extends React.Component {
             onChange={ changeTitle }
           />
         </label>
+        <label data-testid="storyline-input-label" htmlFor="textarea-input">
+          Sinopse
+          <textarea
+            id="textarea-input"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ changeTitle }
+          />
+        </label>
       </div>
     );
   }
@@ -49,6 +58,7 @@ FormAddMovies.propTypes = {
   imagePath: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
   changeTitle: PropTypes.func.isRequired,
 };
 
