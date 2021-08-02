@@ -52,7 +52,8 @@ class AddMovie extends React.Component {
             name="subtitle"
             type="text"
             value={ subtitle }
-            onChange={ this.handleChange } />
+            onChange={ this.handleChange }
+          />
         </label>
 
         <label data-testid="image-input-label" htmlFor="image-input">
@@ -75,7 +76,7 @@ class AddMovie extends React.Component {
             value={ storyline }
             id="storyline-input"
             onChange={ this.handleChange }
-          ></textarea>
+          />
         </label>
 
         <label data-testid="rating-input-label" htmlFor="rating-input">
@@ -105,8 +106,15 @@ class AddMovie extends React.Component {
           </select>
         </label>
 
-        <label>
-            <button data-testid="send-button" onClick={ onClick } >Adicionar filme</button>
+        <label htmlFor="botao">
+          <button
+            data-testid="send-button"
+            type="submit"
+            id="botao"
+            onClick={ onClick }
+            >
+            Adicionar filme
+          </button>
         </label>
       </form>
     );
