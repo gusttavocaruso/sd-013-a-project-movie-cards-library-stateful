@@ -1,4 +1,5 @@
 import React from 'react';
+import FormAddMovies from './AddMovieForm';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -7,18 +8,17 @@ class AddMovie extends React.Component {
     this.state = ({
       subtitle: '',
       title: '',
-      // imagePath: '',
-      // storyline: '',
+      imagePath: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     });
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
 
     const changeTitle = ({ target }) => {
-      // console.log(target)
       const { name } = target;
       const value = target.type === 'checkbox' ? target.checked : target.value;
       this.setState({
@@ -28,25 +28,20 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="input-label">
-          Título
-          <input
-            id="input-label"
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ changeTitle }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            id="subtitle-input"
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
+        <FormAddMovies
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          changeTitle={ changeTitle }
+        />
+
+        <label data-testid="storyline-input-label" htmlFor="textarea-input">
+          Sinopse
+          <textarea
+            id="textarea-input"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
             onChange={ changeTitle }
           />
         </label>

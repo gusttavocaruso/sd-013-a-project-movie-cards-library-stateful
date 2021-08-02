@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectForm from './SelectForm';
+import SelectForm from './SearchBarSelect';
 
 class SearchBar extends React.Component {
   constructor() {
