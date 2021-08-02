@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputGener from './InputGener';
 import InputTextarea from './InputTextarea';
-import InputTitleSub from './InputTitleSub';
+import InputTitle from './InputTitle';
+import InputSub from './InputSub';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -23,8 +24,14 @@ class AddMovie extends React.Component {
     });
   }
 
+  butonClick = (event) => {
+    this.props({ 
+    console.log()  
+    });
+  }
+
   render() {
-  //  const { onClick } = this.props;
+    const { onClick } = this.props;
     const { subtitle, title, imagePath,
       storyline, rating, genre } = this.state;
 
@@ -32,18 +39,18 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <InputGener value={ genre } onChange={ this.handleClick } />
         <InputTextarea value={ storyline } onChange={ this.handleClick } />
-        <InputTitleSub value={ title } onChange={ this.handleClick } />
-        <InputTitleSub value={ subtitle } onChange={ this.handleClick } />
+        <InputSub value={ title } onChange={ this.handleClick } />
+        <InputTitle value={ subtitle } onChange={ this.handleClick } />
         <label
           data-testid="image-input-label"
           htmlFor="input_image"
         >
-          Imagem
+          Image
           <input
             data-testid="image-input"
             type="text"
             value={ imagePath }
-            name="imagePath"
+            name={ magePath }
             onChange={ this.handleClick }
             id="input_image"
           />
@@ -62,18 +69,20 @@ class AddMovie extends React.Component {
             id="input_assessment"
           />
         </label>
-        {/* <button data-testid="send-button"
+        <button
+          data-testid="send-button"
           type="submit"
-          onClick={ this.handleClick }>
+          onClick={ this.butonClick }
+        >
           Adicionar filme
-        </button> */}
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.prototypes = {
-  // onClick: Prototypes.func,
+  onClick: Prototypes.func,
   subtitle: PropTypes.string,
   title: PropTypes.string,
   imagePath: PropTypes.string,

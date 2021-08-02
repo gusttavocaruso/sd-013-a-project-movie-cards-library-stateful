@@ -23,7 +23,7 @@ class SearchInput extends React.Component {
 }
 
 SearchInput.propTypes = {
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
