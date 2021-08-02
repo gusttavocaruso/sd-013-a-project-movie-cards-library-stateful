@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
@@ -12,6 +13,9 @@ class MovieLibrary extends Component {
           onBookmarkedChange="uma callback"
           selectedGenre="uma string"
           onSelectedGenreChange="uma callback"
+        />
+        <AddMovie
+          onClick="uma callback"
         />
       </div>
     );
