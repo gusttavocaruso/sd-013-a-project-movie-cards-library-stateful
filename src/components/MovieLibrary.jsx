@@ -34,14 +34,11 @@ class MovieLibrary extends React.Component {
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
-    // Transforma texto digitado em minuscula
-    const lowercaseText = searchText.toLowerCase();
-
     // Filtra os filmes de acordo com o que é digitado em searchText => filtra por título, subtítulo e sinopse.
     const textFilter = movies.filter((movie) => (searchText
-      ? movie.title.includes(lowercaseText)
-      || movie.subtitle.includes(lowercaseText)
-      || movie.storyline.includes(lowercaseText)
+      ? movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText)
       : movies));
 
     // A partir do array do primeiro filtro, aqui filtra-se por favorito. Se tiver "true", retorna o "movie". Senão, retorna o array anterior.
