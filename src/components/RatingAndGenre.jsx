@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Number extends React.Component {
+class RatingAndGenre extends React.Component {
   render() {
-    const { rating, onChange } = this.props;
+    const { rating, genre, onChange } = this.props;
     return (
       <div>
         <label htmlFor="rating" data-testid="rating-input-label">
@@ -17,20 +17,35 @@ class Number extends React.Component {
             value={ rating }
           />
         </label>
+        <label htmlFor="select-add" data-testid="genre-input-label">
+          Gênero
+          <select
+            name="genre"
+            id="select-add"
+            value={ genre }
+            onChange={ onChange }
+            data-testid="genre-input"
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </div>
     );
   }
 }
 
-Number.propTypes = {
+RatingAndGenre.propTypes = {
   rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Number;
+export default RatingAndGenre;
 
 /* Referências: Aula ao vivo 12.2 disponível no course, Repositório de aulas ao vivo para
-estudantes da Turma 13 - Tribo A e pesssoa estudante Isabella Antunes Turma 13 - tribo A
+estudantes da Turma 13 - Tribo A.
 Links utilizados:
 https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginForm.js
 https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginInput.js

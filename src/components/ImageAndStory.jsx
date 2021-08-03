@@ -43,7 +43,7 @@ ImageAndStory.propTypes = {
 export default ImageAndStory;
 
 /* Referências: Aula ao vivo 12.2 disponível no course, Repositório de aulas ao vivo para
-estudantes da Turma 13 - Tribo A e pesssoa estudante Isabella Antunes Turma 13 - tribo A
+estudantes da Turma 13 - Tribo A.
 Links utilizados:
 https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginForm.js
 https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginInput.js
