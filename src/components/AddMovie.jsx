@@ -44,12 +44,12 @@ class AddMovie extends React.Component {
           data-testid="image-input-label"
           htmlFor="input_image"
         >
-          Image
+          Imagem
           <input
             data-testid="image-input"
             type="text"
             value={ imagePath }
-            name={ imagePath }
+            name="imagePath"
             onChange={ this.handleClick }
             id="input_image"
           />
@@ -64,7 +64,7 @@ class AddMovie extends React.Component {
             type="number"
             value={ rating }
             onChange={ this.handleClick }
-            name={ rating }
+            name="rating"
             id="input_assessment"
           />
         </label>
