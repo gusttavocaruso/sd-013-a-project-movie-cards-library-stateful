@@ -1,10 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import RatingGender from './RatingGender';
-import Storyline from './Storyline';
-import TitleSubtitle from './TitleSubtitle';
-import Image from './Image';
 
 class AddMovie extends Component {
   constructor(props) {
