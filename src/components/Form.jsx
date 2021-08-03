@@ -11,7 +11,7 @@ class Form extends Component {
       handleSubmit,
     } = this.props;
     return (
-      <form action="">
+      <section>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -35,6 +35,7 @@ class Form extends Component {
         <label htmlFor="select-input" data-testid="genre-input-label">
           Gênero
           <select
+            name="genre"
             value={ genre }
             data-testid="genre-input"
             onChange={ handleChange }
@@ -53,7 +54,7 @@ class Form extends Component {
         <button type="submit" data-testid="send-button" onClick={ handleSubmit }>
           Adicionar filme
         </button>
-      </form>
+      </section>
     );
   }
 }
