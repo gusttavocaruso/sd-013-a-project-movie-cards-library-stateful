@@ -93,24 +93,19 @@ body {
   text-align: center;
 }
 
-.ratingImputs {
-  -webkit-appearance: none;
-}
-
 .addFormContainer {
   display: flex;
-  /* border: darkblue 1px solid; */
-  max-width: 35%;
-  height: 30%;
   flex-wrap: wrap;
-  margin-left: 2%;
-  margin-bottom: 2%;
+  height: 30%;
   justify-content: flex-end;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  max-width: 35%;
 }
 
 .sendButton {
-  max-width: 50%;
-  color: #040507;
   background-color: #0a498d;
+  color: #040507;
   margin-left: 2.5%;
+  max-width: 50%;
 }
