@@ -12,32 +12,32 @@ class SecondInput extends Component {
 
     return (
       <div>
-        <label htmlFor="ddd" data-testid="storyline-input-label">
+        <label htmlFor="label-sinopse" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            id="ddd"
+            id="label-sinopse"
             name="storyline"
             data-testid="storyline-input"
             onChange={ handleChange }
             value={ storyline }
           />
         </label>
-        <label htmlFor="eee" data-testid="rating-input-label">
+        <label htmlFor="label-nota" data-testid="rating-input-label">
           Avaliação
           <input
             type="number"
             name="rating"
-            id="eee"
+            id="label-nota"
             data-testid="rating-input"
             onChange={ handleChange }
             value={ rating }
           />
         </label>
-        <label htmlFor="fff" data-testid="genre-input-label">
+        <label htmlFor="label-genre" data-testid="genre-input-label">
           Gênero
           <select
             name="genre"
-            id="fff"
+            id="label-genre"
             value={ genre }
             onChange={ handleChange }
             data-testid="genre-input"

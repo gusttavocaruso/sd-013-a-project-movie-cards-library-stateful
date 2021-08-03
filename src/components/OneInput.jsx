@@ -12,31 +12,31 @@ class OneInput extends Component {
 
     return (
       <div>
-        <label htmlFor="aaa" data-testid="title-input-label">
+        <label htmlFor="label-tittle" data-testid="title-input-label">
           Título
           <input
             name="title"
-            id="aaa"
+            id="label-tittle"
             data-testid="title-input"
             onChange={ handleChange }
             value={ title }
           />
         </label>
-        <label htmlFor="bbb" data-testid="subtitle-input-label">
+        <label htmlFor="label-sub" data-testid="subtitle-input-label">
           Subtítulo
           <input
             name="subtitle"
-            id="bbb"
+            id="label-sub"
             data-testid="subtitle-input"
             onChange={ handleChange }
             value={ subtitle }
           />
         </label>
-        <label htmlFor="ccc" data-testid="image-input-label">
+        <label htmlFor="label-img" data-testid="image-input-label">
           Imagem
           <input
             name="imagePath"
-            id="ccc"
+            id="label-img"
             data-testid="image-input"
             onChange={ handleChange }
             value={ imagePath }
