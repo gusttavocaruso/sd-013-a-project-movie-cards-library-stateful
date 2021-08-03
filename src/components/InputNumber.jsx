@@ -1,6 +1,13 @@
 import React from 'react';
 
 class InputNumber extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rating: 0,
+    };
+  }
+
   render() {
     const { value, handleChange } = this.props;
     return (
