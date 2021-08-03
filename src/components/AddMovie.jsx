@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GenreInput from './GenreInput';
 import Image from './Image';
 import RatingInput from './RatingInput';
 import TextArea from './TextArea';
@@ -27,7 +28,7 @@ class AddMovie extends Component {
   render() {
     const { handleChange, state, props } = this;
     const { onClick } = props;
-    const { title, subtitle, imagePath, storyline, rating } = state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = state;
 
     return (
       <form data-testid="add-movie-form">
@@ -58,6 +59,7 @@ class AddMovie extends Component {
         <Image imagePath={ imagePath } handleChange={ handleChange } />
         <TextArea storyline={ storyline } handleChange={ handleChange } />
         <RatingInput rating={ rating } handleChange={ handleChange } />
+        <GenreInput genre={ genre } handleChange={ handleChange } />
       </form>
     );
   }
