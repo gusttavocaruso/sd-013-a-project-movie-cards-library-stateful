@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Form extends Component {
   render() {
     const {
-      storyline, rating, genre, handleChange, handleSubmit } = this.props ;
+      storyline, rating, genre, handleChange, handleSubmit } = this.props;
     return (
       <section>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">

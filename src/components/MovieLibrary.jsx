@@ -49,16 +49,16 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange} 
+          onSearchTextChange={ onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ onBookmarkedChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <MovieList 
-          movies={ movies } 
-          searchText={ searchText } 
-          bookmarkedOnly={ bookmarkedOnly } 
+        <MovieList
+          movies={ movies }
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
         />
         <AddMovie />
       </div>
@@ -76,7 +76,7 @@ MovieLibrary.propTypes = {
       imagePath: PropTypes.string,
       bookmarked: PropTypes.bool,
       genre: PropTypes.string,
-    })
+    }),
   ).isRequired,
 };
 
