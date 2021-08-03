@@ -1,10 +1,10 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
       /* imagePath: '',
       storyline: '',
@@ -15,11 +15,11 @@ class AddMovie extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ title: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -27,10 +27,22 @@ class AddMovie extends React.Component {
             Título
             <input
               type="text"
+              name="title"
               id="new-movie"
               data-testid="title-input"
               onChange={ this.handleChange }
               value={ title }
+            />
+          </label>
+          <label htmlFor="new-subtitle" data-testid="subtitle-input-label">
+            Subtítulo
+            <input
+              type="text"
+              name="subtitle"
+              id="new-subtitle"
+              data-testid="subtitle-input"
+              onChange={ this.handleChange }
+              value={ subtitle }
             />
           </label>
         </form>
