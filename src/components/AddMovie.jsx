@@ -23,6 +23,8 @@ class AddMovie extends React.Component {
 
   handleClick = (event) => {
     event.preventDefault();
+    // const { onClick } = this.props;
+    onclick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -41,6 +43,7 @@ class AddMovie extends React.Component {
   };
 
   render() {
+    // const { onClick } = this.props;
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
 
     return (
