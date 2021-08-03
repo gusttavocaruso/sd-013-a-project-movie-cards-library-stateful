@@ -1,31 +1,31 @@
-// Componente criado para resolução do requisito 12
-// import React, { Component } from 'react';
+// // Componente criado para resolução do requisito 12
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-// class AddMovieRating extends Component {
-//   render() {
-//     const { rating } = this.props;
-//     return (
-//       <label htmlFor="movie-rating" data-testid="rating-input-label">
-//         Avaliação
-//         <input
-//           id="movie-rating"
-//           type="number"
-//           data-testid="rating-input"
-//           name={ rating }
-//           // value={ nota }
-//           onChange={ rating }
-//         />
-//       </label>
-//     );
-//   }
-// }
+class AddMovieRating extends Component {
+  render() {
+    const { rating, handleChange } = this.props;
+    return (
+      <label htmlFor="rating" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          name="rating"
+          data-testid="rating-input"
+          value={ rating }
+          onChange={ handleChange }
+        />
+      </label>);
+  }
+}
 
-// ating.propTypes = {
-//   rating: PropTypes.number,
+AddMovieRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
+// AddMovieRating.defaultProps = {
+//   rating: 'undefined',
 // };
 
-// Rating.defaultProps = {
-//   rating: 0,
-// };
-
-// export default AddMovieRating;
+export default AddMovieRating;
