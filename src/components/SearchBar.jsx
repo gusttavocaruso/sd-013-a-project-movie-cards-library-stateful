@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
   render() {
     const {
       searchText,
-      onSearchTextChang,
+      onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
@@ -13,23 +13,17 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label
-          data-testid="text-input-label"
-          htmlFor="input-label"
-        >
+        <label data-testid="text-input-label" htmlFor="input-label">
           Inclui o texto:
           <input
+            value={ searchText }
             type="text"
             id="input-label"
             data-testid="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChang }
+            onChange={ onSearchTextChange }
           />
         </label>
-        <label
-          data-testid="checkbox-input-label"
-          htmlFor="checkbox-label"
-        >
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
@@ -39,21 +33,18 @@ class SearchBar extends React.Component {
             onChange={ onBookmarkedChange }
           />
         </label>
-        <label
-          htmlFor="genre-options"
-          data-testid="select-input-label"
-        >
+        <label htmlFor="genre-options" data-testid="select-input-label">
           Filtrar por gênero
           <select
             data-testid="select-input"
-            id="genre-options"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
+            id="genre-options"
           >
             <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="Action">Ação</option>
-            <option data-testid="select-option" value="Comedy">Comédia</option>
-            <option data-testid="select-option" value="Suspense">Thriller</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
         </label>
       </form>
@@ -62,18 +53,18 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChang: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
-SearchBar.defaultProps = {
-  searchText: '',
-  bookmarkedOnly: false,
-  selectedGenre: '',
-};
+// SearchBar.defaultProps = {
+//   searchText: '',
+//   bookmarkedOnly: false,
+//   selectedGenre: '',
+// };
 
 export default SearchBar;
