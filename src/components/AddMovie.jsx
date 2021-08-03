@@ -1,4 +1,5 @@
 import React from 'react';
+import TitleAndSubtitle from './TitleAndSubtitle';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -23,28 +24,11 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="new-movie" data-testid="title-input-label">
-            Título
-            <input
-              type="text"
-              name="title"
-              id="new-movie"
-              data-testid="title-input"
-              onChange={ this.handleChange }
-              value={ title }
-            />
-          </label>
-          <label htmlFor="new-subtitle" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              id="new-subtitle"
-              data-testid="subtitle-input"
-              onChange={ this.handleChange }
-              value={ subtitle }
-            />
-          </label>
+          <TitleAndSubtitle
+            title={ title }
+            subtitle={ subtitle }
+            onChange={ this.handleChange }
+          />
           <label htmlFor="new-img" data-testid="image-input-label">
             Imagem
             <input
@@ -74,3 +58,10 @@ class AddMovie extends React.Component {
 }
 
 export default AddMovie;
+
+/* Referências: Aula ao vivo 12.2 disponível no course, Repositório de aulas ao vivo para
+estudantes da Turma 13 - Tribo A e pesssoa estudante Isabella Antunes Turma 13 - tribo A
+Links utilizados:
+https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginForm.js
+https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginInput.js
+*/
