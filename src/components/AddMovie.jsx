@@ -46,12 +46,12 @@ class AddMovie extends Component {
         />
 
         <Storyline
-          storyline = { storyline }
-          handleChange = { this.handleChange }
+          storyline={ storyline }
+          handleChange={ this.handleChange }
         />
         <GenderRating
-          rating = { rating }
-          genre = { genre }
+          rating={ rating }
+          genre={ genre }
           handleChange={ this.handleChange }
         />
         <button
