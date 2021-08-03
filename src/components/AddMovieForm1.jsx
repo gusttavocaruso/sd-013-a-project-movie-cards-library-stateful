@@ -37,7 +37,7 @@ class FormAddMovies1 extends React.Component {
 }
 
 FormAddMovies1.propTypes = {
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
   changeTitle: PropTypes.func.isRequired,
 };

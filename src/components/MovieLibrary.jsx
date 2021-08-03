@@ -29,10 +29,6 @@ class MovieLibrary extends React.Component {
     return '3';
   }
 
-  callbackAM() {
-    return '1';
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
