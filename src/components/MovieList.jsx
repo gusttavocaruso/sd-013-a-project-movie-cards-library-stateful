@@ -28,7 +28,7 @@ MovieList.propTypes = {
   searchText: PropTypes.string,
   movies: PropTypes.arrayOf(
     PropTypes.object,
-  )
+  ),
 }.isRequire;
 
 export default MovieList;
