@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 // Consultado a sintaxe das props no repositório do Fedolfo, meus agradecimentos!
 class SearchBar extends React.Component {
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre,
-      onSearchTextChange, onBookmarkedChange, onSelectedGenreChange,
+    const {
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
       <form className="formContainer" data-testid="search-bar-form">
@@ -26,7 +27,7 @@ class SearchBar extends React.Component {
             type="checkbox"
             name="bookmarkedOnly"
             onChange={ onBookmarkedChange }
-            checked
+            checked={ bookmarkedOnly }
             data-testid="checkbox-input"
             id="bookmarkedOnly"
             value={ bookmarkedOnly }
@@ -59,6 +60,6 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
-}
+};
 
 export default SearchBar;
