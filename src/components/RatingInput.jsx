@@ -27,7 +27,7 @@ RatingInput.propTypes = {
 };
 
 RatingInput.defaultProps = {
-  rating: '',
+  rating: 0,
 };
 
 export default RatingInput;

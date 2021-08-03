@@ -6,13 +6,13 @@ class TextArea extends Component {
     const { storyline, handleChange } = this.props;
 
     return (
-      <label htmlFor="text-input" data-testid="storyline-input-label">
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <input
           data-testid="storyline-input"
           type="textarea"
           name="storyline"
-          id="text-input"
+          id="storyline-input"
           value={ storyline }
           onChange={ handleChange }
         />
