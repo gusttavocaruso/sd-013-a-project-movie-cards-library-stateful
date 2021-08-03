@@ -1,6 +1,10 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TitleSubtitle from './TitleSubtitle';
+import Image from './Image';
+import Storyline from './Storyline';
+import GenderRating from './GenderRating';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -42,16 +46,16 @@ class AddMovie extends Component {
         />
 
         <Storyline
-          storyline={ storyline }
-          handleChange={ this.handleChange }
+          storyline = { storyline }
+          handleChange = { this.handleChange }
         />
-        <RatingGender
-          rating={ rating }
-          genre={ genre }
+        <GenderRating
+          rating = { rating }
+          genre = { genre }
           handleChange={ this.handleChange }
         />
         <button
-          type="submit"
+          type="button"
           onClick={ this.onClick }
           data-testid="send-button"
         >
