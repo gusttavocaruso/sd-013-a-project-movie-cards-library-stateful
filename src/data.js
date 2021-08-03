@@ -32,7 +32,7 @@ const movies = [
     storyline: "A young female soldier Deunan and her cyborg partner Briareos survive through the post World War 3 apocalyptic New York in search of human's future hope, the legendary city of Olympus.",
     rating: 3.8,
     imagePath: 'images/Appleseed_Alpha.jpg',
-    bookmarked: true,
+    bookmarked: false,
     genre: 'action',
   },
   {
@@ -41,7 +41,7 @@ const movies = [
     storyline: 'Chris Redfield enlists the help of Leon S. Kennedy and Rebecca Chambers to stop a death merchant, with a vengeance, from spreading a deadly virus in New York.',
     rating: 4.2,
     imagePath: 'images/Resident_Evil_Vendetta.jpg',
-    bookmarked: true,
+    bookmarked: false,
     genre: 'fantasy',
   },
 ];
