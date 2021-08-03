@@ -1,5 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import InputImage from './form/inputImage';
+import InputStory from './form/inputStory';
+import InputSubtitle from './form/inputSubtitle';
+import InputTitle from './form/inputTitle';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -11,50 +14,23 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      // genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target: { value, name } }) {
+    this.setState({ [name]: value });
   }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            type="text"
-            id="title-input"
-            value={ title }
-            data-testid="title-input"
-            onChange={ ({ target }) => this.state({ title: target.value }) }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            id="subtitle-input"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ ({ target }) => this.setState({ subtitle: target.value }) }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem
-          <input
-            id="image-input"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ ({ target }) => this.setState({ imagePath: target.value }) }
-          />
-          <label data-testid="storyline-input-label" htmlFor="storyline-input">
-          Sinopse
-          <textarea
-            id="storyline-input"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ ({ target }) => this.setState({ storyline: target.value }) }
-          />
-        </label>
+        <InputTitle value={ title } onChange={ this.handleChange } />
+        <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
+        <InputImage value={ imagePath } onChange={ this.handleChange } />
+        <InputStory value={ storyline } onChange={ this.handleChange } />
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
           <input
@@ -69,9 +45,5 @@ class AddMovie extends React.Component {
     );
   }
 }
-
-{/* // AddMovie.propTypes = {
-//   title: PropTypes.string.isRequired,
-// }; */}
 
 export default AddMovie;
