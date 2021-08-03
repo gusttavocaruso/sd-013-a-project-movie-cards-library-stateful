@@ -1,5 +1,6 @@
 import React from 'react';
 import TitleAndSubtitle from './TitleAndSubtitle';
+import ImageAndStory from './ImageAndStory';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -29,28 +30,11 @@ class AddMovie extends React.Component {
             subtitle={ subtitle }
             onChange={ this.handleChange }
           />
-          <label htmlFor="new-img" data-testid="image-input-label">
-            Imagem
-            <input
-              type="text"
-              name="imagePath"
-              id="new-img"
-              data-testid="image-input"
-              onChange={ this.handleChange }
-              value={ imagePath }
-            />
-          </label>
-          <label htmlFor="text-area" data-testid="storyline-input-label">
-            Sinopse
-            <input
-              type="textarea"
-              name="storyline"
-              id="text-area"
-              data-testid="storyline-input"
-              onChange={ this.handleChange }
-              value={ storyline }
-            />
-          </label>
+          <ImageAndStory
+            imagePath={ imagePath }
+            storyline={ storyline }
+            onChange={ this.handleChange }
+          />
         </form>
       </div>
     );
