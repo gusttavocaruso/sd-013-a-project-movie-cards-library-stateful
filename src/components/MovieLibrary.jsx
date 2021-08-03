@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.newProduct = this.newProduct.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -42,6 +43,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  newProduct(product) {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, product],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     // função feita com base no código da Júlia
@@ -64,7 +71,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ filterMovie } />
-        <AddMovie />
+        <AddMovie onClick={ this.newProduct } />
       </div>
     );
   }

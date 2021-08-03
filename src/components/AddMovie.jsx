@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
-          value={ storyLine }
+          storyLine={ storyLine }
           handleChange={ this.handleChange }
         />
         <label htmlFor="rating" data-testid="rating-input-label">

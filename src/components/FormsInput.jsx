@@ -39,12 +39,12 @@ class FormsInput extends React.Component {
             data-testid="image-input"
           />
         </label>
-        <label htmlFor="sinopse" data-testid="storyline-input-label">
+        <label htmlFor="storyLine" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            name="sinopse"
-            id="sinopse"
-            storyLine={ storyLine }
+            id="storyLine"
+            value={ storyLine }
+            name="storyLine"
             onChange={ handleChange }
             data-testid="storyline-input"
           />
