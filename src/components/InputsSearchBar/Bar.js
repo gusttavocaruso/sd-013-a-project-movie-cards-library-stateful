@@ -11,7 +11,7 @@ export default class Bar extends Component {
           Inclui o texto:
           <input
             type="text"
-            name="search-text"
+            name="searchText"
             id="search-text"
             value={ searchText }
             onChange={ onSearchTextChange }

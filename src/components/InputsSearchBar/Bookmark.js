@@ -11,7 +11,7 @@ export default class Bookmark extends Component {
           Mostrar somente favoritos
           <input
             type="checkbox"
-            name="bookmark"
+            name="bookmarkedOnly"
             id="bookmark"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }

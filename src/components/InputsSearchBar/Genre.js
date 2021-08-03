@@ -10,6 +10,7 @@ export default class Genre extends Component {
         <label htmlFor="genres" data-testid="select-input-label">
           Filtrar por gênero
           <select
+            name="selectedGenre"
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }

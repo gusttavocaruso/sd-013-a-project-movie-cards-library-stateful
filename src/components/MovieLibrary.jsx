@@ -9,7 +9,8 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    this.filterMoviesByTitle = this.filterMoviesByTitle.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     const { movies } = this.props;
 
@@ -21,53 +22,49 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleCheckboxChange({ target }) {
-    const { movies, bookmarkedOnly } = this.state;
+  handleChange = ({ target }) => {
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    if (bookmarkedOnly) {
-      return value;
-    }
-
     this.setState({
-      movies: value ? movies.filter((m) => m.bookmarked === value) : movies,
+      [name]: value,
     });
   }
 
-  filterMoviesByTitle(e) {
-    const { value } = e.target;
-    const { movies, searchText } = this.state;
-    this.setState({ searchText: value });
+  filterMovies = () => {
+    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
 
     const filteredMovies = movies
-      .filter((m) => m.title.toLowerCase().includes(value.toLowerCase())
-        || m.subtitle.toLowerCase().includes(value.toLowerCase)
-        || m.storyline.toLowerCase().includes(value.toLowerCase));
+      .filter((movie) => (
+        movie.title.toLowerCase().includes(searchText)
+        || movie.subtitle.toLowerCase().includes(searchText)
+        || movie.storyline.toLowerCase().includes(searchText)
+      ));
 
-    if (!searchText) {
-      return movies;
+    if (bookmarkedOnly) {
+      return filteredMovies.filter((movie) => movie.bookmarked);
     }
 
-    this.setState({
-      movies: filteredMovies,
-    });
+    if (selectedGenre) {
+      return filteredMovies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return filteredMovies;
   }
 
   render() {
-    const { movies, searchText, selectedGenre } = this.state;
-    const { bookmarkedOnly } = this.props;
-
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ filterMoviesByTitle }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ handleCheckboxChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filterMovies() } />
         <AddMovie />
       </div>
     );
@@ -76,8 +73,6 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
 };
 
 export default MovieLibrary;
