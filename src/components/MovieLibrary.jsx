@@ -5,33 +5,33 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor() {
-  //   super();
-  //   // this.state = {
-  //   //   movies: { movies },
-  //   // };
-  // }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // searchText: '',
+      // bookmarkedOnlky: false,
+      // selectedGenre: '',
+      movies: props.movies,
+    };
+  }
 
   render() {
-    const { movies } = this.props;
+    const { movies } = this.state;
 
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList data={ movies } />
+        <MovieList movies={ movies } />
         <AddMovie />
       </div>
     );
   }
 }
 
-MovieLibrary.defaultProps = {
-  movies: { movies },
-};
-
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
+  movies: PropTypes.arrayOf(PropTypes.Object).isRequired,
 };
 
 export default MovieLibrary;
