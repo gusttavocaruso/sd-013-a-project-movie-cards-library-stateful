@@ -1,24 +1,16 @@
 import React from 'react';
+import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-  }
-
   render() {
     return (
-      <form data-testid="add-movie-form">
-        <div />
-      </form>
+      <div>
+        <form action="" data-testid="add-movie-form">
+          <InputTitle />
+          <InputSubtitle />
+        </form>
+      </div>
     );
   }
 }
