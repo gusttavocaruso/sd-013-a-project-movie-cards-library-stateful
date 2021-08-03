@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputText from './InputText';
-import InputCheckbox from './InputCheckbox';
-import Select from './Select';
+import InputText from './new-components/InputText';
+import InputCheckbox from './new-components/InputCheckbox';
+import InputSelect from './new-components/InputSelect';
 
 class SearchBar extends React.Component {
   render() {
@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
           onBookmarkedChangeKey={ onBookmarkedChange }
         />
 
-        <Select
+        <InputSelect
           selectedGenreKey={ selectedGenre }
           onSelectedGenreChangeKey={ onSelectedGenreChange }
         />

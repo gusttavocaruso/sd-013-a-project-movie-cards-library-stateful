@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Select extends React.Component {
+class InputSelect extends React.Component {
   render() {
     const { selectedGenreKey, onSelectedGenreChangeKey } = this.props;
 
     return (
-      <label data-testid="select-input-label" htmlFor="input-text-select">
+      <label data-testid="select-input-label" htmlFor="input-select">
         Filtrar por gênero
         <select
+          id="input-select"
           value={ selectedGenreKey }
           onChange={ onSelectedGenreChangeKey }
           data-testid="select-input"
@@ -32,14 +33,14 @@ class Select extends React.Component {
   }
 }
 
-Select.propTypes = {
+InputSelect.propTypes = {
   selectedGenreKey: PropTypes.string,
   onSelectedGenreChangeKey: PropTypes.func,
 };
 
-Select.defaultProps = {
+InputSelect.defaultProps = {
   selectedGenreKey: '',
   onSelectedGenreChangeKey: PropTypes.func,
 };
 
-export default Select;
+export default InputSelect;

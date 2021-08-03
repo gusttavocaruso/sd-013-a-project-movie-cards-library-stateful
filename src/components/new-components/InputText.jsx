@@ -9,6 +9,7 @@ class InputText extends React.Component {
       <label data-testid="text-input-label" htmlFor="input-text">
         Inclui o texto:
         <input
+          id="input-text"
           type="text"
           value={ searchTextKey }
           onChange={ onSearchTextChangeKey }

@@ -6,9 +6,10 @@ class InputCheckbox extends React.Component {
     const { bookmarkedOnlyKey, onBookmarkedChangeKey } = this.props;
 
     return (
-      <label data-testid="checkbox-input-label" htmlFor="input-text-checkbox">
+      <label data-testid="checkbox-input-label" htmlFor="input-checkbox">
         Mostrar somente favoritos
         <input
+          id="input-checkbox"
           type="checkbox"
           checked={ bookmarkedOnlyKey }
           onChange={ onBookmarkedChangeKey }
