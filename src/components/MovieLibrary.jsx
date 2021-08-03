@@ -4,11 +4,15 @@ import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
+  handleClick(newMovie) {
+    console.log(newMovie);
+  }
+
   render() {
     return (
       <main>
         <SearchBar />
-        <AddMovie />
+        <AddMovie onClick={ this.handleClick } />
       </main>
     );
   }

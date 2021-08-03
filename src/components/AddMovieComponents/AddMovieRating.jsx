@@ -1,24 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      rating: 0,
-    };
-
-    this.handleRatingChange = this.handleRatingChange.bind(this);
-  }
-
-  handleRatingChange(e) {
-    this.setState({
-      rating: e.target.value,
-    });
-  }
-
   render() {
-    const { rating } = this.state;
+    const { value, onChange } = this.props;
 
     return (
       <label htmlFor="rating" data-testid="rating-input-label">
@@ -27,12 +12,18 @@ class Rating extends React.Component {
           type="number"
           id="rating"
           data-testid="rating-input"
-          value={ rating }
-          onChange={ this.handleRatingChange }
+          name="rating"
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+Rating.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
 
 export default Rating;
