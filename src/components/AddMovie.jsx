@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputTextAddMovie from './InputTextAddMovie';
 import RatingAddMovie from './RatingAddMovie';
 import TextAreaAddMovie from './TextAreaAddMovie';
 import SelectAddMovie from './SelectAddMovie';
+import ButtonAddMovie from './ButtonAddMovie';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -23,8 +25,21 @@ class AddMovie extends React.Component {
     });
   }
 
+  resetState = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { handleChange } = this;
+    const { handleChange, resetState } = this;
     const {
       subtitle,
       title,
@@ -45,9 +60,14 @@ class AddMovie extends React.Component {
         <TextAreaAddMovie storyline={ storyline } onTextAreaChange={ handleChange } />
         <RatingAddMovie rating={ rating } onRatingChange={ handleChange } />
         <SelectAddMovie genre={ genre } onSelectChange={ handleChange } />
+        <ButtonAddMovie onClick={ resetState } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

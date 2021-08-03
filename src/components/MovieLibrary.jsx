@@ -20,6 +20,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  handleClick = (movie) => {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, movie],
+    }));
+  }
+
   // onBookmarkedChange = (event) => {
   //   this.setState({
   //     bookmarkedOnly: event.target.value,
@@ -33,7 +39,7 @@ class MovieLibrary extends React.Component {
   // }
 
   render() {
-    const { handleChange } = this;
+    const { handleChange, handleClick } = this;
     const {
       searchText,
       bookmarkedOnly,
@@ -50,7 +56,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           movies={ movies }
         />
-        <AddMovie />
+        <AddMovie onClick={ handleClick } />
       </section>
     );
   }
