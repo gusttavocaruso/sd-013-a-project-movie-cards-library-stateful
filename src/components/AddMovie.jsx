@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
       </form>
     );
   }
-} // Minha principal dificuldade: Esqueci os ids dos elementos do react e.e
+} // Minha principal dificuldade: Esqueci os ids dos elementos do react e.e.
 
 AddMovie.propTypes = {
   onClick: PropTypes.func,
