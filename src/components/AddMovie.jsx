@@ -17,7 +17,7 @@ class AddMovie extends Component {
 
   // A lot of help from Eduardo Santos to do this
   handleChange = (e) => {
-    const { name, value } = e.target;
+    const { target: { name, value } } = e;
     this.setState({ [name]: value });
   }
 
@@ -63,6 +63,8 @@ class AddMovie extends Component {
             onChange={ handleChange }
           />
         </label>
+
+        
       </form>
     );
   }
