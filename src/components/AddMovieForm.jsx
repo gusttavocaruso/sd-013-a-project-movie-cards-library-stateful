@@ -5,7 +5,7 @@ class AddMovieForm extends React.Component {
   render() {
     const { handleChange, rating, handleSubmit, storyline, genre } = this.props;
     return (
-      <section>
+      <section className="form">
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea

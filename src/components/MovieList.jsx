@@ -13,8 +13,8 @@ class MovieList extends React.Component {
           .filter((e) => e.title.includes(searchText)
           || e.storyline.includes(searchText)
           || e.subtitle.includes(searchText))
-          .filter((e) => {
-            const bookMarked = (!bookmarkedOnly) ? e : e.bookMarked = true;
+          .filter((book) => {
+            const bookMarked = (!bookmarkedOnly) ? book : book.bookmarked === true;
             return bookMarked;
           })
           .map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
@@ -28,6 +28,7 @@ MovieList.propTypes = {
     PropTypes.object,
   ),
   searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
 }.isRequired;
 
 export default MovieList;
