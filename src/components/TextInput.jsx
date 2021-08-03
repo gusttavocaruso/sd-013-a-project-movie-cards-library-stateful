@@ -10,7 +10,6 @@ class TextInput extends Component {
         Inclui o texto:
         <input
           data-testid="text-input"
-          type="text"
           name="text"
           id="text-input"
           value={ searchText }
