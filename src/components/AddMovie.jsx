@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Image from './Image';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
@@ -52,19 +53,7 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label data-testid="image-input-label" htmlFor="image">
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            id="image"
-            value={ imagePath }
-            onChange={ handleChange }
-          />
-        </label>
-
-        
+        <Image imagePath={ imagePath } handleChange={ handleChange } />
       </form>
     );
   }
