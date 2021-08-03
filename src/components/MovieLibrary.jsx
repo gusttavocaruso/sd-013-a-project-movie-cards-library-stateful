@@ -10,8 +10,6 @@ class MovieLibrary extends Component {
     super(props);
 
     this.filterMoviesByTitle = this.filterMoviesByTitle.bind(this);
-    this.filterMoviesBySubtitle = this.filterMoviesBySubtitle.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 
     const { movies } = this.props;
 
@@ -36,30 +34,17 @@ class MovieLibrary extends Component {
     });
   }
 
-  filterMoviesBySubtitle(e) {
-    const { value } = e.target;
-    const { movies } = this.state;
-    this.setState({ searchText: value });
-    const filteredMovies = value
-      ? movies.filter((m) => m.subtitle.toLowerCase().includes(value.toLowerCase()))
-      : movies;
-    this.setState({
-      movies: filteredMovies,
-    });
-  }
-
   filterMoviesByTitle(e) {
     const { value } = e.target;
-    const { movies } = this.state;
+    const { movies, searchText } = this.state;
     this.setState({ searchText: value });
-    this.filterMoviesBySubtitle(e);
 
     const filteredMovies = movies
-      .filter((m) => m.subtitle.toLowerCase().includes(value.toLowerCase())
-        || m.title.toLowerCase().includes(value.toLowerCase)
+      .filter((m) => m.title.toLowerCase().includes(value.toLowerCase())
+        || m.subtitle.toLowerCase().includes(value.toLowerCase)
         || m.storyline.toLowerCase().includes(value.toLowerCase));
 
-    if (!value) {
+    if (!searchText) {
       return movies;
     }
 
@@ -69,31 +54,16 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies, searchText, searchBySub, selectedGenre } = this.state;
-    const { bookmarkedOnly, onBookmarkedChange } = this.props;
-
-    const onGenreChange = (e) => {
-      const { value } = e.target;
-      this.setState({ selectedGenre: value });
-
-      const filteredMovies = value
-        ? movies.filter((m) => m.genre.includes(value))
-        : movies;
-
-      this.setState({
-        movies: filteredMovies,
-      });
-    };
+    const { movies, searchText, selectedGenre } = this.state;
+    const { bookmarkedOnly } = this.props;
 
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.filterMoviesByTitle }
-          searchBySub={ searchBySub }
-          onSearchBySub={ this.filterMoviesBySubtitle }
+          onSearchTextChange={ filterMoviesByTitle }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleCheckboxChange }
+          onBookmarkedChange={ handleCheckboxChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onGenreChange }
         />
