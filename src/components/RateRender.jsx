@@ -20,7 +20,7 @@ class RateRender extends Component {
 }
 
 RateRender.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
