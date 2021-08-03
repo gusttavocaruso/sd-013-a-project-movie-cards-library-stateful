@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 class TextInput extends Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-    } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
 
     return (
       <label htmlFor="text-input" data-testid="text-input-label">
