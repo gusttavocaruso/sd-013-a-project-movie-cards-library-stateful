@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
   }
 
   butonClick = (e) => {
-    e(this.setState);
+    e(this.state);
   }
 
   render() {
