@@ -15,7 +15,7 @@ class GenreInput extends Component {
           value={ genre }
           onChange={ handleChange }
         >
-          <option data-testid="genre-option" value="action" selected>Ação</option>
+          <option data-testid="genre-option" value="action" defaultValue>Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
@@ -30,7 +30,7 @@ GenreInput.propTypes = {
 };
 
 GenreInput.defaultProps = {
-  genre: '',
+  genre: 'action',
 };
 
 export default GenreInput;
