@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import RatingGender from './RatingGender';
 import Storyline from './Storyline';
 import TitleSubtitle from './TitleSubtitle';
@@ -39,11 +40,11 @@ class AddMovie extends Component {
           subtitle={ subtitle }
           handleChange={ this.handleChange }
         />
-        <Image 
+        <Image
           imagePath={ imagePath }
           handleChange={ this.handleChange }
-        /> 
-        
+        />
+
         <Storyline
           storyline={ storyline }
           handleChange={ this.handleChange }
@@ -64,5 +65,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
