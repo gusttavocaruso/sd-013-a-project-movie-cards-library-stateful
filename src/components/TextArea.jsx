@@ -7,7 +7,7 @@ class TextArea extends Component {
 
     return (
       <label htmlFor="text-input" data-testid="storyline-input-label">
-        Sinopse:
+        Sinopse
         <input
           data-testid="storyline-input"
           type="textarea"
