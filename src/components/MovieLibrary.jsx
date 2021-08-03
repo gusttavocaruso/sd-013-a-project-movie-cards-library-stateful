@@ -36,9 +36,9 @@ class MovieLibrary extends Component {
 
     const filteredMovies = movies
       .filter((movie) => (
-        movie.title.toLowerCase().includes(searchText)
-        || movie.subtitle.toLowerCase().includes(searchText)
-        || movie.storyline.toLowerCase().includes(searchText)
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
       ));
 
     if (bookmarkedOnly) {
@@ -50,6 +50,12 @@ class MovieLibrary extends Component {
     }
 
     return filteredMovies;
+  }
+
+  handleAddMovie = (newMovie) => {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
   }
 
   render() {
@@ -65,7 +71,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }
