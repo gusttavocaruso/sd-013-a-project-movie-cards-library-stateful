@@ -4,8 +4,8 @@ import Title from './Pages/Title';
 import Subtitle from './Pages/Subtitle';
 import Imagepath from './Pages/Imagepath';
 import Storyline from './Pages/Storyline';
-import Rating from './Pages/Rating';
 import Genre from './Pages/Genre';
+import Rating from './Pages/Rating';
 
 class AddMovie extends React.Component {
   constructor() {
