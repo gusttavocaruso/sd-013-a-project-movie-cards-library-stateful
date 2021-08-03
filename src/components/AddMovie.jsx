@@ -2,6 +2,7 @@ import React from 'react';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImagem from './InputImagem';
+import InputTextArea from './InputTextArea';
 
 class AddMovie extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class AddMovie extends React.Component {
           <InputTitle />
           <InputSubtitle />
           <InputImagem />
+          <InputTextArea />
         </form>
       </div>
     );
