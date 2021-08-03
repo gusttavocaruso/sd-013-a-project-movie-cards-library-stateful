@@ -18,20 +18,21 @@ class AddMovie extends React.Component {
     };
   }
 
-  // handleClick = (event) => {
-  //   this.setState({
-  //     [event.target.name]: event.target.value, // função genérica (muda o nome e o valor)
-  //   });
-  // }
+  handleClick = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value, // função genérica (muda o nome e o valor)
+    });
+  }
 
   butonClick = (e) => {
-    console(e);
+    e(this.setState);
   }
 
   render() {
-    const { onClick } = this.state;
     const { subtitle, title, imagePath,
       storyline, rating, genre } = this.state;
+
+    const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
@@ -48,7 +49,7 @@ class AddMovie extends React.Component {
             data-testid="image-input"
             type="text"
             value={ imagePath }
-            name={ magePath }
+            name={ imagePath }
             onChange={ this.handleClick }
             id="input_image"
           />
@@ -79,15 +80,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.prototypes = {
+AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
 };
 
 export default AddMovie;

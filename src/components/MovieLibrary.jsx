@@ -15,16 +15,16 @@ class MovieLibrary extends Component {
     };
   }
 
-  change = (param) => {
-    const { movies } = this.state;
-    this.setState({ movies: [...movies, param] });
-  }
+  // change = (param) => {
+  //   const { movies } = this.state;
+  //   this.setState({ movies: [...movies, param] });
+  // }
 
   render() {
     const { movies } = this.props;
 
-    // const { title, subtitle, storyline, rating,
-    //   imagePath, genre, bookmarked } = movies;
+    const { title, subtitle, storyline, rating,
+      imagePath, genre, bookmarked } = movies;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -35,7 +35,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie change={ this.change } onClick={ butonClick } />
+        <AddMovie />
       </div>
     );
   }

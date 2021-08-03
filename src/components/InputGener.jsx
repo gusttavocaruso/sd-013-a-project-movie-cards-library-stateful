@@ -16,7 +16,7 @@ class InputGener extends Component {
           value={ value }
           onChange={ onChange }
           id="input_genre"
-          name={ genre }
+          name="genre"
         >
           <option
             data-testid="genre-option"
