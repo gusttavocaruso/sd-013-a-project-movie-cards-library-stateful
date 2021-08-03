@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -31,13 +32,11 @@ class MovieLibrary extends Component {
     if (bookmarkedOnly) {
       return movies.filter((movie) => movie.bookmarked === true);
     }
-    const filted = movies.filter((movie) => {
-      return (
-        movie.title.includes(searchText)
+    const filted = movies.filter((movie) => (
+      movie.title.includes(searchText)
         || movie.subtitle.includes(searchText)
         || movie.storyline.includes(searchText)
-      );
-    });
+    ));
     return filted;
   }
 
@@ -50,7 +49,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
       <div>
@@ -69,4 +68,7 @@ class MovieLibrary extends Component {
   }
 }
 
+MovieLibrary.propTypes = {
+  movies: propTypes.arrayOf().isRequired,
+};
 export default MovieLibrary;

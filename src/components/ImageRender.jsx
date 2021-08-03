@@ -19,4 +19,9 @@ class ImageRender extends Component {
   }
 }
 
+ImageRender.propTypes = {
+  imagePath: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
 export default ImageRender;

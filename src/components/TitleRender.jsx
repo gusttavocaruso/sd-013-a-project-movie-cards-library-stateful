@@ -19,4 +19,9 @@ class TitleRender extends Component {
   }
 }
 
+TitleRender.propTypes = {
+  title: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
 export default TitleRender;
