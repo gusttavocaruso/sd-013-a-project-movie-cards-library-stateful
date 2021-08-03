@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-
+/* Requisitos do 17 ao 19 feitos com a ajuda de Luiza Antiques */
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
