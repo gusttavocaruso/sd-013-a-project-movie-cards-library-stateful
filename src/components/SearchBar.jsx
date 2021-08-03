@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
             data-testid="text-input"
           />
         </label>
-        <label htmlFor="checkbox-input">
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
@@ -41,10 +41,10 @@ class SearchBar extends React.Component {
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </label>
       </form>
