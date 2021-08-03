@@ -1,15 +1,10 @@
-import PropTypes from "prop-types";
-import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class Form extends Component {
-  render () {
+  render() {
     const {
-      storyline,
-      rating,
-      genre,
-      handleChange,
-      handleSubmit,
-    } = this.props;
+      storyline, rating, genre, handleChange, handleSubmit } = this.props ;
     return (
       <section>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
@@ -58,13 +53,11 @@ class Form extends Component {
     );
   }
 }
-
 Form.propTypes = {
   genre: PropTypes.string,
   handleChange: PropTypes.func,
   handleSubmit: PropTypes.func,
   rating: PropTypes.number,
-  storyline: PropTypes.string
-}
-
-export default Form; 
+  storyline: PropTypes.string,
+}.isRequired;
+export default Form;

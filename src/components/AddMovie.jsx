@@ -1,16 +1,16 @@
-import React from "react";
-import Form from "./Form";
+import React from 'react';
+import Form from './Form';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
       handleChange: ({ target }) => {
         const { name, value } = target;
         this.setState({
@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
         });
       },
       handleSubmit: (event) => {
-        console.log("clicou");
+        console.log('clicou');
         event.preventDefault();
       },
     };
@@ -32,9 +32,7 @@ class AddMovie extends React.Component {
       storyline,
       rating,
       genre,
-      handleChange,
-      handleSubmit,
-    } = this.state;
+      handleChange, handleSubmit } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -43,7 +41,7 @@ class AddMovie extends React.Component {
             name="title"
             value={ title }
             data-testid="title-input"
-            onChange={handleChange}
+            onChange={ handleChange }
           />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
@@ -53,7 +51,7 @@ class AddMovie extends React.Component {
             type="text"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={handleChange}
+            onChange={ handleChange }
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
@@ -63,10 +61,10 @@ class AddMovie extends React.Component {
             type="text"
             value={ imagePath }
             data-testid="image-input"
-            onChange={handleChange}
+            onChange={ handleChange }
           />
         </label>
-        <Form 
+        <Form
           storyline={ storyline }
           rating={ rating }
           genre={ genre }

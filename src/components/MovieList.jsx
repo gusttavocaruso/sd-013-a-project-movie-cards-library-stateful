@@ -7,7 +7,6 @@ class MovieList extends React.Component {
   render() {
     const { movies, searchText, bookmarkedOnly } = this.props;
 
-
     return (
       <div data-testid="movie-list" className="movie-list">
         { movies
@@ -29,7 +28,7 @@ MovieList.propTypes = {
   searchText: PropTypes.string,
   movies: PropTypes.arrayOf(
     PropTypes.object,
-  ).isRequired,
-};
+  )
+}.isRequire;
 
 export default MovieList;
