@@ -1,4 +1,5 @@
 import React from 'react';
+import InputGenre from './form/inputGenre';
 import InputImage from './form/inputImage';
 import InputStory from './form/inputStory';
 import InputSubtitle from './form/inputSubtitle';
@@ -14,7 +15,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -24,13 +25,14 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputTitle value={ title } onChange={ this.handleChange } />
         <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
         <InputImage value={ imagePath } onChange={ this.handleChange } />
         <InputStory value={ storyline } onChange={ this.handleChange } />
+        <InputGenre value={ genre } onChange={ this.handleChange } />
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
           <input
