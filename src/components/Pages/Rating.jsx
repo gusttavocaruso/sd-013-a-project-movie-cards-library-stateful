@@ -9,10 +9,11 @@ class Rating extends React.Component {
         Avaliação
         <input
           name="rating"
-          type="number"
           value={ rating }
           onChange={ onChange }
           data-testid="rating-input"
+          type="number"
+          min={ 0 }
         />
       </label>
     );

@@ -32,8 +32,8 @@ class AddMovie extends React.Component {
         <Subtitle value={ subtitle } onChange={ this.mudançaDeEstado } />
         <Imagepath value={ imagePath } onChange={ this.mudançaDeEstado } />
         <Storyline value={ storyLine } onChange={ this.mudançaDeEstado } />
-        <Rating value={ rating } onChange={ this.mudançaDeEstado } />
-        <Genre value={ genre } onChange={ this.mudançaDeEstado } />
+        <Rating rating={ rating } onChange={ this.mudançaDeEstado } />
+        <Genre genre={ genre } onChange={ this.mudançaDeEstado } />
       </form>
     );
   }
