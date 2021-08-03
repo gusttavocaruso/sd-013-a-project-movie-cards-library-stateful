@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TitleR from './TitleR';
-import SubTitleR from './SubtitleR';
+import Title from './Title';
+import SubTitle from './Subtitle';
 import ImagePath from './ImagePath';
 import StoryLine from './StoryLine';
 import RatingInput from './RatingImput';
@@ -52,8 +52,8 @@ class AddMovie extends React.Component {
         className="addFormContainer"
         onSubmit={ this.handleClick }
       >
-        <TitleR value={ title } onChange={ this.handleDigit } />
-        <SubTitleR value={ subtitle } onChange={ this.handleDigit } />
+        <Title value={ title } onChange={ this.handleDigit } />
+        <SubTitle value={ subtitle } onChange={ this.handleDigit } />
         <ImagePath value={ imagePath } onChange={ this.handleDigit } />
         <StoryLine value={ storyline } onChange={ this.handleDigit } />
         <RatingInput value={ rating } onChange={ this.handleDigit } />
