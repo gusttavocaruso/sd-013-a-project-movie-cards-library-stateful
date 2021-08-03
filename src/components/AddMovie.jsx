@@ -16,14 +16,15 @@ class AddMovie extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value);
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+    console.log(value);
   }
 
   render() {
     const { handleChange, state, props } = this;
     const { onClick } = props;
-    const { title } = state;
+    const { title, subtitle } = state;
 
     return (
       <form data-testid="add-movie-form">
@@ -31,10 +32,22 @@ class AddMovie extends Component {
           Título
           <input
             data-testid="title-input"
-            type="title"
+            type="text"
             name="title"
             id="title"
             value={ title }
+            onChange={ handleChange }
+          />
+        </label>
+
+        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+          Subtítulo
+          <input
+            data-testid="subtitle-input"
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            value={ subtitle }
             onChange={ handleChange }
           />
         </label>
