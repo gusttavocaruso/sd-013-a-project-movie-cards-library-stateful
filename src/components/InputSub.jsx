@@ -24,7 +24,7 @@ class InputSub extends Component {
 }
 
 InputSub.propTypes = {
-  value: PropTtypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

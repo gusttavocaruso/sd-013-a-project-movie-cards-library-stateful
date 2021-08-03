@@ -11,7 +11,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies.this.props,
+      movies: this.props,
     };
   }
 
@@ -21,11 +21,11 @@ class MovieLibrary extends Component {
   }
 
   render() {
-   const { movies } = this.props;
+    const { movies } = this.props;
 
-    const { title, subtitle, storyline, rating,
-    imagePath, genre, bookmarked } = movies
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    // const { title, subtitle, storyline, rating,
+    //   imagePath, genre, bookmarked } = movies;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library</h2>
@@ -35,7 +35,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie change={ this.change } />
+        <AddMovie change={ this.change } onClick={ butonClick } />
       </div>
     );
   }
@@ -51,9 +51,6 @@ MovieLibrary.propTypes = {
     bookmarked: true,
     genre: PropTypes.string,
   })).isRequired,
-};
-MovieLibrary.defaultProps = {
-  movies: [],
 };
 
 export default MovieLibrary;

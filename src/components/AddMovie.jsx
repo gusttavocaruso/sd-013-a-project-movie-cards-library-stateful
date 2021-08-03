@@ -18,20 +18,18 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleClick = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value, // função genérica (muda o nome e o valor)
-    });
-  }
+  // handleClick = (event) => {
+  //   this.setState({
+  //     [event.target.name]: event.target.value, // função genérica (muda o nome e o valor)
+  //   });
+  // }
 
-  butonClick = (event) => {
-    this.props({ 
-    console.log()  
-    });
+  butonClick = (e) => {
+    console(e);
   }
 
   render() {
-    const { onClick } = this.props;
+    const { onClick } = this.state;
     const { subtitle, title, imagePath,
       storyline, rating, genre } = this.state;
 
@@ -72,7 +70,7 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="submit"
-          onClick={ this.butonClick }
+          onClick={ () => { this.butonClick(onClick); } }
         >
           Adicionar filme
         </button>
@@ -82,13 +80,14 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.prototypes = {
-  onClick: Prototypes.func,
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
-  imagePath: PropTypes.string,
-  storyline: PropTypes.string,
-  rating: PropTypes.number,
-  genre: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default AddMovie;

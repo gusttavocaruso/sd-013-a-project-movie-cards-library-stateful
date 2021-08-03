@@ -24,7 +24,7 @@ class InputTitle extends Component {
 }
 
 InputTitle.propTypes = {
-  value: PropTtypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
