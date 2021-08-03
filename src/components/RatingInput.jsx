@@ -22,7 +22,7 @@ class RatingInput extends Component {
 }
 
 RatingInput.propTypes = {
-  rating: PropTypes.string,
+  rating: PropTypes.number,
   handleChange: PropTypes.func.isRequired,
 };
 
