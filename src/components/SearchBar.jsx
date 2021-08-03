@@ -59,5 +59,5 @@ SearchBar.propTypes = {
 
 export default SearchBar;
 
-/* Referências: Aula ao vivo 12.2 disponível no course
+/* Referências: Aula ao vivo 12.2 disponível no course e documentação do React
 Link utilizado: https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html */
