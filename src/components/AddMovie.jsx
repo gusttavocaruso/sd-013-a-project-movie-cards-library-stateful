@@ -43,6 +43,16 @@ render() {
           />
           Título
         </label>
+        <label htmlFor="input-subtitle-move" data-testid="subtitle-input-label">
+          <input
+            id="input-subtitle-move"
+            name="subtitle"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
+          Subtítulo
+        </label>
       </form>
     );
   }
