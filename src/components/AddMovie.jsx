@@ -30,13 +30,28 @@ class AddMovie extends Component {
     e.preventDefault();
   }
 
-  onClick = () => {
+  // Ygor Maia, Guilherme Rodrigues and Gildo Santos helped me a lot to do these functions
 
+  onClick = () => {
+    const { state, props } = this;
+    const { onClick } = props;
+    onClick(state);
+    this.resetState();
+  }
+
+  resetState = () => {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: '0',
+      genre: 'action',
+    });
   }
 
   render() {
-    const { handleChange, state, handleSubmit, props } = this;
-    const { onClick } = props;
+    const { handleChange, state, handleSubmit, onClick } = this;
     const { title, subtitle, imagePath, storyline, rating, genre } = state;
 
     return (

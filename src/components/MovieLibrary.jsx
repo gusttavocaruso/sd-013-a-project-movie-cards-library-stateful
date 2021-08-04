@@ -5,21 +5,29 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  // Ygor Maia, Guilherme Rodrigues and Gildo Santos helped me a lot to do this constructor and onClick
 
-    const { movies } = this.props;
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { movies },
+      movies: props.movies,
     };
   }
 
-  render() {
+  onClick = (array) => {
     const { state } = this;
+    const { movies } = state;
+    this.setState({
+      movies: [...movies, array],
+    });
+  }
+
+  render() {
+    const { state, onClick } = this;
     const { searchText, bookmarkedOnly, selectedGenre, movies } = state;
 
     return (
@@ -30,8 +38,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
+        <AddMovie onClick={ onClick } />
         <MovieList movies={ movies } />
-        <AddMovie />
       </div>
     );
   }
