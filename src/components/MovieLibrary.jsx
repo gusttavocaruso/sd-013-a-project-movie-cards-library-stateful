@@ -27,8 +27,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre , movies} = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
