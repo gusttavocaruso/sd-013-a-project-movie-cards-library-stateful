@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class FilterByGenre extends React.Component {
   render() {
@@ -44,5 +45,15 @@ class FilterByGenre extends React.Component {
     );
   }
 }
+
+FilterByGenre.propTypes = {
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
+
+FilterByGenre.defaultProps = {
+  selectedGenre: '',
+  onSelectedGenreChange: [],
+};
 
 export default FilterByGenre;

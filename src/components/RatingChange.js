@@ -24,7 +24,6 @@ class RatingChange extends React.Component {
   }
 }
 
-
 RatingChange.propTypes = {
   rating: PropTypes.string,
   onChange: PropTypes.func,
