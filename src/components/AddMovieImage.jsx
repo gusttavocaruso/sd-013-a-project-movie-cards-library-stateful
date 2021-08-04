@@ -21,7 +21,7 @@ class AddMovieImage extends React.Component {
 
 AddMovieImage.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default AddMovieImage;

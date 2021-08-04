@@ -21,7 +21,7 @@ class AddMovieTitle extends React.Component {
 
 AddMovieTitle.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default AddMovieTitle;

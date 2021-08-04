@@ -25,7 +25,7 @@ class AddMovieGenre extends React.Component {
 
 AddMovieGenre.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default AddMovieGenre;

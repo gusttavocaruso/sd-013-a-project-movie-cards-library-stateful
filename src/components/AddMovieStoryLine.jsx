@@ -23,7 +23,7 @@ class AddMovieStoryLine extends React.Component {
 
 AddMovieStoryLine.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default AddMovieStoryLine;
