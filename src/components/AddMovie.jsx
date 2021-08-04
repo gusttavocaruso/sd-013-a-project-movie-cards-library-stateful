@@ -1,7 +1,8 @@
 // implement AddMovie component here
 import React from 'react';
+import InputSub from './Inputs/InputSub';
 // import Proptypes from 'prop-types';
-import Inputgene from './Inputgene';
+import InputTitle from './Inputs/InputTitle';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -48,15 +49,8 @@ render() {
   } = this.state;
   return (
     <form data-testid="add-movie-form">
-      <Inputgene value={ title } name={ title } onChange={ this.handleChange } />
-      <Inputgene value={ subtitle } name={ subtitle } onChange={ this.handleChange } />
-      <Inputgene value={ imagePath } name={ imagePath } onChange={ this.handleChange } />
-      <Inputgene
-        value={ rating }
-        type={ type }
-        name={ rating }
-        onChange={ this.handleChange }
-      />
+      <InputTitle onChange={ this.handleChange } title={ title } />
+      <InputSub onChange={ this.handleChange } subtitle={ subtitle } />
       <label htmlFor="#" data-testid="genre-input-label">
         <select data-testid="genre-input" value={ genre } onChange={ this.handleChange }>
           <option value="action" data-testid="genre-option">Ação</option>
