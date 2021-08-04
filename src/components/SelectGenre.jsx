@@ -1,4 +1,5 @@
 // SelectGenre (Componente filho de AddMovie)
+// Requisito 13
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,11 +9,11 @@ class SelectGenre extends React.Component {
     const { genre, handleChange } = this.props;
 
     return (
-      <label data-testid="genre-input-label" htmlFor="storyline">
+      <label data-testid="genre-input-label" htmlFor="genre">
         Gênero
         <select
-          id="storyline"
-          name="storyline"
+          id="genre"
+          name="genre"
           data-testid="genre-input"
           onChange={ handleChange }
           value={ genre }
