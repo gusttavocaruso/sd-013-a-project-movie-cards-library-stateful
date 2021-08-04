@@ -1,13 +1,16 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
         <SearchBar />
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ () => {} } />
       </div>
     );
   }

@@ -6,6 +6,7 @@ import Imagepath from './Pages/Imagepath';
 import Storyline from './Pages/Storyline';
 import Genre from './Pages/Genre';
 import Rating from './Pages/Rating';
+import Button from './Pages/Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -25,26 +26,36 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
-      <form>
-        <Title value={ title } onChange={ this.mudançaDeEstado } />
-        <Subtitle value={ subtitle } onChange={ this.mudançaDeEstado } />
-        <Imagepath value={ imagePath } onChange={ this.mudançaDeEstado } />
-        <Storyline value={ storyLine } onChange={ this.mudançaDeEstado } />
+      <form data-testid="add-movie-form">
+        <Title title={ title } onChange={ this.mudançaDeEstado } />
+        <Subtitle subtitle={ subtitle } onChange={ this.mudançaDeEstado } />
+        <Imagepath imagePath={ imagePath } onChange={ this.mudançaDeEstado } />
+        <Storyline storyLine={ storyLine } onChange={ this.mudançaDeEstado } />
         <Rating rating={ rating } onChange={ this.mudançaDeEstado } />
         <Genre genre={ genre } onChange={ this.mudançaDeEstado } />
+        <Button
+          onClick={ () => {
+            onClick(this.state);
+            this.setState({
+              title: '',
+              subtitle: '',
+              imagePath: '',
+              storyLine: '',
+              rating: 0,
+              genre: 'action',
+            });
+          } }
+        />
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   subtitle: PropTypes.string.isRequired,
-//   imagePath: PropTypes.string.isRequired,
-//   storyLine: PropTypes.string.isRequired,
-//   rating: PropTypes.number.isRequired,
-//   genre: PropTypes.string.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default AddMovie;
