@@ -5,7 +5,6 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -17,7 +16,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre , movies} = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
