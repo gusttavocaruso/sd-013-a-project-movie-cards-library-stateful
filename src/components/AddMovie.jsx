@@ -15,6 +15,12 @@ class AddMovie extends React.Component {
     };
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
   eventoClick = () => {
     const { onClick } = this.props;
     onClick(this.state);
@@ -38,8 +44,19 @@ class AddMovie extends React.Component {
             type="text"
             title={ title }
             onChange={ title }
-            id=" "
+            id=""
             data-testid="title-input"
+          />
+        </label>
+        <label htmlFor=" " data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            name=""
+            id=""
+            data-testid="subtitle-input"
+            onChange={ subtitle }
+            handleChange={ this.handleChange }
           />
         </label>
         {subtitle}
