@@ -8,7 +8,6 @@ import Genre from './Pages/Genre';
 import Rating from './Pages/Rating';
 import Button from './Pages/Button';
 
-
 class AddMovie extends React.Component {
   constructor() {
     super();
