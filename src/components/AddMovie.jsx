@@ -72,6 +72,7 @@ render() {
             data-testid="storyline-input"
             onChange={ this.handleChange }
           />
+          Sinopse
         </label>
       </form>
     );
