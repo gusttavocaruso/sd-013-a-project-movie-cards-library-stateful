@@ -1,4 +1,5 @@
 import React from 'react';
+import Genre from './AddMovieComponents/Genre';
 import ImagePath from './AddMovieComponents/ImagePath';
 import Rating from './AddMovieComponents/Rating';
 import Storyline from './AddMovieComponents/Storyline';
@@ -23,13 +24,11 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Title handleChange={ this.handleChange } title={ title } />
@@ -37,6 +36,7 @@ class AddMovie extends React.Component {
         <ImagePath handleChange={ this.handleChange } imagePath={ imagePath } />
         <Storyline handleChange={ this.handleChange } storyline={ storyline } />
         <Rating handleChange={ this.handleChange } rating={ rating } />
+        <Genre handleChange={ this.handleChange } genre={ genre } />
       </form>
     );
   }
