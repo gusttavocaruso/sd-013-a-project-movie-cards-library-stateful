@@ -15,6 +15,13 @@ class AddMovie extends React.Component {
   };
 }
 
+handleChange = (event) => {
+  const { name, value } = event.target;
+  this.setState({
+    [name]: value,
+  });
+}
+
 render() {
   const {
     subtitle, //guarda o subtítulo preenchido no formulário por quem usa a aplicação;
@@ -25,7 +32,18 @@ render() {
     genre, //guarda o gênero do filme selecionado no formulário por quem usa a aplicação.
   } = this.state;
     return (
-      <form data-testid="add-movie-form"><form></form>
+      <form data-testid="add-movie-form">
+        <label htmlFor="input-title-move" data-testid="title-input-label">
+          <input
+            id="input-title-move"
+            name="title"
+            value={ title }
+            data-testid="title-input"
+            onChange={ this.handleChange }
+          />
+          Título
+        </label>
+      </form>
     );
   }
 }
