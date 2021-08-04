@@ -61,10 +61,12 @@ render() {
         </select>
       </label>
       <label htmlFor="#" data-testid="storyline-input-label">
+        Sinopse
         <textarea
           value={ storyline }
           data-testid="storyline-input"
           onChange={ this.handleChange }
+          name="storyline"
         />
       </label>
       <button
