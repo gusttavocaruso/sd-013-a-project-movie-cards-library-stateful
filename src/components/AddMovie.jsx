@@ -39,11 +39,11 @@ class AddMovie extends React.Component {
       <form
         data-testid="add-movie-form"
       >
+        <InputTitle value={ title } onChange={ this.handleClick } />
+        <InputSub value={ subtitle } onChange={ this.handleClick } />
+        <InputImagem value={ imagePath } onChange={ this.handleClick } />
         <InputGener value={ genre } onChange={ this.handleClick } />
         <InputTextarea value={ storyline } onChange={ this.handleClick } />
-        <InputSub value={ title } onChange={ this.handleClick } />
-        <InputTitle value={ subtitle } onChange={ this.handleClick } />
-        <InputImagem value={ imagePath } onChange={ this.handleClick } />
         <label
           data-testid="rating-input-label"
           htmlFor="input_assessment"
