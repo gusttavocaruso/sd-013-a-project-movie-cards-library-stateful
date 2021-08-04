@@ -49,6 +49,7 @@ render() {
     rating,
     genre,
   } = this.state;
+  // Logica do Forms criado com ajuda do Josue Lobo e Rogerio P. da Silva
   return (
     <form data-testid="add-movie-form">
       <InputTitle onChange={ this.handleChange } title={ title } />

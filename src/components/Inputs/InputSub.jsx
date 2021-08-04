@@ -1,3 +1,4 @@
+// Inputs criados com ajuda do Rogerio P. da Silva
 import React from 'react';
 import PropTypes from 'prop-types';
 
