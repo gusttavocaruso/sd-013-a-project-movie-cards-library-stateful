@@ -1,52 +1,57 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
-// import MovieList from './MovieList';
+import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  // constructor() {
-  //   super();
-  //   const { movies } = this.props;
-  //   this.state = {
-  //     searchText: '',
-  //     bookmarkedOnly: false,
-  //     selectedGenre: '',
-  //     movies: { movies },
-  //   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+    this.Mymovie = this.Mymovie.bind(this);
+  }
 
-  // change = (param) => {
-  //   const { movies } = this.state;
-  //   this.setState({ movies: [...movies, param] });
-  // }
+  Mymovie = (param) => {
+    const
+      { movies } = this.state;
+    this.setState({ movies: [...movies, param] }); // feito em grupo Guilherme(b) Ygor, Leme.
+  }
 
   render() {
-    // const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    
     return (
       <div>
         <h2> My awesome movie library</h2>
-        {/* <SearchBar
+        <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ 0 }
           bookmarkedOnly={ bookmarkedOnly }
+          onselectedGenre={ 0 }
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie /> */}
+        <AddMovie onClick={ this.Mymovie } />
       </div>
     );
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(PropTypes.shape({
-//     title: PropTypes.string,
-//     subtitle: PropTypes.string,
-//     storyline: PropTypes.string,
-//     rating: PropTypes.number,
-//     imagePath: PropTypes.string,
-//     bookmarked: true,
-//     genre: PropTypes.string,
-//   })).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: true,
+    genre: PropTypes.string,
+  })).isRequired,
+};
 
 export default MovieLibrary;
