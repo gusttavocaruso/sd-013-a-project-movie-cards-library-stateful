@@ -74,6 +74,15 @@ render() {
           />
           Sinopse
         </label>
+        <label htmlFor="rating" data-testid="rating-input-label"></label>
+        <input
+          id="input-rating"
+          name="rating"
+          value={ rating }
+          type="number"
+          data-testid="rating-input"
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
