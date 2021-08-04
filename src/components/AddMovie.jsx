@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Title from './Pages/Title';
 import Subtitle from './Pages/Subtitle';
 import Imagepath from './Pages/Imagepath';
@@ -7,6 +7,7 @@ import Storyline from './Pages/Storyline';
 import Genre from './Pages/Genre';
 import Rating from './Pages/Rating';
 import Button from './Pages/Button';
+
 
 class AddMovie extends React.Component {
   constructor() {
