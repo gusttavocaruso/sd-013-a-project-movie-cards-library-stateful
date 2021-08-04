@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import StorylineInput from './StorylineInput';
+import RatingInput from './RatingInput';
+import ImagepathInput from './ImagepathInput';
+import GenreInput from './GenreInput';
 
 class AddMovie extends Component {
   constructor() {
     super();
 
-    this.hadleChange = this.hadleChange.bind(this);
-    this.hadleOnClick = this.hadleOnClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -16,16 +19,10 @@ class AddMovie extends Component {
     };
   }
 
-  hadleChange({ target }) { // event.target desconstruido
+  handleChange({ target }) { // event.target desconstruido
     this.setState({
       [target.id]: target.value,
     });
-  }
-
-  hadleOnClick() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(stateInicial);
   }
 
   render() {
@@ -39,9 +36,37 @@ class AddMovie extends Component {
             id="title"
             value={ title }
             data-testid="title-input"
-            onChange={ this.hadleChange }
+            onChange={ this.handleChange }
           />
         </label>
+
+        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+          Subtítulo
+          <input
+            type="text"
+            id="subtitle"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+
+        <ImagepathInput value={ imagePath } handleChange={ this.handleChange } />
+
+        <StorylineInput value={ storyline } handleChange={ this.handleChange } />
+
+        <RatingInput value={ rating } handleChange={ this.handleChange } />
+
+        <GenreInput value={ genre } handleChange={ this.handleChange } />
+
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ this.handleOnClick }
+        >
+          Adicionar filme
+        </button>
+
       </form>
     );
   }
