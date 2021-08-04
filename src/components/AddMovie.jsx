@@ -19,11 +19,23 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClickSubmit = this.handleClickSubmit.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
+  }
+
+  handleClickSubmit() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
