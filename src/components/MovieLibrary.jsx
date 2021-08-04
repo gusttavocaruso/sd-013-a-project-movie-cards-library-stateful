@@ -7,6 +7,7 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    // const { movies } = this.props; //(Matheus==outra forma de trazer a prop)
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -29,9 +30,9 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library</h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ 0 }
+          onSearchTextChange={ () => {} }
           bookmarkedOnly={ bookmarkedOnly }
-          onselectedGenre={ 0 }
+          onselectedGenre={ () => { } }
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />

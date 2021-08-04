@@ -38,8 +38,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  butonClick = (event) => {
-    event(this.state);
+  butonClick = (funck) => {
+    funck(this.state);
   }
 
   render() {
@@ -75,7 +75,7 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="submit" // testar com submit
-          onClick={ () => this.butonClick(onClick) }
+          onClick={ this.butonClick(onClick) }
         >
           Adicionar filme
         </button>
