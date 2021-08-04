@@ -1,4 +1,5 @@
 // Filho do MovieLibrary (É um filtro)
+// Requisito 1
 
 import React from 'react';
 import PropTypes from 'prop-types'; // Bibioteca externa
@@ -14,7 +15,9 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
+      // Requisito 2 - Renderizar um formulário
       <form data-testid="search-bar-form">
+        {/* Requisito 3 */}
         <label data-testid="text-input-label" htmlFor="searchText">
           Inclui o texto:
           <input

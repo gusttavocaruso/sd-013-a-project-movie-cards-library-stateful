@@ -1,3 +1,5 @@
+// Projeto realizado com a colcaboração dos meus colegas Júlia Oughton Baptista, Vinicius Dionysio e Walace Nascimento
+
 import React from 'react';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';

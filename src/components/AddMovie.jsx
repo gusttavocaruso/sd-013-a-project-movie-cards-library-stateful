@@ -25,6 +25,12 @@ handleChange = (event) => {
   });
 }
 
+handleChangeRating = (event) => {
+  this.setState({
+    rating: event.target.value,
+  });
+}
+
 render() {
   const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
 
@@ -34,7 +40,7 @@ render() {
       <InputSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
       <InputImage imagePath={ imagePath } handleChange={ this.handleChange } />
       <InputStoryline storyline={ storyline } handleChange={ this.handleChange } />
-      <InputRating rating={ rating } onChange={ this.handleChange } />
+      <InputRating rating={ rating } onChange={ this.handleChangeRating } />
       <SelectGenre genre={ genre } handleChange={ this.handleChange } />
     </form>
   );
