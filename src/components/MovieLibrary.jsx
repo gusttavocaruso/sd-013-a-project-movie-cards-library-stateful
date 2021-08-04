@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import InputTitle from './InputTitle';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
