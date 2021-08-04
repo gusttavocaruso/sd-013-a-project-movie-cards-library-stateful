@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputNumber extends React.Component {
   constructor(props) {
@@ -25,5 +26,10 @@ class InputNumber extends React.Component {
     );
   }
 }
+
+InputNumber.propTypes = {
+  value: PropTypes.number,
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default InputNumber;

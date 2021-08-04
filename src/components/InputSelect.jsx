@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputSelect extends React.Component {
   render() {
@@ -21,5 +22,10 @@ class InputSelect extends React.Component {
     );
   }
 }
+
+InputSelect.propTypes = {
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default InputSelect;
