@@ -62,7 +62,6 @@ class AddMovie extends Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={ this.handleOnClick }
         >
           Adicionar filme
         </button>
