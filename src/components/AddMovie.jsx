@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import InputImg from './Inputs/InputImg';
+import InputRating from './Inputs/InputRating';
 import InputSub from './Inputs/InputSub';
 // import Proptypes from 'prop-types';
 import InputTitle from './Inputs/InputTitle';
@@ -53,8 +54,15 @@ render() {
       <InputTitle onChange={ this.handleChange } title={ title } />
       <InputSub onChange={ this.handleChange } subtitle={ subtitle } />
       <InputImg onChange={ this.handleChange } imagePath={ imagePath } />
+      <InputRating onChange={ this.handleChange } rating={ rating } />
       <label htmlFor="#" data-testid="genre-input-label">
-        <select data-testid="genre-input" value={ genre } onChange={ this.handleChange }>
+        Gênero
+        <select
+          data-testid="genre-input"
+          value={ genre }
+          onChange={ this.handleChange }
+          name="genre"
+        >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
