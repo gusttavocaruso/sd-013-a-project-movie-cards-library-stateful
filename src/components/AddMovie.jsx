@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import { options } from 'yargs';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -74,15 +75,30 @@ render() {
           />
           Sinopse
         </label>
-        <label htmlFor="rating" data-testid="rating-input-label"></label>
-        <input
-          id="input-rating"
-          name="rating"
-          value={ rating }
-          type="number"
-          data-testid="rating-input"
-          onChange={ this.handleChange }
-        />
+        <label htmlFor="rating" data-testid="rating-input-label">
+          <input
+            id="input-rating"
+            name="rating"
+            value={ rating }
+            type="number"
+            data-testid="rating-input"
+            onChange={ this.handleChange }
+          />
+          Avaliação
+        </label>
+        <label htmlFor="select-genre" data-testid="genre-input-label">
+          <select
+            id="select-genre"
+            name="genre"
+            value={ genre }
+            data-testid="genre-input"
+            onChange={ this.handleChange }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option> 
+          </select>
+        </label>
       </form>
     );
   }
