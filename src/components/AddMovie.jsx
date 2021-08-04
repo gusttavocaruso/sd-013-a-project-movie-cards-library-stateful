@@ -5,15 +5,16 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.state = {
-    subtitle: '', 
-    title: '', 
-    imagePath: '', 
-    storyline: '', 
-    rating: 0, 
-    genre: 'action', 
-  };
-}
+      subtitle: '', 
+      title: '', 
+      imagePath: '', 
+      storyline: '', 
+      rating: 0, 
+      genre: 'action', 
+    };
+  }
 
 handleChange = (event) => {
   const { name, value } = event.target;
@@ -62,6 +63,15 @@ render() {
             onChange={ this.handleChange }
           />
           Imagem
+        </label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          <textarea
+            id="text-area"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+          />
         </label>
       </form>
     );
