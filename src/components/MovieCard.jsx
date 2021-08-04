@@ -31,3 +31,4 @@ MovieCard.propTypes = {
 };
 
 export default MovieCard;
+// feito com ajuda do Ygor Maia

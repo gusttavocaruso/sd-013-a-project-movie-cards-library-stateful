@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
   render() {
-    const { rating, onChange } = this.props;
+    const { onChange, value } = this.props;
     return (
       <label data-testid="rating-input-label" htmlFor="rating">
-        Avaliação
+        Avaliação:
         <input
+          type="number"
           name="rating"
-          value={ rating }
+          value={ value }
           onChange={ onChange }
           data-testid="rating-input"
-          type="number"
-          min={ 0 }
         />
       </label>
     );
@@ -21,8 +20,9 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default Rating;
+// Feito com a ajuda do Ygor Maia

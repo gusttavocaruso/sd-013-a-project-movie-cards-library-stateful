@@ -1,54 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Title from './Pages/Title';
 import Subtitle from './Pages/Subtitle';
-import Imagepath from './Pages/Imagepath';
+import Title from './Pages/Title';
+import Image from './Pages/Image';
 import Storyline from './Pages/Storyline';
-import Genre from './Pages/Genre';
 import Rating from './Pages/Rating';
+import Genre from './Pages/Genre';
 import Button from './Pages/Button';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.state = {
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
   }
 
-  mudançaDeEstado = (event) => {
+  handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  render() {
+  onClick = () => {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    onClick(this.state);
+    this.resetState();
+  }
+
+  resetState = () => {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
+    const { onClick } = this;
+
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+
     return (
       <form data-testid="add-movie-form">
-        <Title title={ title } onChange={ this.mudançaDeEstado } />
-        <Subtitle subtitle={ subtitle } onChange={ this.mudançaDeEstado } />
-        <Imagepath imagePath={ imagePath } onChange={ this.mudançaDeEstado } />
-        <Storyline storyLine={ storyLine } onChange={ this.mudançaDeEstado } />
-        <Rating rating={ rating } onChange={ this.mudançaDeEstado } />
-        <Genre genre={ genre } onChange={ this.mudançaDeEstado } />
-        <Button
-          onClick={ () => {
-            onClick(this.state);
-            this.setState({
-              title: '',
-              subtitle: '',
-              imagePath: '',
-              storyLine: '',
-              rating: 0,
-              genre: 'action',
-            });
-          } }
-        />
+        <Title value={ title } onChange={ this.handleChange } />
+        <Subtitle value={ subtitle } onChange={ this.handleChange } />
+        <Image value={ imagePath } onChange={ this.handleChange } />
+        <Storyline value={ storyline } onChange={ this.handleChange } />
+        <Rating value={ rating } onChange={ this.handleChange } />
+        <Genre value={ genre } onChange={ this.handleChange } />
+        <Button onClick={ onClick } />
       </form>
     );
   }
@@ -59,3 +67,4 @@ AddMovie.propTypes = {
 };
 
 export default AddMovie;
+// Feito com Ygor Maya
