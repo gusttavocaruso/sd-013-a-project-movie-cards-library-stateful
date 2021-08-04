@@ -19,8 +19,7 @@ class ImageAndStory extends React.Component {
         </label>
         <label htmlFor="text-area" data-testid="storyline-input-label">
           Sinopse
-          <input
-            type="textarea"
+          <textarea
             name="storyline"
             id="text-area"
             data-testid="storyline-input"
@@ -28,7 +27,6 @@ class ImageAndStory extends React.Component {
             value={ storyline }
           />
         </label>
-
       </div>
     );
   }

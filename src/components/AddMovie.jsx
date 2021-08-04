@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TitleAndSubtitle from './TitleAndSubtitle';
 import ImageAndStory from './ImageAndStory';
 import RatingAndGenre from './RatingAndGenre';
@@ -7,18 +8,33 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -41,11 +57,22 @@ class AddMovie extends React.Component {
             genre={ genre }
             onChange={ this.handleChange }
           />
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ this.handleClick }
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
 
@@ -54,4 +81,9 @@ estudantes da Turma 13 - Tribo A e pesssoa estudante Isabella Antunes Turma 13 -
 Links utilizados:
 https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginForm.js
 https://github.com/tryber/sd-13a-live-lectures/blob/lecture/12.2/form/src/components/LoginInput.js
+
+Referência para a função invocada pela propriedade onClick do botão: Vídeo e repositório
+da Revisão do Bloco 12, realizada pelo instrutor Eduardo Santos.
+Link utilizado:
+https://github.com/EduardoSantosF/revisao-bloco-12/blob/solucao-T13-A/src/components/NewProduct.js
 */
