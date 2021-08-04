@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import AddMovieRating from './AddMovieRating';
 import AddTitle from './AddTitle';
 import AddSubTitle from './AddSubTitle';
 import AddImage from './AddImage';
 import AddSinopse from './AddSinopse';
+import AddMovieRating from './AddMovieRating';
 import AddGenre from './AddGenre';
 import AddButton from './AddButton';
 

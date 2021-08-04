@@ -1,7 +1,7 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MoveList from './MovieList';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
@@ -40,9 +40,9 @@ filterMovies = (movies, searchText, bookmarkedOnly, selectedGenre) => {
 
   if (searchText !== '') {
     arrayFilter = arrayFilter.filter((movie) => {
-      if (movie.title.toLowerCase().includes(searchText.toLowerCase()
-        || movie.subtilte.toLowerCase().includes(searchText.toLowerCase())
-        || movie.subtilte.toLowerCase().includes(searchText.toLowerCase()))) {
+      if (movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase())) {
         return true;
       }
       return false;
@@ -72,7 +72,7 @@ render() {
         onBookmarkedChange={ this.onBookmarkedChange }
         onSelectedGenreChange={ this.onSelectedGenreChange }
       />
-      <MoveList movies={ filter } />
+      <MovieList movies={ filter } />
       <AddMovie />
     </div>
   );
