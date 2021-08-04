@@ -61,7 +61,6 @@ class AddMovie extends React.Component {
             type="submit"
           >
             Adicionar filme
-
           </button>
 
         </form>

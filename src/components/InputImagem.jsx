@@ -21,8 +21,8 @@ class InputImagem extends React.Component {
 }
 
 InputImagem.propTypes = {
-  imagem: PropTypes.string,
-  onChange: PropTypes.func,
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
 }.isRequired;
 
 export default InputImagem;
