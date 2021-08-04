@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import InputImg from './Inputs/InputImg';
 import InputSub from './Inputs/InputSub';
 // import Proptypes from 'prop-types';
 import InputTitle from './Inputs/InputTitle';
@@ -51,6 +52,7 @@ render() {
     <form data-testid="add-movie-form">
       <InputTitle onChange={ this.handleChange } title={ title } />
       <InputSub onChange={ this.handleChange } subtitle={ subtitle } />
+      <InputImg onChange={ this.handleChange } imagePath={ imagePath } />
       <label htmlFor="#" data-testid="genre-input-label">
         <select data-testid="genre-input" value={ genre } onChange={ this.handleChange }>
           <option value="action" data-testid="genre-option">Ação</option>
