@@ -53,6 +53,16 @@ render() {
           />
           Subtítulo
         </label>
+        <label htmlFor="input-image" data-testid="image-input">
+          <input
+            id="input-image"
+            name="imagePath"
+            value={ imagePath }
+            data-testid="imag-input"
+            onChange={ this.handleChange }
+          />
+          Imagem
+        </label>
       </form>
     );
   }
