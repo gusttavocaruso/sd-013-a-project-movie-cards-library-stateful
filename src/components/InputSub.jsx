@@ -7,7 +7,7 @@ class InputSub extends Component {
     return (
       <label
         data-testid="subtitle-input-label"
-        htmlFor="input_subTitle"
+        htmlFor="subtitle"
       >
         Subtítulo
         <input
@@ -15,8 +15,8 @@ class InputSub extends Component {
           type="text"
           value={ value }
           name="subtitle"
+          id="subtitle"
           onChange={ onChange }
-          id="input_subTitle"
         />
       </label>
     );

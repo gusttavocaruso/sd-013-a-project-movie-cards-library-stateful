@@ -5,27 +5,23 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     searchText: '',
-  //     bookmarkedOnly: false,
-  //     selectedGenre: '',
-  //     movies,
-  //   };
-  // }
-
+  constructor() {
+    super();
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: { movies },
+    };
+  }
   // change = (param) => {
   //   const { movies } = this.state;
   //   this.setState({ movies: [...movies, param] });
   // }
 
   render() {
-    const { movies } = this.props;
-
-    // const { title, subtitle, storyline, rating,
-    //   imagePath, genre, bookmarked } = movies;
-    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library</h2>

@@ -4,6 +4,7 @@ import InputGener from './InputGener';
 import InputTextarea from './InputTextarea';
 import InputTitle from './InputTitle';
 import InputSub from './InputSub';
+import InputImagem from './InputImagem';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -24,8 +25,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  butonClick = (e) => {
-    e(this.state);
+  butonClick = (callback) => {
+    callback(this.state);
   }
 
   render() {
@@ -35,25 +36,14 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
 
     return (
-      <form data-testid="add-movie-form">
+      <form
+        data-testid="add-movie-form"
+      >
         <InputGener value={ genre } onChange={ this.handleClick } />
         <InputTextarea value={ storyline } onChange={ this.handleClick } />
         <InputSub value={ title } onChange={ this.handleClick } />
         <InputTitle value={ subtitle } onChange={ this.handleClick } />
-        <label
-          data-testid="image-input-label"
-          htmlFor="input_image"
-        >
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            value={ imagePath }
-            name="imagePath"
-            onChange={ this.handleClick }
-            id="input_image"
-          />
-        </label>
+        <InputImagem value={ imagePath } onChange={ this.handleClick } />
         <label
           data-testid="rating-input-label"
           htmlFor="input_assessment"
