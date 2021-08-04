@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.butonClick = this.butonClick.bind(this);
   }
 
   handleClick = (event) => {
@@ -25,8 +26,20 @@ class AddMovie extends React.Component {
     });
   }
 
-  butonClick = (callback) => {
-    callback(this.state);
+  ClearClick = (event) => {
+    event.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  butonClick = (event) => {
+    event(this.state);
   }
 
   render() {
@@ -38,6 +51,7 @@ class AddMovie extends React.Component {
     return (
       <form
         data-testid="add-movie-form"
+        onSubmit={ this.ClearClick }
       >
         <InputTitle value={ title } onChange={ this.handleClick } />
         <InputSub value={ subtitle } onChange={ this.handleClick } />
@@ -60,8 +74,8 @@ class AddMovie extends React.Component {
         </label>
         <button
           data-testid="send-button"
-          type="submit"
-          onClick={ () => { this.butonClick(onClick); } }
+          type="submit" // testar com submit
+          onClick={ () => this.butonClick(onClick) }
         >
           Adicionar filme
         </button>
