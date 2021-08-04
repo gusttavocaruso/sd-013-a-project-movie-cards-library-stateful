@@ -6,24 +6,21 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { movies } = this.props;
     const {
-      searchText, //uma string
-      onSearchTextChange, //uma callback
-      bookmarkedOnly, //um boolean
-      onBookmarkedChange, //uma callback
-      selectedGenre, //uma string
-      onSelectedGenreChange, //uma callback
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+      onClick,
     } = movies;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar 
+        <SearchBar
           searchText={ searchText }
           onSearchTextChange={ onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
@@ -32,20 +29,21 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
 }
 
-MovieLibrary.PropTypes = {
+MovieLibrary.propTypes = {
   movies: PropTypes.shape({
     searchText: PropTypes.string,
     onSearchTextChange: PropTypes.func,
     bookmarkedOnly: PropTypes.bool,
-    onBookmarkedChange:PropTypes.func,
-    selectedGenre:PropTypes.string,
+    onBookmarkedChange: PropTypes.func,
+    selectedGenre: PropTypes.string,
     onSelectedGenreChange: PropTypes.func,
+    onClick: PropTypes.func,
   }).isRequired,
 };
 
