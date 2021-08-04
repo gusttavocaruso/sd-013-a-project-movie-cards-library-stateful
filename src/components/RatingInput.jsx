@@ -8,6 +8,7 @@ class RatingInput extends Component {
     return (
       <label htmlFor="number-input" data-testid="rating-input-label">
         Avaliação
+
         <input
           data-testid="rating-input"
           type="number"
@@ -22,7 +23,7 @@ class RatingInput extends Component {
 }
 
 RatingInput.propTypes = {
-  rating: PropTypes.number,
+  rating: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };
 

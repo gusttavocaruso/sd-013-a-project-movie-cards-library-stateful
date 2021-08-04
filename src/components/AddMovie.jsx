@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import AddMovieButton from './AddMovieButton';
 import GenreInput from './GenreInput';
 import Image from './Image';
 import RatingInput from './RatingInput';
 import TextArea from './TextArea';
-// import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -14,7 +15,7 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
+      rating: '0',
       genre: 'action',
     };
   }
@@ -25,15 +26,24 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
+  onClick = () => {
+
+  }
+
   render() {
-    const { handleChange, state, props } = this;
+    const { handleChange, state, handleSubmit, props } = this;
     const { onClick } = props;
     const { title, subtitle, imagePath, storyline, rating, genre } = state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ handleSubmit }>
         <label data-testid="title-input-label" htmlFor="title">
           Título
+
           <input
             data-testid="title-input"
             type="text"
@@ -46,6 +56,7 @@ class AddMovie extends Component {
 
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
           Subtítulo
+
           <input
             data-testid="subtitle-input"
             type="text"
@@ -60,27 +71,14 @@ class AddMovie extends Component {
         <TextArea storyline={ storyline } handleChange={ handleChange } />
         <RatingInput rating={ rating } handleChange={ handleChange } />
         <GenreInput genre={ genre } handleChange={ handleChange } />
+        <AddMovieButton onClick={ onClick } />
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   subtitle: PropTypes.string,
-//   title: PropTypes.string,
-//   imagePath: PropTypes.string,
-//   storyline: PropTypes.string,
-//   rating: PropTypes.number,
-//   genre: PropTypes.string,
-// };
-
-// AddMovie.defaultProps = {
-//   subtitle: '',
-//   title: '',
-//   imagePath: '',
-//   storyline: '',
-//   rating: 0,
-//   genre: 'action',
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

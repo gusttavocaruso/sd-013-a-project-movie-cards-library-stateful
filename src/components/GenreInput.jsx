@@ -8,6 +8,7 @@ class GenreInput extends Component {
     return (
       <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
+
         <select
           data-testid="genre-input"
           id="genre-input"

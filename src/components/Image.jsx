@@ -8,6 +8,7 @@ class Image extends Component {
     return (
       <label data-testid="image-input-label" htmlFor="image">
         Imagem
+
         <input
           data-testid="image-input"
           type="text"
