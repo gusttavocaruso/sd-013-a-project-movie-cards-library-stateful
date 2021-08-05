@@ -72,4 +72,8 @@ AddMovie.propTypes = {
   onClick: PropTypes.func,
 };
 
+AddMovie.defaultProps = {
+  onClick: null,
+};
+
 export default AddMovie;
