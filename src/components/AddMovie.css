@@ -1,17 +1,16 @@
-#addMovie-container {
-  width: 1100px;
-  border-radius: 10px;
+#addMovieContainer {
   background-color: rgb(112, 81, 81);
+  border-radius: 10px;
+  color: rgb(255, 127, 81);
   margin-left: auto;
   margin-right: auto;
-  color: coral;
- 
+  width: 1100px;
 }
 
-#form-addMovie {
+#formAddMovie {
+  align-items: center;
   border: 1 red solid;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-around;
 }

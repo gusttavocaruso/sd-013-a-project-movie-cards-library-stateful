@@ -1,8 +1,8 @@
 #form-searchBar {
-  color:coral;
-  margin-top: 20px;
+  color: coral;
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 input {
