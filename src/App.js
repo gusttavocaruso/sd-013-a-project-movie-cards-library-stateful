@@ -5,7 +5,6 @@ import movies from './data';
 import './App.css';
 
 function App() {
-  console.log(movies);
   return (
     <div className="App">
       <Header />

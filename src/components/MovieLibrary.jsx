@@ -13,6 +13,7 @@ class MovieLibrary extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.filterText = this.filterText.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -45,14 +46,25 @@ class MovieLibrary extends React.Component {
     console.log(this.state);
   }
 
+  onClick(newState) {
+    this.setState((estadoAnterior) => ({
+      movies: [...estadoAnterior.movies, newState],
+    }));
+  }
+
   filterText() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
-    return movies.filter((movie) => movie.title.includes(searchText)
+    const listaFilmeFiltrados = movies.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText)
-      || movie.bookmarked === bookmarkedOnly
-      || movie.genre === selectedGenre);
+      || movie.storyline.includes(searchText));
+    if (bookmarkedOnly) {
+      return listaFilmeFiltrados.filter((movie) => movie.bookmarked);
+    }
+    if (selectedGenre) {
+      return listaFilmeFiltrados.filter((movie) => movie.genre === selectedGenre);
+    }
+    return listaFilmeFiltrados;
   }
 
   render() {
@@ -68,7 +80,7 @@ class MovieLibrary extends React.Component {
           onSearchTextChange={ this.onSearchTextChange }
         />
         <MovieList movies={ this.filterText() } />
-        <AddMovie />
+        <AddMovie onClick={ this.addFilme } />
       </>
     );
   }
@@ -79,3 +91,4 @@ MovieLibrary.propTypes = {
 }.isRequired;
 
 export default MovieLibrary;
+// obtive ajuda e dicas do Rogerio P.

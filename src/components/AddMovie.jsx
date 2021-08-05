@@ -74,3 +74,5 @@ AddMovie.propTypes = {
 }.isRequired;
 
 export default AddMovie;
+
+// obtive ajuda e Dicas do Cassio Pereira
