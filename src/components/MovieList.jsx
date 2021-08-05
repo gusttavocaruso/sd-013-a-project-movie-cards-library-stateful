@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import MovieCard from './MovieCard';
 
+// pega a lista de filmes no data, através da props movies, e renderiza ela, com a ajuda do filho MovieCard
 class MovieList extends React.Component {
   render() {
     const { movies } = this.props;

@@ -23,6 +23,7 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  // atualiza o stato do bookmarked, através do filho searchBar
   onBookmarkedChange({ target }) {
     this.setState({
       bookmarkedOnly: target.checked,
@@ -31,6 +32,7 @@ class MovieLibrary extends React.Component {
     console.log(this.state);
   }
 
+  // atualiza o stato do selectedGenre, através do filho searchBar
   onSelectedGenreChange({ target }) {
     this.setState({
       selectedGenre: target.value,
@@ -39,6 +41,7 @@ class MovieLibrary extends React.Component {
     console.log(target.value);
   }
 
+  // atualiza o stato do searchText, através do filho searchBar
   onSearchTextChange({ target }) {
     this.setState({
       searchText: target.value,
@@ -46,12 +49,14 @@ class MovieLibrary extends React.Component {
     console.log(this.state);
   }
 
+  // pega o stato atual do filho addMovie, e usa pra adicionar um novo filme na lista, a lista estava guardada no estado movie, que vem através de uma props { movies }
   onClick(newState) {
     this.setState((estadoAnterior) => ({
       movies: [...estadoAnterior.movies, newState],
     }));
   }
 
+  // usa as informações do estado para filtrar e achar os filmes correspondente
   filterText() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -80,7 +85,7 @@ class MovieLibrary extends React.Component {
           onSearchTextChange={ this.onSearchTextChange }
         />
         <MovieList movies={ this.filterText() } />
-        <AddMovie onClick={ this.addFilme } />
+        <AddMovie onClick={ this.onClick } />
       </>
     );
   }

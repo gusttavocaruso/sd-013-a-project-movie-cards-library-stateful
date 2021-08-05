@@ -20,8 +20,10 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.resetStatus = this.resetStatus.bind(this);
   }
 
+  // handlechande serve pra de forma genérica pegar informações dos filhos e por no status
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({
@@ -29,6 +31,7 @@ class AddMovie extends React.Component {
     });
   }
 
+  // resetStatus serve pra receber a callback do pai MLibrary que pega o status atual, e depois reseta o status
   resetStatus(event) {
     event.preventDefault();
     const { onClick } = this.props;
