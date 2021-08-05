@@ -6,6 +6,7 @@ import InputImagem from './InputImagem';
 import InputTextArea from './InputTextArea';
 import InputNumber from './InputNumber';
 import InputSelect from './InputSelect';
+import './AddMovie.css';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -49,8 +50,8 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
-        <form action="" data-testid="add-movie-form">
+      <div id="addMovie-container">
+        <form action="" data-testid="add-movie-form" id="form-addMovie">
           <InputTitle value={ title } handleChange={ this.handleChange } />
           <InputSubtitle value={ subtitle } handleChange={ this.handleChange } />
           <InputImagem value={ imagePath } handleChange={ this.handleChange } />

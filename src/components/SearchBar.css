@@ -1,0 +1,10 @@
+#form-searchBar {
+  color:coral;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+input {
+  border-radius: 5px;
+}

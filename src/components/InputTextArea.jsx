@@ -14,7 +14,7 @@ class InputTextArea extends React.Component {
           value={ value }
           id="textearea-add-movie"
           cols="30"
-          rows="10"
+          rows="3"
         />
       </label>
     );
