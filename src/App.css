@@ -10,6 +10,7 @@ body {
   display: flex;
   height: 100px;
   justify-content: center;
+  margin-bottom: 60px;
 }
 
 .page-title {
@@ -80,4 +81,12 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.l {
+  margin-left: 100px;
+}
+
+.i {
+  margin-left: 8px;
 }
