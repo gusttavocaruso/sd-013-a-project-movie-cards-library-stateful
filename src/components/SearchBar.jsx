@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      searchText,
+    const { searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
@@ -40,6 +39,7 @@ class SearchBar extends React.Component {
           Filtrar por gênero
           <select
             value={ selectedGenre }
+            name="selectedGenre"
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
