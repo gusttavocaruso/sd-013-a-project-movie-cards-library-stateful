@@ -18,6 +18,8 @@ export default class MovieLibrary extends Component {
   handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(name);
+    console.log(value);
     this.setState({ [name]: value });
   }
 
@@ -40,7 +42,14 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ movies.filter((film) => (
+            (film.title.includes(searchText)
+              || film.subtitle.includes(searchText)
+              || film.storyline.includes(searchText))
+            && (film.genre.includes(selectedGenre)))
+            && (bookmarkedOnly ? film.bookmarked : true)) }
+        />
         <AddMovie onClick={ addMovie } />
       </div>
     );
