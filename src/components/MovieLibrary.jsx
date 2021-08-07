@@ -29,8 +29,6 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    console.log(newMovie);
-
     const { movieList } = this.state;
     const moviesList = [...movieList, newMovie];
 
@@ -54,19 +52,19 @@ class MovieLibrary extends React.Component {
         <AddMovie onClick={ this.onClick } />
         <MovieList movies={ movieList } />
       </div>
-    );
+    ); /* Requisito 18 - Renderize <MovieList /> dentro de <MovieLibrary /> linha 53, logo não passa no teste */
   }
 }
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-    imagePath: PropTypes.string,
-    bookmarked: PropTypes.bool,
-    genre: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool.isRequired,
+    genre: PropTypes.string.isRequired,
   })).isRequired,
 };
 
