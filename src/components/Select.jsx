@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class SelectComponent extends React.Component {
+class Select extends React.Component {
   render() {
     const {
       label,
@@ -38,7 +38,7 @@ class SelectComponent extends React.Component {
   }
 }
 
-SelectComponent.propTypes = {
+Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -50,4 +50,4 @@ SelectComponent.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default SelectComponent;
+export default Select;

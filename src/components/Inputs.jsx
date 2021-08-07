@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputComponent extends React.Component {
+class Inputs extends React.Component {
   render() {
     const {
       label,
@@ -29,7 +29,7 @@ class InputComponent extends React.Component {
   }
 }
 
-InputComponent.propTypes = {
+Inputs.propTypes = {
   label: PropTypes.string.isRequired,
   stateName: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
@@ -39,8 +39,8 @@ InputComponent.propTypes = {
   rest: PropTypes.node,
 };
 
-InputComponent.defaultProps = {
+Inputs.defaultProps = {
   rest: null,
 };
 
-export default InputComponent;
+export default Inputs;
