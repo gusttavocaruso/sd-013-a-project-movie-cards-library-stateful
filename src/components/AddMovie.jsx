@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,10 +8,10 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+      // imagePath: '',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
     };
 
     this.changeStates = this.changeStates.bind(this);
@@ -25,14 +25,14 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const {
       subtitle,
       title,
-      imagePath,
-      storyline,
-      rating,
-      genre,
+      // imagePath,
+      // storyline,
+      // rating,
+      // genre,
     } = this.state;
 
     return (
@@ -62,8 +62,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = {
-  callback: PropTypes.func.isRequired,
-};
+// AddMovie.propTypes = {
+//   callback: PropTypes.func.isRequired,
+// };
 
 export default AddMovie;
