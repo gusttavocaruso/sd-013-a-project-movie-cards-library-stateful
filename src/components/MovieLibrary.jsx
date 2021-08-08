@@ -17,16 +17,10 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  callback1() {
-    return '1';
-  }
-
-  callback2() {
-    return '2';
-  }
-
-  callback3() {
-    return '3';
+  handleChager = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -36,15 +30,15 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
-          onSearchTextChange={ this.callback1 }
-          onSelectedGenreChange={ this.callback2 }
-          onBookMarkedChange={ this.callback3 }
+          onSearchTextChange={ this.handleChager }
+          onSelectedGenreChange={ this.handleChager }
+          onBookmarkedChange={ this.handleChager }
           searchText={ searchText }
           selectedGenre={ selectedGenre }
           bookmarkedOnly={ bookmarkedOnly }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.callbackAM } />
       </div>
     );
   }
