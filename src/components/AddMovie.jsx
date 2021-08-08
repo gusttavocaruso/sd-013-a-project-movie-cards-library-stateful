@@ -74,12 +74,32 @@ class AddMovie extends React.Component {
     );
   }
 
+  renderStoryline() {
+    const { storyline } = this.state;
+
+    return (
+      <label htmlFor="textarea" data-testid="storyline-input-label">
+        Sinopse:
+        <textarea
+          name="storyline"
+          id="textarea"
+          cols="30"
+          rows="10"
+          value={ storyline }
+          onChange={ (event) => this.updateState('storyline', event.target.value) }
+          data-testid="storyline-input"
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
         {this.renderTextInput()}
         {this.renderSubtitleInput()}
         {this.renderImageInput()}
+        {this.renderStoryline()}
       </form>
     );
   }
