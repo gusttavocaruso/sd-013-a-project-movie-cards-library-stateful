@@ -3,6 +3,7 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   renderTextInput() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <label htmlFor="text-input" data-testid="text-input-label">
         Inclui o texto:
@@ -10,8 +11,8 @@ class SearchBar extends React.Component {
           type="text"
           name=""
           id="text-input"
-          value={this.props.searchText}
-          onChange={this.props.onSearchTextChange}
+          value={searchText}
+          onChange={onSearchTextChange}
           data-testid="text-input"
         />
       </label>
@@ -19,6 +20,7 @@ class SearchBar extends React.Component {
   }
 
   renderCheckboxInput() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
         Mostrar somente favoritos:
@@ -26,8 +28,8 @@ class SearchBar extends React.Component {
           type="checkbox"
           name="checkbox-input"
           id="checkbox-input"
-          checked={this.props.bookmarkedOnly}
-          onChange={this.props.onBookmarkedChange}
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
           data-testid="checkbox-input"
         />
       </label>
@@ -35,14 +37,15 @@ class SearchBar extends React.Component {
   }
 
   renderSelectInput() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="select-input" data-testid="select-input-label">
         Filtrar por gênero:
         <select 
           name="select-input"
           id="select-input"
-          value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange}
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
           data-testid="select-input"
         >
           <option value="" data-testid="select-option">Todos</option>
