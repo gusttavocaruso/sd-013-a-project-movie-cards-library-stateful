@@ -9,12 +9,15 @@ class Avaliation extends Component {
       <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
-          type="number"
           data-testid="rating-input"
           name="rating"
           id="rating"
           value={ Number(rating) }
           onChange={ onChange }
+          min="0"
+          max="5"
+          step="0.1"
+          type="number"
         />
       </label>
     );
