@@ -6,12 +6,12 @@ class ImagePath extends Component {
     const { imagePath, onChange } = this.props;
 
     return (
-      <label htmlFor="image" data-testid="image-input-label">
+      <label htmlFor="imagePath" data-testid="image-input-label">
         Imagem
         <input
           value={ imagePath }
-          name="image"
-          id="image"
+          name="imagePath"
+          id="imagePath"
           data-testid="image-input"
           onChange={ onChange }
         />
