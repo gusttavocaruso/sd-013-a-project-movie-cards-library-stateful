@@ -6,13 +6,13 @@ class Title extends Component {
     const { title, onChange } = this.props;
 
     return (
-      <label htmlFor="title" data-testid="title-input-label">
-        Titulo
+      <label data-testid="title-input-label" htmlFor="title">
+        Título
         <input
-          id="title"
-          value={ title }
-          name="title"
           data-testid="title-input"
+          name="title"
+          value={ title }
+          id="title"
           onChange={ onChange }
         />
       </label>
