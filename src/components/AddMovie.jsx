@@ -1,5 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Synopsis from './Synopsis';
+import Avaliation from './Avaliation';
+import Genre from './Genre';
+import ImagePath from './ImagePath';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -26,72 +32,16 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
+      // metodo render tava com muitas linhas, tive que seguir a dica no notion
+      // do Matheus Duarte de dividir a logica em componentes
+      // notion https://www.notion.so/Projeto-Movie-Cards-Library-Stateful-95781cdbc8eb4f4b871505ab952495ba
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Titulo
-          <input
-            id="title"
-            value={ title }
-            name="title"
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            value={ subtitle }
-            data-testid="subtitle-input"
-            name="subtitle"
-            id="subtitle"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image" data-testid="image-input-label">
-          Imagem
-          <input
-            value={ imagePath }
-            name="image"
-            id="image"
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyLine" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="storyLine"
-            name="storyLine"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            data-testid="rating-input"
-            name="rating"
-            id="rating"
-            value={ rating }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            value={ genre }
-            id="genre"
-            name="genre"
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <Title title={ title } onChange={ this.handleChange } />
+        <Subtitle subTitle={ subtitle } onChange={ this.handleChange } />
+        <ImagePath imagePath={ imagePath } onChange={ this.handleChange } />
+        <Synopsis imagePath={ storyline } onChange={ this.handleChange } />
+        <Avaliation rating={ Number(rating) } onChange={ this.handleChange } />
+        <Genre genre={ genre } onChange={ this.handleChange } />
         <button type="submit" onClick={ onClick }>
           Adicionar filme
         </button>
