@@ -7,11 +7,11 @@ class Select extends React.Component {
     const { selectedGenre } = this.props;
 
     return (
-      <label data-testid="select-input-label" htmlFor="selectArea">
+      <label data-testid="select-input-label" htmlFor="selectGenre">
         Filtrar por gênero
         <select
           name="selectedGenre"
-          id="selectArea"
+          id="selectGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           data-testid="select-input"
