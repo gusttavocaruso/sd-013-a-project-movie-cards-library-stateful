@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.movieFilter = this.movieFilter.bind(this);
   }
 
   handleChange({ target }) {
@@ -35,6 +36,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // Função sugerida pelo Matheus Duarte para colocar os valores dos inputs em lower case, evitando que os filmes não sejam encontrados por diferenças na digitação.
   movieFilter() {
     const {
       searchText,
@@ -57,7 +59,6 @@ class MovieLibrary extends React.Component {
         .toLowerCase()
         .includes(searchText.toLowerCase()))
       .filter((movie) => movie.genre.includes(selectedGenre));
-
     return moviesArray;
   }
 
