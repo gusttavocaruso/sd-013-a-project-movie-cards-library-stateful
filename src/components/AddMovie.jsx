@@ -1,4 +1,5 @@
 import React from 'react';
+import Submit from './inputComponents/ButtonSubmit';
 import Genre from './inputComponents/GenreSelect';
 import Image from './inputComponents/ImageInput';
 import Rating from './inputComponents/RatingInput';
@@ -48,6 +49,7 @@ class AddMovie extends React.Component {
         <Storyline value={ storyline.state } onChange={ this.handleChange } />
         <Rating value={ rating.state } onChange={ this.handleChange } />
         <Genre value={ genre.state } onChange={ this.handleChange } />
+        <Submit onClick={ this.handleClickSubmit } />
       </form>
     );
   }

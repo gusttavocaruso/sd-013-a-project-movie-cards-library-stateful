@@ -1,11 +1,11 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    render() {
-        return (
-
-        );
-    }
+  render() {
+    return (
+      ''
+    );
+  }
 }
 
 export default SearchBar;
