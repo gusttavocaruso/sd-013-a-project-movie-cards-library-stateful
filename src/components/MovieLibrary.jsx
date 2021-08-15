@@ -15,6 +15,30 @@ export default class MovieLibrary extends Component {
       movies,
     };
     this.addMovie = this.addMovie.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  onSearchTextChange({ target }) {
+    const { value } = target;
+    this.setState({
+      searchText: value,
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    const { value } = target;
+    this.setState({
+      bookmarkedOnly: value,
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
+    });
   }
 
   addMovie(newFilm) {
@@ -30,6 +54,9 @@ export default class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
