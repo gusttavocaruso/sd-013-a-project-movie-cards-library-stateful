@@ -19,9 +19,11 @@ class MovieLibrary extends Component {
   }
 
   handleChange(event) {
-    console.log(event);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
-
+  //Fiz essa função com ajuda do Ygor Maia
   onClick = (newMovie) => {
     const { movies } = this.state;
     this.setState({
