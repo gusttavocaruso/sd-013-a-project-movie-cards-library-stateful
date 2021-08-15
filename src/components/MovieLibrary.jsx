@@ -23,7 +23,8 @@ class MovieLibrary extends Component {
       [event.target.name]: event.target.value,
     });
   }
-  //Fiz essa função com ajuda do Ygor Maia
+
+  // Fiz essa função com ajuda do Ygor Maia
   onClick = (newMovie) => {
     const { movies } = this.state;
     this.setState({

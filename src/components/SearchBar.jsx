@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label
@@ -20,10 +20,7 @@ class SearchBar extends React.Component {
             id="textInput"
           />
         </label>
-        <label
-          htmlFor="checkboxInput"
-          data-testid="checkbox-input-label"
-        >
+        <label htmlFor="checkboxInput" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             name="bookmarkedOnly"
@@ -34,10 +31,7 @@ class SearchBar extends React.Component {
             id="checkboxInput"
           />
         </label>
-        <label
-          htmlFor="select"
-          data-testid="select-input-label"
-        >
+        <label htmlFor="select" data-testid="select-input-label">
           Filtrar por gênero
           <select
             name="selectedGenre"
