@@ -7,13 +7,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,6 +20,13 @@ class MovieLibrary extends Component {
 
   handleChange(event) {
     console.log(event);
+  }
+
+  onClick = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
   }
 
   render() {
@@ -37,7 +43,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

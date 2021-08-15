@@ -9,10 +9,9 @@ class Synopsis extends Component {
       <label htmlFor="storyLine" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          id="storyLine"
-          name="storyLine"
-          value={ storyline }
+          name="storyline"
           data-testid="storyline-input"
+          value={ storyline }
           onChange={ onChange }
         />
       </label>

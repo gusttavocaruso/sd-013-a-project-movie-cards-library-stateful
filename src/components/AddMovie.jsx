@@ -8,8 +8,8 @@ import Genre from './Genre';
 import ImagePath from './ImagePath';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -18,22 +18,21 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.btnClick = this.btnClick.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
+    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
-  btnClick(onClick) {
+  handleSubmit = () => {
+    const { onClick } = this.props;
     onClick(this.state);
     this.setState({
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -42,7 +41,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       // metodo render tava com muitas linhas, tive que seguir a dica no notion
@@ -52,13 +50,13 @@ class AddMovie extends React.Component {
         <Title title={ title } onChange={ this.handleChange } />
         <Subtitle subTitle={ subtitle } onChange={ this.handleChange } />
         <ImagePath imagePath={ imagePath } onChange={ this.handleChange } />
-        <Synopsis imagePath={ storyline } onChange={ this.handleChange } />
+        <Synopsis storyline={ storyline } onChange={ this.handleChange } />
         <Avaliation rating={ Number(rating) } onChange={ this.handleChange } />
         <Genre genre={ genre } onChange={ this.handleChange } />
         <button
           data-testid="send-button"
-          type="submit"
-          onClick={ () => this.btnClick(onClick) }
+          type="button"
+          onClick={ this.handleSubmit }
         >
           Adicionar filme
         </button>
