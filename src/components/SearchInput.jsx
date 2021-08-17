@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 class SearchInput extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText, onSearchTextChange,
+      onBookmarkedChange,
+      bookmarkedOnly,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
     return (
       <div>
         <label htmlFor="search" data-testid="text-input-label">
@@ -27,9 +31,23 @@ class SearchInput extends React.Component {
             type="checkbox"
             name="favorites"
             id="favorites"
-            // checked={ bookmarkedOnly }
-            // onChange={ onBookmarkedChange }
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
+        </label>
+        <label htmlFor="zzz" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            id="zzz"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </div>
     );
@@ -37,8 +55,18 @@ class SearchInput extends React.Component {
 }
 
 SearchInput.propTypes = {
-  searchText: PropTypes.string.isRequired,
+  searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
+
+SearchInput.defaultProps = {
+  searchText: '',
+  bookmarkedOnly: false,
+  selectedGenre: '',
 };
 
 export default SearchInput;
