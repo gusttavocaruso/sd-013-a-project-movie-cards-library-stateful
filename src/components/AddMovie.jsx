@@ -49,9 +49,9 @@ class AddMovie extends React.Component {
         <Form2
           storyline={ storyline }
           rating={ rating }
+          genre={ genre }
           onChange={ this.handleChange }
         />
-        {genre}
       </form>
     );
   }

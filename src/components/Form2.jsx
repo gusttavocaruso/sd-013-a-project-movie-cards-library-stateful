@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Form2 extends React.Component {
   render() {
-    const { storyline, onChange, rating } = this.props;
+    const { storyline, onChange, rating, genre } = this.props;
     return (
       <div>
         <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -29,6 +29,20 @@ class Form2 extends React.Component {
             onChange={ onChange }
           />
         </label>
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            id="genre"
+            name="genre"
+            value={ genre }
+            onChange={ onChange }
+            data-testid="genre-input"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </div>
     );
   }
@@ -37,6 +51,7 @@ Form2.propTypes = {
   storyline: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default Form2;
