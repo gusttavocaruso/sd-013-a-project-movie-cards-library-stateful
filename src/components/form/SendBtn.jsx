@@ -7,7 +7,7 @@ class SendBtn extends Component {
 
     return (
       <button
-        type="submit"
+        type="button"
         data-testid="send-button"
         onClick={ onClick }
       >
