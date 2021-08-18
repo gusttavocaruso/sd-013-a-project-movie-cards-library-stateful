@@ -1,6 +1,8 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Form1 from './Form1';
+import Form2 from './Form2';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -38,43 +40,17 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor=" " data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            title={ title }
-            onChange={ title }
-            id=""
-            data-testid="title-input"
-          />
-        </label>
-        <label htmlFor=" " data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            data-testid="subtitle-input"
-            onChange={ subtitle }
-            handleChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor=" " data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            image={ imagePath }
-            data-testid="image-input"
-            onChange={ imagePath }
-          />
-        </label>
-        <label htmlFor=" " data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            storyline={ storyline }
-            onChange={ storyline }
-          />
-        </label>
-        {rating}
+        <Form1
+          title={ title }
+          onChange={ this.handleChange }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+        />
+        <Form2
+          storyline={ storyline }
+          rating={ rating }
+          onChange={ this.handleChange }
+        />
         {genre}
       </form>
     );
