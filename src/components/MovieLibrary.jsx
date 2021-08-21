@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -13,7 +14,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies,
     };
   }
 
@@ -30,22 +31,20 @@ class MovieLibrary extends React.Component {
 
     this.setState({
       [name]: value,
+      movies: movies.filter((movie) => movie.genre === value || value === ''),
     });
-
-    return movies.filter((movie) => movie.genre.includes(value));
   }
 
   onBookmarkedChange = ({ target }) => {
     const { name, value } = target;
+    console.log(name, value);
     this.setState({
       [name]: value,
     });
   }
 
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -68,5 +67,11 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.shape({
+    filter: PropTypes.func,
+  }).isRequired,
+};
 
 export default MovieLibrary;
