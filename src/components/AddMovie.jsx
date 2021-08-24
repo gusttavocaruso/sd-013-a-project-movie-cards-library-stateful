@@ -21,8 +21,26 @@ class AddMovie extends React.Component {
     this.setState({ [field]: newValue });
   }
 
-  render() {
+  handleSubmit(event) {
     const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
+    this.setState(INITIAL_STATE);
+  }
+
+  renderSubmitButton() {
+    return (
+      <button
+        type="submit"
+        data-testid="send-button"
+        onClick={ (event) => this.handleSubmit(event) }
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -117,6 +135,9 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+
+        {/* Req. 14 */}
+        {this.renderSubmitButton()}
       </form>
     );
   }
