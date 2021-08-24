@@ -19,12 +19,11 @@ class AddMovie extends React.Component {
   // Inspirada na sintaxe do componente MovieForm do projeto Movie Card Library CRUD
   updateState(field, newValue) {
     this.setState({ [field]: newValue });
-    console.log(this.state);
   }
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating} = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -103,6 +102,21 @@ class AddMovie extends React.Component {
           />
         </label>
 
+        {/* Req. 13 */}
+        <label htmlFor="select-input" data-testid="genre-input-label">
+          Gênero:
+          <select
+            name="genre"
+            id="select-input"
+            value={genre}
+            onChange={(event) => this.updateState('genre', event.target.value)}
+            data-testid="genre-input"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
