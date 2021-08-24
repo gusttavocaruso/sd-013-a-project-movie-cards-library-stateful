@@ -19,11 +19,12 @@ class AddMovie extends React.Component {
   // Inspirada na sintaxe do componente MovieForm do projeto Movie Card Library CRUD
   updateState(field, newValue) {
     this.setState({ [field]: newValue });
+    console.log(this.state);
   }
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating} = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -38,7 +39,7 @@ class AddMovie extends React.Component {
             name="title"
             id="title-input"
             placeholder="Insira o título do filme"
-            value={ title }
+            value={title}
             onChange={(event) => this.updateState('title', event.target.value)}
             data-testid="title-input"
           />
@@ -55,7 +56,7 @@ class AddMovie extends React.Component {
             name="subtitle-input"
             id="subtitle-input"
             placeholder="Insira o subtítulo do filme"
-            value={ subtitle }
+            value={subtitle}
             onChange={(event) => this.updateState('subtitle', event.target.value)}
             data-testid="subtitle-input"
           />
@@ -63,30 +64,45 @@ class AddMovie extends React.Component {
 
         {/* Req. 10 */}
         <label htmlFor="image-input" data-testid="image-input-label">
-        Imagem:
-        <input
-          type="text"
-          name="image-input"
-          id="image-input"
-          value={ imagePath }
-          onChange={ (event) => this.updateState('imagePath', event.target.value) }
-          data-testid="image-input"
-        />
-      </label>
-      
-      {/* Req. 11 */}
-      <label htmlFor="storyline-input" data-testid="storyline-input-label">
-        Sinopse:
-        <textarea
-          name="storyline"
-          id="storyline-input"
-          cols="30"
-          rows="10"
-          value={ storyline }
-          onChange={ (event) => this.updateState('storyline', event.target.value) }
-          data-testid="storyline-input"
-        />
-      </label>
+          Imagem:
+          <input
+            type="text"
+            name="image-input"
+            id="image-input"
+            value={imagePath}
+            onChange={(event) => this.updateState('imagePath', event.target.value)}
+            data-testid="image-input"
+          />
+        </label>
+
+        {/* Req. 11 */}
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse:
+          <textarea
+            name="storyline"
+            id="storyline-input"
+            cols="30"
+            rows="10"
+            value={storyline}
+            onChange={(event) => this.updateState('storyline', event.target.value)}
+            data-testid="storyline-input"
+          />
+        </label>
+
+        {/* Req. 12 */}
+        <label htmlFor="number-input" data-testid="rating-input-label">
+          Avaliação:
+          <input
+            type="number"
+            name="rating"
+            id="number-input"
+            value={rating}
+            max="5"
+            onChange={(event) => this.updateState('rating', event.target.value)}
+            data-testid="rating-input"
+          />
+        </label>
+
       </form>
     );
   }
