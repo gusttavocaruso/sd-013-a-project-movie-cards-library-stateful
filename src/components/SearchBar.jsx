@@ -1,17 +1,24 @@
-import React from 'react'; 
+import React from 'react';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  
-
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange
+    } = this.props;
 
     return (
-      <p>teste</p>
+      <form data-testid="search-bar-form">
+
+      </form>
     );
   }
 }
