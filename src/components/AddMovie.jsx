@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -71,6 +71,20 @@ class AddMovie extends React.Component {
           value={ imagePath }
           onChange={ (event) => this.updateState('imagePath', event.target.value) }
           data-testid="image-input"
+        />
+      </label>
+      
+      {/* Req. 11 */}
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        Sinopse:
+        <textarea
+          name="storyline"
+          id="storyline-input"
+          cols="30"
+          rows="10"
+          value={ storyline }
+          onChange={ (event) => this.updateState('storyline', event.target.value) }
+          data-testid="storyline-input"
         />
       </label>
       </form>
