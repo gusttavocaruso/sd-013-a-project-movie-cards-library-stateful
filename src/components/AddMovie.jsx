@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE };
+    this.state = INITIAL_STATE;
   }
 
   // Inspirada na sintaxe do componente MovieForm do projeto Movie Card Library CRUD
