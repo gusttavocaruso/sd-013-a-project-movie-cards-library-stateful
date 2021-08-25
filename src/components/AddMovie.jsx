@@ -27,12 +27,14 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  // };
 
-  resetButton = (callback) => {
-    callback(this.state);
+  resetButton = (e) => {
+    const { onClick } = this.props;
+    e.preventDefault();
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -45,9 +47,8 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
-      <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
+      <form data-testid="add-movie-form">
         <AddTitle title={ title } handleChangeText={ this.handleChangeText } />
         <AddSubtitle
           subtitle={ subtitle }
@@ -82,7 +83,7 @@ class AddMovie extends React.Component {
           <button
             type="submit"
             data-testid="send-button"
-            onClick={ () => this.resetButton(onClick) }
+            onClick={ (e) => this.resetButton(e) }
           >
             Adicionar filme
           </button>

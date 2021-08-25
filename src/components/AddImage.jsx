@@ -8,7 +8,7 @@ class AddImage extends React.Component {
       <label htmlFor="input-change-image" data-testid="image-input-label">
         Imagem
         <input
-          type="texto"
+          type="text"
           name="imagePath"
           value={ imagePath }
           data-testid="image-input"

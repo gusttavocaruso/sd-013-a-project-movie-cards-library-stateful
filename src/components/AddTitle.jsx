@@ -8,7 +8,7 @@ class AddTitle extends React.Component {
       <label htmlFor="input-change-title" data-testid="title-input-label">
         Título
         <input
-          type="texto"
+          type="text"
           name="title"
           value={ title }
           data-testid="title-input"

@@ -26,6 +26,13 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   movieFilter() {
     const {
       searchText,
@@ -49,14 +56,6 @@ class MovieLibrary extends React.Component {
         .includes(searchText.toLowerCase()))
       .filter((movie) => movie.genre.includes(selectedGenre));
     return moviesArray;
-  }
-
-  addMovie(newMovie) {
-    const { movies } = this.state;
-    this.setState({
-      movies: [...movies, newMovie],
-    });
-    console.log(movies);
   }
 
   render() {
