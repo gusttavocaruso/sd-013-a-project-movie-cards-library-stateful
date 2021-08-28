@@ -12,6 +12,7 @@ class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
+
     return (
       <form
         data-testid="search-bar-form"
@@ -25,7 +26,7 @@ class SearchBar extends Component {
           <input
             id="searchBox"
             type="text"
-            data-testid="text-imput"
+            data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -36,7 +37,7 @@ class SearchBar extends Component {
         >
           Mostrar somente favoritos
           <input
-            data-textid="checkbox-input"
+            data-testid="checkbox-input"
             id="onlyFavorites"
             type="checkbox"
             checked={ bookmarkedOnly }
@@ -44,10 +45,11 @@ class SearchBar extends Component {
           />
         </label>
         <SelectBox
-          selectGenre={ selectedGenre }
+          selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
       </form>
+
     );
   }
 }
