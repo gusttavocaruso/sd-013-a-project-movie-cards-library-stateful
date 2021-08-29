@@ -14,6 +14,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.basestate = this.state;
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -65,14 +66,7 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     e.preventDefault();
     onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    this.setState(this.basestate);
   };
 
   ButtonAdd = () => (

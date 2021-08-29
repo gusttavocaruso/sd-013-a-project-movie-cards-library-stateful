@@ -5,15 +5,18 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+    this.state = { movies };
+  }
+
   AddMovie = (movie) => {
-    console.log(movie);
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -24,6 +27,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+
 MovieLibrary.propTypes = {
   movies: arrayOf(Object).isRequired,
 };
