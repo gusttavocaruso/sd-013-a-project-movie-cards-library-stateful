@@ -1,16 +1,64 @@
 import React, { Component } from 'react';
 import { string, func, bool } from 'prop-types';
-import SelectBox from './SelectBox';
 
 class SearchBar extends Component {
+  SelectBox = () => {
+    const {
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+    return (
+      <form action="">
+        <label
+          data-testid="select-input-label"
+          htmlFor="selectGenreBox"
+        >
+          Filtrar por gênero
+          <select
+            name=""
+            id="selectGenreBox"
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option
+              data-testid="select-option"
+              value=""
+            >
+              Todos
+            </option>
+            <option
+              data-testid="select-option"
+              value="action"
+            >
+              Ação
+            </option>
+            <option
+              data-testid="select-option"
+              value="comedy"
+            >
+              Comédia
+            </option>
+            <option
+              data-testid="select-option"
+              value="thriller"
+            >
+              Suspense
+            </option>
+          </select>
+
+        </label>
+      </form>
+
+    );
+  }
+
   render() {
     const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -44,10 +92,7 @@ class SearchBar extends Component {
             onChange={ onBookmarkedChange }
           />
         </label>
-        <SelectBox
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
-        />
+        {this.SelectBox()}
       </form>
 
     );
@@ -55,12 +100,12 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
+  selectedGenre: string.isRequired,
+  onSelectedGenreChange: func.isRequired,
   searchText: string.isRequired,
   onSearchTextChange: func.isRequired,
   bookmarkedOnly: bool.isRequired,
   onBookmarkedChange: func.isRequired,
-  selectedGenre: string.isRequired,
-  onSelectedGenreChange: func.isRequired,
 
 };
 
