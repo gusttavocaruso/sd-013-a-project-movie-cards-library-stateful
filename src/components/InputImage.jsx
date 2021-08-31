@@ -5,14 +5,14 @@ class InputImage extends React.Component {
   render() {
     const { value, clickReset } = this.props;
     return (
-      <label data-testid="image-input-label" htmlFor="Imagem">
+      <label data-testid="image-input-label" htmlFor="imagePath">
         Imagem
         <input
           type="text"
           value={ value }
           data-testid="image-input"
           onChange={ clickReset }
-          name="imagem"
+          name="imagePath"
         />
       </label>
     );

@@ -8,10 +8,10 @@ import InputRating from './InputRating';
 import InputGenre from './InputGenre';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.setState = {
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -51,12 +51,12 @@ class AddMovie extends React.Component {
       genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputTitle value={ title } writeChange={ this.writeChange } />
-        <InputSubTitle value={ subtitle } writeChange={ this.writeChange } />
-        <InputImage value={ imagePath } writeChange={ this.writeChange } />
-        <InputTextArea value={ storyline } writeChange={ this.writeChange } />
-        <InputRating value={ rating } writeChange={ this.writeChange } />
-        <InputGenre value={ genre } writeChange={ this.writeChange } />
+        <InputTitle value={ title } clickChange={ this.writeChange } />
+        <InputSubTitle value={ subtitle } clickChange={ this.writeChange } />
+        <InputImage value={ imagePath } clickReset={ this.writeChange } />
+        <InputTextArea value={ storyline } clickChange={ this.writeChange } />
+        <InputRating value={ rating } clickChange={ this.writeChange } />
+        <InputGenre value={ genre } clickReset={ this.writeChange } />
         <button data-testid="send-button" onClick={ this.clickReset } type="submit">
           Adicionar filme
         </button>

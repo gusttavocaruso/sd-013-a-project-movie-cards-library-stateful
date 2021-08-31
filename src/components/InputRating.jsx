@@ -6,7 +6,7 @@ class InputRating extends React.Component {
     const { value, clickChange } = this.props;
     return (
       <label data-testid="rating-input-label" htmlFor="rating">
-        Sinopse
+        Avaliação
         <input
           type="number"
           value={ value }
