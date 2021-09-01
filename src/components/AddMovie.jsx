@@ -20,8 +20,7 @@ class AddMovie extends React.Component {
   }
 
   handleInputChange({ target }) {
-    // const value = target.type === 'number' ? Number(target.value) : target.value;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'number' ? Number(target.value) : target.value;
     const { name } = target;
     this.setState({
       [name]: value });
@@ -41,7 +40,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const formState = { subtitle, title, imagePath, storyline, rating, genre };
 
