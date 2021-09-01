@@ -24,12 +24,15 @@ class MovieLibrary extends Component {
 
   // A função handleChange foi extraida do matarial de estudo da Trybe
   handleChange({ target }) {
-    const { name } = target;
+    const { id } = target;
+
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
-      [name]: value,
+      [id]: value,
     });
+    // console.log(id);
+    // console.log(value);
   }
 
   onClick(movie) {
