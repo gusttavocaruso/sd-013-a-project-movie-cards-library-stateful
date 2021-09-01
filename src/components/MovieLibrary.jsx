@@ -32,11 +32,52 @@ class MovieLibrary extends Component {
       [id]: value,
     });
     // console.log(id);
+
+    const { movieList } = this.state;
+    const newList = movieList;
+    const { movies } = this.props;
+    if (id === 'bookmarkedOnly' && value === true) {
+      this.setState({
+        movieList: newList.filter((movie) => movie.bookmarked),
+      });
+    } else {
+      this.setState({
+        movieList: movies,
+      });
+    }
+    if (id !== 'bookmarkedOnly' && value !== '') {
+      this.searchFilme(value);
+      // this.setState({
+      //   movieList: newList.filter((movie) => {
+      //     let search = false;
+      //     if (movie.title.includes(value)) search = true;
+      //     if (movie.subtitle.includes(value)) search = true;
+      //     if (movie.storyline.includes(value)) search = true;
+      //     if (movie.genre.includes(value)) search = true;
+      //     return search;
+      //   }),
+      // });
+    }
     // console.log(value);
   }
 
   onClick(movie) {
     console.log(movie);
+  }
+
+  searchFilme = (value) => {
+    const { movieList } = this.state;
+    const newList = movieList;
+    this.setState({
+      movieList: newList.filter((movie) => {
+        let search = false;
+        if (movie.title.includes(value)) search = true;
+        if (movie.subtitle.includes(value)) search = true;
+        if (movie.storyline.includes(value)) search = true;
+        if (movie.genre.includes(value)) search = true;
+        return search;
+      }),
+    });
   }
 
   render() {
