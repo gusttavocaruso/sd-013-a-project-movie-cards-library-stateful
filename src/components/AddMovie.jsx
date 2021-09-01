@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TitleInput from './movieForm/TitleInput';
-import TitleInput from './movieForm/SubtitleInput';
+import SubtitleInput from './movieForm/SubtitleInput';
 
 class AddMovie extends React.Component {
   constructor(props) {
