@@ -19,8 +19,8 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -47,7 +47,7 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, rating, genre, imagePath, storyline } = this.state;
 
     return (
       <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
