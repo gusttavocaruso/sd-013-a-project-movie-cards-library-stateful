@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
   }
 
   // peguei uma ajuda com Matheus Duarte e o notion da turma;
-  filtrarFilmes() {
+  filtroDeFilmes() {
     const {
       searchText,
       bookmarkedOnly,
@@ -74,7 +74,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.filtrarFilmes() } />
+        <MovieList movies={ this.filtroDeFilmes() } />
         <AddMovie onClick={ this.addMovie } />
       </div>
     );
