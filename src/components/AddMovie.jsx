@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TitleInput from './movieForm/TitleInput';
 import SubtitleInput from './movieForm/SubtitleInput';
+import ImageURLInput from './movieForm/ImageURLInput';
+import StoryLineInput from './movieForm/StoryLineInput';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -28,6 +30,8 @@ class AddMovie extends React.Component {
       <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
         <TitleInput value={ title } onChange={ this.handleChange } />
         <SubtitleInput value={ subtitle } onChange={ this.handleChange } />
+        <ImageURLInput value={ imagePath } onChange={ this.handleChange } />
+        <StoryLineInput value={ storyline } onChange={ this.handleChange } />
       </form>
     );
   }
