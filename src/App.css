@@ -19,7 +19,7 @@ body {
   text-align: center;
 }
 
-.movie-list {
+.movie-list, nav, section {
   display: flex;
   flex-flow: row wrap;
   padding: 48px 30px;
