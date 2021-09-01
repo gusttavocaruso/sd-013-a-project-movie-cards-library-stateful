@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Titulo from './Titulo';
 
 class AddMovie extends Component {
   constructor() {
@@ -12,6 +13,14 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    this.setState({ [name]: target.value });
   }
 
   handleSubmit(event) {
@@ -22,7 +31,9 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form onSubmit={ this.handleSubmit } data-testid="add-movie-form" />
+      <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
+        <Titulo titulo={ title } onChange={ this.handleChange } />
+      </form>
     );
   }
 }
