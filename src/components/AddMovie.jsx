@@ -35,7 +35,7 @@ const info = {
     htmlFor: 'submiTextarea',
     LabelDataTestid: 'storyline-input-label',
     id: 'submiTextarea',
-    type: 'textarea',
+    type: 'text',
     imputDataTestid: 'storyline-input',
     name: 'storyline',
   },
@@ -116,7 +116,7 @@ class AddMovie extends Component {
           </select>
         </label>
         <button
-          type="button"
+          type="submit"
           data-testid="send-button"
           onClick={ this.handleOnClick }
         >
