@@ -63,6 +63,8 @@ class MovieLibrary extends Component {
 
   onClick(movie) {
     console.log(movie);
+    const { movies } = this.props;
+    movies.push(movie);
   }
 
   searchFilme = (value) => {
