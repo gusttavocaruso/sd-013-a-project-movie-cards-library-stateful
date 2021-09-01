@@ -35,6 +35,7 @@ class MovieLibrary extends Component {
     });
   }
 
+  // peguei uma ajuda com Matheus Duarte e o notion da turma;
   filtrarFilmes() {
     const {
       searchText,

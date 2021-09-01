@@ -10,7 +10,7 @@ import Genero from './Genero';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.setState = {
+    this.state = {
       title: '',
       subtitle: '',
       imagePath: '',
@@ -47,7 +47,8 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, rating, genre, imagePath, storyline } = this.state;
+    // problema resolvido com ajuda da monitoria matinal.
+    const { subtitle, title, rating, genre, imagePath, storyline } = this.state;
 
     return (
       <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
