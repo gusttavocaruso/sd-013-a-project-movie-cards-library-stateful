@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AddLabel from './AddLabel';
-// import PropTypes from 'prop-types';
 
 const info = {
   title: {
@@ -30,6 +30,24 @@ const info = {
     imputDataTestid: 'image-input',
     name: 'imagePath',
   },
+  sinopse: {
+    labelName: 'Sinopse',
+    htmlFor: 'submiTextarea',
+    LabelDataTestid: 'storyline-input-label',
+    id: 'submiTextarea',
+    type: 'textarea',
+    imputDataTestid: 'storyline-input',
+    name: 'storyline',
+  },
+  rating: {
+    labelName: 'Avaliação',
+    htmlFor: 'submitRating',
+    LabelDataTestid: 'rating-input-label',
+    id: 'submitRating',
+    type: 'number',
+    imputDataTestid: 'rating-input',
+    name: 'rating',
+  },
 };
 
 class AddMovie extends Component {
@@ -41,10 +59,24 @@ class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
+  }
+
+  onClick = () => {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { callback } = this.props;
+    callback({ title, subtitle, imagePath, storyline, rating, genre });
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   // A função handleChange foi extraida do matarial de estudo da Trybe
@@ -58,23 +90,49 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <AddLabel element={ info.title } value={ title } callback={ this.handle } />
         <AddLabel element={ info.subtitle } value={ subtitle } callback={ this.handle } />
         <AddLabel element={ info.image } value={ imagePath } callback={ this.handle } />
+        <AddLabel element={ info.sinopse } value={ storyline } callback={ this.handle } />
+        <AddLabel element={ info.rating } value={ rating } callback={ this.handle } />
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            id="genre"
+            type="selected"
+            data-testid="genre-input"
+            name="genre"
+            value={ genre }
+            onChange={ this.handle }
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ onClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-// AddMovie.defaultProps = {
-//   onClick: () => {},
-// };
+AddMovie.defaultProps = {
+  onClick: () => {},
+};
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+  callback: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

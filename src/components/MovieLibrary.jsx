@@ -9,6 +9,7 @@ class MovieLibrary extends Component {
   // constructor(props) {
   //   super(props);
   // }
+
   render() {
     const { movies } = this.props;
     return (
@@ -16,7 +17,12 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie
+          callback={ (movie) => {
+            console.log(movie);
+            movies.push(movie);
+          } }
+        />
       </div>
     );
   }
