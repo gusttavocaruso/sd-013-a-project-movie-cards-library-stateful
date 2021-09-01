@@ -65,6 +65,9 @@ class MovieLibrary extends Component {
     console.log(movie);
     const { movies } = this.props;
     movies.push(movie);
+    this.setState({
+      movieList: movies,
+    });
   }
 
   searchFilme = (value) => {
