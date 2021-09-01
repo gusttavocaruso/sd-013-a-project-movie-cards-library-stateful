@@ -35,7 +35,6 @@ class AddMovie extends React.Component {
     this.setState(INITIAL_STATE);
   }
 
-  // Inspirada na sintaxe do componente MovieForm do projeto Movie Card Library CRUD
   updateState(field, newValue) {
     this.setState({ [field]: newValue });
   }
