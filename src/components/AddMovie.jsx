@@ -14,10 +14,17 @@ class AddMovie extends Component {
     };
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+
+    return (
+      <form onSubmit={ this.handleSubmit } data-testid="add-movie-form" />
+    );
   }
-    return()
 }
 
 export default AddMovie;
