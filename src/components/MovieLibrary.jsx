@@ -63,7 +63,7 @@ class MovieLibrary extends Component {
           const movie1 = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
           const movie2 = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
           const movie3 = movie.title.toLowerCase().includes(searchText.toLowerCase());
-          if (movie1 || movie2|| movie3) return true;
+          if (movie1 || movie2 || movie3) return true;
           return false;
         });
     }
