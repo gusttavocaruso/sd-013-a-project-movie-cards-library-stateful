@@ -1,42 +1,49 @@
 // implement MovieLibrary component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
-    constructor(props) {
-        super(props);
-        const { movies } = this.props;
-        this.state = {
-          searchText: '',
-          bookmarkedOnly: false,
-          selectedGenre: '',
-          movies,
-        };
+  constructor(props) {
+    super(props);
 
-        this.onSearchTextChange = this.onSearchTextChange.bind(this);
-        this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-        this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-        this.onMoviesSearched = this.onMoviesSearched.bind(this);
-        this.addMovieToList = this.addMovieToList.bind(this);
-      }
-      onSearchTextChange(event) {
-        this.setState({
-          searchText: event.target.value,
-        });
-      }
-      onBookmarkedChange(event) {
-        this.setState({
-          bookmarkedOnly: event.target.checked,
-        });
-      }
-      onSelectedGenreChange(event) {
-        this.setState({
-          selectedGenre: event.target.value,
+    const { movies } = this.props;
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onMoviesSearched = this.onMoviesSearched.bind(this);
+    this.addMovieToList = this.addMovieToList.bind(this);
+  }
+
+  onSearchTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
     });
   }
 
+  onBookmarkedChange(event) {
+    this.setState({
+      bookmarkedOnly: event.target.checked,
+    });
+  }
+
+  onSelectedGenreChange(event) {
+    this.setState({
+      selectedGenre: event.target.value,
+    });
+  }
+
+  // Com auxílio dos códigos do Notion da turma e do colega Vinicius Dionysio (https://www.notion.so/Projeto-Movie-Cards-Library-Stateful-95781cdbc8eb4f4b871505ab952495ba e https://github.com/tryber/sd-013-a-project-movie-cards-library-stateful/pull/41/files)
   onMoviesSearched() {
     const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
 
@@ -51,11 +58,10 @@ class MovieLibrary extends React.Component {
     }
 
     if (searchText !== '') {
-      filteredMoviesList = movies.filter((movie) => {
-        return movie.title.toLowerCase().includes(searchText.toLocaleLowerCase())
-        || movie.subtitle.toLowerCase().includes(searchText.toLocaleLowerCase())
-        || movie.storyline.toLowerCase().includes(searchText.toLocaleLowerCase());
-      });
+      filteredMoviesList = movies
+        .filter((mov) => mov.title.toLowerCase().includes(searchText.toLocaleLowerCase())
+          || mov.subtitle.toLowerCase().includes(searchText.toLocaleLowerCase())
+          || mov.storyline.toLowerCase().includes(searchText.toLocaleLowerCase()));
     }
 
     return filteredMoviesList;
@@ -69,9 +75,8 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
-
       <main>
         <SearchBar
           searchText={ searchText }
@@ -89,3 +94,9 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+export default MovieLibrary;
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
