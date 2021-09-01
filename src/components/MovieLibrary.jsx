@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
   }
 
   handleInputChange({ target }) {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    // const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
     this.setState({
       [name]: value,

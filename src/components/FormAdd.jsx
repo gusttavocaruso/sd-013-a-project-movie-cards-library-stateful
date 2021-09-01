@@ -43,6 +43,7 @@ class FormAdd extends React.Component {
 
   render() {
     const { clickHandler, changeHandler, state } = this.props;
+    // const { storyline, rating, genre } = state;
     const { storyline, rating, genre } = state;
 
     return (

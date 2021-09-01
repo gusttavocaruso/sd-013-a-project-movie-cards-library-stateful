@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
   }
 
   handleInputChange({ target }) {
-    const value = target.type === 'number' ? Number(target.value) : target.value;
+    // const value = target.type === 'number' ? Number(target.value) : target.value;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
     this.setState({
