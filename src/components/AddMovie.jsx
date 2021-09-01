@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Titulo from './Titulo';
 import Subtitulo from './Subtitulo';
+import ImagePath from './ImagePath';
+import Sinopse from './Sinopse';
+import Avaliacao from './Avaliacao';
+import Genero from './Genero';
 
 class AddMovie extends Component {
   constructor() {
@@ -35,6 +39,10 @@ class AddMovie extends Component {
       <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
         <Titulo titulo={ title } onChange={ this.handleChange } />
         <Subtitulo subtitulo={ subtitle } onChange={ this.handleChange } />
+        <ImagePath imagem={ imagePath } onChange={ this.handleChange } />
+        <Sinopse sinopse={ storyline } onChange={ this.handleChange } />
+        <Avaliacao avaliacao={ Number(rating) } onChange={ this.handleChange } />
+        <Genero genero={ genre } onChange={ this.handleChange } />
       </form>
     );
   }
