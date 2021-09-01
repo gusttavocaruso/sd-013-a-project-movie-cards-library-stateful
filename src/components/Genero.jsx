@@ -7,7 +7,7 @@ class Genero extends Component {
 
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
-        Imagem
+        Gênero
         <select
           data-testid="genre-input"
           name="genre"

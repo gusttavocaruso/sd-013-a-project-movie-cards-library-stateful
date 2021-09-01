@@ -7,7 +7,7 @@ class Avaliacao extends Component {
 
     return (
       <label data-testid="rating-input-label" htmlFor="rating">
-        Sinopse
+        Avaliação
         <input
           data-testid="rating-input"
           name="rating"
