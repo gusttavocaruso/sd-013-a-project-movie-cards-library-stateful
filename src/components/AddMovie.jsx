@@ -6,6 +6,7 @@ import ImageURLInput from './movieForm/ImageURLInput';
 import StoryLineInput from './movieForm/StoryLineInput';
 import RatingInput from './movieForm/RatingInput';
 import GenreInput from './movieForm/GenreInput';
+import SubmitForm from './movieForm/SubmitForm';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -25,6 +26,22 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      title: '',
+      subtitle: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+      imagePath: '',
+    });
+  }
+
+  handleClick = (callback) => {
+    callback(this.state);
+  }
+
   render() {
     const { title, subtitle, storyline, rating, genre, imagePath } = this.state;
     const { onClick } = this.props;
@@ -36,6 +53,7 @@ class AddMovie extends React.Component {
         <StoryLineInput value={ storyline } onChange={ this.handleChange } />
         <RatingInput value={ Number(rating) } onChange={ this.handleChange } />
         <GenreInput value={ genre } onChange={ this.handleChange } />
+        <SubmitForm click={ () => this.handleClick(onClick) } />
       </form>
     );
   }
