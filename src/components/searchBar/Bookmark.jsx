@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Bookmark extends Component {
-  render () {
-    const { bookmarkedOnly, onBookmarkedChange} = this.props;
+  render (){
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
         Mostrar somente favoritos

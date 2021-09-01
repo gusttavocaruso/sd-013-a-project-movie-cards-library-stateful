@@ -60,10 +60,10 @@ class MovieLibrary extends Component {
     if (searchText !== '') {
       filteredList = movies
         .filter((movie) => {
-          const moviesub = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
-          const moviestory = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
-          const movietitle = movie.title.toLowerCase().includes(searchText.toLowerCase());
-          if (moviesub || moviestory || movietitle) return true;
+          const movie1 = movie.subtitle.toLowerCase().includes(searchText.toLowerCase());
+          const movie2 = movie.storyline.toLowerCase().includes(searchText.toLowerCase());
+          const movie3 = movie.title.toLowerCase().includes(searchText.toLowerCase());
+          if (movie1 || movie2|| movie3) return true;
           return false;
         });
     }

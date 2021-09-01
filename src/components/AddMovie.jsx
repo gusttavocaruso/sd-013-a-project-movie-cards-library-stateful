@@ -8,7 +8,6 @@ import Subtitle from './Movies/Subtitle';
 import Title from './Movies/Title';
 import ButtonAdd from './Movies/ButtonAdd';
 
-
 const estadoInicial = {
   subtitle: '',
   title: '',
