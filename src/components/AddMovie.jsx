@@ -1,10 +1,41 @@
 import React, { Component } from 'react';
+import AddLabel from './AddLabel';
 // import PropTypes from 'prop-types';
+
+const info = {
+  title: {
+    labelName: 'Título',
+    htmlFor: 'submitTitle',
+    LabelDataTestid: 'title-input-label',
+    id: 'submitTitle',
+    type: 'text',
+    imputDataTestid: 'title-input',
+    name: 'title',
+  },
+  subtitle: {
+    labelName: 'Subtítulo',
+    htmlFor: 'submitSubtitle',
+    LabelDataTestid: 'subtitle-input-label',
+    id: 'submitSubtitle',
+    type: 'text',
+    imputDataTestid: 'subtitle-input',
+    name: 'subtitle',
+  },
+  image: {
+    labelName: 'Imagem',
+    htmlFor: 'submitImg',
+    LabelDataTestid: 'image-input-label',
+    id: 'submitImg',
+    type: 'text',
+    imputDataTestid: 'image-input',
+    name: 'imagePath',
+  },
+};
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handle = this.handle.bind(this);
 
     this.state = {
       subtitle: '',
@@ -17,7 +48,7 @@ class AddMovie extends Component {
   }
 
   // A função handleChange foi extraida do matarial de estudo da Trybe
-  handleChange({ target }) {
+  handle({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -30,39 +61,9 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="submitTitle" data-testid="title-input-label">
-          Título
-          <input
-            id="submitTitle"
-            type="text"
-            data-testid="title-input"
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="submitSubtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="submitSubtitle"
-            type="text"
-            data-testid="subtitle-input"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="submitImg" data-testid="image-input-label">
-          Sinopse
-          <input
-            id="submitImg"
-            type="text"
-            data-testid="image-input"
-            name="subtitle"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <AddLabel element={ info.title } value={ title } callback={ this.handle } />
+        <AddLabel element={ info.subtitle } value={ subtitle } callback={ this.handle } />
+        <AddLabel element={ info.image } value={ imagePath } callback={ this.handle } />
       </form>
     );
   }
